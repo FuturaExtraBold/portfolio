@@ -1,9 +1,11 @@
-import "./App.css";
+import React from "react";
+import "./App.scss";
+import BrandQuilt from "components/BrandQuilt/BrandQuilt";
 
 function App() {
   return (
     <div className="App">
-      <h1>React App</h1>
+      <BrandQuilt />
     </div>
   );
 }

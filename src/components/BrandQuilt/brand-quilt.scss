@@ -1,0 +1,27 @@
+@import "../../assets/stylesheets/all.scss";
+
+.brand-quilt {
+  margin: 60px 0;
+  @include basic-grid;
+}
+
+.brand-quilt__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-quilt svg {
+  width: 128px;
+  cursor: pointer;
+}
+
+.brand-quilt svg:hover {
+  path {
+    fill: black;
+  }
+}
+
+.brand-quilt svg path {
+  fill: grey;
+}
