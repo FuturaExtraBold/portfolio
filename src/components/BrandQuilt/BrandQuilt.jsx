@@ -15,6 +15,7 @@ import Pixar from "./Logos/Pixar";
 import SouthPark from "./Logos/SouthPark";
 import TheSimpsons from "./Logos/TheSimpsons";
 import U2 from "./Logos/U2";
+import Hooky from "./Logos/Hooky";
 
 function BrandQuilt() {
   const quiltRef = useRef(null);
@@ -45,9 +46,10 @@ function BrandQuilt() {
         <KIA />
         <Honda />
         <Lexus />
-        <Kajabi />
         <KSwiss />
         <U2 />
+        <Hooky />
+        <Kajabi />
       </div>
     </div>
   );
