@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 import "./brand-quilt.scss";
 import Disney from "./Logos/Disney";
 import DreamWorks from "./Logos/DreamWorks";
@@ -16,9 +17,20 @@ import TheSimpsons from "./Logos/TheSimpsons";
 import U2 from "./Logos/U2";
 
 function BrandQuilt() {
+  const quiltRef = useRef(null);
+
+  useEffect(() => {
+    const logos = quiltRef.current.children;
+    gsap.fromTo(
+      logos,
+      { opacity: 0, y: 100 },
+      { opacity: 1, y: 0, ease: "power2.in", stagger: 0.05, duration: 0.2 }
+    );
+  }, []);
+
   return (
     <div className="container">
-      <div className="brand-quilt">
+      <div className="brand-quilt" ref={quiltRef}>
         <Disney />
         <Mickey />
         <DreamWorks />

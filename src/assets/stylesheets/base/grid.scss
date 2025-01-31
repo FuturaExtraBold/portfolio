@@ -1,7 +1,7 @@
 @mixin basic-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 60px;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2s0px;
   width: 100%;
   justify-content: center;
   align-items: center;

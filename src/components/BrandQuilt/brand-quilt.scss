@@ -2,7 +2,27 @@
 
 .brand-quilt {
   margin: 60px 0;
-  @include basic-grid;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  // Tablet: 3 columns
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  // Mid-Mobile: 2 column
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // // Mobile: 1 column
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .brand-quilt__logo {
@@ -12,7 +32,7 @@
 }
 
 .brand-quilt svg {
-  width: 128px;
+  width: 100px;
   cursor: pointer;
   transition: transform 0.3s;
   justify-self: center;
