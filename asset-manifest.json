@@ -1,25 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.fae4a14a.css",
-    "main.js": "/static/js/main.b7ffe623.js",
-    "static/media/dreamworks.svg": "/static/media/dreamworks.14901174823011642e615eee8aadd94e.svg",
-    "static/media/southpark.svg": "/static/media/southpark.b428257d02adef6f1de3fc620e4bc72f.svg",
-    "static/media/disney.svg": "/static/media/disney.60adae3162fe6b08d40fabb5cef6da2f.svg",
-    "static/media/pixar.svg": "/static/media/pixar.6c115fbfac7e28a211d6d55b0a2c5366.svg",
-    "static/media/mickey.svg": "/static/media/mickey.32cedeee1b88d881bffa9b4505d3be5b.svg",
-    "static/media/findingnemo.svg": "/static/media/findingnemo.381355f228ad0ce4b2c7eedfdc838e54.svg",
-    "static/media/kswiss.svg": "/static/media/kswiss.e66e121df0b558083ca4f5c136764469.svg",
-    "static/media/kia.svg": "/static/media/kia.a5ef2592b372bea06b5755533da93eca.svg",
-    "static/media/honda.svg": "/static/media/honda.7742ebc7a93d16621d32284532befe88.svg",
-    "static/media/kajabi.svg": "/static/media/kajabi.040ffa626b4fee1e4a50efecc3200df2.svg",
-    "static/media/lexus.svg": "/static/media/lexus.9b390bded6ffd10609e9cd1cd95ece27.svg",
-    "static/media/fox.svg": "/static/media/fox.bbd2b9000c54e2558952c9e7c68dcb8c.svg",
+    "main.css": "/static/css/main.83e26310.css",
+    "main.js": "/static/js/main.7c5704e1.js",
     "index.html": "/index.html",
-    "main.fae4a14a.css.map": "/static/css/main.fae4a14a.css.map",
-    "main.b7ffe623.js.map": "/static/js/main.b7ffe623.js.map"
+    "main.83e26310.css.map": "/static/css/main.83e26310.css.map",
+    "main.7c5704e1.js.map": "/static/js/main.7c5704e1.js.map"
   },
   "entrypoints": [
-    "static/css/main.fae4a14a.css",
-    "static/js/main.b7ffe623.js"
+    "static/css/main.83e26310.css",
+    "static/js/main.7c5704e1.js"
   ]
 }
