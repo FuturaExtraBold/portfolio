@@ -23,13 +23,16 @@ function BrandQuilt() {
     const logos = quiltRef.current.children;
     gsap.fromTo(
       logos,
-      { opacity: 0, y: 100 },
+      { opacity: 0, y: 80 },
       { opacity: 1, y: 0, ease: "power2.in", stagger: 0.05, duration: 0.2 }
     );
   }, []);
 
   return (
     <div className="container">
+      <div className="brand-quilt-header">
+        <h1>Brand Quilt</h1>
+      </div>
       <div className="brand-quilt" ref={quiltRef}>
         <Disney />
         <Mickey />
