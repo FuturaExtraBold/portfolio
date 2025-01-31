@@ -14,6 +14,8 @@
 .brand-quilt svg {
   width: 128px;
   cursor: pointer;
+  transition: transform 0.3s;
+  justify-self: center;
 }
 
 .brand-quilt svg:hover {
@@ -23,5 +25,5 @@
 }
 
 .brand-quilt svg path {
-  fill: grey;
+  fill: #777;
 }
