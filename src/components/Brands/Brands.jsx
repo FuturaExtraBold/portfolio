@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import "./brand-quilt.scss";
+import "./brands.scss";
 import Disney from "./Logos/Disney";
 import DreamWorks from "./Logos/DreamWorks";
 import FindingNemo from "./Logos/FindingNemo";
@@ -16,8 +16,9 @@ import SouthPark from "./Logos/SouthPark";
 import TheSimpsons from "./Logos/TheSimpsons";
 import U2 from "./Logos/U2";
 import Hooky from "./Logos/Hooky";
+import Sony from "./Logos/Sony";
 
-function BrandQuilt() {
+export default function Brands() {
   const quiltRef = useRef(null);
 
   useEffect(() => {
@@ -30,29 +31,27 @@ function BrandQuilt() {
   }, []);
 
   return (
-    <div className="container">
-      <div className="brand-quilt-header">
-        <h1>Brand Quilt</h1>
-      </div>
-      <div className="brand-quilt" ref={quiltRef}>
-        <Disney />
-        <Mickey />
-        <DreamWorks />
-        <Pixar />
-        <FindingNemo />
-        <SouthPark />
-        <TheSimpsons />
-        <FOX />
-        <KIA />
-        <Honda />
-        <Lexus />
-        <KSwiss />
-        <U2 />
-        <Hooky />
-        <Kajabi />
+    <div className="brands">
+      <div className="container">
+        <div className="brand-quilt" ref={quiltRef}>
+          <Disney />
+          <Mickey />
+          <DreamWorks />
+          <Pixar />
+          <FindingNemo />
+          <Sony />
+          <SouthPark />
+          <TheSimpsons />
+          <FOX />
+          <KIA />
+          <Honda />
+          <Lexus />
+          <KSwiss />
+          <U2 />
+          <Hooky />
+          <Kajabi />
+        </div>
       </div>
     </div>
   );
 }
-
-export default BrandQuilt;

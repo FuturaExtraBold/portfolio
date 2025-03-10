@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.scss";
-import BrandQuilt from "components/BrandQuilt/BrandQuilt";
+import Brands from "components/Brands/Brands";
+import Hero from "components/Hero/Hero";
+import Separator from "components/Separator/Separator";
 
 function App() {
   return (
     <div className="App">
-      <BrandQuilt />
+      <Hero />
+      <Separator />
+      <Brands />
     </div>
   );
 }

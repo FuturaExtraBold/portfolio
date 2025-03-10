@@ -1,0 +1,11 @@
+@import "../../assets/stylesheets/all.scss";
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hotpink;
+}
