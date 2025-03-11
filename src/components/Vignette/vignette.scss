@@ -1,0 +1,23 @@
+@import "../../assets/stylesheets/all.scss";
+
+.vignette {
+  @include fit();
+  height: 100%;
+}
+
+.vignette__piece {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(to right, #010101, transparent);
+}
+
+.vignette__piece--left {
+  left: 0;
+}
+
+.vignette__piece--right {
+  right: 0;
+  transform: scaleX(-1);
+}

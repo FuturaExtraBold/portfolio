@@ -17,6 +17,8 @@ import TheSimpsons from "./Logos/TheSimpsons";
 import U2 from "./Logos/U2";
 import Hooky from "./Logos/Hooky";
 import Sony from "./Logos/Sony";
+import Vignette from "components/Vignette/Vignette";
+import Wallpaper from "components/Wallpaper/Wallpaper";
 
 export default function Brands() {
   const quiltRef = useRef(null);
@@ -33,6 +35,8 @@ export default function Brands() {
   return (
     <div className="brands">
       <div className="container">
+        <Wallpaper />
+        <Vignette />
         <div className="brand-quilt" ref={quiltRef}>
           <Disney />
           <Mickey />
