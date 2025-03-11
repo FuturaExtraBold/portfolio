@@ -6,6 +6,8 @@ export function Benzo({ parentRef }) {
   // The Pixi.js `Sprite`
   const spriteRef = useRef(null);
 
+  console.log("parentRef", parentRef);
+
   const [texture, setTexture] = useState(Texture.EMPTY);
   const [isActive, setIsActive] = useState(false);
 
@@ -13,15 +15,6 @@ export function Benzo({ parentRef }) {
   useEffect(() => {
     if (texture === Texture.EMPTY) {
       console.log("kaboom");
-      Assets.load(benzoImage).then((result) => {
-        console.log("result", result);
-        setTexture(result);
-      });
-    }
-  }, [texture]);
-
-  useEffect(() => {
-    if (texture !== Texture.EMPTY) {
       console.log(
         "parentRef.current.offsetWidth:",
         parentRef.current.offsetWidth
@@ -30,22 +23,12 @@ export function Benzo({ parentRef }) {
         "parentRef.current.offsetHeight:",
         parentRef.current.offsetHeight
       );
+      Assets.load(benzoImage).then((result) => {
+        console.log("result", result);
+        setTexture(result);
+      });
     }
   }, [parentRef, texture]);
-
-  // useEffect(() => {
-  //   if (spriteRef.current) {
-  //     if (isActive) {
-  //       spriteRef.current.scale.set(1.2);
-  //     } else {
-  //       spriteRef.current.scale.set(1);
-  //     }
-  //   }
-  // }, [isActive, spriteRef]);
-
-  // if (!parentRef || !spriteRef) {
-  //   return null;
-  // }
 
   return (
     <pixiSprite
