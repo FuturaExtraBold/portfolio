@@ -6,32 +6,46 @@ export function Benzo({ parentRef }) {
   // The Pixi.js `Sprite`
   const spriteRef = useRef(null);
 
-  console.log("parentRef", parentRef);
-  // console.log("spriteRef", spriteRef);
-
   const [texture, setTexture] = useState(Texture.EMPTY);
   const [isActive, setIsActive] = useState(false);
 
   // Preload the sprite if it hasn't been loaded yet
   useEffect(() => {
-    if (parentRef) {
-      if (texture === Texture.EMPTY) {
-        console.log("kaboom");
-        console.log(
-          "parentRef.current.offsetWidth:",
-          parentRef.current.offsetWidth
-        );
-        console.log(
-          "parentRef.current.offsetHeight:",
-          parentRef.current.offsetHeight
-        );
-        Assets.load(benzoImage).then((result) => {
-          console.log("result", result);
-          setTexture(result);
-        });
-      }
+    if (texture === Texture.EMPTY) {
+      console.log("kaboom");
+      Assets.load(benzoImage).then((result) => {
+        console.log("result", result);
+        setTexture(result);
+      });
+    }
+  }, [texture]);
+
+  useEffect(() => {
+    if (texture !== Texture.EMPTY) {
+      console.log(
+        "parentRef.current.offsetWidth:",
+        parentRef.current.offsetWidth
+      );
+      console.log(
+        "parentRef.current.offsetHeight:",
+        parentRef.current.offsetHeight
+      );
     }
   }, [parentRef, texture]);
+
+  // useEffect(() => {
+  //   if (spriteRef.current) {
+  //     if (isActive) {
+  //       spriteRef.current.scale.set(1.2);
+  //     } else {
+  //       spriteRef.current.scale.set(1);
+  //     }
+  //   }
+  // }, [isActive, spriteRef]);
+
+  // if (!parentRef || !spriteRef) {
+  //   return null;
+  // }
 
   return (
     <pixiSprite
@@ -39,7 +53,7 @@ export function Benzo({ parentRef }) {
       anchor={0.5}
       eventMode={"static"}
       onClick={(event) => setIsActive(!isActive)}
-      scale={0.4}
+      scale={1}
       texture={texture}
       x={parentRef.current.offsetWidth / 2}
       y={parentRef.current.offsetHeight / 2}
