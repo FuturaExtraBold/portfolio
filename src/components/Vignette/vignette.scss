@@ -3,6 +3,7 @@
 .vignette {
   @include fit();
   height: 100%;
+  z-index: 1;
 }
 
 .vignette__piece {

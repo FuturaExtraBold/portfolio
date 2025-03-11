@@ -2,7 +2,7 @@
 
 .wallpaper {
   @include fit();
-  background-image: url("../../assets/images/wallpaper_tile.png"); // Adjust the path as needed
+  background-image: url("../../assets/images/wallpaper_tile.png");
   background-repeat: repeat;
   background-size: 6%;
 }
