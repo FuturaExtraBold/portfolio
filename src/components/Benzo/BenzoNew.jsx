@@ -1,25 +1,21 @@
-import React, { useEffect, useRef } from "react";
-import { Application, Sprite } from "pixi.js";
+import React, { useEffect, useState } from "react";
+import { Stage } from "@pixi/react";
 
-export default function BenzoNew() {
-  const pixiContainerRef = useRef(null);
+export default function BenzoNew({ parentRef }) {
+  const [parent, setParent] = useState(null);
 
   useEffect(() => {
-    // Create the application
-    (async () => {
-      const app = new Application();
-
-      app.init({ width: 800, height: 600 });
-
-      console.log("boom:", app);
-
-      // // Add the view to the DOM
-      document.body.appendChild(app.canvas);
-
-      // // ex, add display objects
-      app.stage.addChild(Sprite.from("something.png"));
-    })();
+    if (parentRef.current) {
+      console.log("parentRef", parentRef);
+      setParent(parentRef.current);
+    }
   }, []);
 
-  return <div ref={pixiContainerRef}></div>;
+  if (!parent) return;
+
+  return (
+    <>
+      <Stage width={parent.offsetWidth} height={parent.offsetHeight}></Stage>
+    </>
+  );
 }

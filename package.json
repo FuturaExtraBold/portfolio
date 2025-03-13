@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@pixi/react": "^8.0.0-beta.25",
+    "@pixi/react": "^8.0.0",
     "cra-template": "1.2.0",
     "gh-pages": "^6.3.0",
     "gsap": "^3.12.7",

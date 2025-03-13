@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Assets, Texture } from "pixi.js";
 import benzoImage from "../../assets/images/benzo/benzo.png";
 import imageGlasses from "../../assets/images/benzo/glasses.png";
@@ -18,7 +18,19 @@ export function Benzo({ parentRef }) {
   const [textureGlasses, setTextureGlasses] = useState(Texture.EMPTY);
   const [textureGlow, setTextureGlow] = useState(Texture.EMPTY);
   const [textureMagic, setTextureMagic] = useState(Texture.EMPTY);
+  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [isActive, setIsActive] = useState(false);
+
+  const updateParentSize = useCallback(() => {
+    const width = parentRef.current.clientWidth;
+    const height = parentRef.current.clientHeight;
+    setParentSize({ width, height });
+  }, [parentRef]);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateParentSize);
+    updateParentSize();
+  }, [updateParentSize]);
 
   // Preload the sprites if they haven't been loaded yet
   useEffect(() => {
@@ -63,33 +75,41 @@ export function Benzo({ parentRef }) {
         ref={refMagic}
         eventMode={"static"}
         onClick={(event) => setIsActive(!isActive)}
-        scale={0.5}
+        scale={1}
         texture={textureMagic}
+        height={parentSize.height}
+        width={parentSize.width}
       />
       <pixiSprite
         ref={refGlow}
         alpha="0.4"
         eventMode={"static"}
         onClick={(event) => setIsActive(!isActive)}
-        scale={0.5}
+        scale={1}
         texture={textureGlow}
         tint="#ff0000"
+        height={parentSize.height}
+        width={parentSize.width}
       />
       <pixiSprite
         ref={refBenzo}
         eventMode={"static"}
         onClick={(event) => setIsActive(!isActive)}
-        scale={0.5}
+        scale={1}
         texture={textureBenzo}
+        height={parentSize.height}
+        width={parentSize.width}
       />
       <pixiSprite
         ref={refGlasses}
         alpha="0.4"
         eventMode={"static"}
         onClick={(event) => setIsActive(!isActive)}
-        scale={0.5}
+        scale={1}
         texture={textureGlasses}
         tint="#00ff00"
+        height={parentSize.height}
+        width={parentSize.width}
       />
     </pixiContainer>
   );
