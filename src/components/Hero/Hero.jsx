@@ -20,7 +20,11 @@ export default function Hero() {
       <div className="container" ref={parentRef}>
         <Vignette />
         <div className="content">
-          <Application background="#ffff00" resizeTo={parentRef}>
+          <Application
+            background="#000000"
+            className="benzo"
+            resizeTo={parentRef}
+          >
             <Benzo parentRef={parentRef} />
           </Application>
         </div>
