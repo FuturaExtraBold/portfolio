@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <div className="hero">
-      <div className="container" ref={parentRef}>
+      <div className="container hero__container" ref={parentRef}>
         <Vignette />
         <div className="content">
           <Application background="#000000" resizeTo={parentRef}>

@@ -1,20 +1,24 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
 import { Assets, Texture } from "pixi.js";
-import benzoImage from "../../assets/images/benzo/benzo.png";
+import imageBenzo from "../../assets/images/benzo/benzo.png";
 import imageGlasses from "../../assets/images/benzo/glasses.png";
 import imageGlow from "../../assets/images/benzo/glow.png";
-import magicImage from "../../assets/images/benzo/magic.jpg";
+import imageGlowInner from "../../assets/images/benzo/glow_inner.png";
+import imageMagic from "../../assets/images/benzo/magic.jpg";
 
 export function Benzo({ parentRef }) {
   // The Pixi.js `Sprite`
   const refBenzo = useRef(null);
   const refGlasses = useRef(null);
   const refGlow = useRef(null);
+  const refGlowInner = useRef(null);
   const refMagic = useRef(null);
 
   const [textureBenzo, setTextureBenzo] = useState(Texture.EMPTY);
   const [textureGlasses, setTextureGlasses] = useState(Texture.EMPTY);
   const [textureGlow, setTextureGlow] = useState(Texture.EMPTY);
+  const [textureGlowInner, setTextureGlowInner] = useState(Texture.EMPTY);
   const [textureMagic, setTextureMagic] = useState(Texture.EMPTY);
   const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [isActive, setIsActive] = useState(false);
@@ -42,8 +46,18 @@ export function Benzo({ parentRef }) {
   }, [textureGlasses]);
 
   useEffect(() => {
+    if (textureGlowInner === Texture.EMPTY) {
+      Assets.load(imageGlowInner).then((result) => {
+        result.source.autoGenerateMipmaps = true;
+        console.log("glow inner texture loaded", result);
+        setTextureGlowInner(result);
+      });
+    }
+  }, [textureGlowInner]);
+
+  useEffect(() => {
     if (textureBenzo === Texture.EMPTY) {
-      Assets.load(benzoImage).then((result) => {
+      Assets.load(imageBenzo).then((result) => {
         result.source.autoGenerateMipmaps = true;
         console.log("benzo texture loaded", result);
         setTextureBenzo(result);
@@ -63,13 +77,24 @@ export function Benzo({ parentRef }) {
 
   useEffect(() => {
     if (textureMagic === Texture.EMPTY) {
-      Assets.load(magicImage).then((result) => {
+      Assets.load(imageMagic).then((result) => {
         result.source.autoGenerateMipmaps = true;
         console.log("magic texture loaded", result);
         setTextureMagic(result);
       });
     }
   }, [textureMagic]);
+
+  // useEffect(() => {
+  //   if (refBenzo.current) {
+  //     console.log("kaboom", refBenzo);
+  //     gsap.to(refBenzo.current, {
+  //       tint: "0xff0000",
+  //       duration: 1,
+  //       yoyo: true,
+  //     });
+  //   }
+  // }, []);
 
   return (
     <pixiContainer>
@@ -83,7 +108,7 @@ export function Benzo({ parentRef }) {
         width={parentSize.width}
       />
       <pixiSprite
-        alpha="0.4"
+        alpha="0.8"
         eventMode={"static"}
         height={parentSize.height}
         onClick={(event) => setIsActive(!isActive)}
@@ -101,7 +126,18 @@ export function Benzo({ parentRef }) {
         width={parentSize.width}
       />
       <pixiSprite
-        alpha="0.4"
+        alpha="0.8"
+        eventMode={"static"}
+        height={parentSize.height}
+        onClick={(event) => setIsActive(!isActive)}
+        ref={refGlowInner}
+        roundPixels={true}
+        texture={textureGlowInner}
+        tint="#00ff00"
+        width={parentSize.width}
+      />
+      <pixiSprite
+        alpha="0.8"
         eventMode={"static"}
         height={parentSize.height}
         onClick={(event) => setIsActive(!isActive)}
