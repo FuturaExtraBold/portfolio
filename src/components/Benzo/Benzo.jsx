@@ -12,8 +12,6 @@ export function Benzo({ parentRef }) {
   const refGlow = useRef(null);
   const refMagic = useRef(null);
 
-  console.log("parentRef", parentRef);
-
   const [textureBenzo, setTextureBenzo] = useState(Texture.EMPTY);
   const [textureGlasses, setTextureGlasses] = useState(Texture.EMPTY);
   const [textureGlow, setTextureGlow] = useState(Texture.EMPTY);
@@ -36,7 +34,8 @@ export function Benzo({ parentRef }) {
   useEffect(() => {
     if (textureGlasses === Texture.EMPTY) {
       Assets.load(imageGlasses).then((result) => {
-        console.log("magic texture loaded", result);
+        result.source.autoGenerateMipmaps = true;
+        console.log("glasses texture loaded", result);
         setTextureGlasses(result);
       });
     }
@@ -45,6 +44,7 @@ export function Benzo({ parentRef }) {
   useEffect(() => {
     if (textureBenzo === Texture.EMPTY) {
       Assets.load(benzoImage).then((result) => {
+        result.source.autoGenerateMipmaps = true;
         console.log("benzo texture loaded", result);
         setTextureBenzo(result);
       });
@@ -54,7 +54,8 @@ export function Benzo({ parentRef }) {
   useEffect(() => {
     if (textureGlow === Texture.EMPTY) {
       Assets.load(imageGlow).then((result) => {
-        console.log("magic texture loaded", result);
+        result.source.autoGenerateMipmaps = true;
+        console.log("glow texture loaded", result);
         setTextureGlow(result);
       });
     }
@@ -63,6 +64,7 @@ export function Benzo({ parentRef }) {
   useEffect(() => {
     if (textureMagic === Texture.EMPTY) {
       Assets.load(magicImage).then((result) => {
+        result.source.autoGenerateMipmaps = true;
         console.log("magic texture loaded", result);
         setTextureMagic(result);
       });
@@ -72,43 +74,40 @@ export function Benzo({ parentRef }) {
   return (
     <pixiContainer>
       <pixiSprite
-        ref={refMagic}
         eventMode={"static"}
-        onClick={(event) => setIsActive(!isActive)}
-        scale={1}
-        texture={textureMagic}
         height={parentSize.height}
+        onClick={(event) => setIsActive(!isActive)}
+        ref={refMagic}
+        roundPixels={true}
+        texture={textureMagic}
         width={parentSize.width}
       />
       <pixiSprite
-        ref={refGlow}
         alpha="0.4"
         eventMode={"static"}
+        height={parentSize.height}
         onClick={(event) => setIsActive(!isActive)}
-        scale={1}
+        ref={refGlow}
         texture={textureGlow}
         tint="#ff0000"
-        height={parentSize.height}
         width={parentSize.width}
       />
       <pixiSprite
-        ref={refBenzo}
         eventMode={"static"}
-        onClick={(event) => setIsActive(!isActive)}
-        scale={1}
-        texture={textureBenzo}
         height={parentSize.height}
+        onClick={(event) => setIsActive(!isActive)}
+        ref={refBenzo}
+        texture={textureBenzo}
         width={parentSize.width}
       />
       <pixiSprite
-        ref={refGlasses}
         alpha="0.4"
         eventMode={"static"}
+        height={parentSize.height}
         onClick={(event) => setIsActive(!isActive)}
-        scale={1}
+        ref={refGlasses}
         texture={textureGlasses}
         tint="#00ff00"
-        height={parentSize.height}
         width={parentSize.width}
       />
     </pixiContainer>
