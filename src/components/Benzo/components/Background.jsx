@@ -22,10 +22,10 @@ export function Background() {
 
   return (
     <pixiSprite
+      alpha={0.2}
       eventMode={"static"}
       height={parentSize.height}
       ref={refBackground}
-      roundPixels={true}
       texture={textureBackground}
       width={parentSize.width}
     />
