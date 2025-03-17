@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
-import { Benzo } from "components/Benzo/Benzo";
+import { BenzoProvider } from "components/Benzo/BenzoProvider";
 import Vignette from "components/Vignette/Vignette";
 import "./hero.scss";
 
@@ -20,7 +20,7 @@ export default function Hero() {
         <Vignette />
         <div className="content">
           <Application background="#000000" resizeTo={parentRef}>
-            <Benzo parentRef={parentRef} />
+            <BenzoProvider parentRef={parentRef} />
           </Application>
         </div>
       </div>
