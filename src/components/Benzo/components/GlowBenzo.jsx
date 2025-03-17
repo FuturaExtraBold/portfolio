@@ -15,7 +15,7 @@ export default function GlowBenzo() {
     if (textureGlowBenzo === Texture.EMPTY) {
       Assets.load(imageGlowBenzo).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("glow glasses texture loaded", result);
+        console.log("glow benzo texture loaded", result);
         setTextureGlowBenzo(result);
       });
     }

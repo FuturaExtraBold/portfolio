@@ -1,34 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { gsap } from "gsap";
 import { Assets, Texture } from "pixi.js";
 import { useBenzo } from "./BenzoProvider";
 import { Background } from "./components/Background";
-import imageBenzo from "../../assets/images/benzo/benzo.png";
 import imageParticleFire from "../../assets/images/benzo/particle_fire_bw.png";
-import GlowOuter from "./components/GlowOuter";
-import GlowInner from "./components/GlowInner";
-import GlowGlasses from "./components/GlowGlasses";
-import GlowBenzo from "./components/GlowBenzo";
 import BenzoBody from "./components/BenzoBody";
+import GlowBenzo from "./components/GlowBenzo";
+import GlowGlasses from "./components/GlowGlasses";
+import GlowInner from "./components/GlowInner";
+import GlowOuter from "./components/GlowOuter";
 
 export function Benzo({ parentRef }) {
   const { glowColorsFire, parentSize } = useBenzo();
 
-  const refBenzo = useRef(null);
-  const [textureBenzo, setTextureBenzo] = useState(Texture.EMPTY);
   const [textureParticleFire, setTextureParticleFire] = useState(Texture.EMPTY);
   const [fireParticles, setFireParticles] = useState([]);
-
-  useEffect(() => {
-    if (textureBenzo === Texture.EMPTY) {
-      Assets.load(imageBenzo).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        console.log("benzo texture loaded", result);
-        setTextureBenzo(result);
-      });
-    }
-  }, [textureBenzo]);
 
   useEffect(() => {
     if (textureParticleFire === Texture.EMPTY) {
@@ -96,12 +83,6 @@ export function Benzo({ parentRef }) {
       <Background />
       {fireParticles}
       <GlowOuter />
-      <pixiSprite
-        eventMode={"static"}
-        ref={refBenzo}
-        scale={0.5}
-        texture={textureBenzo}
-      />
       <BenzoBody />
       <GlowBenzo />
       <GlowInner />
