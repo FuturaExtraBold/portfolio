@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
-import { Benzo } from "./Benzo";
+import Benzo from "./Benzo";
 
 const BenzoContext = createContext();
 
@@ -45,8 +45,8 @@ export const BenzoProvider = ({ children, parentRef }) => {
   }, [updateParentSize]);
 
   const contextValues = useMemo(
-    () => ({ glowColors, glowColorsFire, parentSize }),
-    [glowColors, glowColorsFire, parentSize]
+    () => ({ glowColors, glowColorsFire, parentRef, parentSize }),
+    [glowColors, glowColorsFire, parentRef, parentSize]
   );
 
   return (

@@ -3,7 +3,7 @@ import { Assets, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 import imageBackground from "../../../assets/images/benzo/background.jpg";
 
-export function Background() {
+export default function Background() {
   const refBackground = useRef(null);
 
   const [textureBackground, setTextureBackground] = useState(Texture.EMPTY);
