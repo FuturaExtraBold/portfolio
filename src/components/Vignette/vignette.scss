@@ -4,6 +4,7 @@
   @include fit();
   height: 100%;
   z-index: 1;
+  pointer-events: none;
 }
 
 .vignette__piece {

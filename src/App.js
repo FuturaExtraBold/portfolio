@@ -10,6 +10,7 @@ function App() {
       <Hero />
       <Separator />
       <Brands />
+      <Separator />
     </div>
   );
 }

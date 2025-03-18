@@ -2,52 +2,50 @@
 
 .brands {
   background-color: #000000;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  height: 800px;
+}
+
+.brands__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .brand-quilt {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 10px;
-  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 48px 256px;
-
-  // Tablet: 3 columns
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(6, 1fr);
-  }
-
-  // Mid-Mobile: 2 column
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  // // Mobile: 1 column
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.brand-quilt__logo {
-  display: block;
+  height: 100%;
   width: 100%;
-  height: auto;
+  margin-top: -70px;
+  margin-right: -70px;
+  transform: rotate(2.5deg);
 }
 
-.brand-quilt svg {
-  width: 100px;
+.brand-quilt > svg {
+  position: absolute;
+  transform-origin: center;
+  display: inline-block;
   cursor: pointer;
-  transition: transform 0.3s;
-  justify-self: center;
+  opacity: 0;
 }
 
-.brand-quilt svg:hover {
+.brand-quilt > svg:hover {
   path {
-    fill: black;
+    fill: #ffffff;
+    opacity: 1;
   }
 }
 
-.brand-quilt svg path {
-  fill: #ffffff;
+.brand-quilt > svg path {
+  fill: #000000;
+  opacity: 0.9;
 }
