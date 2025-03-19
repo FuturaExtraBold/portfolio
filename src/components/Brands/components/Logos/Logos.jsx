@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import logos from "../logos.js";
+import logos from "../../logos.js";
 
 export default function Logos() {
   const quiltRef = useRef(null);

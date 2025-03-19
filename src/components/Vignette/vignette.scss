@@ -2,25 +2,12 @@
 
 .vignette {
   @include fit();
-  height: 100%;
   z-index: 1;
   pointer-events: none;
-}
-
-.vignette__piece {
-  position: absolute;
-  top: 0;
-  width: 15%;
-  max-width: 100px;
-  height: 100%;
-  background: linear-gradient(to right, #000000, transparent);
-}
-
-.vignette__piece--left {
-  left: 0;
-}
-
-.vignette__piece--right {
-  right: 0;
-  transform: scaleX(-1);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  opacity: 0.25;
 }
