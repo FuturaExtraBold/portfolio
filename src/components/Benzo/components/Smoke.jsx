@@ -25,17 +25,6 @@ export default function Smoke() {
     }
   }, [textureParticleSmoke]);
 
-  // useEffect(() => {
-  //   if (refParticlesSmoke.current === null) return;
-  //   const w = refParticlesSmoke.current.width;
-  //   const h = refParticlesSmoke.current.height;
-  //   const ratio = Math.min(w / parentSize.width, h / parentSize.height);
-  //   console.log("parentSize w:", parentSize.width, "h:", parentSize.height);
-  //   console.log("refParticlesSmoke w:", w, "h:", h);
-  //   console.log("ratio", ratio);
-  //   refParticlesSmoke.current.scale = ratio;
-  // }, [refParticlesSmoke, parentSize]);
-
   useEffect(() => {
     if (textureParticleSmoke !== Texture.EMPTY && parentSize.height > 0) {
       const numParticles = 300;
@@ -47,37 +36,36 @@ export default function Smoke() {
 
         particles.push(
           <pixiSprite
-            alpha={0.1}
+            alpha={1}
             anchor={0.5}
             eventMode={"static"}
             key={uuid()}
             rotation={Math.random() * 40 - 20}
             ref={refParticle}
+            scale={Math.random() * 0.2 + 0.8}
             texture={textureParticleSmoke}
             tint={randColor}
             x={Math.random() * parentSize.width}
-            y={Math.random() * parentSize.height + 1000}
+            y={Math.random() * parentSize.height + 1400}
           />
         );
 
         setTimeout(() => {
           if (refParticle.current) {
-            // console.log("refParticle.current", refParticle.current);
             gsap.to(refParticle.current, {
               pixi: {
                 x: Math.random() * parentSize.width,
-                y: -800, // Moves past the top slightly for effect
-                alpha: 0.4,
-              }, // Fade out slightly as it rises
-              delay: Math.random() * 3, // Slight delay before restarting
-              duration: Math.random() * 4 + 2, // Random duration for natural variation
+                y: -800,
+                alpha: 0,
+              },
+              delay: Math.random() * 3,
+              duration: Math.random() * 4 + 2,
               ease: "power1.out",
               repeat: -1,
-              // repeatDelay: Math.random() * 0.25, // Slight delay before restarting
               onRepeat: () => {
                 if (refParticle.current) {
-                  refParticle.current.y = parentSize.height + 1000; // Reset position at the bottom
-                  refParticle.current.alpha = 1; // Reset visibility
+                  refParticle.current.y = parentSize.height + 1000;
+                  refParticle.current.alpha = 1;
                 }
               },
             });

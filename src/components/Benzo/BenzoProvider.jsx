@@ -24,7 +24,10 @@ export const BenzoProvider = ({ children, parentRef }) => {
     []
   );
 
-  const glowColorsFire = useMemo(() => ["1bd14a", "5cd771", "aae288"], []);
+  const glowColorsFire = useMemo(
+    () => ["90e575", "1bd14a", "2ee554", "b1e487"],
+    []
+  );
 
   const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
 

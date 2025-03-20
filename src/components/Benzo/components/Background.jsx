@@ -22,7 +22,7 @@ export default function Background() {
 
   return (
     <pixiSprite
-      alpha={0.2}
+      alpha={1}
       eventMode={"static"}
       height={parentSize.height}
       ref={refBackground}
