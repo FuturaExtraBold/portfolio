@@ -14,6 +14,11 @@ export default function Lighthouse() {
           alt="Background"
         />
       </div>
+      <div className="layout-test-specs">
+        Lighthouse Suite
+        <br />
+        1440 x 640 (9:4)
+      </div>
     </div>
   );
 }

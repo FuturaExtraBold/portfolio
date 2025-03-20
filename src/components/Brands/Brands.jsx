@@ -16,6 +16,11 @@ export default function Brands() {
         <Logos />
         <Planchette />
       </div>
+      <div className="layout-test-specs">
+        Brand Quilt
+        <br />
+        1440 x 800 (9:5)
+      </div>
     </div>
   );
 }

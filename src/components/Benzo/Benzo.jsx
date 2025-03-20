@@ -1,5 +1,6 @@
 import React from "react";
-// import Background from "./components/Background";
+import BenzoNoAnimation from "./BenzoNoAnimation/BenzoNoAnimation";
+import Background from "./components/Background";
 import BenzoBody from "./components/BenzoBody";
 import GlowBenzo from "./components/GlowBenzo";
 import GlowGlasses from "./components/GlowGlasses";
@@ -8,9 +9,14 @@ import GlowOuter from "./components/GlowOuter";
 import Smoke from "./components/Smoke";
 
 export default function Benzo() {
+  const layoutMode = true;
+
+  if (layoutMode) return <BenzoNoAnimation />;
+
   return (
     <pixiContainer>
-      {/* <Background /> */}
+      <BenzoNoAnimation />
+      <Background />
       <Smoke />
       <GlowOuter />
       <BenzoBody />

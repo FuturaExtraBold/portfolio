@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
-import { BenzoProvider } from "components/Benzo/BenzoProvider";
+import { BenzoProvider } from "components/Benzo/BenzoContext";
 import Vignette from "components/Vignette/Vignette";
 import "./hero.scss";
 
