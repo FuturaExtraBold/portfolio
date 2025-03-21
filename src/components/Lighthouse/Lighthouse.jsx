@@ -15,9 +15,11 @@ export default function Lighthouse() {
         />
       </div>
       <div className="layout-test-specs">
-        Lighthouse Suite
+        Lighthouse Web Test Suite
         <br />
         1440 x 640 (9:4)
+        <br />
+        Should have 4 animated circles that go to 100%
       </div>
     </div>
   );

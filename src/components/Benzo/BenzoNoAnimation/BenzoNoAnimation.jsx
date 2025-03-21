@@ -16,6 +16,8 @@ export default function BenzoNoAnimation() {
         Hero
         <br />
         1440 x 960 (3:2)
+        <br />
+        Animations need ideation and correct coloring
       </div>
     </div>
   );

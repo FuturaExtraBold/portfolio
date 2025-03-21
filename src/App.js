@@ -4,6 +4,8 @@ import Brands from "components/Brands/Brands";
 import Lighthouse from "components/Lighthouse/Lighthouse";
 import Separator from "components/Separator/Separator";
 import BenzoNoAnimation from "components/Benzo/BenzoNoAnimation/BenzoNoAnimation";
+import About from "components/About/About";
+import Resume from "components/Resume/Resume";
 // import Wallpaper from "components/Wallpaper/Wallpaper";
 
 function App() {
@@ -13,7 +15,11 @@ function App() {
       <BenzoNoAnimation />
       {/* <Hero /> */}
       <Separator />
+      <About />
+      <Separator />
       <Brands />
+      <Separator />
+      <Resume />
       <Separator />
       <Lighthouse />
       <Separator />
