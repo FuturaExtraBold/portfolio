@@ -17,7 +17,12 @@ export default function BenzoNoAnimation() {
         <br />
         1440 x 960 (3:2)
         <br />
-        Animations need ideation and correct coloring
+        Animations need ideation and color correction
+        <br />
+        I will color the eyes to match the crystal ball, and add blinking
+        <br />I want the crystal ball, the hands, and my shoulders to move
+        subtly
+        <br />I can do all the animations, just need confirmation
       </div>
     </div>
   );

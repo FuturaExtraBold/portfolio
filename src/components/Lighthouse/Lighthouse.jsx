@@ -20,6 +20,9 @@ export default function Lighthouse() {
         1440 x 640 (9:4)
         <br />
         Should have 4 animated circles that go to 100%
+        <br />
+        Light from Lighthouse will rotate and blind the user for a second, like
+        in real life
       </div>
     </div>
   );
