@@ -1,13 +1,14 @@
 .layout-test-specs {
   position: absolute;
-  text-align: center;
-  line-height: 1.5;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
   padding: 20px;
-  color: white;
-  font-size: 32px;
+  background-color: rgb(0 0 0 / 0.8);
+  color: #ffffff;
   font-family: sans-serif;
+  font-size: 32px;
+  line-height: 1.5;
+  text-align: center;
+  transform: translate(-50%, -50%);
 }

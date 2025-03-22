@@ -1,31 +1,31 @@
 @import "../../../assets/stylesheets/all.scss";
 
 .brands {
-  background-color: #000000;
   position: relative;
   width: 100%;
   height: 100%;
   height: 800px;
+  background-color: #000000;
 }
 
 .brands__container {
   position: relative;
+  display: flex;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
+  justify-content: center;
 }
 
 .brand-quilt {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin-top: -70px;
   margin-right: -70px;
   transform: rotate(2deg);
@@ -33,20 +33,18 @@
 
 .brand-quilt > svg {
   position: absolute;
-  transform-origin: center;
   display: inline-block;
   cursor: pointer;
   opacity: 0;
-}
-
-.brand-quilt > svg:hover {
-  path {
-    fill: #ffffff;
-    opacity: 1;
-  }
+  transform-origin: center;
 }
 
 .brand-quilt > svg path {
   fill: #000000;
   opacity: 0.9;
+}
+
+.brand-quilt > svg:hover path {
+  fill: #ffffff;
+  opacity: 1;
 }

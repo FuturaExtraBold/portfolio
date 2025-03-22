@@ -1,23 +1,3 @@
-@mixin basic-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 2s0px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-
-  // Tablet: 3 columns
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  // Mid-Mobile: 2 column
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  // Mobile: 1 column
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
+.grid {
+  background-color: rebeccapurple;
 }

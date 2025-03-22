@@ -1,11 +1,11 @@
 .lighthouse {
   position: relative;
-  width: 100%;
   display: flex;
+  overflow: auto;
+  width: 100%;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: auto;
-  flex-direction: column;
 }
 
 .lighthouse__container {
