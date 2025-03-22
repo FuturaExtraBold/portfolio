@@ -1,10 +1,11 @@
 import React from "react";
-import "./styles.scss";
+import Separator from "components/ui/Separator/Separator";
 import Wallpaper from "components/ui/Wallpaper/Wallpaper";
+import "./styles.scss";
 
 export default function Resume() {
   return (
-    <div className="resume">
+    <section className="resume">
       <div className="container resume__container">
         <Wallpaper />
       </div>
@@ -19,6 +20,7 @@ export default function Resume() {
         <br />
         One at the bottom that says "Childlike Wonder 1981-"?
       </div>
-    </div>
+      <Separator />
+    </section>
   );
 }

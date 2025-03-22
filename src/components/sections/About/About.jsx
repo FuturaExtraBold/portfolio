@@ -5,7 +5,7 @@ import Separator from "components/ui/Separator/Separator";
 
 export default function About() {
   return (
-    <div className="about">
+    <section className="about">
       <div className="container about__container">
         <Wallpaper />
       </div>
@@ -19,6 +19,6 @@ export default function About() {
         Cool typography, 1920's movie poster style
       </div>
       <Separator />
-    </div>
+    </section>
   );
 }

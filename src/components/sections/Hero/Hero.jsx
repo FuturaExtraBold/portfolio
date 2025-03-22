@@ -2,8 +2,9 @@ import React, { useRef } from "react";
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
 import { BenzoProvider } from "./Benzo/BenzoProvider";
+import Separator from "components/ui/Separator/Separator";
 import Vignette from "components/ui/Vignette/Vignette";
-import "./hero.scss";
+import "./styles.scss";
 
 // extend tells @pixi/react what Pixi.js components are available
 extend({
@@ -15,7 +16,7 @@ export default function Hero() {
   const parentRef = useRef(null);
 
   return (
-    <div className="hero">
+    <section className="hero">
       <div className="container hero__container" ref={parentRef}>
         <Vignette />
         <div className="content">
@@ -24,6 +25,7 @@ export default function Hero() {
           </Application>
         </div>
       </div>
-    </div>
+      <Separator />
+    </section>
   );
 }

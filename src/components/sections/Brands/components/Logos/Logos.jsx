@@ -44,12 +44,12 @@ export default function Logos() {
   }, [setRowStyles, halfAmount]);
 
   return (
-    <div className="brand-quilt" ref={quiltRef}>
+    <section className="brand-quilt" ref={quiltRef}>
       {logos
         .sort((a, b) => a.order - b.order)
         .map(({ component: LogoComponent, order }) => (
           <LogoComponent key={order} />
         ))}
-    </div>
+    </section>
   );
 }

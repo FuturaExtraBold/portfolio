@@ -1,11 +1,12 @@
 import React from "react";
+import Separator from "components/ui/Separator/Separator";
+import Vignette from "components/ui/Vignette/Vignette";
 import imageBackground from "../../../assets/images/lighthouse/background.jpg";
 import "./styles.scss";
-import Vignette from "components/ui/Vignette/Vignette";
 
 export default function Lighthouse() {
   return (
-    <div className="lighthouse">
+    <section className="lighthouse">
       <div className="container lighthouse__container">
         <Vignette />
         <img
@@ -24,6 +25,7 @@ export default function Lighthouse() {
         Light from Lighthouse will rotate and blind the user for a second, like
         in real life
       </div>
-    </div>
+      <Separator />
+    </section>
   );
 }

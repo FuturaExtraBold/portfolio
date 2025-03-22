@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import "./planchette.scss";
 import imagePlanchette from "../../../../../assets/images/ouija/planchette.png";
+import "./styles.scss";
 
 export default function Planchette({ enable }) {
   const refPlanchette = useRef(null);
@@ -15,12 +15,6 @@ export default function Planchette({ enable }) {
 
     const parentRect = planchette.parentElement.getBoundingClientRect();
     console.log("Parent element top position:", parentRect.top);
-
-    // gsap.to(planchette, {
-    //   x: "100%",
-    //   y: "50%",
-    //   duration: 0,
-    // });
 
     const handleMouseMove = (event) => {
       const mouseX = event.clientX;

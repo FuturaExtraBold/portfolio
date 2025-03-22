@@ -1,6 +1,6 @@
 import React from "react";
-import "./board.scss";
 import imageBoard from "../../../../../assets/images/ouija/board.jpg";
+import "./styles.scss";
 
 export default function Board() {
   return (

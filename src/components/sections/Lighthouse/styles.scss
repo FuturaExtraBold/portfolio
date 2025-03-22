@@ -1,5 +1,3 @@
-@import "../../../assets/stylesheets/consumables.scss";
-
 .lighthouse {
   position: relative;
   width: 100%;
@@ -7,9 +5,9 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
+  flex-direction: column;
 }
 
 .lighthouse__container {
-  // aspect-ratio: 3 / 2;
   padding: 0;
 }

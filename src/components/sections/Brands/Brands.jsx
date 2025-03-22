@@ -1,14 +1,15 @@
 import React from "react";
-import "./brands.scss";
+import Board from "./components/Board/Board";
 import Logos from "./components/Logos/Logos";
 import Planchette from "./components/Planchette/Planchette";
-import Board from "./components/Board/Board";
+import Separator from "components/ui/Separator/Separator";
 import Vignette from "components/ui/Vignette/Vignette";
 import Wallpaper from "components/ui/Wallpaper/Wallpaper";
+import "./styles.scss";
 
 export default function Brands() {
   return (
-    <div className="brands">
+    <section className="brands">
       <div className="container brands__container">
         <Wallpaper />
         <Vignette opacity="0.3" />
@@ -21,6 +22,7 @@ export default function Brands() {
         <br />
         1440 x 800 (9:5)
       </div>
-    </div>
+      <Separator />
+    </section>
   );
 }

@@ -1,26 +1,21 @@
 import React from "react";
+import About from "components/sections/About/About";
 import Brands from "components/sections/Brands/Brands";
+import Hell from "components/sections/Hell/Hell";
 import Hero from "components/sections/Hero/Hero";
 import Lighthouse from "components/sections/Lighthouse/Lighthouse";
-// import Separator from "components/sections/Separator/Separator";
-// import BenzoNoAnimation from "components/sections/Benzo/BenzoNoAnimation/BenzoNoAnimation";
-import About from "components/sections/About/About";
 import Resume from "components/sections/Resume/Resume";
-import Hell from "components/sections/Hell/Hell";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 
 function App() {
   return (
-    <div className="App">
-      <Wallpaper />
-      {/* <BenzoNoAnimation /> */}
+    <main className="App">
       <Hero />
       <About />
       <Brands />
       <Resume />
       <Lighthouse />
       <Hell />
-    </div>
+    </main>
   );
 }
 
