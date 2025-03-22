@@ -1,31 +1,25 @@
 import React from "react";
-import Brands from "components/Brands/Brands";
-// import Hero from "components/Hero/Hero";
-import Lighthouse from "components/Lighthouse/Lighthouse";
-import Separator from "components/Separator/Separator";
-import BenzoNoAnimation from "components/Benzo/BenzoNoAnimation/BenzoNoAnimation";
-import About from "components/About/About";
-import Resume from "components/Resume/Resume";
-import Hell from "components/Hell/Hell";
-// import Wallpaper from "components/Wallpaper/Wallpaper";
+import Brands from "components/sections/Brands/Brands";
+import Hero from "components/sections/Hero/Hero";
+import Lighthouse from "components/sections/Lighthouse/Lighthouse";
+// import Separator from "components/sections/Separator/Separator";
+// import BenzoNoAnimation from "components/sections/Benzo/BenzoNoAnimation/BenzoNoAnimation";
+import About from "components/sections/About/About";
+import Resume from "components/sections/Resume/Resume";
+import Hell from "components/sections/Hell/Hell";
+import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 
 function App() {
   return (
     <div className="App">
-      {/* <Wallpaper /> */}
-      <BenzoNoAnimation />
-      {/* <Hero /> */}
-      <Separator />
+      <Wallpaper />
+      {/* <BenzoNoAnimation /> */}
+      <Hero />
       <About />
-      <Separator />
       <Brands />
-      <Separator />
       <Resume />
-      <Separator />
       <Lighthouse />
-      <Separator />
       <Hell />
-      <Separator />
     </div>
   );
 }

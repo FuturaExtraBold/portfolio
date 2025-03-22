@@ -1,0 +1,15 @@
+@import "../../../assets/stylesheets/all.scss";
+
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // background-color: #000000;
+  overflow: auto;
+}
+
+.hero__container {
+  aspect-ratio: 3 / 2;
+}
