@@ -1,0 +1,20 @@
+.picture-frame {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  max-width: 1800px;
+  height: 100%;
+  padding: 0;
+  margin: 0 auto;
+  border-image: url("../../../assets/images/ui/frame_full.jpg") 180 / 180px
+    round;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.picture-frame--small {
+  max-width: 1620px;
+  border-image: url("../../../assets/images/ui/frame_full.jpg") 90 / 90px round;
+}
