@@ -1,14 +1,11 @@
 import React from "react";
 import "./styles.scss";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 import Separator from "components/ui/Separator/Separator";
 
 export default function About() {
   return (
     <section className="about">
-      <div className="container about__container">
-        <Wallpaper />
-      </div>
+      <div className="container about__container"></div>
       <div className="layout-test-specs">
         About?
         <br />

@@ -1,14 +1,11 @@
 import React from "react";
 import Separator from "components/ui/Separator/Separator";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 import "./styles.scss";
 
 export default function Resume() {
   return (
     <section className="resume">
-      <div className="container resume__container">
-        <Wallpaper />
-      </div>
+      <div className="container resume__container"></div>
       <div className="layout-test-specs">
         Résumé
         <br />
