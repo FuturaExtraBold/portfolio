@@ -4,6 +4,7 @@
   z-index: 1;
   background: radial-gradient(circle, rgb(0 0 0 / 0) 10%, rgb(0 0 0 / 1) 100%);
   opacity: 0.5;
+  pointer-events: none;
 
   @include fit();
 }

@@ -16,6 +16,7 @@ export default function Lighthouse() {
         />
       </div>
       <div className="layout-test-specs">
+        <h1>Lighthouse</h1>
         Lighthouse Web Test Suite
         <br />
         1440 x 640 (9:4)
