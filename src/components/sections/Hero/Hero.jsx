@@ -3,7 +3,6 @@ import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
 import { BenzoProvider } from "./Benzo/BenzoProvider";
 import Separator from "components/ui/Separator/Separator";
-import Vignette from "components/ui/Vignette/Vignette";
 import "./styles.scss";
 
 // extend tells @pixi/react what Pixi.js components are available
@@ -18,7 +17,6 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="container hero__container" ref={parentRef}>
-        <Vignette />
         <div className="content">
           <Application background="#000000" resizeTo={parentRef}>
             <BenzoProvider parentRef={parentRef} />

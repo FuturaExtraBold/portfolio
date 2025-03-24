@@ -13,10 +13,7 @@ import Benzo from "./Benzo";
 const BenzoContext = createContext();
 
 export const BenzoProvider = ({ children, parentRef }) => {
-  // register the plugin
   gsap.registerPlugin(PixiPlugin);
-
-  // give the plugin a reference to the PIXI object
   PixiPlugin.registerPIXI(parentRef.current);
 
   const glowColors = useMemo(
@@ -24,12 +21,21 @@ export const BenzoProvider = ({ children, parentRef }) => {
     []
   );
 
-  const glowColorsFire = useMemo(
-    () => ["90e575", "1bd14a", "2ee554", "b1e487"],
+  const glowColorsSmoke = useMemo(
+    () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
+    []
+  );
+
+  const glowColorsReflection = useMemo(
+    () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
     []
   );
 
   const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
+  const [colorCrystalBall, setColorCrystalBall] = useState(0xffffff);
+  const [colorSmoke, setColorSmoke] = useState(0xffffff);
+  const [durationCrystalBall, setDurationCrystalBall] = useState(0.5);
+  const [durationSmoke, setDurationSmoke] = useState(0.5);
 
   const updateParentSize = useCallback(() => {
     if (parentRef.current) {
@@ -39,6 +45,34 @@ export const BenzoProvider = ({ children, parentRef }) => {
     }
   }, [parentRef]);
 
+  const updateCrystalBall = useCallback(() => {
+    if (parentRef.current) {
+      const color = glowColors[Math.floor(Math.random() * glowColors.length)];
+      const duration = Math.random() * 1 + 0.5;
+      setColorCrystalBall(color);
+      setDurationCrystalBall(duration);
+      setTimeout(() => {
+        updateCrystalBall();
+      }, duration * 1000);
+    }
+  }, [glowColors, parentRef]);
+
+  const updateSmoke = useCallback(() => {
+    if (parentRef.current) {
+      const color =
+        glowColorsReflection[
+          Math.floor(Math.random() * glowColorsReflection.length)
+        ];
+      const duration = Math.random() * 1 + 0.5;
+      console.log("updateSmoke:", color, duration);
+      setColorSmoke(color);
+      setDurationSmoke(duration);
+      setTimeout(() => {
+        updateSmoke();
+      }, duration * 1000);
+    }
+  }, [glowColorsReflection, parentRef]);
+
   useEffect(() => {
     window.addEventListener("resize", updateParentSize);
     updateParentSize();
@@ -47,9 +81,33 @@ export const BenzoProvider = ({ children, parentRef }) => {
     };
   }, [updateParentSize]);
 
+  useEffect(() => {
+    updateCrystalBall();
+  }, [updateCrystalBall]);
+
+  useEffect(() => {
+    updateSmoke();
+  }, [updateSmoke]);
+
   const contextValues = useMemo(
-    () => ({ glowColors, glowColorsFire, parentRef, parentSize }),
-    [glowColors, glowColorsFire, parentRef, parentSize]
+    () => ({
+      glowColorsSmoke,
+      parentRef,
+      parentSize,
+      colorCrystalBall,
+      colorSmoke,
+      durationCrystalBall,
+      durationSmoke,
+    }),
+    [
+      glowColorsSmoke,
+      parentRef,
+      parentSize,
+      colorCrystalBall,
+      colorSmoke,
+      durationCrystalBall,
+      durationSmoke,
+    ]
   );
 
   return (

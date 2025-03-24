@@ -13,7 +13,7 @@ export default function Smoke() {
   );
   const [particlesSmoke, setParticlesSmoke] = useState([]);
 
-  const { glowColorsFire, parentSize } = useBenzo();
+  const { glowColorsSmoke, parentSize } = useBenzo();
 
   useEffect(() => {
     if (textureParticleSmoke === Texture.EMPTY) {
@@ -32,7 +32,7 @@ export default function Smoke() {
       for (let i = 0; i < numParticles; i++) {
         const refParticle = React.createRef();
         const randColor =
-          glowColorsFire[Math.floor(Math.random() * glowColorsFire.length)];
+          glowColorsSmoke[Math.floor(Math.random() * glowColorsSmoke.length)];
 
         particles.push(
           <pixiSprite
@@ -80,7 +80,7 @@ export default function Smoke() {
         return particles;
       });
     }
-  }, [glowColorsFire, parentSize, textureParticleSmoke]);
+  }, [glowColorsSmoke, parentSize, textureParticleSmoke]);
 
   return (
     <pixiContainer ref={refParticlesSmoke}>{particlesSmoke}</pixiContainer>

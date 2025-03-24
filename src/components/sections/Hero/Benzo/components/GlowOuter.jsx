@@ -9,7 +9,7 @@ export default function GlowOuter() {
 
   const [textureGlowOuter, setTextureGlowOuter] = useState(Texture.EMPTY);
 
-  const { glowColors, parentSize } = useBenzo();
+  const { colorSmoke, durationSmoke, parentSize } = useBenzo();
 
   useEffect(() => {
     if (textureGlowOuter === Texture.EMPTY) {
@@ -23,20 +23,12 @@ export default function GlowOuter() {
 
   useEffect(() => {
     if (refGlowOuter.current) {
-      const flicker = () => {
-        const randColor =
-          glowColors[Math.floor(Math.random() * glowColors.length)];
-        const randDuration = Math.random() * 1 + 0.5;
-
-        gsap.to(refGlowOuter.current, {
-          pixi: { tint: randColor },
-          duration: randDuration,
-          onComplete: flicker,
-        });
-      };
-      flicker();
+      gsap.to(refGlowOuter.current, {
+        pixi: { tint: colorSmoke },
+        duration: durationSmoke,
+      });
     }
-  }, [glowColors, refGlowOuter]);
+  }, [colorSmoke, durationSmoke]);
 
   return (
     <pixiSprite

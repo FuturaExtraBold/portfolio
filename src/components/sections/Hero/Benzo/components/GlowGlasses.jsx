@@ -9,7 +9,7 @@ export default function GlowGlasses() {
 
   const [textureGlowGlasses, setTextureGlowGlasses] = useState(Texture.EMPTY);
 
-  const { glowColors, parentSize } = useBenzo();
+  const { colorCrystalBall, durationCrystalBall, parentSize } = useBenzo();
 
   useEffect(() => {
     if (textureGlowGlasses === Texture.EMPTY) {
@@ -23,24 +23,16 @@ export default function GlowGlasses() {
 
   useEffect(() => {
     if (refGlowGlasses.current) {
-      const flicker = () => {
-        const randColor =
-          glowColors[Math.floor(Math.random() * glowColors.length)];
-        const randDuration = Math.random() * 1 + 0.5;
-
-        gsap.to(refGlowGlasses.current, {
-          pixi: { tint: randColor },
-          duration: randDuration,
-          onComplete: flicker,
-        });
-      };
-      flicker();
+      gsap.to(refGlowGlasses.current, {
+        pixi: { tint: colorCrystalBall },
+        duration: durationCrystalBall,
+      });
     }
-  }, [glowColors, refGlowGlasses]);
+  }, [colorCrystalBall, durationCrystalBall, refGlowGlasses]);
 
   return (
     <pixiSprite
-      alpha="0.8"
+      alpha="1"
       eventMode={"static"}
       height={parentSize.height}
       ref={refGlowGlasses}

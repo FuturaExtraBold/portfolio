@@ -9,7 +9,7 @@ export default function GlowBenzo() {
 
   const [textureGlowBenzo, setTextureGlowBenzo] = useState(Texture.EMPTY);
 
-  const { glowColors, parentSize } = useBenzo();
+  const { colorCrystalBall, durationCrystalBall, parentSize } = useBenzo();
 
   useEffect(() => {
     if (textureGlowBenzo === Texture.EMPTY) {
@@ -23,24 +23,16 @@ export default function GlowBenzo() {
 
   useEffect(() => {
     if (refGlowBenzo.current) {
-      const flicker = () => {
-        const randColor =
-          glowColors[Math.floor(Math.random() * glowColors.length)];
-        const randDuration = Math.random() * 1 + 0.5;
-
-        gsap.to(refGlowBenzo.current, {
-          pixi: { tint: randColor },
-          duration: randDuration,
-          onComplete: flicker,
-        });
-      };
-      flicker();
+      gsap.to(refGlowBenzo.current, {
+        pixi: { tint: colorCrystalBall },
+        duration: durationCrystalBall,
+      });
     }
-  }, [glowColors, refGlowBenzo]);
+  }, [colorCrystalBall, durationCrystalBall]);
 
   return (
     <pixiSprite
-      alpha="0.8"
+      alpha="0.6"
       eventMode={"static"}
       height={parentSize.height}
       ref={refGlowBenzo}

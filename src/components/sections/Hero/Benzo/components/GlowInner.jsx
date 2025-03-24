@@ -9,7 +9,7 @@ export default function GlowInner() {
 
   const [textureGlowInner, setTextureGlowInner] = useState(Texture.EMPTY);
 
-  const { glowColors, parentSize } = useBenzo();
+  const { colorSmoke, durationSmoke, parentSize } = useBenzo();
 
   useEffect(() => {
     if (textureGlowInner === Texture.EMPTY) {
@@ -23,20 +23,12 @@ export default function GlowInner() {
 
   useEffect(() => {
     if (refGlowInner.current) {
-      const flicker = () => {
-        const randColor =
-          glowColors[Math.floor(Math.random() * glowColors.length)];
-        const randDuration = Math.random() * 1 + 0.5;
-
-        gsap.to(refGlowInner.current, {
-          pixi: { tint: randColor },
-          duration: randDuration,
-          onComplete: flicker,
-        });
-      };
-      flicker();
+      gsap.to(refGlowInner.current, {
+        pixi: { tint: colorSmoke },
+        duration: durationSmoke,
+      });
     }
-  }, [glowColors, refGlowInner]);
+  }, [colorSmoke, durationSmoke]);
 
   return (
     <pixiSprite
