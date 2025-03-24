@@ -6,17 +6,23 @@ import "./styles.scss";
 export default function About() {
   return (
     <section className="about">
-      <div className="container about__container">
-        <Wallpaper />
-      </div>
-      <div className="layout-test-specs">
-        About?
-        <br />
-        1440 x 480 (3:1 or Arbitrary)
-        <br />
-        Marvel at feats of CSS Strength and React wizardry
-        <br />
-        Cool typography, 1920's movie poster style
+      <Wallpaper />
+      <div className="overlay about__overlay" />
+      <div className="about__content">
+        <div className="about__image"></div>
+        <div className="about__text">
+          <h1 className="about__title">
+            Marvel at feats of spectacular ingenuity.
+          </h1>
+          <div className="about__description">
+            <p>
+              I am a Frontend Developer with a passion for creating
+              pixel-perfect and responsive web experiences. I have over 20 years
+              of building websites and web applications with React, HTML, and
+              CSS.
+            </p>
+          </div>
+        </div>
       </div>
       <Separator />
     </section>

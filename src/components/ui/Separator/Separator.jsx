@@ -5,7 +5,7 @@ import separatorImage from "../../../assets/images/ui/separator.png"; // Adjust 
 export default function Separator() {
   return (
     <aside className="separator">
-      <img src={separatorImage} alt="Separator" />
+      <img className="separator__image" src={separatorImage} alt="Separator" />
     </aside>
   );
 }

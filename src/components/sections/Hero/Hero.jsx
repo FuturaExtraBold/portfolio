@@ -24,6 +24,7 @@ export default function Hero() {
         </div>
       </div>
       <Separator />
+      <div className="overlay"></div>
     </section>
   );
 }

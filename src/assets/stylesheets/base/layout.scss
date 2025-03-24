@@ -1,3 +1,21 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .layout-test-specs {
   position: absolute;
   top: 50%;
@@ -10,4 +28,8 @@
   line-height: 1.5;
   text-align: center;
   transform: translate(-50%, -50%);
+}
+
+.overlay {
+  @include fit;
 }

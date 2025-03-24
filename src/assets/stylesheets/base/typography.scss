@@ -1,4 +1,31 @@
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
   font-family: "Benguiat Bold Condensed BT", sans-serif;
-  font-size: 32px;
+  line-height: 0.9;
+}
+
+h1 {
+  line-height: 1.1;
+  transition: line-height 0.3s ease-in-out;
+
+  @include fluid-type(600px, 1200px, 32px, 64px);
+}
+
+p {
+  color: #e2c06d;
+  font-family: "Dolly Roman", serif;
+  line-height: 1.4;
+
+  @include fluid-type(600px, 1200px, 16px, 21px);
+}
+
+@media (width >= 768px) {
+  h1 {
+    line-height: 0.9;
+  }
 }
