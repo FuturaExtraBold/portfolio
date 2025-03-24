@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.330bbe72.css",
-    "main.js": "/static/js/main.6a1dec12.js",
+    "main.css": "/static/css/main.27f42bc3.css",
+    "main.js": "/static/js/main.4e99e3d4.js",
     "static/js/372.80690f33.chunk.js": "/static/js/372.80690f33.chunk.js",
     "static/js/929.ce1a9726.chunk.js": "/static/js/929.ce1a9726.chunk.js",
     "static/js/258.3b9f39c2.chunk.js": "/static/js/258.3b9f39c2.chunk.js",
@@ -18,9 +18,11 @@
     "static/media/glow_inner.png": "/static/media/glow_inner.1e2065f1f2014f253bb9.png",
     "static/media/frame_full.jpg": "/static/media/frame_full.529129c2e515742f0bdd.jpg",
     "static/media/wallpaper_tile.png": "/static/media/wallpaper_tile.d1075c77990f03477011.png",
+    "static/media/dolly-roman.woff": "/static/media/dolly-roman.ca59a417df1da3c0e960.woff",
+    "static/media/itc-benguiat-bold-condensed.woff": "/static/media/itc-benguiat-bold-condensed.baf8fa6557a5c706ca79.woff",
     "index.html": "/index.html",
-    "main.330bbe72.css.map": "/static/css/main.330bbe72.css.map",
-    "main.6a1dec12.js.map": "/static/js/main.6a1dec12.js.map",
+    "main.27f42bc3.css.map": "/static/css/main.27f42bc3.css.map",
+    "main.4e99e3d4.js.map": "/static/js/main.4e99e3d4.js.map",
     "372.80690f33.chunk.js.map": "/static/js/372.80690f33.chunk.js.map",
     "258.3b9f39c2.chunk.js.map": "/static/js/258.3b9f39c2.chunk.js.map",
     "627.9a99d8dd.chunk.js.map": "/static/js/627.9a99d8dd.chunk.js.map",
@@ -28,7 +30,7 @@
     "164.f1e4c17a.chunk.js.map": "/static/js/164.f1e4c17a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.330bbe72.css",
-    "static/js/main.6a1dec12.js"
+    "static/css/main.27f42bc3.css",
+    "static/js/main.4e99e3d4.js"
   ]
 }
