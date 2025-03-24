@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2847da23.css",
-    "main.js": "/static/js/main.632f0d08.js",
+    "main.js": "/static/js/main.6a1dec12.js",
     "static/js/372.80690f33.chunk.js": "/static/js/372.80690f33.chunk.js",
     "static/js/929.ce1a9726.chunk.js": "/static/js/929.ce1a9726.chunk.js",
     "static/js/258.3b9f39c2.chunk.js": "/static/js/258.3b9f39c2.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/164.f1e4c17a.chunk.js": "/static/js/164.f1e4c17a.chunk.js",
     "static/media/hell.png": "/static/media/hell.ebe875c9689953d7b285.png",
     "static/media/benzo.png": "/static/media/benzo.35244abcb8496f75d538.png",
-    "static/media/background.jpg": "/static/media/background.4da17a8dd7470442e5e6.jpg",
+    "static/media/background.jpg": "/static/media/background.c74c30f42eb0f00606c5.jpg",
     "static/media/board.jpg": "/static/media/board.c32c8df78d3d0b1c3b11.jpg",
     "static/media/glow_outer.png": "/static/media/glow_outer.51b9ffe3aafe03da9cff.png",
     "static/media/particle_smoke.png": "/static/media/particle_smoke.561dfdd21093fab32e24.png",
@@ -20,7 +20,7 @@
     "static/media/wallpaper_tile.png": "/static/media/wallpaper_tile.d1075c77990f03477011.png",
     "index.html": "/index.html",
     "main.2847da23.css.map": "/static/css/main.2847da23.css.map",
-    "main.632f0d08.js.map": "/static/js/main.632f0d08.js.map",
+    "main.6a1dec12.js.map": "/static/js/main.6a1dec12.js.map",
     "372.80690f33.chunk.js.map": "/static/js/372.80690f33.chunk.js.map",
     "258.3b9f39c2.chunk.js.map": "/static/js/258.3b9f39c2.chunk.js.map",
     "627.9a99d8dd.chunk.js.map": "/static/js/627.9a99d8dd.chunk.js.map",
@@ -29,6 +29,6 @@
   },
   "entrypoints": [
     "static/css/main.2847da23.css",
-    "static/js/main.632f0d08.js"
+    "static/js/main.6a1dec12.js"
   ]
 }
