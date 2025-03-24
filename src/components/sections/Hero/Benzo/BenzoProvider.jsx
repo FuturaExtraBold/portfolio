@@ -42,6 +42,7 @@ export const BenzoProvider = ({ children, parentRef }) => {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
       setParentSize({ width, height });
+      console.log("parent size updated:", { width, height });
     }
   }, [parentRef]);
 
@@ -57,18 +58,17 @@ export const BenzoProvider = ({ children, parentRef }) => {
     }
   }, [glowColors, parentRef]);
 
-  const updateSmoke = useCallback(() => {
+  const updateReflection = useCallback(() => {
     if (parentRef.current) {
       const color =
         glowColorsReflection[
           Math.floor(Math.random() * glowColorsReflection.length)
         ];
       const duration = Math.random() * 1 + 0.5;
-      console.log("updateSmoke:", color, duration);
       setColorSmoke(color);
       setDurationSmoke(duration);
       setTimeout(() => {
-        updateSmoke();
+        updateReflection();
       }, duration * 1000);
     }
   }, [glowColorsReflection, parentRef]);
@@ -86,8 +86,8 @@ export const BenzoProvider = ({ children, parentRef }) => {
   }, [updateCrystalBall]);
 
   useEffect(() => {
-    updateSmoke();
-  }, [updateSmoke]);
+    updateReflection();
+  }, [updateReflection]);
 
   const contextValues = useMemo(
     () => ({
