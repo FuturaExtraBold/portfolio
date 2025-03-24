@@ -1,7 +1,6 @@
 .hell {
   position: relative;
   display: flex;
-  height: 1440px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -12,9 +11,4 @@
 .hell__container {
   height: 100%;
   padding: 0;
-}
-
-.hell__image {
-  position: absolute;
-  bottom: 0;
 }

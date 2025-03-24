@@ -6,13 +6,11 @@ import Hero from "components/sections/Hero/Hero";
 import Lighthouse from "components/sections/Lighthouse/Lighthouse";
 import PictureFrame from "components/ui/PictureFrame/PictureFrame";
 import Resume from "components/sections/Resume/Resume";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 import "./benzo-app.scss";
 
 function App() {
   return (
     <main className="benzo-app">
-      <Wallpaper />
       <PictureFrame />
       <Hero />
       <About />
