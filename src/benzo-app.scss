@@ -8,8 +8,10 @@
   background-color: #000000;
 }
 
-@media screen and (width >= 1440px) {
-  .benzo-app {
-    padding: 180px;
-  }
+.media--desktop {
+  padding: 90px;
+}
+
+.media--desktop-large {
+  padding: 180px;
 }
