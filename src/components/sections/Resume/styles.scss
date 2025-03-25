@@ -1,14 +1,24 @@
 .resume {
   position: relative;
   display: flex;
-  height: 1080px;
+  max-width: 1440px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  margin: 0 auto;
   box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
 }
 
-.resume__container {
-  padding: 0;
+.resume__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  gap: 30px;
+}
+
+.resume__overlay {
+  background: linear-gradient(to top, black, transparent 50%);
 }

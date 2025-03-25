@@ -7,9 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
   margin: 0 auto;
-  color: #ffffff;
 }
 
 .about__content {
@@ -19,13 +17,13 @@
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
-  gap: 60px;
+  gap: 30px;
 }
 
 .about__image {
   position: relative;
-  width: 310px;
-  height: 340px;
+  width: 155px;
+  height: 170px;
   filter: drop-shadow(0 6px 24px rgb(#2ee554, 0.5));
   transform: rotate(-10deg);
 }
@@ -54,9 +52,15 @@
   .about__content {
     flex-direction: row;
     padding: 100px 30px;
+    gap: 60px;
   }
 
   .about__text {
     gap: 18px;
+  }
+
+  .about__image {
+    width: 248px;
+    height: 272px;
   }
 }

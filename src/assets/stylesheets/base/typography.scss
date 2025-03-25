@@ -3,14 +3,21 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.heading--1,
+.heading--2,
+.heading--3,
+.heading--4,
+.heading--5,
+.heading--6 {
   margin: 0;
+  color: #ffffff;
   font-family: "Benguiat Bold Condensed BT", sans-serif;
-  line-height: 0.9;
+  line-height: 1.1;
 }
 
-h1 {
-  line-height: 1.1;
+h1,
+.heading--1 {
   transition: line-height 0.3s ease-in-out;
 
   @include fluid-type(600px, 1200px, 32px, 64px);
@@ -25,7 +32,18 @@ p {
 }
 
 @media (width >= 768px) {
-  h1 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .heading--1,
+  .heading--2,
+  .heading--3,
+  .heading--4,
+  .heading--5,
+  .heading--6 {
     line-height: 0.9;
   }
 }

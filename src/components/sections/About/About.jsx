@@ -12,9 +12,9 @@ export default function About() {
       <div className="about__content">
         <img className="about__image" src={imageShip} alt="Ship" />
         <div className="about__text">
-          <h1 className="about__title">
+          <p className="heading--1 about__title">
             Marvel at feats of spectacular ingenuity.
-          </h1>
+          </p>
           <div className="about__description">
             <p>
               I am a Frontend Developer with a passion for creating
