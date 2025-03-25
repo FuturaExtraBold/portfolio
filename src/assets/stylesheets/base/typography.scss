@@ -19,7 +19,7 @@ h1 {
 p {
   color: #e2c06d;
   font-family: "Dolly Roman", serif;
-  line-height: 1.4;
+  line-height: 1.38;
 
   @include fluid-type(600px, 1200px, 16px, 21px);
 }

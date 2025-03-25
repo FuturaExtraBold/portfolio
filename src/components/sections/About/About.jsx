@@ -1,6 +1,7 @@
 import React from "react";
 import Separator from "components/ui/Separator/Separator";
 import Wallpaper from "components/ui/Wallpaper/Wallpaper";
+import imageShip from "../../../assets/images/about/ship.png";
 import "./styles.scss";
 
 export default function About() {
@@ -9,7 +10,7 @@ export default function About() {
       <Wallpaper />
       <div className="overlay about__overlay" />
       <div className="about__content">
-        <div className="about__image"></div>
+        <img className="about__image" src={imageShip} alt="Ship" />
         <div className="about__text">
           <h1 className="about__title">
             Marvel at feats of spectacular ingenuity.

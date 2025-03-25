@@ -19,7 +19,15 @@
   align-items: center;
   justify-content: center;
   padding: 40px 24px;
-  gap: 24px;
+  gap: 60px;
+}
+
+.about__image {
+  position: relative;
+  width: 310px;
+  height: 340px;
+  filter: drop-shadow(0 6px 24px rgb(#2ee554, 0.5));
+  transform: rotate(-10deg);
 }
 
 .about__overlay {
