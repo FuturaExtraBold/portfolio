@@ -7,11 +7,10 @@ import Lighthouse from "components/sections/Lighthouse/Lighthouse";
 import PictureFrame from "components/ui/PictureFrame/PictureFrame";
 import Resume from "components/sections/Resume/Resume";
 import { useApp } from "./AppProvider";
-import "./benzo-app.scss";
+import "./app.scss";
 
 function App() {
   const { currentSection, mediaClass } = useApp();
-  // console.log("benzo:", { currentSection, mediaClass });
 
   return (
     <main
