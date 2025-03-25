@@ -15,7 +15,8 @@ function App() {
 
   return (
     <main
-      className={`benzo-app section--${currentSection} media--${mediaClass}`}
+      id="benzo-app"
+      className={`section--${currentSection} media--${mediaClass}`}
     >
       <PictureFrame />
       <Hero />

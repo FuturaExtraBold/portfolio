@@ -1,4 +1,4 @@
-.benzo-app {
+#benzo-app {
   position: relative;
   overflow: visible;
   width: 100%;
@@ -8,10 +8,10 @@
   background-color: #000000;
 }
 
-.media--desktop {
+#benzo-app.media--desktop {
   padding: 90px;
 }
 
-.media--desktop-large {
+#benzo-app.media--desktop-large {
   padding: 180px;
 }

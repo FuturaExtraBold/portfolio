@@ -10,11 +10,7 @@ export default function Planchette({ enable }) {
 
   useEffect(() => {
     if (!enabled) return;
-    console.log("Planchette enabled");
     const planchette = refPlanchette.current;
-
-    const parentRect = planchette.parentElement.getBoundingClientRect();
-    console.log("Parent element top position:", parentRect.top);
 
     const handleMouseMove = (event) => {
       const mouseX = event.clientX;

@@ -4,7 +4,6 @@ import React, {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import App from "./App";
@@ -15,8 +14,6 @@ export const AppProvider = ({ children }) => {
   const [currentSection, setCurrentSection] = useState("hero");
   const [mediaClass, setMediaClass] = useState("desktop");
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  const appRef = useRef(null);
 
   const updateWindowSize = useCallback(() => {
     const width = window.innerWidth;
@@ -37,7 +34,10 @@ export const AppProvider = ({ children }) => {
   }, []);
 
   const updateCurrentSection = useCallback(() => {
-    const sections = document.querySelectorAll("section");
+    const appElement = document.querySelector("#benzo-app");
+    if (!appElement) return;
+
+    const sections = appElement.querySelectorAll("section");
     let currentSection = "hero";
     const windowHeight = window.innerHeight;
     sections.forEach((section) => {
@@ -76,7 +76,7 @@ export const AppProvider = ({ children }) => {
 
   return (
     <AppContext.Provider value={contextValues}>
-      <App ref={appRef} />
+      <App />
       {children}
     </AppContext.Provider>
   );
