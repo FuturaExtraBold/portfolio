@@ -15,7 +15,6 @@ export default function GlowGlasses() {
     if (textureGlowGlasses === Texture.EMPTY) {
       Assets.load(imageGlowGlasses).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("glow glasses texture loaded", result);
         setTextureGlowGlasses(result);
       });
     }

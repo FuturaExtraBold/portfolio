@@ -15,7 +15,6 @@ export default function GlowOuter() {
     if (textureGlowOuter === Texture.EMPTY) {
       Assets.load(imageGlowOuter).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("glow outer texture loaded", result);
         setTextureGlowOuter(result);
       });
     }

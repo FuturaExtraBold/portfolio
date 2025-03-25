@@ -10,10 +10,13 @@ import { useApp } from "./AppProvider";
 import "./benzo-app.scss";
 
 function App() {
-  const { mediaClass } = useApp();
+  const { currentSection, mediaClass } = useApp();
+  // console.log("benzo:", { currentSection, mediaClass });
 
   return (
-    <main className={`benzo-app media--${mediaClass}`}>
+    <main
+      className={`benzo-app section--${currentSection} media--${mediaClass}`}
+    >
       <PictureFrame />
       <Hero />
       <About />

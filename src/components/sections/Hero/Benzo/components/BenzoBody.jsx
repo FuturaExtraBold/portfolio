@@ -14,7 +14,6 @@ export default function BenzoBody() {
     if (textureBenzoBody === Texture.EMPTY) {
       Assets.load(imageBenzoBody).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("benzo body texture loaded", result);
         setTextureBenzoBody(result);
       });
     }

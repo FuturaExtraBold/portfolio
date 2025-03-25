@@ -15,7 +15,6 @@ export default function GlowInner() {
     if (textureGlowInner === Texture.EMPTY) {
       Assets.load(imageGlowInner).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("glow inner texture loaded", result);
         setTextureGlowInner(result);
       });
     }

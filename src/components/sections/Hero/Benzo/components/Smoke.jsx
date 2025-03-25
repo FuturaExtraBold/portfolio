@@ -19,7 +19,6 @@ export default function Smoke() {
     if (textureParticleSmoke === Texture.EMPTY) {
       Assets.load(imageParticleSmoke).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("smoke particle texture loaded", result);
         setTextureParticleSmoke(result);
       });
     }

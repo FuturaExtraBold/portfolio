@@ -14,7 +14,6 @@ export default function Background() {
     if (textureBackground === Texture.EMPTY) {
       Assets.load(imageBackground).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("background texture loaded", result);
         setTextureBackground(result);
       });
     }
