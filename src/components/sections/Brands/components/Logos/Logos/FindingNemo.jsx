@@ -2,12 +2,7 @@ import React from "react";
 
 export default function FindingNemo() {
   return (
-    <svg
-      width="128"
-      height="45"
-      viewBox="0 0 128 45"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 128 45" xmlns="http://www.w3.org/2000/svg">
       <path
         id="findingnemo"
         fill="#000000"

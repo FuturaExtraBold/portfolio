@@ -2,12 +2,7 @@ import React from "react";
 
 export default function TheSimpsons() {
   return (
-    <svg
-      width="129"
-      height="69"
-      viewBox="0 0 129 69"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 129 69" xmlns="http://www.w3.org/2000/svg">
       <path
         id="thesimpsons"
         fill="#000000"

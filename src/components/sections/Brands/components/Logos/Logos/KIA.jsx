@@ -2,12 +2,7 @@ import React from "react";
 
 export default function KIA() {
   return (
-    <svg
-      width="129"
-      height="31"
-      viewBox="0 0 129 31"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 129 31" xmlns="http://www.w3.org/2000/svg">
       <path
         id="kia"
         fill="#000000"

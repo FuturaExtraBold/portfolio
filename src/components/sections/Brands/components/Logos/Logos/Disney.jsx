@@ -2,12 +2,7 @@ import React from "react";
 
 export default function Disney() {
   return (
-    <svg
-      width="129"
-      height="55"
-      viewBox="0 0 129 55"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 129 55" xmlns="http://www.w3.org/2000/svg">
       <path
         id="disney"
         fill="#000000"

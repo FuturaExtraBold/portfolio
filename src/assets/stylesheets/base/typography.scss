@@ -26,7 +26,7 @@ h1,
   @include fluid-type(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
-    32px,
+    36px,
     64px
   );
 }
@@ -46,7 +46,7 @@ h2,
 p {
   color: #e2c06d;
   font-family: "Dolly Roman", serif;
-  line-height: 1.38;
+  line-height: 1.5;
 
   @include fluid-type(
     $fluid-typography-min-width,
@@ -69,6 +69,6 @@ p {
   .heading--4,
   .heading--5,
   .heading--6 {
-    line-height: 0.9;
+    line-height: 1;
   }
 }

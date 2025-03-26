@@ -2,12 +2,7 @@ import React from "react";
 
 export default function Kajabi() {
   return (
-    <svg
-      width="128"
-      height="43"
-      viewBox="0 0 128 43"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 128 43" xmlns="http://www.w3.org/2000/svg">
       <path
         id="kajabi"
         fill="#000000"

@@ -22,6 +22,7 @@
 
 .about__image {
   position: relative;
+  display: none;
   width: 155px;
   height: 170px;
   filter: drop-shadow(0 6px 24px rgb(#2ee554, 0.5));
@@ -60,6 +61,7 @@
   }
 
   .about__image {
+    display: block;
     width: 248px;
     height: 272px;
   }

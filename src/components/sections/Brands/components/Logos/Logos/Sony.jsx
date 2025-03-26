@@ -2,12 +2,7 @@ import React from "react";
 
 export default function Sony() {
   return (
-    <svg
-      width="130"
-      height="140"
-      viewBox="0 0 130 140"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 130 140" xmlns="http://www.w3.org/2000/svg">
       <path
         id="Path-copy-2"
         fill="#000000"

@@ -1,8 +1,9 @@
 import React from "react";
+import SectionHeader from "components/ui/SectionHeader/SectionHeader";
 import Separator from "components/ui/Separator/Separator";
 import Wallpaper from "components/ui/Wallpaper/Wallpaper";
+import Employers from "./Employers/Employers";
 import "./styles.scss";
-import SectionHeader from "components/ui/SectionHeader/SectionHeader";
 
 export default function Resume() {
   return (
@@ -14,6 +15,7 @@ export default function Resume() {
           subtitle="An illustrious career has earned his fame far and wide."
           title="Work History"
         />
+        <Employers />
       </div>
       <Separator />
     </section>

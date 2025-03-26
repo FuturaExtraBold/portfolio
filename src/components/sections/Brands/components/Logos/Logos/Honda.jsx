@@ -2,12 +2,7 @@ import React from "react";
 
 export default function Honda() {
   return (
-    <svg
-      width="129"
-      height="16"
-      viewBox="0 0 129 16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 129 16" xmlns="http://www.w3.org/2000/svg">
       <path
         id="honda"
         fill="#000000"

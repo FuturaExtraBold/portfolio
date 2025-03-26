@@ -1,0 +1,16 @@
+.employers {
+  display: grid;
+  width: 100%;
+  max-width: 1024px;
+  margin: 20px auto;
+  gap: 36px;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (width >= 768px) {
+  .employers {
+    margin: 40px auto;
+    gap: 72px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

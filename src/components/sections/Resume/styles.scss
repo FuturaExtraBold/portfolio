@@ -11,10 +11,16 @@
 
 .resume__content {
   flex-direction: column;
-  padding: 80px 24px;
+  padding: 48px 24px;
   gap: 30px;
 }
 
 .resume__overlay {
   background: linear-gradient(to top, black, transparent 50%);
+}
+
+@media screen and (width >= 768px) {
+  .resume__content {
+    padding: 80px 48px;
+  }
 }

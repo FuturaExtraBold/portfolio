@@ -2,12 +2,7 @@ import React from "react";
 
 export default function FOX() {
   return (
-    <svg
-      width="129"
-      height="56"
-      viewBox="0 0 129 56"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 129 56" xmlns="http://www.w3.org/2000/svg">
       <path
         id="fox"
         fill="#000000"

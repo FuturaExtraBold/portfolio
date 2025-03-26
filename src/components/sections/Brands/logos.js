@@ -3,17 +3,17 @@ import DreamWorks from "./components/Logos/Logos/DreamWorks";
 import FindingNemo from "./components/Logos/Logos/FindingNemo";
 import FOX from "./components/Logos/Logos/FOX";
 import Honda from "./components/Logos/Logos/Honda";
+import HookyGrand from "./components/Logos/Logos/HookyGrand";
 import Kajabi from "./components/Logos/Logos/Kajabi";
 import KIA from "./components/Logos/Logos/KIA";
 import KSwiss from "./components/Logos/Logos/KSwiss";
 import Lexus from "./components/Logos/Logos/Lexus";
 import Mickey from "./components/Logos/Logos/Mickey";
 import Pixar from "./components/Logos/Logos/Pixar";
+import Sony from "./components/Logos/Logos/Sony";
 import SouthPark from "./components/Logos/Logos/SouthPark";
 import TheSimpsons from "./components/Logos/Logos/TheSimpsons";
 import U2 from "./components/Logos/Logos/U2";
-import Hooky from "./components/Logos/Logos/Hooky";
-import Sony from "./components/Logos/Logos/Sony";
 
 const logos = [
   { component: Disney, order: 1 },
@@ -30,7 +30,7 @@ const logos = [
   { component: Lexus, order: 12 },
   { component: KSwiss, order: 13 },
   { component: U2, order: 14 },
-  { component: Hooky, order: 15 },
+  { component: HookyGrand, order: 15 },
   { component: Kajabi, order: 16 },
 ];
 

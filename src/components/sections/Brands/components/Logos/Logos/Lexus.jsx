@@ -2,12 +2,7 @@ import React from "react";
 
 export default function Lexus() {
   return (
-    <svg
-      width="129"
-      height="58"
-      viewBox="0 0 129 58"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg viewBox="0 0 129 58" xmlns="http://www.w3.org/2000/svg">
       <path
         id="lexus"
         fill="#000000"
