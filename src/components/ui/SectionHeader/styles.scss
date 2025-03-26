@@ -9,6 +9,7 @@
 }
 
 .hairline {
+  display: none;
   width: 100%;
   max-width: 540px;
   height: 0.5px;
@@ -22,4 +23,10 @@
 
 .section-header--dark > .hairline {
   background-color: #000000;
+}
+
+@media screen and (width >= 768px) {
+  .hairline {
+    display: block;
+  }
 }
