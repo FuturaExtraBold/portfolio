@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b20ff123.css",
-    "main.js": "/static/js/main.7f325655.js",
+    "main.css": "/static/css/main.c0ace23b.css",
+    "main.js": "/static/js/main.e7ff8b2c.js",
     "static/js/372.80690f33.chunk.js": "/static/js/372.80690f33.chunk.js",
     "static/js/929.ce1a9726.chunk.js": "/static/js/929.ce1a9726.chunk.js",
     "static/js/258.3b9f39c2.chunk.js": "/static/js/258.3b9f39c2.chunk.js",
@@ -22,8 +22,8 @@
     "static/media/dolly-roman.woff": "/static/media/dolly-roman.ca59a417df1da3c0e960.woff",
     "static/media/itc-benguiat-bold-condensed.woff": "/static/media/itc-benguiat-bold-condensed.baf8fa6557a5c706ca79.woff",
     "index.html": "/index.html",
-    "main.b20ff123.css.map": "/static/css/main.b20ff123.css.map",
-    "main.7f325655.js.map": "/static/js/main.7f325655.js.map",
+    "main.c0ace23b.css.map": "/static/css/main.c0ace23b.css.map",
+    "main.e7ff8b2c.js.map": "/static/js/main.e7ff8b2c.js.map",
     "372.80690f33.chunk.js.map": "/static/js/372.80690f33.chunk.js.map",
     "258.3b9f39c2.chunk.js.map": "/static/js/258.3b9f39c2.chunk.js.map",
     "627.9a99d8dd.chunk.js.map": "/static/js/627.9a99d8dd.chunk.js.map",
@@ -31,7 +31,7 @@
     "164.f1e4c17a.chunk.js.map": "/static/js/164.f1e4c17a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b20ff123.css",
-    "static/js/main.7f325655.js"
+    "static/css/main.c0ace23b.css",
+    "static/js/main.e7ff8b2c.js"
   ]
 }
