@@ -41,7 +41,7 @@ export default function Smoke() {
 
         particles.push(
           <pixiSprite
-            alpha={1}
+            alpha={0.2}
             anchor={0.5}
             eventMode={"static"}
             key={uuid()}
@@ -64,7 +64,7 @@ export default function Smoke() {
                 alpha: 0,
               },
               delay: Math.random() * 3,
-              duration: Math.random() * 4 + 1,
+              duration: Math.random() * 4 + 8,
               ease: "power1.out",
               repeat: -1,
               onRepeat: () => {
