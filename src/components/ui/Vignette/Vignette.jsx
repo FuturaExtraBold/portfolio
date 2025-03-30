@@ -1,9 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./vignette.scss";
 
 export default function Vignette({ opacity }) {
-  const resolvedOpacity = opacity || 0.2;
-  return (
-    <aside className="vignette" style={{ opacity: resolvedOpacity }}></aside>
-  );
+  return <aside className="vignette" style={{ opacity: opacity }}></aside>;
 }
+
+Vignette.propTypes = {
+  opacity: PropTypes.number,
+};
+
+Vignette.defaultProps = {
+  opacity: 0.2,
+};

@@ -1,0 +1,10 @@
+@import "../../../assets/stylesheets/all.scss";
+
+.overlay-fade-up {
+  z-index: 1;
+  background: linear-gradient(to top, black, transparent 50%);
+  opacity: 0.5;
+  pointer-events: none;
+
+  @include fit();
+}

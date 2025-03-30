@@ -42,7 +42,6 @@ export const BenzoProvider = ({ parentRef }) => {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
       setParentSize({ width, height });
-      // console.log("parent size updated:", { width, height });
     }
   }, [parentRef]);
 

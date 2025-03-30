@@ -1,5 +1,30 @@
+@import "../../../../../assets/stylesheets/consumables.scss";
+
 .board {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.board__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.board__accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include fluid-width(375px, 1440px, 100px, 300px);
+}
+
+.board__accent--sun {
+  @include fluid-width(375px, 1440px, 96px, 290px);
+}
+
+.board__accent--moon {
+  right: 0;
+  left: auto;
 }

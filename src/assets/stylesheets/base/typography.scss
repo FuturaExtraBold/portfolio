@@ -21,6 +21,7 @@ h6,
 
 h1,
 .heading--1 {
+  text-shadow: rgb(220 220 220 / 0.5) 0 0 10px;
   transition: line-height 0.3s ease-in-out;
 
   @include fluid-type(
@@ -34,11 +35,12 @@ h1,
 h2,
 .heading--2 {
   font-family: "Dolly Roman", serif;
+  line-height: 1.5;
 
   @include fluid-type(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
-    18px,
+    19px,
     21px
   );
 }
@@ -51,7 +53,7 @@ p {
   @include fluid-type(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
-    16px,
+    19px,
     21px
   );
 }
