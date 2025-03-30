@@ -17,10 +17,11 @@ export default function About() {
           </p>
           <div className="about__description">
             <p>
-              I am a Frontend Developer with a passion for creating
+              I am a Frontend Developer with a penchant for creating
               pixel-perfect and responsive web experiences. I have over 20 years
-              of building websites and web applications with React, HTML, and
-              CSS.
+              of experience building websites, interactive advertising, and web
+              applications. My expertise includes working with React and its
+              variants, as well as HTML, CSS, and their modern frameworks.
             </p>
           </div>
         </div>
