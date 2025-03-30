@@ -16,12 +16,10 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <div className="container hero__container" ref={parentRef}>
-        <div className="content">
-          <Application background="#000000" resizeTo={parentRef}>
-            <BenzoProvider parentRef={parentRef} />
-          </Application>
-        </div>
+      <div className="content hero__content" ref={parentRef}>
+        <Application background="#000000" resizeTo={parentRef}>
+          <BenzoProvider parentRef={parentRef} />
+        </Application>
       </div>
       <Separator />
       <div className="overlay"></div>

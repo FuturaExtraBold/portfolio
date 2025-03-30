@@ -25,13 +25,19 @@ export default function Smoke() {
   }, [textureParticleSmoke]);
 
   useEffect(() => {
-    if (textureParticleSmoke !== Texture.EMPTY && parentSize.height > 0) {
+    if (
+      textureParticleSmoke !== Texture.EMPTY &&
+      parentSize.height > 0 &&
+      parentSize.width > 0
+    ) {
       const numParticles = 300;
       const particles = [];
       for (let i = 0; i < numParticles; i++) {
         const refParticle = React.createRef();
         const randColor =
           glowColorsSmoke[Math.floor(Math.random() * glowColorsSmoke.length)];
+
+        const initialX = -200 + Math.random() * 1640;
 
         particles.push(
           <pixiSprite
@@ -44,7 +50,7 @@ export default function Smoke() {
             scale={Math.random() * 0.2 + 0.8}
             texture={textureParticleSmoke}
             tint={randColor}
-            x={Math.random() * parentSize.width}
+            x={initialX}
             y={Math.random() * parentSize.height + 1400}
           />
         );
@@ -53,12 +59,12 @@ export default function Smoke() {
           if (refParticle.current) {
             gsap.to(refParticle.current, {
               pixi: {
-                x: Math.random() * parentSize.width,
+                x: 720,
                 y: -800,
                 alpha: 0,
               },
               delay: Math.random() * 3,
-              duration: Math.random() * 4 + 2,
+              duration: Math.random() * 4 + 1,
               ease: "power1.out",
               repeat: -1,
               onRepeat: () => {
@@ -69,7 +75,7 @@ export default function Smoke() {
               },
             });
           }
-        }, 300); // Staggered start to avoid uniform movement
+        }, 300);
       }
 
       setParticlesSmoke((prevParticles) => {
@@ -82,6 +88,11 @@ export default function Smoke() {
   }, [glowColorsSmoke, parentSize, textureParticleSmoke]);
 
   return (
-    <pixiContainer ref={refParticlesSmoke}>{particlesSmoke}</pixiContainer>
+    <pixiContainer
+      ref={refParticlesSmoke}
+      scale={(parentSize.width * 0.75) / 1000}
+    >
+      {particlesSmoke}
+    </pixiContainer>
   );
 }

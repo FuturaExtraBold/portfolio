@@ -12,7 +12,7 @@ import Benzo from "./Benzo";
 
 const BenzoContext = createContext();
 
-export const BenzoProvider = ({ children, parentRef }) => {
+export const BenzoProvider = ({ parentRef }) => {
   gsap.registerPlugin(PixiPlugin);
   PixiPlugin.registerPIXI(parentRef.current);
 
@@ -79,7 +79,7 @@ export const BenzoProvider = ({ children, parentRef }) => {
     return () => {
       window.removeEventListener("resize", updateParentSize);
     };
-  }, [updateParentSize]);
+  }, [parentRef, updateParentSize]);
 
   useEffect(() => {
     updateCrystalBall();
@@ -113,7 +113,6 @@ export const BenzoProvider = ({ children, parentRef }) => {
   return (
     <BenzoContext.Provider value={contextValues}>
       <Benzo parentRef={parentRef} />
-      {children}
     </BenzoContext.Provider>
   );
 };
