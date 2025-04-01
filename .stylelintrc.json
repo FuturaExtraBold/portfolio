@@ -17,5 +17,11 @@
       ["custom-properties", "declarations", "at-rules", "rules"],
       { "unspecified": "bottom" }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss"
+    }
+  ]
 }
