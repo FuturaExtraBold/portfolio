@@ -24,11 +24,12 @@ h1,
   text-shadow: rgb(220 220 220 / 0.5) 0 0 10px;
   transition: line-height 0.3s ease-in-out;
 
-  @include fluid-type(
+  @include fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
     36px,
-    64px
+    64px,
+    font-size
   );
 }
 
@@ -37,11 +38,12 @@ h2,
   font-family: "Dolly Roman", serif;
   line-height: 1.5;
 
-  @include fluid-type(
+  @include fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
     19px,
-    21px
+    21px,
+    font-size
   );
 }
 
@@ -50,11 +52,12 @@ p {
   font-family: "Dolly Roman", serif;
   line-height: 1.5;
 
-  @include fluid-type(
+  @include fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
     19px,
-    21px
+    21px,
+    font-size
   );
 }
 

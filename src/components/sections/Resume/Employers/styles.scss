@@ -7,7 +7,7 @@
   margin: 20px auto;
   grid-template-columns: 1fr;
 
-  @include fluid-width(768px, 1024px, 36px, 60px, gap);
+  @include fluid-property(768px, 1024px, 36px, 60px, gap);
 }
 
 @media screen and (width >= 768px) {
