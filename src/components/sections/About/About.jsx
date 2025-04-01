@@ -1,4 +1,5 @@
 import React from "react";
+import OverlayFadeUp from "components/ui/OverlayFadeUp/OverlayFadeUp";
 import Separator from "components/ui/Separator/Separator";
 import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 import imageShip from "../../../assets/images/about/ship.png";
@@ -8,7 +9,7 @@ export default function About() {
   return (
     <section className="about">
       <Wallpaper />
-      <div className="overlay about__overlay" />
+      <OverlayFadeUp opacity={0.8} />
       <div className="about__content">
         <img className="about__image" src={imageShip} alt="Ship" />
         <div className="about__text">
