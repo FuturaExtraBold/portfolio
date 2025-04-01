@@ -1,5 +1,7 @@
-$fluid-typography-min-width: 600px;
-$fluid-typography-max-width: 1200px;
+@import "../consumables.scss";
+
+$fluid-typography-min-width: $breaks-md;
+$fluid-typography-max-width: $breaks-xl;
 
 h1,
 h2,
@@ -61,7 +63,7 @@ p {
   );
 }
 
-@media (width >= 768px) {
+@media (min-width: $breaks-md) {
   h1,
   h2,
   h3,

@@ -1,9 +1,11 @@
+@import "../../../assets/stylesheets/consumables.scss";
+
 .separator {
   position: relative;
   z-index: 100;
   display: block;
   width: 100%;
-  max-width: 1440px;
+  max-width: $breaks-xxl;
   height: 14px;
   margin: 0 auto;
   box-shadow: 0 -10px 10px -4px rgb(0 0 0 / 0.5),
@@ -15,7 +17,7 @@
   height: 100%;
 }
 
-@media screen and (width >= 768px) {
+@media (width >= $breaks-md) {
   .separator {
     height: 18px;
   }

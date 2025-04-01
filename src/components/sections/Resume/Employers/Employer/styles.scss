@@ -1,3 +1,5 @@
+@import "../../../../../assets/stylesheets/consumables.scss";
+
 .employer {
   display: flex;
   flex-direction: column;
@@ -42,7 +44,7 @@
   margin: 0;
 }
 
-@media screen and (width >= 768px) {
+@media (width >= $breaks-md) {
   .employer {
     gap: 24px;
   }

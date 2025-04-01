@@ -7,10 +7,10 @@
   margin: 20px auto;
   grid-template-columns: 1fr;
 
-  @include fluid-property(768px, 1024px, 36px, 60px, gap);
+  @include fluid-property($breaks-md, 1024px, 36px, 60px, gap);
 }
 
-@media screen and (width >= 768px) {
+@media (width >= $breaks-md) {
   .employers {
     margin: 40px auto;
     grid-template-columns: repeat(3, 1fr);

@@ -1,9 +1,11 @@
+@import "../../../assets/stylesheets/consumables.scss";
+
 .hero {
   position: relative;
   display: flex;
   overflow: auto;
   width: 100%;
-  max-width: 1440px;
+  max-width: $breaks-xxl;
   flex-direction: column;
   align-items: center;
   justify-content: center;

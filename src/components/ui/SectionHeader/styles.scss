@@ -1,3 +1,5 @@
+@import "../../../assets/stylesheets/consumables.scss";
+
 .section-header {
   display: flex;
   width: 100%;
@@ -25,7 +27,7 @@
   background-color: #000000;
 }
 
-@media screen and (width >= 768px) {
+@media (width >= $breaks-md) {
   .hairline {
     display: block;
   }
