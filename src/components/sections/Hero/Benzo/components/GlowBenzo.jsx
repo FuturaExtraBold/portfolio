@@ -1,24 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Assets, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import imageGlowBenzo from "../../../../../assets/images/benzo/benzo.png";
 
 export default function GlowBenzo() {
   const refGlowBenzo = useRef(null);
 
-  const [textureGlowBenzo, setTextureGlowBenzo] = useState(Texture.EMPTY);
-
-  const { colorCrystalBall, durationCrystalBall, parentSize } = useBenzo();
-
-  useEffect(() => {
-    if (textureGlowBenzo === Texture.EMPTY) {
-      Assets.load(imageGlowBenzo).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        setTextureGlowBenzo(result);
-      });
-    }
-  }, [textureGlowBenzo]);
+  const {
+    allTexturesLoaded,
+    colorCrystalBall,
+    durationCrystalBall,
+    parentSize,
+    textures,
+  } = useBenzo();
 
   useEffect(() => {
     if (refGlowBenzo.current) {
@@ -29,14 +22,15 @@ export default function GlowBenzo() {
     }
   }, [colorCrystalBall, durationCrystalBall]);
 
+  if (!allTexturesLoaded || !textures.glowBenzo) return null;
+
   return (
     <pixiSprite
       alpha="0.6"
       eventMode={"static"}
       height={parentSize.height}
       ref={refGlowBenzo}
-      scale={0.5}
-      texture={textureGlowBenzo}
+      texture={textures.glowBenzo}
       tint="#ffffff"
       width={parentSize.width}
     />

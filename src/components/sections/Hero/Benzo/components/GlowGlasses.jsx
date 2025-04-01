@@ -1,24 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Assets, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import imageGlowGlasses from "../../../../../assets/images/benzo/glow_glasses.png";
 
 export default function GlowGlasses() {
   const refGlowGlasses = useRef(null);
 
-  const [textureGlowGlasses, setTextureGlowGlasses] = useState(Texture.EMPTY);
-
-  const { colorCrystalBall, durationCrystalBall, parentSize } = useBenzo();
-
-  useEffect(() => {
-    if (textureGlowGlasses === Texture.EMPTY) {
-      Assets.load(imageGlowGlasses).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        setTextureGlowGlasses(result);
-      });
-    }
-  }, [textureGlowGlasses]);
+  const {
+    allTexturesLoaded,
+    colorCrystalBall,
+    durationCrystalBall,
+    parentSize,
+    textures,
+  } = useBenzo();
 
   useEffect(() => {
     if (refGlowGlasses.current) {
@@ -29,14 +22,15 @@ export default function GlowGlasses() {
     }
   }, [colorCrystalBall, durationCrystalBall, refGlowGlasses]);
 
+  if (!allTexturesLoaded || !textures.glowGlasses) return null;
+
   return (
     <pixiSprite
       alpha="1"
       eventMode={"static"}
       height={parentSize.height}
       ref={refGlowGlasses}
-      scale={0.5}
-      texture={textureGlowGlasses}
+      texture={textures.glowGlasses}
       tint="#ffffff"
       width={parentSize.width}
     />

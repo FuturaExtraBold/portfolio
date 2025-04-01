@@ -1,24 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Assets, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import imageGlowInner from "../../../../../assets/images/benzo/glow_inner.png";
 
 export default function GlowInner() {
   const refGlowInner = useRef(null);
 
-  const [textureGlowInner, setTextureGlowInner] = useState(Texture.EMPTY);
-
-  const { colorSmoke, durationSmoke, parentSize } = useBenzo();
-
-  useEffect(() => {
-    if (textureGlowInner === Texture.EMPTY) {
-      Assets.load(imageGlowInner).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        setTextureGlowInner(result);
-      });
-    }
-  }, [textureGlowInner]);
+  const { allTexturesLoaded, colorSmoke, durationSmoke, parentSize, textures } =
+    useBenzo();
 
   useEffect(() => {
     if (refGlowInner.current) {
@@ -29,14 +17,15 @@ export default function GlowInner() {
     }
   }, [colorSmoke, durationSmoke]);
 
+  if (!allTexturesLoaded || !textures.glowInner) return null;
+
   return (
     <pixiSprite
       alpha="0.8"
       eventMode={"static"}
       height={parentSize.height}
       ref={refGlowInner}
-      scale={0.5}
-      texture={textureGlowInner}
+      texture={textures.glowInner}
       tint="#ffffff"
       width={parentSize.width}
     />

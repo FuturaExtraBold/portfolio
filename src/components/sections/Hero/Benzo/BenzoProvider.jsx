@@ -6,9 +6,19 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { Assets } from "pixi.js";
 import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import Benzo from "./Benzo";
+
+// Textures
+import benzoBackground from "../../../../assets/images/benzo/background.jpg";
+import benzoBody from "../../../../assets/images/benzo/benzo.png";
+import glowBenzo from "../../../../assets/images/benzo/benzo.png";
+import glowGlasses from "../../../../assets/images/benzo/glow_glasses.png";
+import glowInner from "../../../../assets/images/benzo/glow_inner.png";
+import glowOuter from "../../../../assets/images/benzo/glow_outer.png";
+import smokeParticle from "../../../../assets/images/benzo/particle_smoke.png";
 
 const BenzoContext = createContext();
 
@@ -37,10 +47,26 @@ export const BenzoProvider = ({ parentRef }) => {
   const [durationCrystalBall, setDurationCrystalBall] = useState(0.5);
   const [durationSmoke, setDurationSmoke] = useState(0.5);
 
+  const [textures, setTextures] = useState({});
+  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
+
+  const texturePaths = useMemo(() => {
+    return {
+      benzoBackground: benzoBackground,
+      benzoBody: benzoBody,
+      glowBenzo: glowBenzo,
+      glowGlasses: glowGlasses,
+      glowInner: glowInner,
+      glowOuter: glowOuter,
+      smokeParticle: smokeParticle,
+    };
+  }, []);
+
   const updateParentSize = useCallback(() => {
     if (parentRef.current) {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
+      console.log("updateParentSize:", width, height);
       setParentSize({ width, height });
     }
   }, [parentRef]);
@@ -72,13 +98,34 @@ export const BenzoProvider = ({ parentRef }) => {
     }
   }, [glowColorsReflection, parentRef]);
 
+  const loadTextures = useCallback(async () => {
+    const loadedTextures = {};
+    for (const [key, path] of Object.entries(texturePaths)) {
+      loadedTextures[key] = await Assets.load(path).then((result) => {
+        result.source.autoGenerateMipmaps = true;
+        console.log("Texture loaded:", key, result);
+        return result;
+      });
+    }
+    setTextures(loadedTextures);
+    setAllTexturesLoaded(true);
+  }, [texturePaths]);
+
   useEffect(() => {
     window.addEventListener("resize", updateParentSize);
+    loadTextures();
     updateParentSize();
     return () => {
       window.removeEventListener("resize", updateParentSize);
     };
-  }, [parentRef, updateParentSize]);
+  }, [loadTextures, parentRef, updateParentSize]);
+
+  useEffect(() => {
+    if (allTexturesLoaded) {
+      console.log("kaboom! all textures loaded");
+      updateParentSize();
+    }
+  }, [allTexturesLoaded, updateParentSize]);
 
   useEffect(() => {
     updateCrystalBall();
@@ -90,28 +137,32 @@ export const BenzoProvider = ({ parentRef }) => {
 
   const contextValues = useMemo(
     () => ({
-      glowColorsSmoke,
-      parentRef,
-      parentSize,
+      allTexturesLoaded,
       colorCrystalBall,
       colorSmoke,
       durationCrystalBall,
       durationSmoke,
+      glowColorsSmoke,
+      parentRef,
+      parentSize,
+      textures,
     }),
     [
-      glowColorsSmoke,
-      parentRef,
-      parentSize,
+      allTexturesLoaded,
       colorCrystalBall,
       colorSmoke,
       durationCrystalBall,
       durationSmoke,
+      glowColorsSmoke,
+      parentRef,
+      parentSize,
+      textures,
     ]
   );
 
   return (
     <BenzoContext.Provider value={contextValues}>
-      <Benzo parentRef={parentRef} />
+      {allTexturesLoaded && <Benzo parentRef={parentRef} />}
     </BenzoContext.Provider>
   );
 };

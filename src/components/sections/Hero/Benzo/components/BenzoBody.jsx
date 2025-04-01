@@ -1,31 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Assets, Texture } from "pixi.js";
+import React, { useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
-import imageBenzoBody from "../../../../../assets/images/benzo/benzo.png";
 
 export default function BenzoBody() {
   const refBenzoBody = useRef(null);
 
-  const [textureBenzoBody, setTextureBenzoBody] = useState(Texture.EMPTY);
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
 
-  const { parentSize } = useBenzo();
-
-  useEffect(() => {
-    if (textureBenzoBody === Texture.EMPTY) {
-      Assets.load(imageBenzoBody).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        setTextureBenzoBody(result);
-      });
-    }
-  }, [textureBenzoBody]);
+  if (!allTexturesLoaded || !textures.benzoBody) return null;
 
   return (
     <pixiSprite
       eventMode={"static"}
       height={parentSize.height}
       ref={refBenzoBody}
-      scale={0.5}
-      texture={textureBenzoBody}
+      texture={textures.benzoBody}
       width={parentSize.width}
     />
   );

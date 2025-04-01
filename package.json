@@ -12,6 +12,7 @@
     "pixi.js": "^8.8.1",
     "postcss-scss": "^4.0.9",
     "react": "^19.0.0",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
     "sass": "^1.83.4"

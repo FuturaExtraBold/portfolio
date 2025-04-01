@@ -6,6 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { deviceDetect } from "react-device-detect";
 import App from "./App";
 
 const AppContext = createContext();
@@ -64,6 +65,10 @@ export const AppProvider = ({ children }) => {
       window.removeEventListener("scroll", updateCurrentSection);
     };
   }, [updateCurrentSection]);
+
+  useEffect(() => {
+    console.log("device:", deviceDetect());
+  }, []);
 
   const contextValues = useMemo(
     () => ({

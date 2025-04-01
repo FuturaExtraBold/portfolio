@@ -1,24 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Assets, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import imageGlowOuter from "../../../../../assets/images/benzo/glow_outer.png";
 
 export default function GlowOuter() {
   const refGlowOuter = useRef(null);
 
-  const [textureGlowOuter, setTextureGlowOuter] = useState(Texture.EMPTY);
-
-  const { colorSmoke, durationSmoke, parentSize } = useBenzo();
-
-  useEffect(() => {
-    if (textureGlowOuter === Texture.EMPTY) {
-      Assets.load(imageGlowOuter).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        setTextureGlowOuter(result);
-      });
-    }
-  }, [textureGlowOuter]);
+  const { colorSmoke, durationSmoke, parentSize, allTexturesLoaded, textures } =
+    useBenzo();
 
   useEffect(() => {
     if (refGlowOuter.current) {
@@ -29,14 +17,15 @@ export default function GlowOuter() {
     }
   }, [colorSmoke, durationSmoke]);
 
+  if (!allTexturesLoaded || !textures.glowOuter) return null;
+
   return (
     <pixiSprite
-      alpha="0.8"
+      alpha="0.4"
       eventMode={"static"}
       height={parentSize.height}
       ref={refGlowOuter}
-      scale={0.5}
-      texture={textureGlowOuter}
+      texture={textures.glowOuter}
       tint="#ffffff"
       width={parentSize.width}
     />
