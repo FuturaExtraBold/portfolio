@@ -5,18 +5,16 @@ import Planchette from "./components/Planchette/Planchette";
 import Separator from "components/ui/Separator/Separator";
 import OverlayFadeUp from "components/ui/OverlayFadeUp/OverlayFadeUp";
 import Vignette from "components/ui/Vignette/Vignette";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
 import "./styles.scss";
 
 export default function Brands() {
   return (
     <section className="brands">
-      <div className="container brands__container">
-        <Wallpaper />
+      <div className="brands__content">
         <Board />
         <Logos />
         <Planchette />
-        <Vignette opacity="0.5" />
+        <Vignette />
         <OverlayFadeUp opacity="0.5" />
       </div>
       <Separator />

@@ -11,7 +11,7 @@ export default function Resume() {
     <section className="resume">
       <Wallpaper />
       <OverlayFadeUp opacity={0.8} />
-      <div className="content resume__content">
+      <div className="resume__content">
         <SectionHeader
           subtitle="An illustrious career has earned his fame far and wide."
           title="Work History"

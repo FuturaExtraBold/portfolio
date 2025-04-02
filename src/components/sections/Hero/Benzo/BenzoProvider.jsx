@@ -66,7 +66,6 @@ export const BenzoProvider = ({ parentRef }) => {
     if (parentRef.current) {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
-      console.log("updateParentSize:", width, height);
       setParentSize({ width, height });
     }
   }, [parentRef]);
@@ -122,7 +121,7 @@ export const BenzoProvider = ({ parentRef }) => {
 
   useEffect(() => {
     if (allTexturesLoaded) {
-      console.log("kaboom! all textures loaded");
+      console.log("Kaboom! All textures loaded");
       updateParentSize();
     }
   }, [allTexturesLoaded, updateParentSize]);

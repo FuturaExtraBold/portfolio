@@ -1,0 +1,19 @@
+/* stylelint-disable selector-pseudo-class-no-unknown */
+/* stylelint-disable property-no-unknown */
+
+// Breakpoints
+$breaks-xs: 375px;
+$breaks-sm: 576px;
+$breaks-md: 768px;
+$breaks-lg: 1200px;
+$breaks-xl: 1440px;
+$breaks-xxl: 1800px;
+
+:export {
+  lg: $breaks-lg;
+  md: $breaks-md;
+  sm: $breaks-sm;
+  xl: $breaks-xl;
+  xs: $breaks-xs;
+  xxl: $breaks-xxl;
+}

@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { deviceDetect } from "react-device-detect";
 import App from "./App";
+import exportedBreakpoints from "./assets/stylesheets/base/breakpoints.scss";
 
 const AppContext = createContext();
 
@@ -16,23 +17,31 @@ export const AppProvider = ({ children }) => {
   const [mediaClass, setMediaClass] = useState("desktop");
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
+  const breakpoints = useMemo(() => {
+    const resolvedBreakpoints = {};
+    Object.keys(exportedBreakpoints).forEach((key) => {
+      resolvedBreakpoints[key] = parseInt(exportedBreakpoints[key], 10);
+    });
+    return resolvedBreakpoints;
+  }, []);
+
   const updateWindowSize = useCallback(() => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    if (width < 768) {
+    if (width < breakpoints.md) {
       setMediaClass("mobile");
     }
-    if (width >= 768 && width < 1200) {
+    if (width >= breakpoints.md && width < breakpoints.xl) {
       setMediaClass("tablet");
     }
-    if (width >= 1200 && width < 1800) {
+    if (width >= breakpoints.xl && width < breakpoints.xxl) {
       setMediaClass("desktop");
     }
-    if (width >= 1800) {
+    if (width >= breakpoints.xxl) {
       setMediaClass("desktop-large");
     }
     setWindowSize({ width, height });
-  }, []);
+  }, [breakpoints]);
 
   const updateCurrentSection = useCallback(() => {
     const appElement = document.querySelector("#benzo-app");
@@ -72,11 +81,12 @@ export const AppProvider = ({ children }) => {
 
   const contextValues = useMemo(
     () => ({
+      breakpoints,
       currentSection,
       mediaClass,
       windowSize,
     }),
-    [currentSection, mediaClass, windowSize]
+    [breakpoints, currentSection, mediaClass, windowSize]
   );
 
   return (

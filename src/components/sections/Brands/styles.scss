@@ -1,13 +1,12 @@
-@import "../../../assets/stylesheets/all.scss";
-
 .brands {
   position: relative;
   width: 100%;
-  height: 100%;
+  max-width: 1440px;
   height: 800px;
+  margin: 0 auto;
 }
 
-.brands__container {
+.brands__content {
   position: relative;
   display: flex;
   overflow: hidden;

@@ -1,3 +1,5 @@
+@import "../../../assets/stylesheets/consumables.scss";
+
 .picture-frame {
   position: absolute;
   z-index: 0;
@@ -5,7 +7,7 @@
   left: 50%;
   display: none;
   width: 100%;
-  max-width: 1800px;
+  max-width: $breaks-xxl;
   height: 100%;
   padding: 0;
   margin: 0 auto;
@@ -28,7 +30,7 @@
 .media--desktop-large {
   .picture-frame {
     display: block;
-    max-width: 1800px;
+    max-width: $breaks-xxl;
     border-image: url("../../../assets/images/ui/frame_full.jpg") 180 / 180px
       round;
     opacity: 1;
