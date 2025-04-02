@@ -12,7 +12,7 @@ export default function Employers() {
         logo={<Kajabi />}
         name="Kajabi"
         tenure="Twelve"
-        description="At Kajabi, our main philosophy was to play. By combining bold creative vision with unparalleled technical initiative, the small nimble project teams produce fresh and imaginative work for our clients, and their users."
+        description="At Kajabi, our teams crafted intuitive tools that let creators share and sell what they know. From dynamic websites to seamless marketing, every element worked to fuel growth for our customer's business."
       />
       <Employer
         logo={<HookyGrand />}
@@ -24,7 +24,7 @@ export default function Employers() {
         logo={<Studio318 />}
         name="Studio318"
         tenure="Two"
-        description="At Studio, our main philosophy was to play. By combining bold creative vision with unparalleled technical initiative, the small nimble project teams produce fresh and imaginative work for our clients, and their users."
+        description="At Studio 318, an award-winning, woman and minority-owned graphic design agency, we collaborated with industry leaders. Our passion for design and strategy turned concepts into lasting, compelling visuals."
       />
     </div>
   );
