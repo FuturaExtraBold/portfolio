@@ -1,5 +1,5 @@
 import Board from "./Board/Board";
-import Logos from "./Logos/Logos";
+import BrandQuilt from "./BrandQuilt/BrandQuilt";
 import Planchette from "./Planchette/Planchette";
 
-export { Board, Logos, Planchette };
+export { Board, BrandQuilt, Planchette };

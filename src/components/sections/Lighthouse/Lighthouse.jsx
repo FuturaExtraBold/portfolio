@@ -7,7 +7,7 @@ import "./styles.scss";
 export default function Lighthouse() {
   return (
     <Section className="lighthouse">
-      <Container>
+      <Container className="lighthouse__container">
         <Background className="content lighthouse__content">
           <img
             className="lighthouse__image"

@@ -1,7 +1,6 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-// Global Overrides
-.resume .content {
+.resume__content {
   @include fluid-property($breaks-md, $breaks-xl, 60px, 80px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 60px, 80px, padding-bottom);
 

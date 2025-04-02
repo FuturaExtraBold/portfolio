@@ -12,7 +12,7 @@ export default function About() {
           <Wallpaper />
           <OverlayFade opacity={0.8} />
         </Background>
-        <Content>
+        <Content className="about__content">
           <img className="about__image" src={imageShip} alt="Ship" />
           <div className="about__text">
             <h1 className="heading--2 about__title">

@@ -1,10 +1,5 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-// Global Overrides
-.hell .container {
+.hell__container {
   aspect-ratio: 9 / 5;
-}
-
-.hell .overlay {
-  background: linear-gradient(to top, black, transparent 20%);
 }

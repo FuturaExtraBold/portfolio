@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 import clients from "../../../../../data/clients.js";
+import "./styles.scss";
 
-export default function Logos() {
+export default function BrandQuilt() {
   const quiltRef = useRef(null);
   const halfAmount = Math.ceil(clients.length / 2);
 

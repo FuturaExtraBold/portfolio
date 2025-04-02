@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.hairline {
+.section-header__hairline {
   display: none;
   width: 100%;
   max-width: 540px;
@@ -25,12 +25,12 @@
   text-shadow: none;
 }
 
-.section-header--dark > .hairline {
+.section-header--dark > .section-header__hairline {
   background-color: #000000;
 }
 
 @media (width >= $breaks-md) {
-  .hairline {
+  .section-header__hairline {
     display: block;
   }
 }

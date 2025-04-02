@@ -17,7 +17,7 @@ export default function Resume() {
           <Wallpaper />
           <OverlayFade opacity={0.8} />
         </Background>
-        <Content>
+        <Content className="resume__content">
           <SectionHeader
             subtitle="An illustrious career has earned his fame far and wide."
             title="Work History"

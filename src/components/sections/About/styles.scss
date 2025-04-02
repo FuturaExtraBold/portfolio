@@ -1,13 +1,16 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-// Global Overrides
-.about .content {
+.about__content {
   @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
 }
 
-// Section Styles
+.about__description {
+  max-width: 620px;
+  margin: 0;
+}
+
 .about__image {
   position: relative;
   display: none;
@@ -26,18 +29,13 @@
   max-width: 640px;
 }
 
-.about__description {
-  max-width: 620px;
-  margin: 0;
-}
-
 @media (width >= $breaks-md) {
-  .about__text {
-    gap: 18px;
-  }
-
   .about__image {
     display: block;
     width: 248px;
+  }
+
+  .about__text {
+    gap: 18px;
   }
 }

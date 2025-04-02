@@ -7,7 +7,7 @@ import "./styles.scss";
 export default function Hell() {
   return (
     <Section className="hell">
-      <Container>
+      <Container className="hell__container">
         <Background>
           <img className="hell__image" src={imageHell} alt="Hell" />
           <OverlayFade />
