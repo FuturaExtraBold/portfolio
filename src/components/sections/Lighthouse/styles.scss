@@ -1,13 +1,6 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-.lighthouse {
-  position: relative;
-  display: flex;
-  overflow: auto;
-  width: 100%;
-  max-width: $breaks-xl;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+// Global Overrides
+.lighthouse .container {
+  aspect-ratio: 9 / 4;
 }

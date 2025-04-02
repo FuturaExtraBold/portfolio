@@ -1,5 +1,13 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
+// Global Overrides
+.brands .content {
+  align-items: flex-start;
+  padding: 60px 0;
+  pointer-events: none;
+}
+
+// Section Styles
 .brands {
   height: 800px;
 }
@@ -11,12 +19,6 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
-}
-
-.brands__content {
-  align-items: flex-start;
-  padding: 60px 0;
-  pointer-events: none;
 }
 
 .brand-quilt {

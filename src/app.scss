@@ -1,7 +1,10 @@
+@import "./assets/stylesheets/consumables.scss";
+
 #benzo-app {
   position: relative;
   overflow: visible;
   width: 100%;
+  max-width: $breaks-xxl;
   height: 100%;
   padding: 0;
   margin: 0 auto;

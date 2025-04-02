@@ -1,13 +1,13 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-.about__content {
+// Global Overrides
+.about .content {
   @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
-
-  flex-direction: column;
 }
 
+// Section Styles
 .about__image {
   position: relative;
   display: none;
@@ -32,10 +32,6 @@
 }
 
 @media (width >= $breaks-md) {
-  .about__content {
-    flex-direction: row;
-  }
-
   .about__text {
     gap: 18px;
   }

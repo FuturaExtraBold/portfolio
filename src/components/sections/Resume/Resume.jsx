@@ -1,24 +1,31 @@
 import React from "react";
-import OverlayFadeUp from "components/ui/OverlayFadeUp/OverlayFadeUp";
-import SectionHeader from "components/ui/SectionHeader/SectionHeader";
-import Separator from "components/ui/Separator/Separator";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
+import { Background, Container, Content, Section } from "components/layout";
+import {
+  OverlayFade,
+  SectionHeader,
+  Separator,
+  Wallpaper,
+} from "components/ui";
 import Employers from "./Employers/Employers";
 import "./styles.scss";
 
 export default function Resume() {
   return (
-    <section className="resume">
-      <Wallpaper />
-      <OverlayFadeUp opacity={0.8} />
-      <div className="resume__content">
-        <SectionHeader
-          subtitle="An illustrious career has earned his fame far and wide."
-          title="Work History"
-        />
-        <Employers />
-      </div>
+    <Section className="resume">
+      <Container>
+        <Background>
+          <Wallpaper />
+          <OverlayFade opacity={0.8} />
+        </Background>
+        <Content>
+          <SectionHeader
+            subtitle="An illustrious career has earned his fame far and wide."
+            title="Work History"
+          />
+          <Employers />
+        </Content>
+      </Container>
       <Separator />
-    </section>
+    </Section>
   );
 }

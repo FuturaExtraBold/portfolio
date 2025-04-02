@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./styles.scss";
 
-export default function OverlayFadeUp({ opacity }) {
+export default function OverlayFade({ opacity }) {
   return <div className="overlay-fade-up" style={{ opacity: opacity }} />;
 }
 
-OverlayFadeUp.propTypes = {
+OverlayFade.propTypes = {
   opacity: PropTypes.number,
 };
 
-OverlayFadeUp.defaultProps = {
+OverlayFade.defaultProps = {
   opacity: 0.2,
 };

@@ -1,17 +1,18 @@
 import React from "react";
-import OverlayFadeUp from "components/ui/OverlayFadeUp/OverlayFadeUp";
-import Separator from "components/ui/Separator/Separator";
-import Wallpaper from "components/ui/Wallpaper/Wallpaper";
-import imageShip from "../../../assets/images/about/ship.png";
+import { Background, Container, Content, Section } from "components/layout";
+import { OverlayFade, Separator, Wallpaper } from "components/ui";
+import { imageShip } from "assets/images";
 import "./styles.scss";
 
 export default function About() {
   return (
-    <section className="about">
-      <div className="container about__container">
-        <Wallpaper />
-        <OverlayFadeUp opacity={0.8} />
-        <div className="content about__content">
+    <Section className="about">
+      <Container>
+        <Background>
+          <Wallpaper />
+          <OverlayFade opacity={0.8} />
+        </Background>
+        <Content>
           <img className="about__image" src={imageShip} alt="Ship" />
           <div className="about__text">
             <h1 className="heading--2 about__title">
@@ -28,9 +29,9 @@ export default function About() {
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        </Content>
+      </Container>
       <Separator />
-    </section>
+    </Section>
   );
 }
