@@ -6,8 +6,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
   text-align: center;
+
+  @include fluid-property($breaks-md, $breaks-xl, 6px, 20px, gap);
 }
 
 .hairline {
@@ -21,6 +22,7 @@
 
 .section-header--dark > * {
   color: #000000;
+  text-shadow: none;
 }
 
 .section-header--dark > .hairline {

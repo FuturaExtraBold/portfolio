@@ -6,16 +6,24 @@ import Separator from "components/ui/Separator/Separator";
 import OverlayFadeUp from "components/ui/OverlayFadeUp/OverlayFadeUp";
 import Vignette from "components/ui/Vignette/Vignette";
 import "./styles.scss";
+import SectionHeader from "components/ui/SectionHeader/SectionHeader";
 
 export default function Brands() {
   return (
     <section className="brands">
-      <div className="brands__content">
+      <div className="brands__ouija">
         <Board />
         <Logos />
         <Planchette />
         <Vignette />
         <OverlayFadeUp opacity="0.5" />
+      </div>
+      <div className="brands__content">
+        <SectionHeader
+          subtitle="Roll over and click to reveal tales from beyond the veil."
+          title="Client Archive"
+          variant="dark"
+        />
       </div>
       <Separator />
     </section>

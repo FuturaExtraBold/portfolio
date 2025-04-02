@@ -23,20 +23,34 @@ h6,
 
 h1,
 .heading--1 {
-  text-shadow: rgb(220 220 220 / 0.5) 0 0 10px;
+  text-shadow: rgb(0 0 0 / 0.5) 0 0 20px;
   transition: line-height 0.3s ease-in-out;
 
   @include fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
     36px,
-    64px,
+    72px,
     font-size
   );
 }
 
 h2,
 .heading--2 {
+  text-shadow: rgb(0 0 0 / 0.5) 0 0 16px;
+  transition: line-height 0.3s ease-in-out;
+
+  @include fluid-property(
+    $fluid-typography-min-width,
+    $fluid-typography-max-width,
+    36px,
+    62px,
+    font-size
+  );
+}
+
+h3,
+.heading--3 {
   font-family: "Dolly Roman", serif;
   line-height: 1.5;
 
