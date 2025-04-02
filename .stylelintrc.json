@@ -15,7 +15,7 @@
     ],
     "media-query-no-invalid": null,
     "order/order": [
-      ["custom-properties", "declarations", "at-rules", "rules"],
+      ["at-rules", "custom-properties", "declarations", "rules"],
       { "unspecified": "bottom" }
     ]
   },

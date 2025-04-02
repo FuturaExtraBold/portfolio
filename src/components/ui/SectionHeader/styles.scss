@@ -1,14 +1,14 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
 .section-header {
+  @include fluid-property($breaks-md, $breaks-xl, 6px, 20px, gap);
+
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
-  @include fluid-property($breaks-md, $breaks-xl, 6px, 20px, gap);
 }
 
 .hairline {

@@ -1,7 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: $breaks-xxl;
+  max-width: $breaks-xl;
   height: 100%;
   padding: 0 30px;
   margin: 0 auto;
@@ -14,20 +14,6 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-}
-
-.layout-test-specs {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 20px;
-  background-color: rgb(0 0 0 / 0.8);
-  color: #ffffff;
-  font-family: "Dolly Roman", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
-  text-align: center;
-  transform: translate(-50%, -50%);
 }
 
 .overlay {

@@ -1,10 +1,11 @@
-@import "../../../assets/stylesheets/all.scss";
+@import "../../../assets/stylesheets/consumables.scss";
 
 .wallpaper {
+  @include fit();
+
   background-image: url("../../../assets/images/ui/wallpaper_tile.png");
+  background-position: center;
   background-repeat: repeat;
   background-size: 300px 400px;
   opacity: 1;
-
-  @include fit();
 }

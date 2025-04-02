@@ -1,30 +1,16 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-.about {
-  position: relative;
-  display: flex;
-  max-width: $breaks-xl;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-}
-
 .about__content {
-  position: relative;
-  display: flex;
+  @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);
+  @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
+  @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
+
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 24px;
-  gap: 30px;
 }
 
 .about__image {
   position: relative;
   display: none;
-  width: 155px;
-  height: 170px;
   filter: drop-shadow(0 6px 24px rgb(#2ee554, 0.5));
   transform: rotate(-10deg);
 }
@@ -48,8 +34,6 @@
 @media (width >= $breaks-md) {
   .about__content {
     flex-direction: row;
-    padding: 100px 30px;
-    gap: 60px;
   }
 
   .about__text {
@@ -59,6 +43,5 @@
   .about__image {
     display: block;
     width: 248px;
-    height: 272px;
   }
 }
