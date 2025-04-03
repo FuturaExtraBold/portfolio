@@ -16,3 +16,7 @@
   width: 100%;
   aspect-ratio: 3 / 2;
 }
+
+.hero__overlay {
+  z-index: 1000;
+}
