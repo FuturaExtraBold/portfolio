@@ -11,19 +11,18 @@ export default function BrandQuilt() {
   const { width } = windowSize;
 
   const quiltRef = useRef(null);
-  const thirdAmount = Math.ceil(clients.length / 3);
 
   const [animationHasRun, setAnimationHasRun] = useState(false);
 
   const setRowStyles = useCallback(
-    ({ radius, startingIndex, spacingOffset }) => {
+    ({ thingy, radius, startingIndex, spacingOffset }) => {
       const clientElements = quiltRef.current.children;
       const arcAngle = Math.PI / 8;
-      const angleStep = arcAngle / (thirdAmount - 1);
+      const angleStep = arcAngle / (thingy - 1);
 
       for (
         let i = startingIndex;
-        i < Math.min(startingIndex + thirdAmount, clients.length);
+        i < Math.min(startingIndex + thingy, clients.length);
         i++
       ) {
         const angle = -arcAngle + (i - startingIndex) * angleStep * 2;
@@ -47,10 +46,13 @@ export default function BrandQuilt() {
           }
         );
     },
-    [animationHasRun, thirdAmount]
+    [animationHasRun]
   );
 
   useEffect(() => {
+    const numRows = 3;
+    const thingy = Math.ceil(clients.length / numRows);
+
     const resolvedBaseRadius = fluidProperty({
       minWidth: breakpoints.md,
       maxWidth: breakpoints.lg,
@@ -59,21 +61,24 @@ export default function BrandQuilt() {
     });
 
     setRowStyles({
+      thingy,
       radius: resolvedBaseRadius,
       startingIndex: 0,
       spacingOffset: 100,
     });
     setRowStyles({
+      thingy,
       radius: resolvedBaseRadius,
-      startingIndex: thirdAmount,
+      startingIndex: thingy,
       spacingOffset: 0,
     });
     setRowStyles({
+      thingy,
       radius: resolvedBaseRadius,
-      startingIndex: thirdAmount * 2,
+      startingIndex: thingy * (numRows - 1),
       spacingOffset: -100,
     });
-  }, [breakpoints, setRowStyles, thirdAmount, width]);
+  }, [breakpoints, setRowStyles, width]);
 
   return (
     <div className="brand-quilt" ref={quiltRef}>
