@@ -1,24 +1,16 @@
-import React from "react";
 import { useApp } from "AppProvider";
+import { fluidProperty } from "assets/javascripts/layout/fluidElement";
 import "./vignette.scss";
 
 export default function Vignette() {
-  const { breakpoints, windowSize } = useApp();
-  const { width } = windowSize;
+  const { breakpoints } = useApp();
 
-  const minWidth = breakpoints.md;
-  const maxWidth = breakpoints.lg;
-  const minValue = 0.1;
-  const maxValue = 0.5;
+  const opacity = fluidProperty({
+    minWidth: breakpoints.md,
+    maxWidth: breakpoints.lg,
+    minValue: 0.1,
+    maxValue: 0.5,
+  });
 
-  const opacity = Math.min(
-    maxValue,
-    Math.max(
-      minValue,
-      ((width - minWidth) / (maxWidth - minWidth)) * (maxValue - minValue) +
-        minValue
-    )
-  );
-
-  return <aside className="vignette" style={{ opacity: opacity }}></aside>;
+  return <div className="vignette" style={{ opacity: opacity }}></div>;
 }

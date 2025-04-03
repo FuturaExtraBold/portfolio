@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useApp } from "AppProvider.jsx";
 import gsap from "gsap";
+import { Guide } from "components/layout";
+import { useApp } from "AppProvider.jsx";
+import { fluidProperty } from "assets/javascripts/layout/fluidElement.js";
 import clients from "./data/clients.js";
 import "./styles.scss";
 
@@ -49,19 +51,12 @@ export default function BrandQuilt() {
   );
 
   useEffect(() => {
-    const minWidth = breakpoints.md;
-    const maxWidth = breakpoints.lg;
-    const minValue = 400;
-    const maxValue = 500;
-
-    const resolvedBaseRadius = Math.min(
-      maxValue,
-      Math.max(
-        minValue,
-        ((width - minWidth) / (maxWidth - minWidth)) * (maxValue - minValue) +
-          minValue
-      )
-    );
+    const resolvedBaseRadius = fluidProperty({
+      minWidth: breakpoints.md,
+      maxWidth: breakpoints.lg,
+      minValue: 340,
+      maxValue: 500,
+    });
 
     setRowStyles({
       radius: resolvedBaseRadius,
@@ -87,8 +82,7 @@ export default function BrandQuilt() {
         .map(({ component: LogoComponent, id }) => (
           <LogoComponent key={id} />
         ))}
-      <div className="layout-line"></div>
-      <div className="layout-line layout-line--horizontal"></div>
+      <Guide />
     </div>
   );
 }
