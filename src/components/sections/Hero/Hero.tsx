@@ -1,30 +1,30 @@
-import React, { useRef } from "react";
+import type { JSX } from "react";
+import { useRef } from "react";
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
 import { BenzoProvider } from "./Benzo/BenzoProvider";
-import Separator from "components/ui/Separator/Separator";
+import { Separator } from "../../ui";
 import "./styles.scss";
 
-// extend tells @pixi/react what Pixi.js components are available
 extend({
   Container,
   Sprite,
 });
 
-export default function Hero() {
-  const parentRef = useRef(null);
+export default function Hero(): JSX.Element {
+  const parentRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <section className="hero">
       <div className="content hero__content" ref={parentRef}>
-        {parentRef && (
-          <Application background="#000000" resizeTo={parentRef}>
+        {parentRef.current && (
+          <Application background="#000000" resizeTo={parentRef.current}>
             <BenzoProvider parentRef={parentRef} />
           </Application>
         )}
       </div>
-      <Separator />
       <div className="overlay hero__overlay"></div>
+      <Separator />
     </section>
   );
 }

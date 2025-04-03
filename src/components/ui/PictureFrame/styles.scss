@@ -17,7 +17,7 @@
   transform: translateX(-50%);
 }
 
-.media--desktop {
+.media--desktop-large {
   .picture-frame {
     display: block;
     max-width: 1620px;
@@ -27,7 +27,7 @@
   }
 }
 
-.media--desktop-large {
+.media--desktop-max {
   .picture-frame {
     display: block;
     max-width: $breaks-xxl;

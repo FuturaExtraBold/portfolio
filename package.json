@@ -44,10 +44,13 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
     "stylelint": "^16.16.0",
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.11.1"
+    "stylelint-scss": "^6.11.1",
+    "typescript": "^5.8.2"
   }
 }

@@ -1,11 +1,17 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useApp } from "AppProvider.jsx";
 import gsap from "gsap";
 import clients from "./data/clients.js";
 import "./styles.scss";
 
 export default function BrandQuilt() {
+  const { breakpoints, windowSize } = useApp();
+  const { width } = windowSize;
+
   const quiltRef = useRef(null);
   const thirdAmount = Math.ceil(clients.length / 3);
+
+  const [animationHasRun, setAnimationHasRun] = useState(false);
 
   const setRowStyles = useCallback(
     ({ radius, startingIndex, spacingOffset }) => {
@@ -26,35 +32,53 @@ export default function BrandQuilt() {
         ].style.transform = `translate(${x}px, ${y}px) rotate(${angle}rad) scale(0.8)`;
       }
 
-      gsap.fromTo(
-        clientElements,
-        { opacity: 0 },
-        { opacity: 1, ease: "power2.in", stagger: 0.05, duration: 0.2 }
-      );
+      if (!animationHasRun)
+        gsap.fromTo(
+          clientElements,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            ease: "power2.in",
+            stagger: 0.05,
+            duration: 0.2,
+            onComplete: () => setAnimationHasRun(true),
+          }
+        );
     },
-    [thirdAmount]
+    [animationHasRun, thirdAmount]
   );
 
   useEffect(() => {
-    const screenWidth = window.innerWidth;
-    let baseRadius = screenWidth <= 1200 ? 300 : 500;
+    const minWidth = breakpoints.md;
+    const maxWidth = breakpoints.lg;
+    const minValue = 400;
+    const maxValue = 500;
+
+    const resolvedBaseRadius = Math.min(
+      maxValue,
+      Math.max(
+        minValue,
+        ((width - minWidth) / (maxWidth - minWidth)) * (maxValue - minValue) +
+          minValue
+      )
+    );
 
     setRowStyles({
-      radius: baseRadius,
+      radius: resolvedBaseRadius,
       startingIndex: 0,
       spacingOffset: 100,
     });
     setRowStyles({
-      radius: baseRadius,
+      radius: resolvedBaseRadius,
       startingIndex: thirdAmount,
       spacingOffset: 0,
     });
     setRowStyles({
-      radius: baseRadius,
+      radius: resolvedBaseRadius,
       startingIndex: thirdAmount * 2,
       spacingOffset: -100,
     });
-  }, [setRowStyles, thirdAmount]);
+  }, [breakpoints, setRowStyles, thirdAmount, width]);
 
   return (
     <div className="brand-quilt" ref={quiltRef}>

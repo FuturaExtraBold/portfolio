@@ -38,8 +38,11 @@ export const AppProvider = ({ children }) => {
     if (width >= breakpoints.lg && width < breakpoints.xl) {
       setMediaClass("desktop");
     }
-    if (width >= breakpoints.xl) {
+    if (width >= breakpoints.xl && width < breakpoints.xxl) {
       setMediaClass("desktop-large");
+    }
+    if (width >= breakpoints.xxl) {
+      setMediaClass("desktop-max");
     }
     setWindowSize({ width, height });
   }, [breakpoints]);
