@@ -1,12 +1,12 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
 .clients__container {
-  height: 800px;
+  @include fluid-property($breaks-md, $breaks-lg, 600px, 800px, height);
 }
 
 .clients__content {
   align-items: flex-start;
-  padding: 60px 0;
+  padding-top: 60px;
   pointer-events: none;
 }
 
