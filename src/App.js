@@ -1,6 +1,5 @@
-import React from "react";
 import About from "components/sections/About/About";
-import Brands from "components/sections/Brands/Brands";
+import Clients from "components/sections/Clients/Clients";
 import Hell from "components/sections/Hell/Hell";
 import Hero from "components/sections/Hero/Hero";
 import Lighthouse from "components/sections/Lighthouse/Lighthouse";
@@ -20,7 +19,7 @@ function App() {
       <PictureFrame />
       <Hero />
       <About />
-      <Brands />
+      <Clients />
       <Resume />
       <Lighthouse />
       <Hell />

@@ -1,7 +1,8 @@
-import React from "react";
-import imageBoard from "../../../../../assets/images/ouija/board_new.jpg";
-import imageAccentMoon from "../../../../../assets/images/ouija/ouija_moon.svg";
-import imageAccentSun from "../../../../../assets/images/ouija/ouija_sun.svg";
+import {
+  imageAccentMoon,
+  imageAccentSun,
+  imageBoard,
+} from "../../../../../assets/images";
 
 import "./styles.scss";
 

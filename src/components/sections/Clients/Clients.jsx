@@ -1,23 +1,22 @@
-import React from "react";
 import { Background, Container, Content, Section } from "components/layout";
-import { Board, BrandQuilt, Planchette } from "./components";
+import { Board, ClientQuilt, Planchette } from "./components";
 import { OverlayFade, SectionHeader, Separator, Vignette } from "components/ui";
 import "./styles.scss";
 
-export default function Brands() {
+export default function Clients() {
   return (
-    <Section className="brands">
-      <Container className="brands__container">
+    <Section className="clients">
+      <Container className="clients__container">
         <Background>
-          <div className="brands__ouija">
+          <div className="clients__ouija">
             <Board />
-            <BrandQuilt />
+            <ClientQuilt />
             <Planchette />
             <Vignette />
             <OverlayFade opacity="0.5" />
           </div>
         </Background>
-        <Content className="brands__content">
+        <Content className="clients__content">
           <SectionHeader
             subtitle="Roll over and click to reveal tales from beyond the veil."
             title="Client Archive"

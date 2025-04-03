@@ -3,10 +3,10 @@ import gsap from "gsap";
 import { Guide } from "components/layout";
 import { useApp } from "AppProvider.jsx";
 import { fluidProperty } from "assets/javascripts/layout/fluidElement.js";
-import clients from "./data/clients.js";
+import { clientLogos } from "../../../../clients/";
 import "./styles.scss";
 
-export default function BrandQuilt() {
+export default function Clients() {
   const { breakpoints, windowSize } = useApp();
   const { width } = windowSize;
 
@@ -15,14 +15,14 @@ export default function BrandQuilt() {
   const [animationHasRun, setAnimationHasRun] = useState(false);
 
   const setRowStyles = useCallback(
-    ({ thingy, radius, startingIndex, spacingOffset }) => {
+    ({ countPerRow, radius, startingIndex, spacingOffset }) => {
       const clientElements = quiltRef.current.children;
       const arcAngle = Math.PI / 8;
-      const angleStep = arcAngle / (thingy - 1);
+      const angleStep = arcAngle / (countPerRow - 1);
 
       for (
         let i = startingIndex;
-        i < Math.min(startingIndex + thingy, clients.length);
+        i < Math.min(startingIndex + countPerRow, clientLogos.length);
         i++
       ) {
         const angle = -arcAngle + (i - startingIndex) * angleStep * 2;
@@ -50,42 +50,49 @@ export default function BrandQuilt() {
   );
 
   useEffect(() => {
-    const numRows = 3;
-    const thingy = Math.ceil(clients.length / numRows);
+    const numRows = width >= breakpoints.md ? 3 : 5;
+    const countPerRow = Math.ceil(clientLogos.length / numRows);
+    const values =
+      numRows === 3
+        ? {
+            minValue: 200,
+            maxValue: 500,
+            verticalSpaceMultiplier: 100,
+            verticalCenter: 100,
+          }
+        : {
+            minValue: 140,
+            maxValue: 400,
+            verticalSpaceMultiplier: 70,
+            verticalCenter: 140,
+          };
 
     const resolvedBaseRadius = fluidProperty({
-      minWidth: breakpoints.md,
+      minWidth: breakpoints.xs,
       maxWidth: breakpoints.lg,
-      minValue: 340,
-      maxValue: 500,
+      minValue: values.minValue,
+      maxValue: values.maxValue,
     });
 
-    setRowStyles({
-      thingy,
-      radius: resolvedBaseRadius,
-      startingIndex: 0,
-      spacingOffset: 100,
-    });
-    setRowStyles({
-      thingy,
-      radius: resolvedBaseRadius,
-      startingIndex: thingy,
-      spacingOffset: 0,
-    });
-    setRowStyles({
-      thingy,
-      radius: resolvedBaseRadius,
-      startingIndex: thingy * (numRows - 1),
-      spacingOffset: -100,
-    });
+    for (let i = 0; i < numRows; i++) {
+      setRowStyles({
+        countPerRow,
+        radius: resolvedBaseRadius,
+        startingIndex: i * countPerRow,
+        spacingOffset:
+          values.verticalCenter - i * values.verticalSpaceMultiplier,
+      });
+    }
   }, [breakpoints, setRowStyles, width]);
 
   return (
-    <div className="brand-quilt" ref={quiltRef}>
-      {clients
+    <div className="client-quilt" ref={quiltRef}>
+      {clientLogos
         .sort((a, b) => a.order - b.order)
         .map(({ component: LogoComponent, id }) => (
-          <LogoComponent key={id} />
+          <div className="client-quilt__logo">
+            <LogoComponent key={id} />
+          </div>
         ))}
       <Guide />
     </div>

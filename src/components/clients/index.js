@@ -1,20 +1,20 @@
-import Disney from "../Logos/Disney";
-import DreamWorks from "../Logos/DreamWorks";
-import FindingNemo from "../Logos/FindingNemo";
-import FOX from "../Logos/FOX";
-import Honda from "../Logos/Honda";
-import Kajabi from "../Logos/Kajabi";
-import KIA from "../Logos/KIA";
-import KSwiss from "../Logos/KSwiss";
-import Lexus from "../Logos/Lexus";
-import Mickey from "../Logos/Mickey";
-import Pixar from "../Logos/Pixar";
-import Sony from "../Logos/Sony";
-import SouthPark from "../Logos/SouthPark";
-import TheSimpsons from "../Logos/TheSimpsons";
-import U2 from "../Logos/U2";
+import Disney from "./Logos/Disney";
+import DreamWorks from "./Logos/DreamWorks";
+import FindingNemo from "./Logos/FindingNemo";
+import FOX from "./Logos/FOX";
+import Honda from "./Logos/Honda";
+import Kajabi from "./Logos/Kajabi";
+import KIA from "./Logos/KIA";
+import KSwiss from "./Logos/KSwiss";
+import Lexus from "./Logos/Lexus";
+import Mickey from "./Logos/Mickey";
+import Pixar from "./Logos/Pixar";
+import Sony from "./Logos/Sony";
+import SouthPark from "./Logos/SouthPark";
+import TheSimpsons from "./Logos/TheSimpsons";
+import U2 from "./Logos/U2";
 
-const clients = [
+export const clientLogos = [
   { component: Disney, id: "disney", order: 1 },
   { component: Mickey, id: "mickey", order: 2 },
   { component: DreamWorks, id: "dreamworks", order: 3 },
@@ -31,5 +31,3 @@ const clients = [
   { component: U2, id: "u2", order: 14 },
   { component: Kajabi, id: "kajabi", order: 15 },
 ];
-
-export default clients;

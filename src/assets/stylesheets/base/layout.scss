@@ -1,21 +1,3 @@
 .overlay {
   @include fit;
 }
-
-.layout-line {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 2px;
-  height: 100%;
-  background-color: red;
-  transform: translateX(-50%);
-}
-
-.layout-line--horizontal {
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  transform: translateY(-50%);
-}

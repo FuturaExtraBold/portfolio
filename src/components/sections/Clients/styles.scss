@@ -1,16 +1,16 @@
 @import "../../../assets/stylesheets/consumables.scss";
 
-.brands__container {
+.clients__container {
   height: 800px;
 }
 
-.brands__content {
+.clients__content {
   align-items: flex-start;
   padding: 60px 0;
   pointer-events: none;
 }
 
-.brands__ouija {
+.clients__ouija {
   @include fit();
 
   display: flex;

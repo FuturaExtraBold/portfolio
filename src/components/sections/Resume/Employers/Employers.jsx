@@ -1,8 +1,8 @@
 import React from "react";
 import Employer from "./Employer/Employer";
-import HookyGrand from "../../Brands/components/BrandQuilt/Logos/HookyGrand";
-import Kajabi from "../../Brands/components/BrandQuilt/Logos/Kajabi";
-import Studio318 from "../../Brands/components/BrandQuilt/Logos/Studio318";
+import HookyGrand from "../../../clients/Logos/HookyGrand";
+import Kajabi from "../../../clients/Logos/Kajabi";
+import Studio318 from "../../../clients/Logos/Studio318";
 import "./styles.scss";
 
 export default function Employers() {

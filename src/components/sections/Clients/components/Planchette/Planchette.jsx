@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import imagePlanchette from "../../../../../assets/images/ouija/planchette.png";
+import { imagePlanchette } from "../../../../../assets/images";
 import "./styles.scss";
 
 export default function Planchette({ enable }) {
