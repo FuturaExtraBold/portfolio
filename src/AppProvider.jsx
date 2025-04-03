@@ -32,13 +32,13 @@ export const AppProvider = ({ children }) => {
     if (width < breakpoints.md) {
       setMediaClass("mobile");
     }
-    if (width >= breakpoints.md && width < breakpoints.xl) {
+    if (width >= breakpoints.md && width < breakpoints.lg) {
       setMediaClass("tablet");
     }
-    if (width >= breakpoints.xl && width < breakpoints.xxl) {
+    if (width >= breakpoints.lg && width < breakpoints.xl) {
       setMediaClass("desktop");
     }
-    if (width >= breakpoints.xxl) {
+    if (width >= breakpoints.xl) {
       setMediaClass("desktop-large");
     }
     setWindowSize({ width, height });
