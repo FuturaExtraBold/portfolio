@@ -15,13 +15,12 @@ export default function Content({ children, className, ref }) {
 }
 
 Content.defaultProps = {
-  children: null,
   className: "",
   ref: null,
 };
 
 Content.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   ref: PropTypes.oneOfType([
     PropTypes.func,
