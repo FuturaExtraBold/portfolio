@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { deviceDetect } from "react-device-detect";
 import "../assets/stylesheets/all.scss";
-import exportedBreakpoints from "../assets/stylesheets/base/breakpoints.scss";
+import exportedBreakpoints from "../assets/stylesheets/base/_breakpoints.scss";
 
 import App from "./App";
 const AppContext = createContext();

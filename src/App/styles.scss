@@ -1,4 +1,4 @@
-@import "../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 #benzo-app {
   position: relative;

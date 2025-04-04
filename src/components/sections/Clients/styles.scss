@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .clients__container {
   @include fluid-property($breaks-md, $breaks-lg, 600px, 800px, height);

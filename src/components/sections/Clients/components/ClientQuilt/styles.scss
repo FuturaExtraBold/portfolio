@@ -1,4 +1,4 @@
-@import "../../../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .client-quilt {
   @include fluid-property($breaks-xs, $breaks-md, 100px, 60px, padding-top);

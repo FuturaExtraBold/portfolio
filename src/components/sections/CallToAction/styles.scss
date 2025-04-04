@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .cta__content {
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);

@@ -1,6 +1,6 @@
-/* stylelint-disable at-rule-no-unknown */
 /* stylelint-disable media-query-no-invalid */
 /* stylelint-disable order/order */
+@use "sass:math";
 
 @mixin fit {
   position: absolute;
@@ -21,10 +21,10 @@
 }
 
 @mixin fluid-property($min-vw, $max-vw, $min-value, $max-value, $property) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-value);
-  $u4: unit($max-value);
+  $u1: math.unit($min-vw);
+  $u2: math.unit($max-vw);
+  $u3: math.unit($min-value);
+  $u4: math.unit($max-value);
 
   @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
     #{$property}: $min-value;

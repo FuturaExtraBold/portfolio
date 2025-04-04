@@ -1,3 +1,5 @@
+@use "mixins";
+
 *,
 *::before,
 *::after {
@@ -20,5 +22,5 @@ footer {
 }
 
 img {
-  @include responsive-image;
+  @include mixins.responsive-image;
 }

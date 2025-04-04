@@ -15,7 +15,8 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.83.4"
+    "sass": "^1.83.4",
+    "sass-migrator": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

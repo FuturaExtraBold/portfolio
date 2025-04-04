@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .resume__content {
   @include fluid-property($breaks-md, $breaks-xl, 60px, 80px, padding-top);

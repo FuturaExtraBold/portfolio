@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .lighthouse__container {
   aspect-ratio: 9 / 4;

@@ -1,10 +1,10 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .vignette {
+  @include fit();
+
   z-index: 1;
   background: radial-gradient(circle, rgb(0 0 0 / 0) 10%, rgb(0 0 0 / 1) 100%);
   opacity: 0.2;
   pointer-events: none;
-
-  @include fit();
 }

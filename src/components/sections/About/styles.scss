@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .about__content {
   @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);

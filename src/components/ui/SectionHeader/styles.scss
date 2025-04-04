@@ -1,4 +1,4 @@
-@import "../../../assets/stylesheets/consumables.scss";
+@use "assets/stylesheets/consumables" as *;
 
 .section-header {
   @include fluid-property($breaks-md, $breaks-xl, 6px, 20px, gap);

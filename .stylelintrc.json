@@ -5,7 +5,18 @@
     "alpha-value-notation": "number",
     "at-rule-no-unknown": [
       true,
-      { "ignoreAtRules": ["extend", "include", "mixin"] }
+      {
+        "ignoreAtRules": [
+          "extend",
+          "forward",
+          "function",
+          "if",
+          "include",
+          "mixin",
+          "return",
+          "use"
+        ]
+      }
     ],
     "color-hex-length": "long",
     "import-notation": "string",
