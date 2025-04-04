@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function BenzoBody() {

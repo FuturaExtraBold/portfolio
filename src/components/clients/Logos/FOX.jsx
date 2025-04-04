@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function FOX() {
   return (
     <svg viewBox="0 0 129 56" xmlns="http://www.w3.org/2000/svg">

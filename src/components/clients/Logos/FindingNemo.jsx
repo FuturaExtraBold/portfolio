@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function FindingNemo() {
   return (
     <svg viewBox="0 0 128 45" xmlns="http://www.w3.org/2000/svg">

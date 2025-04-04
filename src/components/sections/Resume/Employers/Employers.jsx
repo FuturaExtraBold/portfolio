@@ -1,4 +1,3 @@
-import React from "react";
 import Employer from "./Employer/Employer";
 import HookyGrand from "../../../clients/Logos/HookyGrand";
 import Kajabi from "../../../clients/Logos/Kajabi";

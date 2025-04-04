@@ -79,6 +79,13 @@ p {
   );
 }
 
+.disclaimer-text {
+  color: #4b4b4b;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 @media (min-width: breakpoints.$breaks-md) {
   h1,
   h2,

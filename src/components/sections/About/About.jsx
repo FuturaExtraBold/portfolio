@@ -1,4 +1,3 @@
-import React from "react";
 import { Background, Container, Content, Section } from "components/layout";
 import { OverlayFade, Separator, Wallpaper } from "components/ui";
 import { imageShip } from "assets/images";

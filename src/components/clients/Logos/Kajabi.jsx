@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Kajabi() {
   return (
     <svg viewBox="0 0 128 43" xmlns="http://www.w3.org/2000/svg">

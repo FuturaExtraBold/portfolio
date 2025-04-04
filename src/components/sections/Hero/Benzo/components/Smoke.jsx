@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { gsap } from "gsap";
 import { Texture } from "pixi.js";

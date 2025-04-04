@@ -1,4 +1,3 @@
-import React from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function Background() {

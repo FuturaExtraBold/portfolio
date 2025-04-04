@@ -2,7 +2,9 @@
 
 .footer__content {
   padding: 0;
+  font-family: sans-serif;
+  text-align: center;
 
-  @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
-  @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
+  @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding-top);
+  @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding-bottom);
 }
