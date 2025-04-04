@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./styles.scss";
 
-export default function Background({ children, className, ref }) {
+export default function Background({ children, className = "", ref = null }) {
   const backgroundClass = classnames("background", {
     [`${className}`]: className,
   });
@@ -13,11 +13,6 @@ export default function Background({ children, className, ref }) {
     </div>
   );
 }
-
-Background.defaultProps = {
-  className: "",
-  ref: null,
-};
 
 Background.propTypes = {
   children: PropTypes.node.isRequired,

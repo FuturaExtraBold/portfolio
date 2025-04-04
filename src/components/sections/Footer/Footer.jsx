@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Content } from "components/layout";
 import "./styles.scss";
 

@@ -1,8 +1,9 @@
+import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./styles.scss";
 
-export default function Content({ children, className, ref }) {
+export default function Content({ children, className = "", ref = null }) {
   const contentClass = classnames("content", {
     [`${className}`]: className,
   });
@@ -13,11 +14,6 @@ export default function Content({ children, className, ref }) {
     </div>
   );
 }
-
-Content.defaultProps = {
-  className: "",
-  ref: null,
-};
 
 Content.propTypes = {
   children: PropTypes.node.isRequired,
