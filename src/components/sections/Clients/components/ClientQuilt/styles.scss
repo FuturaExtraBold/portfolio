@@ -25,6 +25,11 @@
   transform-origin: center;
 }
 
+.client-quilt__logo > svg {
+  width: 100%;
+  height: auto;
+}
+
 .client-quilt__logo > svg path {
   fill: #000000;
 }
