@@ -1,13 +1,9 @@
 {
   "files": {
     "main.css": "/static/css/main.0a9a6833.css",
-    "main.js": "/static/js/main.d524a1e6.js",
-    "static/js/809.c2b45a42.chunk.js": "/static/js/809.c2b45a42.chunk.js",
-    "static/js/929.ce1a9726.chunk.js": "/static/js/929.ce1a9726.chunk.js",
-    "static/js/258.3b9f39c2.chunk.js": "/static/js/258.3b9f39c2.chunk.js",
-    "static/js/627.aa61d673.chunk.js": "/static/js/627.aa61d673.chunk.js",
-    "static/js/499.c7c8a1f3.chunk.js": "/static/js/499.c7c8a1f3.chunk.js",
-    "static/js/164.3fce9cde.chunk.js": "/static/js/164.3fce9cde.chunk.js",
+    "main.js": "/static/js/main.59b054c5.js",
+    "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
+    "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
     "static/media/benzo.png": "/static/media/benzo.35244abcb8496f75d538.png",
     "static/media/background.jpg": "/static/media/background.4fcdc149c50dbdda3348.jpg",
     "static/media/hell.jpg": "/static/media/hell.20e1f2c1f8890021b864.jpg",
@@ -26,15 +22,12 @@
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
     "main.0a9a6833.css.map": "/static/css/main.0a9a6833.css.map",
-    "main.d524a1e6.js.map": "/static/js/main.d524a1e6.js.map",
-    "809.c2b45a42.chunk.js.map": "/static/js/809.c2b45a42.chunk.js.map",
-    "258.3b9f39c2.chunk.js.map": "/static/js/258.3b9f39c2.chunk.js.map",
-    "627.aa61d673.chunk.js.map": "/static/js/627.aa61d673.chunk.js.map",
-    "499.c7c8a1f3.chunk.js.map": "/static/js/499.c7c8a1f3.chunk.js.map",
-    "164.3fce9cde.chunk.js.map": "/static/js/164.3fce9cde.chunk.js.map"
+    "main.59b054c5.js.map": "/static/js/main.59b054c5.js.map",
+    "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
+    "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0a9a6833.css",
-    "static/js/main.d524a1e6.js"
+    "static/js/main.59b054c5.js"
   ]
 }
