@@ -90,8 +90,8 @@ export default function Clients() {
       {clientLogos
         .sort((a, b) => a.order - b.order)
         .map(({ component: LogoComponent, id }) => (
-          <div className="client-quilt__logo">
-            <LogoComponent key={id} />
+          <div className="client-quilt__logo" key={id}>
+            <LogoComponent />
           </div>
         ))}
       <Guide />

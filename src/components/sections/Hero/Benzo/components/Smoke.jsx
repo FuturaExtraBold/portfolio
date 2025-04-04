@@ -48,17 +48,17 @@ export default function Smoke() {
             gsap.to(refParticle.current, {
               pixi: {
                 x: 720,
-                y: -800,
+                y: -100,
                 alpha: 0,
               },
-              delay: Math.random() * 3,
-              duration: Math.random() * 4 + 8,
+              delay: Math.random() * 2,
+              duration: Math.random() * 6 + 4,
               ease: "power1.out",
               repeat: -1,
               onRepeat: () => {
                 if (refParticle.current) {
                   refParticle.current.y = parentSize.height + 1000;
-                  refParticle.current.alpha = 1;
+                  refParticle.current.alpha = 0.2;
                 }
               },
             });
