@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { gsap } from "gsap";
 import { Texture } from "pixi.js";
@@ -21,7 +21,7 @@ export default function Smoke() {
       const numParticles = 300;
       const particles = [];
       for (let i = 0; i < numParticles; i++) {
-        const refParticle = React.createRef();
+        const refParticle = createRef();
         const randColor =
           glowColorsSmoke[Math.floor(Math.random() * glowColorsSmoke.length)];
 
