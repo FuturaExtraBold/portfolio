@@ -11,7 +11,7 @@ export default function CallToAction() {
           <OverlayFade opacity={0.8} />
         </Background>
         <Content className="cta__content">
-          <h1>Hello, dudes!</h1>
+          <h1>Call to Action</h1>
         </Content>
       </Container>
       <Separator />

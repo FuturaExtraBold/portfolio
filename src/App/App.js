@@ -2,6 +2,7 @@ import {
   About,
   CallToAction,
   Clients,
+  Footer,
   Hell,
   Hero,
   Lighthouse,
@@ -27,6 +28,7 @@ function App() {
       <Lighthouse />
       <CallToAction />
       <Hell />
+      <Footer />
     </main>
   );
 }

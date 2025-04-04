@@ -1,6 +1,6 @@
 import React from "react";
 import { Background, Container, Content, Section } from "components/layout";
-import { OverlayFade, SectionHeader } from "components/ui";
+import { OverlayFade, SectionHeader, Separator } from "components/ui";
 import { imageHell } from "assets/images";
 import "./styles.scss";
 
@@ -19,6 +19,7 @@ export default function Hell() {
           />
         </Content>
       </Container>
+      <Separator />
     </Section>
   );
 }
