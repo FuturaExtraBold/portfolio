@@ -13,11 +13,11 @@
 }
 
 .board__accent {
-  @include fluid-property($breaks-xs, $breaks-xxl, 80px, 300px, width);
-
   position: absolute;
   top: 0;
   left: 0;
+
+  @include fluid-property($breaks-xs, $breaks-xxl, 80px, 300px, width);
 }
 
 .board__accent--sun {

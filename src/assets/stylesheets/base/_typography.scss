@@ -25,6 +25,9 @@ h6,
 
 h1,
 .heading--1 {
+  text-shadow: rgb(0 0 0 / 0.5) 0 0 20px;
+  transition: line-height 0.3s ease-in-out;
+
   @include mixins.fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
@@ -32,13 +35,13 @@ h1,
     72px,
     font-size
   );
-
-  text-shadow: rgb(0 0 0 / 0.5) 0 0 20px;
-  transition: line-height 0.3s ease-in-out;
 }
 
 h2,
 .heading--2 {
+  text-shadow: rgb(0 0 0 / 0.5) 0 0 16px;
+  transition: line-height 0.3s ease-in-out;
+
   @include mixins.fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
@@ -46,13 +49,13 @@ h2,
     62px,
     font-size
   );
-
-  text-shadow: rgb(0 0 0 / 0.5) 0 0 16px;
-  transition: line-height 0.3s ease-in-out;
 }
 
 h3,
 .heading--3 {
+  font-family: "Dolly Roman", serif;
+  line-height: 1.5;
+
   @include mixins.fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
@@ -60,12 +63,13 @@ h3,
     21px,
     font-size
   );
-
-  font-family: "Dolly Roman", serif;
-  line-height: 1.5;
 }
 
 p {
+  color: #e2c06d;
+  font-family: "Dolly Roman", serif;
+  line-height: 1.5;
+
   @include mixins.fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
@@ -73,10 +77,6 @@ p {
     21px,
     font-size
   );
-
-  color: #e2c06d;
-  font-family: "Dolly Roman", serif;
-  line-height: 1.5;
 }
 
 @media (min-width: breakpoints.$breaks-md) {

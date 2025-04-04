@@ -1,6 +1,6 @@
 import { useApp } from "App/AppProvider";
 import { fluidProperty } from "assets/javascripts/layout/fluidElement";
-import "./vignette.scss";
+import "./styles.scss";
 
 export default function Vignette() {
   const { breakpoints } = useApp();

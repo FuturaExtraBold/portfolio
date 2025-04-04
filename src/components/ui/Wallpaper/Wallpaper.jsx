@@ -1,5 +1,5 @@
 import React from "react";
-import "./wallpaper.scss";
+import "./styles.scss";
 
 export default function Wallpaper() {
   return <div className="wallpaper"></div>;

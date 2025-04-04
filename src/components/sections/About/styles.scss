@@ -1,14 +1,14 @@
 @use "assets/stylesheets/consumables" as *;
 
 .about__content {
+  padding-right: 0;
+  padding-left: 0;
+
   @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 30px, 60px, padding-left);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
   @include fluid-property($breaks-md, $breaks-xl, 30px, 60px, padding-right);
-
-  padding-right: 0;
-  padding-left: 0;
 }
 
 .about__description {

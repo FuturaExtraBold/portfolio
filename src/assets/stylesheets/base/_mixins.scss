@@ -17,7 +17,7 @@
 }
 
 @function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1);
 }
 
 @mixin fluid-property($min-vw, $max-vw, $min-value, $max-value, $property) {
@@ -27,7 +27,9 @@
   $u4: math.unit($max-value);
 
   @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    #{$property}: $min-value;
+    & {
+      #{$property}: $min-value;
+    }
 
     @media screen and (min-width: $min-vw) {
       #{$property}: calc(
