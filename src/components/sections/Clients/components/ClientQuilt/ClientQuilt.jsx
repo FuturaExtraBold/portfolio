@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Guide } from "components/layout";
-import { useApp } from "AppProvider.jsx";
+import { useApp } from "App/AppProvider.jsx";
 import { fluidProperty } from "assets/javascripts/layout/fluidElement.js";
 import { clientLogos } from "../../../../clients/";
 import "./styles.scss";

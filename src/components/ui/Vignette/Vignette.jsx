@@ -1,4 +1,4 @@
-import { useApp } from "AppProvider";
+import { useApp } from "App/AppProvider";
 import { fluidProperty } from "assets/javascripts/layout/fluidElement";
 import "./vignette.scss";
 

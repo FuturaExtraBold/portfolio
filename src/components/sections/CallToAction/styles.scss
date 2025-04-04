@@ -1,0 +1,9 @@
+@import "../../../assets/stylesheets/consumables.scss";
+
+.cta__content {
+  @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
+  @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
+
+  padding-right: 0;
+  padding-left: 0;
+}

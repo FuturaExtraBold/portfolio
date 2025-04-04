@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { AppProvider } from "AppProvider";
+import { AppProvider } from "App/AppProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
