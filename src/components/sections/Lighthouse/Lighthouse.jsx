@@ -8,7 +8,7 @@ export default function Lighthouse() {
   return (
     <Section className="lighthouse">
       <Container className="lighthouse__container">
-        <Background className="content lighthouse__content">
+        <Background>
           <img
             className="lighthouse__image"
             src={imageLighthouse}
@@ -16,7 +16,7 @@ export default function Lighthouse() {
           />
           <Vignette />
         </Background>
-        <Content>
+        <Content className="content lighthouse__content">
           <h1>Hello, nurse!</h1>
         </Content>
       </Container>

@@ -21,7 +21,7 @@ export default function Hero(): JSX.Element {
   const parentRef = useRef<HTMLDivElement | null>(null);
 
   return (
-    <Section className="hero__section">
+    <Section className="hero">
       <BenzoContainer className="hero__container" ref={parentRef}>
         <Background>
           {parentRef.current && (
