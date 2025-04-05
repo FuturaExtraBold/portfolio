@@ -13,7 +13,9 @@ describe("Footer Component", () => {
     const currentYear = new Date().getFullYear();
     render(<Footer />);
     expect(
-      screen.getByText(`® ${currentYear} Benzo the Great. All rights reserved.`)
+      screen.getByText(
+        `® ${currentYear} Benzo the Great. All rights reserved. Made on a Mac in sunny Southern California`
+      )
     ).toBeInTheDocument();
   });
 
@@ -26,7 +28,9 @@ describe("Footer Component", () => {
 
   it("lists the tools and technologies used", () => {
     render(<Footer />);
-    expect(screen.getByText(/Tools: TypeScript, Sass/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Code: TypeScript, React, Sass/i)
+    ).toBeInTheDocument();
     expect(screen.getByText(/Animations: PixiJS, GSAP/i)).toBeInTheDocument();
     expect(screen.getByText(/Linting: ESLint, Stylelint/i)).toBeInTheDocument();
     expect(screen.getByText(/Testing: Jest/i)).toBeInTheDocument();

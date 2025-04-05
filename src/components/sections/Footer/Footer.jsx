@@ -5,8 +5,7 @@ import "./styles.scss";
 function TechListing({ category, hideSlash, tech }) {
   return (
     <span className="disclaimer-text disclaimer-text--small">
-      <strong>{category}</strong>:&nbsp;
-      {tech}
+      {`${category}: ${tech}`}
       {!hideSlash && <span> / </span>}
     </span>
   );
