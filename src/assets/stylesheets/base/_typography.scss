@@ -82,8 +82,14 @@ p {
 .disclaimer-text {
   color: #4b4b4b;
   font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.disclaimer-text--small {
   font-size: 12px;
-  line-height: 1.5;
+  font-weight: 400;
 }
 
 @media (min-width: breakpoints.$breaks-md) {

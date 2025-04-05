@@ -8,3 +8,7 @@
   @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding-bottom);
 }
+
+.disclaimer-text__tech {
+  font-size: 12px;
+}
