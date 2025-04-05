@@ -1,4 +1,4 @@
-export const fluidProperty = ({ minWidth, maxWidth, minValue, maxValue }) => {
+const fluidProperty = ({ minWidth, maxWidth, minValue, maxValue }) => {
   const windowWidth = window.innerWidth;
 
   return Math.min(
@@ -11,3 +11,5 @@ export const fluidProperty = ({ minWidth, maxWidth, minValue, maxValue }) => {
     )
   );
 };
+
+export default fluidProperty;

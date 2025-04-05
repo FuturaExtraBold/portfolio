@@ -25,7 +25,7 @@ h6,
 
 h1,
 .heading--1 {
-  text-shadow: rgb(0 0 0 / 0.5) 0 0 20px;
+  // text-shadow: rgb(0 0 0 / 0.5) 0 0 20px;
   transition: line-height 0.3s ease-in-out;
 
   @include mixins.fluid-property(
@@ -39,7 +39,7 @@ h1,
 
 h2,
 .heading--2 {
-  text-shadow: rgb(0 0 0 / 0.5) 0 0 16px;
+  // text-shadow: rgb(0 0 0 / 0.5) 0 0 16px;
   transition: line-height 0.3s ease-in-out;
 
   @include mixins.fluid-property(
@@ -69,6 +69,20 @@ p {
   color: #e2c06d;
   font-family: "Dolly Roman", serif;
   line-height: 1.5;
+
+  @include mixins.fluid-property(
+    $fluid-typography-min-width,
+    $fluid-typography-max-width,
+    19px,
+    21px,
+    font-size
+  );
+}
+
+.body {
+  color: #000000;
+  font-family: "Dolly Roman", serif;
+  line-height: 1.3;
 
   @include mixins.fluid-property(
     $fluid-typography-min-width,

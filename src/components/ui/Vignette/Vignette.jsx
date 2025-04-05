@@ -1,5 +1,5 @@
-import { useApp } from "App/AppProvider";
-import { fluidProperty } from "assets/javascripts/layout/fluidElement";
+import { useApp } from "AppProvider";
+import { fluidProperty } from "assets/javascripts/layout";
 import "./styles.scss";
 
 export default function Vignette() {

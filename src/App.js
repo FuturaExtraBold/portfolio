@@ -9,9 +9,9 @@ import {
   Lighthouse,
   Resume,
 } from "components/sections";
-import { PictureFrame } from "components/ui";
-import { useApp } from "./AppProvider";
-import "./styles.scss";
+import { ClientModal, PictureFrame } from "components/ui";
+import { useApp } from "AppProvider";
+import "./app.scss";
 
 function App() {
   const { currentSection, mediaClass } = useApp();
@@ -32,6 +32,7 @@ function App() {
         <Hell />
       </main>
       <Footer />
+      <ClientModal />
     </>
   );
 }

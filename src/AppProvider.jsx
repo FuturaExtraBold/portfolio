@@ -7,8 +7,8 @@ import {
   useState,
 } from "react";
 import { deviceDetect } from "react-device-detect";
-import "../assets/stylesheets/all.scss";
-import exportedBreakpoints from "../assets/stylesheets/base/_breakpoints.scss";
+import "./assets/stylesheets/all.scss";
+import exportedBreakpoints from "./assets/stylesheets/base/_breakpoints.scss";
 
 import App from "./App";
 const AppContext = createContext();
@@ -17,6 +17,8 @@ export const AppProvider = ({ children }) => {
   const [currentSection, setCurrentSection] = useState("hero");
   const [mediaClass, setMediaClass] = useState("desktop");
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [isModalActive, setIsModalActive] = useState(false);
+  const [activeCaseStudy, setActiveCaseStudy] = useState(null);
 
   const breakpoints = useMemo(() => {
     const resolvedBreakpoints = {};
@@ -85,12 +87,25 @@ export const AppProvider = ({ children }) => {
 
   const contextValues = useMemo(
     () => ({
+      activeCaseStudy,
       breakpoints,
+      isModalActive,
       currentSection,
       mediaClass,
+      setActiveCaseStudy,
+      setIsModalActive,
       windowSize,
     }),
-    [breakpoints, currentSection, mediaClass, windowSize]
+    [
+      activeCaseStudy,
+      breakpoints,
+      isModalActive,
+      currentSection,
+      mediaClass,
+      setActiveCaseStudy,
+      setIsModalActive,
+      windowSize,
+    ]
   );
 
   return (

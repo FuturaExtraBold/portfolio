@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { useApp } from "AppProvider";
 import { Guide } from "components/layout";
-import { useApp } from "App/AppProvider.jsx";
-import { fluidProperty } from "assets/javascripts/layout/fluidElement.js";
-import { clientLogos } from "../../../../clients/";
+// import { clients } from "data/clients";
+import { caseStudies } from "data/clients";
+import { fluidProperty } from "assets/javascripts/layout";
 import "./styles.scss";
 
 export default function Clients() {
-  const { breakpoints, windowSize } = useApp();
+  const { breakpoints, setActiveCaseStudy, setIsModalActive, windowSize } =
+    useApp();
   const { width } = windowSize;
 
   const quiltRef = useRef(null);
@@ -22,7 +24,7 @@ export default function Clients() {
 
       for (
         let i = startingIndex;
-        i < Math.min(startingIndex + countPerRow, clientLogos.length);
+        i < Math.min(startingIndex + countPerRow, caseStudies.length);
         i++
       ) {
         const angle = -arcAngle + (i - startingIndex) * angleStep * 2;
@@ -51,7 +53,7 @@ export default function Clients() {
 
   useEffect(() => {
     const numRows = width >= breakpoints.md ? 3 : 5;
-    const countPerRow = Math.ceil(clientLogos.length / numRows);
+    const countPerRow = Math.ceil(caseStudies.length / numRows);
     const values =
       numRows === 3
         ? {
@@ -85,15 +87,28 @@ export default function Clients() {
     }
   }, [breakpoints, setRowStyles, width]);
 
+  const handleLogoClick = (id) => {
+    console.log("Logo clicked:", id);
+    const selectedCaseStudy = caseStudies.find((study) => study.id === id);
+    if (selectedCaseStudy && selectedCaseStudy.description) {
+      setActiveCaseStudy(id);
+      setIsModalActive(true);
+    } else {
+      console.error(`Case study with id "${id}" not found.`);
+    }
+  };
+
   return (
     <div className="client-quilt" ref={quiltRef}>
-      {clientLogos
-        .sort((a, b) => a.order - b.order)
-        .map(({ component: LogoComponent, id }) => (
-          <div className="client-quilt__logo" key={id}>
-            <LogoComponent />
-          </div>
-        ))}
+      {caseStudies.map(({ logoComponent: LogoComponent, id }) => (
+        <div
+          className="client-quilt__logo"
+          key={id}
+          onClick={() => handleLogoClick(id)}
+        >
+          <LogoComponent />
+        </div>
+      ))}
       <Guide />
     </div>
   );
