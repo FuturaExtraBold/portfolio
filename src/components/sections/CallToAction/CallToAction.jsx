@@ -12,6 +12,10 @@ export default function CallToAction() {
         </Background>
         <Content className="cta__content">
           <h1>Call to Action</h1>
+          <p>
+            This is the call to action section. A title, description, and an
+            email me button should be here. Open to design suggestions.
+          </p>
         </Content>
       </Container>
       <Separator />

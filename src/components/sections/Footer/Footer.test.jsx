@@ -13,9 +13,7 @@ describe("Footer Component", () => {
     const currentYear = new Date().getFullYear();
     render(<Footer />);
     expect(
-      screen.getByText(
-        `® ${currentYear} Benzo the Great. All rights reserved. Made on a Mac in sunny Southern California`
-      )
+      screen.getByText(`® ${currentYear} Benzo the Great. All rights reserved.`)
     ).toBeInTheDocument();
   });
 
