@@ -16,21 +16,38 @@ export default function ClientModal() {
 
   const caseStudy = caseStudies.find((study) => study.id === activeCaseStudy);
 
+  const preventEvents = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
   return (
     <div className={modalClasses}>
       <div
         className="client-modal__overlay"
-        onClick={() => setIsModalActive(false)}
+        onClick={(e) => {
+          preventEvents(e);
+          setIsModalActive(false);
+        }}
+        onWheel={(e) => preventEvents(e)}
+        onTouchStart={(e) => preventEvents(e)}
+        onMouseMove={(e) => preventEvents(e)}
       />
       <div
-        className="client-modal__close"
-        onClick={() => setIsModalActive(false)}
+        className="client-modal__content"
+        onClick={(e) => preventEvents(e)}
+        onWheel={(e) => preventEvents(e)}
+        onTouchStart={(e) => preventEvents(e)}
+        onMouseMove={(e) => preventEvents(e)}
       >
-        <span className="client-modal__close-icon">X</span>
-      </div>
-      <div className="client-modal__content">
         {caseStudy && (
           <>
+            <div
+              className="client-modal__close"
+              onClick={() => setIsModalActive(false)}
+            >
+              <span className="client-modal__close-icon">X</span>
+            </div>
             <Header title={caseStudy.title} client={caseStudy.client} />
             <hr className="client-modal__divider" />
             {caseStudy.projects.map((project, index) => (
