@@ -21,14 +21,20 @@ export const caseStudies = [
     logoComponent: Mickey,
     title: "Mickey Mouse",
     client: "Disney",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    gallery: [
-      "mickey_1.jpg",
-      "mickey_2.jpg",
-      "mickey_3.jpg",
-      "mickey_4.jpg",
-      "mickey_5.jpg",
-      "mickey_6.jpg",
+    projects: [
+      {
+        title: "Official Mickey Mouse Homepage",
+        description:
+          "I contributed to the development of the official Mickey Mouse homepage, creating a fun and interactive online experience that celebrates the iconic character. The site features engaging animations, character spotlights, and activities for fans of all ages, all designed to capture the magic of Mickey Mouse.",
+        gallery: [
+          "mickey_1.jpg",
+          "mickey_2.jpg",
+          "mickey_3.jpg",
+          "mickey_4.jpg",
+          "mickey_5.jpg",
+          "mickey_6.jpg",
+        ],
+      },
     ],
   },
   { id: "dreamworks", logoComponent: DreamWorks },
@@ -38,18 +44,66 @@ export const caseStudies = [
     logoComponent: FindingNemo,
     title: "Finding Nemo",
     client: "Disney, Pixar Animation Studios",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    gallery: [
-      "nemo_1.jpg",
-      "nemo_2.jpg",
-      "nemo_3.jpg",
-      "nemo_4.jpg",
-      "nemo_5.jpg",
+    projects: [
+      {
+        title: "Finding Nemo 3D Website",
+        description:
+          "I developed the official Finding Nemo 3D website, creating a vibrant and interactive online experience that captured the film's underwater magic. Using JavaScript, I designed engaging features like character spotlights, a colorful gallery, and fun activities for kids, all to support the movie's theatrical release.",
+        gallery: [
+          "nemo_1.jpg",
+          "nemo_2.jpg",
+          "nemo_3.jpg",
+          "nemo_4.jpg",
+          "nemo_5.jpg",
+        ],
+      },
     ],
   },
   { id: "sony", logoComponent: Sony },
-  { id: "simpsons", logoComponent: TheSimpsons },
-  { id: "southpark", logoComponent: SouthPark },
+  {
+    id: "simpsons",
+    logoComponent: TheSimpsons,
+    title: "The Simpsons 25th Anniversary",
+    client: "Fox Broadcasting Company",
+    projects: [
+      {
+        title: "25th Anniversary Website",
+        description:
+          "I was part of the team that developed the 25th Anniversary website for The Simpsons, a fun and interactive experience celebrating the show's legacy. I helped build a platform where fans could explore iconic moments, characters, and episodes, all while enjoying the show's signature humor and style.",
+        gallery: [
+          "simpsons_1.jpg",
+          "simpsons_2.jpg",
+          "simpsons_3.jpg",
+          "simpsons_4.jpg",
+        ],
+      },
+    ],
+  },
+  {
+    id: "southpark",
+    logoComponent: SouthPark,
+    title: "South Park",
+    client: "Comedy Central, South Park Studios",
+    projects: [
+      {
+        title: "Avatar Creator",
+        description:
+          "I developed the South Park Avatar Creator, a fun and interactive tool that lets fans design their own South Park characters. Released on iOS and as a web app, I built a platform where users could customize their avatars with various outfits, hairstyles, and accessories, bringing the show's unique style to life.",
+        gallery: [
+          "southpark_1.jpg",
+          "southpark_2.jpg",
+          "southpark_3.jpg",
+          "southpark_4.jpg",
+        ],
+      },
+      {
+        title: "The Stick of Truth",
+        description:
+          "A role-playing video game based on the South Park series, featuring an epic quest.",
+        gallery: ["southpark_5.jpg", "southpark_6.jpg"],
+      },
+    ],
+  },
   { id: "fox", logoComponent: FOX },
   { id: "kia", logoComponent: KIA },
   { id: "honda", logoComponent: Honda },

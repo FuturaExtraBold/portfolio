@@ -30,12 +30,19 @@ export default function ClientModal() {
       <div className="client-modal__content">
         {caseStudy && (
           <>
-            <Header
-              title={caseStudy.title}
-              client={caseStudy.client}
-              description={caseStudy.description}
-            />
-            <Gallery />
+            <Header title={caseStudy.title} client={caseStudy.client} />
+            <hr className="client-modal__divider" />
+            {caseStudy.projects.map((project, index) => (
+              <div key={index} className="client-modal__project">
+                <span className="heading--3 text-dark client-modal__project-title">
+                  {project.title}
+                </span>
+                <p className="client-modal__project-description">
+                  {project.description}
+                </p>
+                <Gallery gallery={project.gallery} title={project.title} />
+              </div>
+            ))}
           </>
         )}
       </div>

@@ -90,7 +90,7 @@ export default function Clients() {
   const handleLogoClick = (id) => {
     console.log("Logo clicked:", id);
     const selectedCaseStudy = caseStudies.find((study) => study.id === id);
-    if (selectedCaseStudy && selectedCaseStudy.description) {
+    if (selectedCaseStudy && selectedCaseStudy.projects) {
       setActiveCaseStudy(id);
       setIsModalActive(true);
     } else {
