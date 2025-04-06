@@ -17,15 +17,15 @@ export default function About() {
             <h1 className="heading--2 about__title">
               Marvel at feats of spectacular ingenuity.
             </h1>
-            <div className="about__description">
-              <p>
+            <div className="body text-accent about__description">
+              <span>
                 I am a Frontend Developer with a penchant for creating
                 pixel-perfect and responsive web experiences. I have over 20
                 years of experience building websites, interactive advertising,
                 and web applications. My expertise includes working with React
                 and its variants, as well as HTML, CSS, and their modern
                 frameworks.
-              </p>
+              </span>
             </div>
           </div>
         </Content>

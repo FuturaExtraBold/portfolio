@@ -6,8 +6,10 @@ export default function Employer({ description, logo, name, tenure }) {
     <div className={`employer employer--${name.toLowerCase()}`}>
       <div className="employer__logo">{logo}</div>
       <div className="employer__text">
-        <p className="text-light employer__tenure">{`${tenure} years`}</p>
-        <p className="employer__description">{description}</p>
+        <span className="body text-grey employer__tenure">{`${tenure} years`}</span>
+        <span className="body text-accent employer__description">
+          {description}
+        </span>
       </div>
     </div>
   );

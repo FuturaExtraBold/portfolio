@@ -60,26 +60,11 @@ h3,
   );
 }
 
-p {
-  color: $text-accent;
-  font-family: "Dolly Roman", serif;
-  line-height: 1.5;
-
-  @include fluid-property(
-    $fluid-typography-min-width,
-    $fluid-typography-max-width,
-    19px,
-    21px,
-    font-size
-  );
-}
-
-.body {
+@mixin body-styles-default {
   color: $text-dark;
   font-family: "Dolly Roman", serif;
   font-weight: 400;
   line-height: 1.5;
-  text-align: left;
   text-rendering: optimizelegibility;
   text-size-adjust: 100%;
 
@@ -90,6 +75,14 @@ p {
     21px,
     font-size
   );
+}
+
+p {
+  @include body-styles-default;
+}
+
+.body {
+  @include body-styles-default;
 }
 
 .body--small {

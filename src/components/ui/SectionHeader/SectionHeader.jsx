@@ -10,7 +10,7 @@ export default function SectionHeader({ subtitle, title, variant }) {
   return (
     <header className={headerClass}>
       <span className="heading--1">{title}</span>
-      <span className="heading--3">{subtitle}</span>
+      <span className="body body--large">{subtitle}</span>
       <div className="section-header__hairline" />
     </header>
   );

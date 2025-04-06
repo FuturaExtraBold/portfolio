@@ -8,25 +8,29 @@
   justify-content: center;
   text-align: center;
 
-  @include fluid-property($breaks-md, $breaks-xl, 6px, 20px, gap);
+  @include fluid-property($breaks-md, $breaks-xl, 6px, 12px, gap);
 }
 
 .section-header__hairline {
   display: none;
   width: 100%;
-  max-width: 540px;
+  max-width: 640px;
   height: 1px;
   margin: 0 auto;
   background-color: #ffffff;
 }
 
+.section-header > * {
+  color: $text-light;
+}
+
 .section-header--dark > * {
-  color: #000000;
+  color: $text-dark;
   text-shadow: none;
 }
 
 .section-header--dark > .section-header__hairline {
-  background-color: #000000;
+  background-color: $text-dark;
 }
 
 @media (width >= $breaks-md) {
