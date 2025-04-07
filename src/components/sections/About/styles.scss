@@ -6,9 +6,7 @@
 
   @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
-  @include fluid-property($breaks-md, $breaks-xl, 30px, 60px, padding-left);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
-  @include fluid-property($breaks-md, $breaks-xl, 30px, 60px, padding-right);
 }
 
 .about__description {

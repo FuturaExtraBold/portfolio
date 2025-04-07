@@ -1,4 +1,10 @@
 @use "assets/stylesheets/consumables" as *;
+@use "sass:math";
+
+$mobile-hero-container-width: $breaks-md;
+$mobile-hero-container-center: calc(
+  math.div(#{$mobile-hero-container-width}, 2) * -1 + 50vw
+);
 
 .hero {
   flex-direction: column;
@@ -6,11 +12,34 @@
   justify-content: center;
 }
 
+.hero__background {
+  left: $mobile-hero-container-center;
+}
+
 .hero__container {
+  width: $mobile-hero-container-width;
   padding: 0;
   aspect-ratio: 3 / 2;
 }
 
+.hero__content {
+  left: $mobile-hero-container-center;
+}
+
 .hero__overlay {
   z-index: 1000;
+}
+
+@media (min-width: $breaks-md) {
+  .hero__background {
+    left: 0;
+  }
+
+  .hero__container {
+    width: auto;
+  }
+
+  .hero__content {
+    left: 0;
+  }
 }
