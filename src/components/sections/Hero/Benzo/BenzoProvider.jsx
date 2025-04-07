@@ -11,14 +11,15 @@ import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import Benzo from "./Benzo";
 
-// Textures
-import benzoBackground from "../../../../assets/images/benzo/background.jpg";
-import benzoBody from "../../../../assets/images/benzo/benzo.png";
-import glowBenzo from "../../../../assets/images/benzo/benzo.png";
-import glowGlasses from "../../../../assets/images/benzo/glow_glasses.png";
-import glowInner from "../../../../assets/images/benzo/glow_inner.png";
-import glowOuter from "../../../../assets/images/benzo/glow_outer.png";
-import smokeParticle from "../../../../assets/images/benzo/particle_smoke.png";
+import {
+  benzoBackground,
+  benzoBody,
+  glowBenzo,
+  glowGlasses,
+  glowInner,
+  glowOuter,
+  smokeParticle,
+} from "./images";
 
 const BenzoContext = createContext();
 
