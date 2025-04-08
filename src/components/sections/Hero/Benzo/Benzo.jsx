@@ -1,5 +1,6 @@
 import Background from "./components/Background";
 import BenzoBody from "./components/BenzoBody";
+import CrystalBall from "./components/CrystalBall";
 import GlowBenzo from "./components/GlowBenzo";
 import GlowGlasses from "./components/GlowGlasses";
 import GlowInner from "./components/GlowInner";
@@ -16,6 +17,7 @@ export default function Benzo({ parentRef }) {
       <GlowBenzo />
       <GlowInner />
       <GlowGlasses />
+      <CrystalBall />
     </pixiContainer>
   );
 }

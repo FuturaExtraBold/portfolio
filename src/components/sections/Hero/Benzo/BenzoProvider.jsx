@@ -14,6 +14,7 @@ import Benzo from "./Benzo";
 import {
   benzoBackground,
   benzoBody,
+  crystalBall,
   glowBenzo,
   glowGlasses,
   glowInner,
@@ -55,6 +56,7 @@ export const BenzoProvider = ({ parentRef }) => {
     return {
       benzoBackground: benzoBackground,
       benzoBody: benzoBody,
+      crystalBall: crystalBall,
       glowBenzo: glowBenzo,
       glowGlasses: glowGlasses,
       glowInner: glowInner,
