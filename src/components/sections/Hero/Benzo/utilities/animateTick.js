@@ -1,26 +1,44 @@
 import { gsap } from "gsap";
 
-export const animateTick = (ref, parentSize, scaleRef) => {
-  if (!ref.current) return;
+export const animateTick = ({
+  amplitudeX = 10,
+  amplitudeY = 5,
+  baseXAmount,
+  baseYAmount,
+  ref,
+  offsetYAmount,
+  parentSizeRef,
+  rotationRange = 360,
+  scaleRef,
+  tickTime = 0.01,
+}) => {
+  if (!ref.current) {
+    console.warn("animateTick ref.current is not defined");
+    return;
+  }
 
   let time = 0;
-  const rotationRange = 30;
 
-  const baseX = () => parentSize.width / 2 - parentSize.width / 6.75;
-  const baseY = () => parentSize.height - ref.current.height / 2;
-  const offScreenBottomOffset = ref.current.height / 2 + 10;
+  // Set the initial position
+  const baseX = () =>
+    parentSizeRef.current.width / 2 - parentSizeRef.current.width / baseXAmount;
+  const baseY = () =>
+    parentSizeRef.current.height - ref.current.height / baseYAmount;
 
+  const offScreenBottomOffset = ref.current.height / 2 - offsetYAmount; // Adjust the offset as needed
+
+  // Function to calculate the new position and rotation
   const tick = () => {
-    time += 0.01;
+    time += tickTime;
 
-    const amplitudeX = 20 * scaleRef.current * 2;
-    const amplitudeY = 10 * scaleRef.current * 2;
+    const resolvedAX = amplitudeX * scaleRef.current * 2;
+    const resolvedAY = amplitudeY * scaleRef.current * 2;
 
-    const offsetX = Math.sin(time * 0.8) * amplitudeX;
-    const offsetY = Math.cos(time * 0.6) * amplitudeY;
-
+    // Oscillation effect
+    const offsetX = Math.sin(time * 0.8) * resolvedAX;
+    const offsetY = Math.cos(time * 0.6) * resolvedAY;
     const yPosition = baseY() + offsetY - offScreenBottomOffset;
-    const rotation = Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180);
+    const rotation = Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180); // convert degrees to radians
 
     gsap.set(ref.current, {
       pixi: {
@@ -31,6 +49,7 @@ export const animateTick = (ref, parentSize, scaleRef) => {
     });
   };
 
+  // Use GSAP ticker for smooth animation
   gsap.ticker.add(tick);
 
   return () => {
