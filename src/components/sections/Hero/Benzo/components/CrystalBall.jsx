@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useEffect, useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function CrystalBall() {
@@ -12,28 +11,22 @@ export default function CrystalBall() {
     colorCrystalBall,
     durationCrystalBall,
     parentSize,
+    scaleRef,
     setPosition,
+    setScale,
     textures,
   } = useBenzo();
 
-  const scaleCrystalBall = useCallback(() => {
-    const calculateScale = () => {
-      const maxWidth = 1440; // Maximum width where scale is 1
-      const minWidth = 768; // Minimum width where scale decreases
-      const width = Math.max(minWidth, Math.min(parentSize.width, maxWidth)); // Clamp width between min and max
-      return width / maxWidth / 2; // Scale is proportional to the width
-    };
-
-    const scale = calculateScale();
-
+  useEffect(() => {
     if (refCrystalBall.current) {
-      gsap.set(refCrystalBall.current, {
-        pixi: { scale: scale },
+      animateRotation({
+        duration: Math.random() * 4 + 4,
+        origin: (45 + Math.random() * 10) / 100,
+        ref: refCrystalBall,
       });
     }
-  }, [parentSize]);
+  }, [animateRotation]);
 
-  // DONE
   useEffect(() => {
     if (refCrystalBall.current) {
       animateTint({
@@ -44,14 +37,6 @@ export default function CrystalBall() {
     }
   }, [animateTint, colorCrystalBall, durationCrystalBall]);
 
-  // DONE
-  useEffect(() => {
-    if (refCrystalBall.current) {
-      animateRotation({ ref: refCrystalBall });
-    }
-  }, [animateRotation]);
-
-  // DONE
   useEffect(() => {
     if (refCrystalBall.current) {
       setPosition({
@@ -65,9 +50,13 @@ export default function CrystalBall() {
 
   useEffect(() => {
     if (refCrystalBall.current) {
-      scaleCrystalBall();
+      setScale({
+        ref: refCrystalBall,
+        parentSize: parentSize,
+        scaleRef,
+      });
     }
-  }, [parentSize, scaleCrystalBall]);
+  }, [parentSize, scaleRef, setScale]);
 
   if (!allTexturesLoaded || !textures.crystalBall) return null;
 

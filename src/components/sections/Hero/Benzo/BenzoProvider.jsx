@@ -1,9 +1,10 @@
 import {
   createContext,
-  useContext,
-  useMemo,
   useCallback,
+  useContext,
   useEffect,
+  useMemo,
+  useRef,
   useState,
 } from "react";
 import { Assets } from "pixi.js";
@@ -11,7 +12,12 @@ import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import Benzo from "./Benzo";
 
-import { animateRotation, animateTint, setPosition } from "./utilities";
+import {
+  animateRotation,
+  animateTint,
+  setPosition,
+  setScale,
+} from "./utilities";
 
 import {
   benzoBackground,
@@ -30,6 +36,9 @@ const BenzoContext = createContext();
 export const BenzoProvider = ({ parentRef }) => {
   gsap.registerPlugin(PixiPlugin);
   PixiPlugin.registerPIXI(parentRef.current);
+
+  const parentSizeRef = useRef({ width: 0, height: 0 });
+  const scaleRef = useRef(0.5);
 
   const glowColors = useMemo(
     () => [0x00ff00, 0xff0000, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff],
@@ -74,6 +83,7 @@ export const BenzoProvider = ({ parentRef }) => {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
       setParentSize({ width, height });
+      parentSizeRef.current = { width, height };
     }
   }, [parentRef]);
 
@@ -153,7 +163,10 @@ export const BenzoProvider = ({ parentRef }) => {
       glowColorsSmoke,
       parentRef,
       parentSize,
+      parentSizeRef,
+      scaleRef,
       setPosition,
+      setScale,
       textures,
     }),
     [
@@ -165,6 +178,8 @@ export const BenzoProvider = ({ parentRef }) => {
       glowColorsSmoke,
       parentRef,
       parentSize,
+      parentSizeRef,
+      scaleRef,
       textures,
     ]
   );

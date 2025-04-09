@@ -1,7 +1,7 @@
 import { animateRotation } from "./animateRotation";
-import { animateScale } from "./animateScale";
 import { animateTick } from "./animateTick";
 import { animateTint } from "./animateTint";
 import { setPosition } from "./setPosition";
+import { setScale } from "./setScale";
 
-export { animateRotation, animateScale, animateTick, animateTint, setPosition };
+export { animateRotation, animateTick, animateTint, setPosition, setScale };
