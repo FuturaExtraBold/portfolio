@@ -15,7 +15,7 @@ export default function CrystalBall() {
 
   const spinCrystalBall = useCallback(() => {
     const duration = Math.random() * 4 + 4;
-    const origin = (40 + Math.random() * 20) / 100;
+    const origin = (45 + Math.random() * 10) / 100;
 
     gsap.set(refCrystalBall.current, {
       pixi: { rotation: 0 },
@@ -51,8 +51,6 @@ export default function CrystalBall() {
   }, [colorCrystalBall, durationCrystalBall]);
 
   const scaleCrystalBall = useCallback(() => {
-    console.log("scaleCrystalBall");
-
     const calculateScale = () => {
       const maxWidth = 1440; // Maximum width where scale is 1
       const minWidth = 768; // Minimum width where scale decreases
@@ -97,7 +95,7 @@ export default function CrystalBall() {
 
   return (
     <pixiSprite
-      alpha="0.8"
+      alpha={1}
       anchor={0.5}
       height={250}
       ref={refCrystalBall}

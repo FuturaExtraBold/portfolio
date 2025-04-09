@@ -31,6 +31,7 @@ export default function Footer() {
               hideSlash
             />
             <br />
+            <TechListing category="Source Control" tech="Github" />
             <TechListing category="Testing" tech="Jest" />
             <TechListing category="Auditing" tech="Google Lighthouse" />
             <TechListing category="Hosting" tech="Github Pages" hideSlash />

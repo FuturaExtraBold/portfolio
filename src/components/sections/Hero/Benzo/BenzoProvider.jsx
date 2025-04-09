@@ -19,6 +19,7 @@ import {
   glowGlasses,
   glowInner,
   glowOuter,
+  handLeft,
   smokeParticle,
 } from "./images";
 
@@ -61,6 +62,7 @@ export const BenzoProvider = ({ parentRef }) => {
       glowGlasses: glowGlasses,
       glowInner: glowInner,
       glowOuter: glowOuter,
+      handLeft: handLeft,
       smokeParticle: smokeParticle,
     };
   }, []);
