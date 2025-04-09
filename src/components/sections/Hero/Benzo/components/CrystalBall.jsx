@@ -53,6 +53,8 @@ export default function CrystalBall() {
       setScale({
         ref: refCrystalBall,
         parentSize: parentSize,
+        minScale: 0.22,
+        maxScale: 0.5,
         scaleRef,
       });
     }

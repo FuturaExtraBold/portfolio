@@ -62,6 +62,8 @@ export default function HandRight() {
       setScale({
         ref: handRef,
         parentSize: parentSize,
+        minScale: 0.25,
+        maxScale: 0.5,
         scaleRef,
       });
     }
