@@ -10,7 +10,7 @@ export default function Hypnosis() {
   useEffect(() => {
     if (refHypnosis.current) {
       animateRotation({
-        duration: 10,
+        duration: 30,
         ref: refHypnosis,
         ease: "none",
         repeat: true,
@@ -22,7 +22,7 @@ export default function Hypnosis() {
 
   return (
     <pixiSprite
-      alpha={0.01}
+      alpha={0.1}
       anchor={0.5}
       height={1800}
       ref={refHypnosis}

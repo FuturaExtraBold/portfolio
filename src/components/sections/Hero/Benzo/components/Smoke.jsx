@@ -29,7 +29,7 @@ export default function Smoke() {
 
         particles.push(
           <pixiSprite
-            alpha={0.2}
+            alpha={0.4}
             anchor={0.5}
             eventMode={"static"}
             key={uuid()}
