@@ -28,15 +28,13 @@ import {
   glowOuter,
   handLeft,
   handRight,
+  hypnosis,
   smokeParticle,
 } from "./images";
 
 const BenzoContext = createContext();
 
 export const BenzoProvider = ({ parentRef }) => {
-  // gsap.registerPlugin(PixiPlugin);
-  // PixiPlugin.registerPIXI(parentRef.current);
-
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
 
@@ -75,6 +73,7 @@ export const BenzoProvider = ({ parentRef }) => {
       glowOuter: glowOuter,
       handLeft: handLeft,
       handRight: handRight,
+      hypnosis: hypnosis,
       smokeParticle: smokeParticle,
     };
   }, []);

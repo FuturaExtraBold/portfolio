@@ -5,9 +5,10 @@ import glowBenzo from "./benzo_new.png";
 import glowGlasses from "./glow_glasses.png";
 import glowInner from "./glow_inner.png";
 import glowOuter from "./glow_outer.png";
-import smokeParticle from "./particle_smoke.png";
 import handLeft from "./hand_left.png";
 import handRight from "./hand_right.png";
+import hypnosis from "./hypnosis.jpg";
+import smokeParticle from "./particle_smoke.png";
 
 export {
   benzoBackground,
@@ -19,5 +20,6 @@ export {
   glowOuter,
   handLeft,
   handRight,
+  hypnosis,
   smokeParticle,
 };

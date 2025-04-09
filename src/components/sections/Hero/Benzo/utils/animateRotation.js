@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 export const animateRotation = ({
   duration,
   ease = "none",
-  origin,
+  origin = 0.5,
   ref,
   repeat = true,
   rotationAmount = 360,

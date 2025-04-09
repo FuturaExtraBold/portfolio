@@ -1,4 +1,3 @@
-// import Background from "./components/Background";
 import BenzoBody from "./components/BenzoBody";
 import CrystalBall from "./components/CrystalBall";
 import GlowBenzo from "./components/GlowBenzo";
@@ -7,12 +6,13 @@ import GlowInner from "./components/GlowInner";
 import GlowOuter from "./components/GlowOuter";
 import HandLeft from "./components/HandLeft";
 import HandRight from "./components/HandRight";
+import Hypnosis from "./components/Hypnosis";
 import Smoke from "./components/Smoke";
 
 export default function Benzo({ parentRef }) {
   return (
     <pixiContainer resizeTo={parentRef}>
-      {/* <Background /> */}
+      <Hypnosis />
       <Smoke />
       <GlowOuter />
       <BenzoBody />
