@@ -11,6 +11,8 @@ import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import Benzo from "./Benzo";
 
+import { animateRotation, animateTint, setPosition } from "./utilities";
+
 import {
   benzoBackground,
   benzoBody,
@@ -142,6 +144,8 @@ export const BenzoProvider = ({ parentRef }) => {
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
+      animateRotation,
+      animateTint,
       colorCrystalBall,
       colorSmoke,
       durationCrystalBall,
@@ -149,6 +153,7 @@ export const BenzoProvider = ({ parentRef }) => {
       glowColorsSmoke,
       parentRef,
       parentSize,
+      setPosition,
       textures,
     }),
     [

@@ -7,48 +7,14 @@ export default function CrystalBall() {
 
   const {
     allTexturesLoaded,
+    animateRotation,
+    animateTint,
     colorCrystalBall,
     durationCrystalBall,
     parentSize,
+    setPosition,
     textures,
   } = useBenzo();
-
-  const spinCrystalBall = useCallback(() => {
-    const duration = Math.random() * 4 + 4;
-    const origin = (45 + Math.random() * 10) / 100;
-
-    gsap.set(refCrystalBall.current, {
-      pixi: { rotation: 0 },
-    });
-
-    gsap.to(refCrystalBall.current, {
-      pixi: { anchor: origin, rotation: 360 },
-      duration: duration,
-      ease: "none",
-      onComplete: () => {
-        spinCrystalBall();
-      },
-    });
-  }, []);
-
-  const positionCrystalBall = useCallback(() => {
-    if (refCrystalBall.current) {
-      gsap.set(refCrystalBall.current, {
-        pixi: {
-          x: parentSize.width / 2,
-          y: parentSize.height - parentSize.height / 6,
-        },
-      });
-    }
-  }, [parentSize]);
-
-  const tintCrystalBall = useCallback(() => {
-    if (refCrystalBall.current) {
-      gsap.to(refCrystalBall.current, {
-        pixi: { tint: colorCrystalBall, duration: durationCrystalBall },
-      });
-    }
-  }, [colorCrystalBall, durationCrystalBall]);
 
   const scaleCrystalBall = useCallback(() => {
     const calculateScale = () => {
@@ -67,23 +33,35 @@ export default function CrystalBall() {
     }
   }, [parentSize]);
 
+  // DONE
   useEffect(() => {
     if (refCrystalBall.current) {
-      tintCrystalBall();
+      animateTint({
+        color: colorCrystalBall,
+        duration: durationCrystalBall,
+        ref: refCrystalBall,
+      });
     }
-  }, [tintCrystalBall]);
+  }, [animateTint, colorCrystalBall, durationCrystalBall]);
 
+  // DONE
   useEffect(() => {
     if (refCrystalBall.current) {
-      spinCrystalBall();
+      animateRotation({ ref: refCrystalBall });
     }
-  }, [spinCrystalBall]);
+  }, [animateRotation]);
 
+  // DONE
   useEffect(() => {
     if (refCrystalBall.current) {
-      positionCrystalBall();
+      setPosition({
+        ref: refCrystalBall,
+        usePixi: true,
+        x: parentSize.width / 2,
+        y: parentSize.height - parentSize.height / 6,
+      });
     }
-  }, [parentSize, positionCrystalBall]);
+  }, [setPosition, parentSize]);
 
   useEffect(() => {
     if (refCrystalBall.current) {
@@ -95,7 +73,7 @@ export default function CrystalBall() {
 
   return (
     <pixiSprite
-      alpha={1}
+      alpha={0.96}
       anchor={0.5}
       height={250}
       ref={refCrystalBall}

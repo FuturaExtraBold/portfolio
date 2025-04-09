@@ -31,7 +31,7 @@ export default function Hero(): JSX.Element {
           )}
         </Background>
         <Content className="hero__content" ref={parentRef}>
-          <h1>Hello, world!</h1>
+          <span className="body">Hello, world!</span>
         </Content>
         <div className="overlay hero__overlay"></div>
       </BenzoContainer>
