@@ -8,8 +8,6 @@ import {
   useState,
 } from "react";
 import { Assets } from "pixi.js";
-import { gsap } from "gsap";
-import { PixiPlugin } from "gsap/PixiPlugin";
 import Benzo from "./Benzo";
 
 import {
@@ -18,7 +16,7 @@ import {
   animateTint,
   setPosition,
   setScale,
-} from "./utilities";
+} from "./utils";
 
 import {
   benzoBackground,
@@ -29,14 +27,15 @@ import {
   glowInner,
   glowOuter,
   handLeft,
+  handRight,
   smokeParticle,
 } from "./images";
 
 const BenzoContext = createContext();
 
 export const BenzoProvider = ({ parentRef }) => {
-  gsap.registerPlugin(PixiPlugin);
-  PixiPlugin.registerPIXI(parentRef.current);
+  // gsap.registerPlugin(PixiPlugin);
+  // PixiPlugin.registerPIXI(parentRef.current);
 
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
@@ -75,6 +74,7 @@ export const BenzoProvider = ({ parentRef }) => {
       glowInner: glowInner,
       glowOuter: glowOuter,
       handLeft: handLeft,
+      handRight: handRight,
       smokeParticle: smokeParticle,
     };
   }, []);

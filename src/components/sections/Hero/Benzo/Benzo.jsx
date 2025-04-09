@@ -6,6 +6,7 @@ import GlowGlasses from "./components/GlowGlasses";
 import GlowInner from "./components/GlowInner";
 import GlowOuter from "./components/GlowOuter";
 import HandLeft from "./components/HandLeft";
+import HandRight from "./components/HandRight";
 import Smoke from "./components/Smoke";
 
 export default function Benzo({ parentRef }) {
@@ -19,6 +20,7 @@ export default function Benzo({ parentRef }) {
       <GlowGlasses />
       <CrystalBall />
       <HandLeft />
+      <HandRight />
       <GlowInner />
     </pixiContainer>
   );

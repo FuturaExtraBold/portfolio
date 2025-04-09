@@ -7,6 +7,7 @@ export const animateTint = ({ color, duration, ref }) => {
   }
 
   gsap.to(ref.current, {
-    pixi: { tint: color, duration: duration },
+    pixi: { tint: color },
+    duration: duration,
   });
 };

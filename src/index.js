@@ -1,10 +1,7 @@
-/* eslint-disable import/first */
-import * as PIXI from "pixi.js";
-window.PIXI = PIXI;
-
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AppProvider } from "./AppProvider";
+import "assets/javascripts/utils/gsapSetup";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

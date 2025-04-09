@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
-export default function HandLeft() {
+export default function HandRight() {
   const {
     allTexturesLoaded,
     animateTick,
@@ -23,14 +23,14 @@ export default function HandLeft() {
       animateTick({
         amplitudeX: 10,
         amplitudeY: 5,
-        baseXAmount: 6.75,
+        baseXAmount: -6.75,
         baseYAmount: 2,
         offsetYAmount: 120,
         ref: handRef,
         parentSizeRef,
         rotationRange: 240,
         scaleRef,
-        tickTime: 0.01,
+        tickTime: 0.009,
       });
     }
   }, [animateTick, parentSizeRef, scaleRef]);
@@ -47,10 +47,11 @@ export default function HandLeft() {
 
   useEffect(() => {
     if (handRef.current) {
+      console.log("Setting position for handRight");
       setPosition({
         ref: handRef,
         usePixi: true,
-        x: parentSize.width / 2 - parentSize.width / 6.75,
+        x: parentSize.width / 2 - parentSize.width / -6.75,
         y: parentSize.height - handRef.current.height / 2,
       });
     }
@@ -66,7 +67,7 @@ export default function HandLeft() {
     }
   }, [parentSize, scaleRef, setScale]);
 
-  if (!allTexturesLoaded || !textures.handLeft) return null;
+  if (!allTexturesLoaded || !textures.handRight) return null;
 
   return (
     <pixiSprite
@@ -74,7 +75,7 @@ export default function HandLeft() {
       anchor={0.5}
       scale={0.5}
       ref={handRef}
-      texture={textures.handLeft}
+      texture={textures.handRight}
       tint="#ffffff"
     />
   );
