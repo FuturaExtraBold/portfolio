@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/static/css/main.e2939f79.css",
-    "main.js": "/static/js/main.da67bef3.js",
+    "main.js": "/static/js/main.8433d917.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
-    "static/media/benzo_new.png": "/static/media/benzo_new.ff0698debd76f34e51cb.png",
     "static/media/background.jpg": "/static/media/background.4fcdc149c50dbdda3348.jpg",
+    "static/media/benzo_new.png": "/static/media/benzo_new.c48444cda68c56b8e773.png",
     "static/media/hell.jpg": "/static/media/hell.20e1f2c1f8890021b864.jpg",
     "static/media/crystal_ball.png": "/static/media/crystal_ball.e902d7ae00ea59fe584c.png",
-    "static/media/hand_right.png": "/static/media/hand_right.568681ecf6129f71af03.png",
-    "static/media/hand_left.png": "/static/media/hand_left.1936c375ad205f3aa518.png",
     "static/media/glow_outer.png": "/static/media/glow_outer.51b9ffe3aafe03da9cff.png",
     "static/media/lighthouse.jpg": "/static/media/lighthouse.c74c30f42eb0f00606c5.jpg",
     "static/media/particle_smoke.png": "/static/media/particle_smoke.561dfdd21093fab32e24.png",
     "static/media/board_new.jpg": "/static/media/board_new.fd2316e9f1d0945bba10.jpg",
     "static/media/ship.png": "/static/media/ship.21f894a553428b6a0771.png",
     "static/media/glow_inner.png": "/static/media/glow_inner.1e2065f1f2014f253bb9.png",
+    "static/media/hand_right.png": "/static/media/hand_right.ebd710690cb7dfbb3b0a.png",
     "static/media/frame_full.jpg": "/static/media/frame_full.529129c2e515742f0bdd.jpg",
+    "static/media/hand_left.png": "/static/media/hand_left.0383c0b7b7863103f2e3.png",
     "static/media/planchette.png": "/static/media/planchette.623aa199589451dfe8e9.png",
     "static/media/dolly-roman.woff": "/static/media/dolly-roman.ca59a417df1da3c0e960.woff",
     "static/media/wallpaper_tile.png": "/static/media/wallpaper_tile.06bfc460087a604611cf.png",
@@ -25,12 +25,12 @@
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
     "main.e2939f79.css.map": "/static/css/main.e2939f79.css.map",
-    "main.da67bef3.js.map": "/static/js/main.da67bef3.js.map",
+    "main.8433d917.js.map": "/static/js/main.8433d917.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e2939f79.css",
-    "static/js/main.da67bef3.js"
+    "static/js/main.8433d917.js"
   ]
 }
