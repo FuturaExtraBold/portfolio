@@ -1,4 +1,5 @@
 import BenzoBody from "./components/BenzoBody";
+import BenzoTitle from "./components/BenzoTitle";
 import CrystalBall from "./components/CrystalBall";
 import GlowBenzo from "./components/GlowBenzo";
 import GlowGlasses from "./components/GlowGlasses";
@@ -22,6 +23,7 @@ export default function Benzo({ parentRef }) {
       <HandLeft />
       <HandRight />
       <GlowInner />
+      <BenzoTitle />
     </pixiContainer>
   );
 }

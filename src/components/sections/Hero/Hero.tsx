@@ -4,7 +4,6 @@ import { Application, extend } from "@pixi/react";
 import {
   Background,
   Container as BenzoContainer,
-  Content,
   Section,
 } from "components/layout";
 import { Container, Sprite } from "pixi.js";
@@ -30,9 +29,6 @@ export default function Hero(): JSX.Element {
             </Application>
           )}
         </Background>
-        <Content className="hero__content" ref={parentRef}>
-          <span className="heading--2">Benzo</span>
-        </Content>
         <div className="overlay hero__overlay"></div>
       </BenzoContainer>
       <Separator />
