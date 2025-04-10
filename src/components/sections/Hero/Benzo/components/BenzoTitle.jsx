@@ -15,7 +15,6 @@ export default function BenzoTitle() {
 
   useEffect(() => {
     if (refTitle.current) {
-      console.log("Setting position for handRight");
       setPosition({
         ref: refTitle,
         usePixi: true,

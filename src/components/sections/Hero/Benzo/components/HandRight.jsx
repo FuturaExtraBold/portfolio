@@ -47,7 +47,6 @@ export default function HandRight() {
 
   useEffect(() => {
     if (handRef.current) {
-      console.log("Setting position for handRight");
       setPosition({
         ref: handRef,
         usePixi: true,

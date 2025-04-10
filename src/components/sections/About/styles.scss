@@ -4,7 +4,7 @@
   padding-right: 0;
   padding-left: 0;
 
-  @include fluid-property($breaks-md, $breaks-xl, 40px, 60px, gap);
+  @include fluid-property($breaks-md, $breaks-xl, 60px, 80px, gap);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
 }
@@ -22,6 +22,8 @@
   display: none;
   filter: drop-shadow(0 6px 24px rgb(#2ee554, 0.5));
   transform: rotate(-10deg);
+
+  @include fluid-property($breaks-md, $breaks-xl, 180px, 248px, width);
 }
 
 .about__text {
@@ -38,7 +40,6 @@
 @media (width >= $breaks-md) {
   .about__image {
     display: block;
-    width: 248px;
   }
 
   .about__text {

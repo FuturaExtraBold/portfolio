@@ -8,7 +8,7 @@ import glowInner from "./glow_inner.png";
 import glowOuter from "./glow_outer.png";
 import handLeft from "./hand_left.png";
 import handRight from "./hand_right.png";
-import hypnosis from "./hypnosis.jpg";
+import hypnosis from "./hypnosis/hypnosis_3.jpg";
 import smokeParticle from "./particle_smoke.png";
 
 export {

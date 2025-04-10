@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useApp } from "AppProvider";
 import { Guide } from "components/layout";
-// import { clients } from "data/clients";
 import { caseStudies } from "data/clients";
 import { fluidProperty } from "assets/javascripts/layout";
 import "./styles.scss";
