@@ -37,11 +37,9 @@ export default function Planchette({ enable }) {
     document.head.appendChild(styleElement);
 
     window.addEventListener("mousemove", handleMove);
-    window.addEventListener("touchmove", handleMove);
 
     return () => {
       window.removeEventListener("mousemove", handleMove);
-      window.removeEventListener("touchmove", handleMove);
       document.head.removeChild(styleElement); // Restore cursor styles on cleanup
     };
   }, [enabled]);

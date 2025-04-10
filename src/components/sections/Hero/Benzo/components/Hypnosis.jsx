@@ -2,8 +2,13 @@ import { useEffect, useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function Hypnosis() {
-  const { allTexturesLoaded, parentSize, animateRotation, textures } =
-    useBenzo();
+  const {
+    allTexturesLoaded,
+    parentSize,
+    animateRotation,
+    animateScale,
+    textures,
+  } = useBenzo();
 
   const refHypnosis = useRef(null);
 
@@ -16,7 +21,19 @@ export default function Hypnosis() {
         repeat: true,
       });
     }
-  }, [animateRotation, textures]);
+  }, [animateRotation]);
+
+  useEffect(() => {
+    if (refHypnosis.current) {
+      animateScale({
+        duration: 10,
+        ref: refHypnosis,
+        scaleAmount: 0.5,
+        ease: "sine.inOut",
+        repeat: -1,
+      });
+    }
+  }, [animateScale]);
 
   if (!allTexturesLoaded || !textures.hypnosis) return null;
 

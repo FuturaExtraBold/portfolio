@@ -12,6 +12,7 @@ import Benzo from "./Benzo";
 
 import {
   animateRotation,
+  animateScale,
   animateTick,
   animateTint,
   setPosition,
@@ -157,6 +158,7 @@ export const BenzoProvider = ({ parentRef }) => {
     () => ({
       allTexturesLoaded,
       animateRotation,
+      animateScale,
       animateTick,
       animateTint,
       colorCrystalBall,
