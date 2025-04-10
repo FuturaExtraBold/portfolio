@@ -21,8 +21,8 @@ export default function HandRight() {
   useEffect(() => {
     if (handRef.current) {
       animateTick({
-        amplitudeX: 10,
-        amplitudeY: 5,
+        amplitudeX: 20,
+        amplitudeY: 10,
         baseXAmount: -6.75,
         baseYAmount: 2,
         offsetYAmount: 120,

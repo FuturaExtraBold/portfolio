@@ -21,8 +21,8 @@ export default function HandLeft() {
   useEffect(() => {
     if (handRef.current) {
       animateTick({
-        amplitudeX: 10,
-        amplitudeY: 5,
+        amplitudeX: 20,
+        amplitudeY: 10,
         baseXAmount: 6.75,
         baseYAmount: 2,
         offsetYAmount: 120,
@@ -30,7 +30,7 @@ export default function HandLeft() {
         parentSizeRef,
         rotationRange: 240,
         scaleRef,
-        tickTime: 0.01,
+        tickTime: 0.015,
       });
     }
   }, [animateTick, parentSizeRef, scaleRef]);
