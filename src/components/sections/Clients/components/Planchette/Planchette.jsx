@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { imagePlanchette } from "../../../../../assets/images";
+import imagePlanchette from "./planchette.png";
 import "./styles.scss";
 
 export default function Planchette({ enable }) {
@@ -12,7 +12,7 @@ export default function Planchette({ enable }) {
     if (!enabled) return;
     const planchette = refPlanchette.current;
 
-    const handleMouseMove = (event) => {
+    const handleMove = (event) => {
       const mouseX = event.clientX;
       const mouseY = event.clientY;
       const parentElement = planchette.parentElement;
@@ -36,10 +36,12 @@ export default function Planchette({ enable }) {
     // styleElement.innerHTML = "* { cursor: none !important; }";
     document.head.appendChild(styleElement);
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("touchmove", handleMove);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
       document.head.removeChild(styleElement); // Restore cursor styles on cleanup
     };
   }, [enabled]);
