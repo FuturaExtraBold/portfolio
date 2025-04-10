@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.ea4c0707.css",
-    "main.js": "/static/js/main.0fb15810.js",
+    "main.js": "/static/js/main.92947442.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
     "static/media/benzo_new.png": "/static/media/benzo_new.4ff962d76dd80cad03e4.png",
@@ -14,7 +14,7 @@
     "static/media/particle_smoke.png": "/static/media/particle_smoke.561dfdd21093fab32e24.png",
     "static/media/board_new.jpg": "/static/media/board_new.fd2316e9f1d0945bba10.jpg",
     "static/media/ship.png": "/static/media/ship.21f894a553428b6a0771.png",
-    "static/media/hypnosis_3.jpg": "/static/media/hypnosis_3.0442161b31ff49ac3eb6.jpg",
+    "static/media/hypnosis_4.jpg": "/static/media/hypnosis_4.74c77cdf32737e8ca0aa.jpg",
     "static/media/glow_inner.png": "/static/media/glow_inner.1e2065f1f2014f253bb9.png",
     "static/media/hand_right.png": "/static/media/hand_right.ebd710690cb7dfbb3b0a.png",
     "static/media/frame_full.jpg": "/static/media/frame_full.529129c2e515742f0bdd.jpg",
@@ -27,12 +27,12 @@
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
     "main.ea4c0707.css.map": "/static/css/main.ea4c0707.css.map",
-    "main.0fb15810.js.map": "/static/js/main.0fb15810.js.map",
+    "main.92947442.js.map": "/static/js/main.92947442.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ea4c0707.css",
-    "static/js/main.0fb15810.js"
+    "static/js/main.92947442.js"
   ]
 }
