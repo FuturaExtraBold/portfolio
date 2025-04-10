@@ -27,9 +27,12 @@ export default function Hero(): JSX.Element {
         <Background className="hero__background">
           {parentRef.current && (
             <Application
+              antialias={true}
               autoDensity={true}
               background="#000000"
+              backgroundAlpha={0}
               resizeTo={parentRef.current}
+              resolution={window.devicePixelRatio || 1}
             >
               <BenzoProvider parentRef={parentRef} />
             </Application>
