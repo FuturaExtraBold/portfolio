@@ -4,9 +4,10 @@ import { useApp } from "AppProvider";
 import { Guide } from "components/layout";
 import { caseStudies } from "data/clients";
 import { fluidProperty } from "assets/javascripts/layout";
+import Client from "../Client/Client";
 import "./styles.scss";
 
-export default function Clients() {
+export default function ClientQuilt() {
   const { breakpoints, setActiveCaseStudy, setIsModalActive, windowSize } =
     useApp();
   const { width } = windowSize;
@@ -99,14 +100,13 @@ export default function Clients() {
 
   return (
     <div className="client-quilt" ref={quiltRef}>
-      {caseStudies.map(({ logoComponent: LogoComponent, id }) => (
-        <div
-          className="client-quilt__logo"
+      {caseStudies.map(({ logoComponent: LogoComponent, id, title }) => (
+        <Client
           key={id}
+          LogoComponent={LogoComponent}
+          title={title}
           onClick={() => handleLogoClick(id)}
-        >
-          <LogoComponent />
-        </div>
+        />
       ))}
       <Guide />
     </div>

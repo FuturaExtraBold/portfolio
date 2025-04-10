@@ -10,30 +10,3 @@
 
   @include fluid-property($breaks-xs, $breaks-md, 100px, 60px, padding-top);
 }
-
-.client-quilt__logo {
-  position: absolute;
-  display: flex;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(255 0 0 / 0);
-  cursor: pointer;
-  opacity: 0;
-  transform-origin: center;
-
-  @include fluid-property($breaks-md, $breaks-xl, 96px, 128px, width);
-}
-
-.client-quilt__logo > svg {
-  width: 100%;
-  height: auto;
-}
-
-.client-quilt__logo > svg path {
-  fill: #000000;
-}
-
-.client-quilt__logo:hover > svg path {
-  fill: #ffffff;
-}

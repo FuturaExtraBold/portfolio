@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import classnames from "classnames";
 import { useApp } from "AppProvider";
 import { caseStudies } from "data/clients";
 import "./styles.scss";
@@ -11,7 +11,7 @@ import { Fragment } from "react/jsx-runtime";
 export default function ClientModal() {
   const { activeCaseStudy, isModalActive, setIsModalActive } = useApp();
 
-  const modalClasses = classNames("client-modal", {
+  const modalClasses = classnames("client-modal", {
     "client-modal--active": isModalActive,
   });
 
