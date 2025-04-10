@@ -4,12 +4,14 @@ import { Application, extend } from "@pixi/react";
 import {
   Background,
   Container as BenzoContainer,
+  Content,
   Section,
 } from "components/layout";
 import { Container, Sprite } from "pixi.js";
 import { BenzoProvider } from "./Benzo/BenzoProvider";
 import { Separator } from "../../ui";
 import "./styles.scss";
+import { benzoTitle } from "../../sections/Hero/Benzo/images";
 
 extend({
   Container,
@@ -33,6 +35,9 @@ export default function Hero(): JSX.Element {
             </Application>
           )}
         </Background>
+        <Content className="hero__content">
+          <img src={benzoTitle} alt="Benzo" width="754" />
+        </Content>
         <div className="overlay hero__overlay"></div>
       </BenzoContainer>
       <Separator />
