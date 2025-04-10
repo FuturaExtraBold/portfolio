@@ -24,7 +24,11 @@ export default function Hero(): JSX.Element {
       <BenzoContainer className="hero__container" ref={parentRef}>
         <Background className="hero__background">
           {parentRef.current && (
-            <Application background="#000000" resizeTo={parentRef.current}>
+            <Application
+              autoDensity={true}
+              background="#000000"
+              resizeTo={parentRef.current}
+            >
               <BenzoProvider parentRef={parentRef} />
             </Application>
           )}
