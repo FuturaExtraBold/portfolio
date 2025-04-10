@@ -39,7 +39,14 @@ export default function Hero(): JSX.Element {
           )}
         </Background>
         <Content className="hero__content">
-          <img src={benzoTitle} alt="Benzo" width="754" />
+          <img
+            src={benzoTitle}
+            alt="Benzo"
+            width="754"
+            style={{
+              display: "none",
+            }}
+          />
         </Content>
         <div className="overlay hero__overlay"></div>
       </BenzoContainer>
