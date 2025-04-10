@@ -6,6 +6,7 @@ import "./styles.scss";
 import Header from "./components/Header/Header";
 import Gallery from "./components/Gallery/Gallery";
 import Project from "./components/Project/Project";
+import { Fragment } from "react/jsx-runtime";
 
 export default function ClientModal() {
   const { activeCaseStudy, isModalActive, setIsModalActive } = useApp();
@@ -17,7 +18,6 @@ export default function ClientModal() {
   const caseStudy = caseStudies.find((study) => study.id === activeCaseStudy);
 
   const preventEvents = (e) => {
-    e.preventDefault();
     e.stopPropagation();
   };
 
@@ -51,10 +51,10 @@ export default function ClientModal() {
             <Header title={caseStudy.title} client={caseStudy.client} />
             <hr className="client-modal__divider" />
             {caseStudy.projects.map((project, index) => (
-              <>
-                <Project key={index} project={project} index={index} />
+              <Fragment key={index}>
+                <Project project={project} index={index} />
                 <Gallery gallery={project.gallery} title={project.title} />
-              </>
+              </Fragment>
             ))}
           </>
         )}
