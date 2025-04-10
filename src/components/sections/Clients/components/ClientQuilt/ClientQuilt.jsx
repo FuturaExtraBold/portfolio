@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { useApp } from "AppProvider";
-import { Guide } from "components/layout";
 import { caseStudies } from "data/clients";
 import { fluidProperty } from "assets/javascripts/layout";
-import Client from "../Client/Client";
+import Client from "../Client";
 import "./styles.scss";
 
 export default function ClientQuilt() {
@@ -108,7 +107,6 @@ export default function ClientQuilt() {
           onClick={() => handleLogoClick(id)}
         />
       ))}
-      <Guide />
     </div>
   );
 }
