@@ -18,7 +18,7 @@ export default function Smoke() {
       parentSize.height > 0 &&
       parentSize.width > 0
     ) {
-      const numParticles = 300;
+      const numParticles = 100;
       const particles = [];
       for (let i = 0; i < numParticles; i++) {
         const refParticle = createRef();
