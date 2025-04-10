@@ -25,13 +25,6 @@ export default function About() {
     maxValue: 20,
   });
 
-  console.log(
-    "fluidAmplitudeX",
-    fluidAmplitudeX,
-    "fluidAmplitudeY",
-    fluidAmplitudeY
-  );
-
   useEffect(() => {
     if (refShip.current) {
       animateFloat({

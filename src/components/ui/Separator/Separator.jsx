@@ -1,9 +1,9 @@
 import "./styles.scss";
-import separatorImage from "../../../assets/images/ui/separator.png"; // Adjust the path as needed
+import separatorImage from "./separator.png";
 
 export default function Separator() {
   return (
-    <div className="separator">
+    <div className="separator" data-testid="separator-container">
       <img className="separator__image" src={separatorImage} alt="Separator" />
     </div>
   );
