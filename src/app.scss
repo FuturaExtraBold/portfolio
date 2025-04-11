@@ -1,5 +1,11 @@
 @use "assets/stylesheets/consumables" as *;
 
+body {
+  background-image: url("assets/images/ui/body_wallpaper.jpg");
+  background-position: top center;
+  background-size: 600px 800px;
+}
+
 #benzo-app {
   position: relative;
   overflow: visible;
@@ -9,6 +15,7 @@
   padding: 0;
   margin: 0 auto;
   background-color: #000000;
+  box-shadow: 0 0 60px 10px black, inset 0 0 50px 5px rgb(255 0 0 / 1);
 }
 
 #benzo-app.media--desktop-large {
