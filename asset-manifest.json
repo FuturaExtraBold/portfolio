@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.05a50bf4.css",
-    "main.js": "/static/js/main.8798b73c.js",
+    "main.css": "/static/css/main.d13aa028.css",
+    "main.js": "/static/js/main.69eea88a.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
     "static/media/benzo_new.png": "/static/media/benzo_new.4ff962d76dd80cad03e4.png",
@@ -15,6 +15,7 @@
     "static/media/board_new.jpg": "/static/media/board_new.fd2316e9f1d0945bba10.jpg",
     "static/media/ship.png": "/static/media/ship.21f894a553428b6a0771.png",
     "static/media/hypnosis_4.jpg": "/static/media/hypnosis_4.74c77cdf32737e8ca0aa.jpg",
+    "static/media/body_wallpaper.jpg": "/static/media/body_wallpaper.1daabbe03fd182ccff06.jpg",
     "static/media/glow_inner.png": "/static/media/glow_inner.1e2065f1f2014f253bb9.png",
     "static/media/hand_right.png": "/static/media/hand_right.ebd710690cb7dfbb3b0a.png",
     "static/media/frame_full.jpg": "/static/media/frame_full.529129c2e515742f0bdd.jpg",
@@ -26,13 +27,13 @@
     "static/media/ouija_sun.svg": "/static/media/ouija_sun.8d0b2a5306318bd623e728a9cb10dd08.svg",
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
-    "main.05a50bf4.css.map": "/static/css/main.05a50bf4.css.map",
-    "main.8798b73c.js.map": "/static/js/main.8798b73c.js.map",
+    "main.d13aa028.css.map": "/static/css/main.d13aa028.css.map",
+    "main.69eea88a.js.map": "/static/js/main.69eea88a.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.05a50bf4.css",
-    "static/js/main.8798b73c.js"
+    "static/css/main.d13aa028.css",
+    "static/js/main.69eea88a.js"
   ]
 }
