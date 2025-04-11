@@ -1,5 +1,6 @@
 import { Background, Container, Content, Section } from "components/layout";
-import { Separator, Vignette } from "components/ui";
+import { SectionHeader, Separator, Vignette } from "components/ui";
+import Scores from "./components";
 import { imageLighthouse } from "assets/images";
 import "./styles.scss";
 
@@ -16,7 +17,12 @@ export default function Lighthouse() {
           <Vignette />
         </Background>
         <Content className="content lighthouse__content">
-          <h1>Hello, nurse!</h1>
+          <Scores />
+          <SectionHeader
+            title="Google Lighthouse"
+            subtitle="Lighthouse audits performance, accessibility, and more."
+            useShadow
+          />
         </Content>
       </Container>
       <Separator />

@@ -15,6 +15,7 @@ export default function Hell() {
           <SectionHeader
             subtitle="This is the end of the page. The fire looks cool though, right?"
             title="Awww, Hell."
+            useShadow
           />
         </Content>
       </Container>

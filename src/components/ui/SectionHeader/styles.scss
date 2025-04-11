@@ -8,7 +8,7 @@
   justify-content: center;
   text-align: center;
 
-  @include fluid-property($breaks-md, $breaks-xl, 6px, 12px, gap);
+  @include fluid-property($breaks-md, $breaks-xl, 6px, 8px, gap);
 }
 
 .section-header__hairline {
@@ -16,12 +16,13 @@
   width: 100%;
   max-width: 640px;
   height: 1px;
-  margin: 0 auto;
+  margin: 10px auto 0;
   background-color: #ffffff;
 }
 
 .section-header > * {
   color: $text-light;
+  line-height: 1;
 }
 
 .section-header--dark > * {
@@ -31,6 +32,10 @@
 
 .section-header--dark > .section-header__hairline {
   background-color: $text-dark;
+}
+
+.section-header--text-shadow {
+  text-shadow: 0 0 20px rgb(0 0 0 / 1);
 }
 
 @media (width >= $breaks-md) {

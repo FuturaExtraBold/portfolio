@@ -2,9 +2,10 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./styles.scss";
 
-export default function SectionHeader({ subtitle, title, variant }) {
+export default function SectionHeader({ subtitle, title, useShadow, variant }) {
   const headerClass = classnames("section-header", {
     [`section-header--${variant}`]: variant,
+    [`section-header--text-shadow`]: useShadow,
   });
 
   return (
