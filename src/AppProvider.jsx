@@ -19,6 +19,7 @@ export const AppProvider = ({ children }) => {
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [isModalActive, setIsModalActive] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
+  const [userDevice, setUserDevice] = useState(() => deviceDetect() || {});
 
   const breakpoints = useMemo(() => {
     const resolvedBreakpoints = {};
@@ -82,7 +83,10 @@ export const AppProvider = ({ children }) => {
   }, [updateCurrentSection]);
 
   useEffect(() => {
-    console.log("device:", deviceDetect());
+    const detectedDevice = deviceDetect();
+    if (detectedDevice) {
+      setUserDevice(detectedDevice);
+    }
   }, []);
 
   const contextValues = useMemo(
@@ -94,6 +98,7 @@ export const AppProvider = ({ children }) => {
       mediaClass,
       setActiveCaseStudy,
       setIsModalActive,
+      userDevice,
       windowSize,
     }),
     [
@@ -104,6 +109,7 @@ export const AppProvider = ({ children }) => {
       mediaClass,
       setActiveCaseStudy,
       setIsModalActive,
+      userDevice,
       windowSize,
     ]
   );
