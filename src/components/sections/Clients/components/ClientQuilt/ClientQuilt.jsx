@@ -56,10 +56,10 @@ export default function ClientQuilt() {
     const values =
       numRows === 3
         ? {
-            minValue: 200,
-            maxValue: 500,
-            verticalSpaceMultiplier: 100,
-            verticalCenter: 100,
+            minValue: 240,
+            maxValue: 540,
+            verticalSpaceMultiplier: 120,
+            verticalCenter: 120,
           }
         : {
             minValue: 160,

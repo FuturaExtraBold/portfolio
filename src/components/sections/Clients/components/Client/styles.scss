@@ -10,7 +10,7 @@
   opacity: 0;
   transform-origin: center;
 
-  @include fluid-property($breaks-md, $breaks-xl, 96px, 128px, width);
+  @include fluid-property($breaks-md, $breaks-xl, 108px, 160px, width);
 
   .particle-container {
     position: absolute;
