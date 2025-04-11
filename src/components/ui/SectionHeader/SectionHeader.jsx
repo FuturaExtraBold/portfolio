@@ -2,7 +2,13 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./styles.scss";
 
-export default function SectionHeader({ subtitle, title, useShadow, variant }) {
+export default function SectionHeader({
+  subtitle,
+  title,
+  useHairline = true,
+  useShadow = false,
+  variant,
+}) {
   const headerClass = classnames("section-header", {
     [`section-header--${variant}`]: variant,
     [`section-header--text-shadow`]: useShadow,
@@ -12,7 +18,7 @@ export default function SectionHeader({ subtitle, title, useShadow, variant }) {
     <header className={headerClass}>
       <span className="heading--1">{title}</span>
       <span className="body body--large">{subtitle}</span>
-      <div className="section-header__hairline" />
+      {useHairline && <div className="section-header__hairline" />}
     </header>
   );
 }
@@ -20,9 +26,7 @@ export default function SectionHeader({ subtitle, title, useShadow, variant }) {
 SectionHeader.propTypes = {
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  useHairline: PropTypes.bool,
+  useShadow: PropTypes.bool,
   variant: PropTypes.string,
-};
-
-SectionHeader.defaultProps = {
-  variant: "",
 };

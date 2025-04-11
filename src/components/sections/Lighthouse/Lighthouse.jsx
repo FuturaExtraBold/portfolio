@@ -21,7 +21,8 @@ export default function Lighthouse() {
           <SectionHeader
             title="Google Lighthouse"
             subtitle="Lighthouse audits performance, accessibility, and more."
-            useShadow
+            useHairline={false}
+            useShadow={true}
           />
         </Content>
       </Container>

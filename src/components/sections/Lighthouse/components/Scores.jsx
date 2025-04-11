@@ -1,11 +1,11 @@
 import React from "react";
+import "./styles.scss";
 
 function Score() {
   return (
     <div className="score">
-      <div className="score__title">Performance</div>
-      <div className="score__value">90</div>
-      <div className="score__unit">%</div>
+      {/* <div className="score__title">Performance</div> */}
+      <div className="score__value">100</div>
     </div>
   );
 }
@@ -13,10 +13,14 @@ function Score() {
 export default function Scores() {
   return (
     <div className="scores">
-      <Score />
-      <Score />
-      <Score />
-      <Score />
+      <div className="scores__section">
+        <Score />
+        <Score />
+      </div>
+      <div className="scores__section">
+        <Score />
+        <Score />
+      </div>
     </div>
   );
 }
