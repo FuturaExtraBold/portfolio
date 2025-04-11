@@ -11,6 +11,7 @@
           "forward",
           "function",
           "if",
+          "else",
           "include",
           "mixin",
           "return",

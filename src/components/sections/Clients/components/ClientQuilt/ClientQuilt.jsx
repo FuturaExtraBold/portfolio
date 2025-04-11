@@ -62,7 +62,7 @@ export default function ClientQuilt() {
             verticalCenter: 100,
           }
         : {
-            minValue: 140,
+            minValue: 160,
             maxValue: 400,
             verticalSpaceMultiplier: 70,
             verticalCenter: 140,

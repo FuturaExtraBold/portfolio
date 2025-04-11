@@ -23,23 +23,60 @@
 @mixin fluid-property($min-vw, $max-vw, $min-value, $max-value, $property) {
   $u1: math.unit($min-vw);
   $u2: math.unit($max-vw);
-  $u3: math.unit($min-value);
-  $u4: math.unit($max-value);
 
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      #{$property}: $min-value;
+  @if type-of($min-value) == "list" and type-of($max-value) == "list" {
+    // Handle paired values (e.g., width and height)
+    $min-value-1: nth($min-value, 1);
+    $min-value-2: nth($min-value, 2);
+    $max-value-1: nth($max-value, 1);
+    $max-value-2: nth($max-value, 2);
+
+    $u3: math.unit($min-value-1);
+    $u4: math.unit($max-value-1);
+    $u5: math.unit($min-value-2);
+    $u6: math.unit($max-value-2);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 and $u1 == $u5 and $u1 == $u6 {
+      & {
+        #{$property}: #{$min-value-1} #{$min-value-2};
+      }
+
+      @media screen and (min-width: $min-vw) {
+        #{$property}: calc(
+            #{$min-value-1} + #{strip-unit($max-value-1 - $min-value-1)} *
+              ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+          )
+          calc(
+            #{$min-value-2} + #{strip-unit($max-value-2 - $min-value-2)} *
+              ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+          );
+      }
+
+      @media screen and (min-width: $max-vw) {
+        #{$property}: #{$max-value-1} #{$max-value-2};
+      }
     }
+    /* stylelint-disable-next-line at-rule-empty-line-before */
+  } @else {
+    // Default behavior for single values
+    $u3: math.unit($min-value);
+    $u4: math.unit($max-value);
 
-    @media screen and (min-width: $min-vw) {
-      #{$property}: calc(
-        #{$min-value} + #{strip-unit($max-value - $min-value)} *
-          ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
-      );
-    }
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+        #{$property}: $min-value;
+      }
 
-    @media screen and (min-width: $max-vw) {
-      #{$property}: $max-value;
+      @media screen and (min-width: $min-vw) {
+        #{$property}: calc(
+          #{$min-value} + #{strip-unit($max-value - $min-value)} *
+            ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+        );
+      }
+
+      @media screen and (min-width: $max-vw) {
+        #{$property}: $max-value;
+      }
     }
   }
 }
