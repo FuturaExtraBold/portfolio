@@ -16,15 +16,21 @@
 }
 
 .score {
+  position: relative;
   display: flex;
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   align-items: center;
   justify-content: center;
-  border: 8px solid rgb(255 255 255 / 0.9);
   border-radius: 50%;
   background-color: transparent;
-  box-shadow: 0 0 3px 4px rgb(0 0 0 / 0.5), inset 0 0 3px 4px rgb(0 0 0 / 0.5);
+  box-shadow: 0 0 3px 10px rgb(0 0 0 / 0.5), inset 0 0 4px 6px rgb(0 0 0 / 0.5);
+
+  .score__circle {
+    position: absolute;
+    transform: rotate(-90deg); // Start animation from the top
+    transform-origin: center;
+  }
 }
 
 .score__value {

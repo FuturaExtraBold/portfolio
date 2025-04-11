@@ -14,7 +14,7 @@ import App from "./App";
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [currentSection, setCurrentSection] = useState("hero");
+  const [currentSection, setCurrentSection] = useState(null);
   const [mediaClass, setMediaClass] = useState("desktop");
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [isModalActive, setIsModalActive] = useState(false);
@@ -55,7 +55,7 @@ export const AppProvider = ({ children }) => {
     if (!appElement) return;
 
     const sections = appElement.querySelectorAll("section");
-    let currentSection = "hero";
+    let currentSection = "lighthouse";
     const windowHeight = window.innerHeight;
     sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
@@ -63,6 +63,7 @@ export const AppProvider = ({ children }) => {
         currentSection = section.className;
       }
     });
+    console.log("Current section:", currentSection);
     setCurrentSection(currentSection);
   }, []);
 
@@ -85,6 +86,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const detectedDevice = deviceDetect();
     if (detectedDevice) {
+      console.log("Detected device:", detectedDevice);
       setUserDevice(detectedDevice);
     }
   }, []);
