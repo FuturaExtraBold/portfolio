@@ -1,5 +1,8 @@
+@use "assets/stylesheets/consumables" as *;
+
 .client-modal__gallery {
   display: flex;
   flex-flow: column;
-  gap: 30px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 15px, 30px, gap);
 }

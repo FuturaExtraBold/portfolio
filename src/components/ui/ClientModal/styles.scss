@@ -1,3 +1,6 @@
+/* stylelint-disable length-zero-no-unit */
+@use "assets/stylesheets/consumables" as *;
+
 .client-modal {
   position: fixed;
   z-index: 9999;
@@ -10,6 +13,8 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding);
 }
 
 .client-modal--active {
@@ -31,12 +36,23 @@
 }
 
 .client-modal__close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  position: fixed;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  background-color: white;
   color: #000000;
   cursor: pointer;
-  font-size: 2rem;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+
+  @include fluid-property($breaks-md, $breaks-xl, 0px, 20px, top);
+  @include fluid-property($breaks-md, $breaks-xl, 0px, 20px, right);
 }
 
 .client-modal__close:hover {
@@ -49,13 +65,15 @@
 
 .client-modal__content {
   position: relative;
+  display: block;
   width: 100%;
   max-width: 1024px;
   height: 100%;
   max-height: 768px;
-  padding: 40px;
   border-radius: 0.5rem;
   background-color: #ffffff;
   box-shadow: 0 0 20px rgb(0 0 0 / 0.1);
   overflow-y: scroll;
+
+  @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding);
 }
