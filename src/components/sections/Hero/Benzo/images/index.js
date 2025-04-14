@@ -1,6 +1,7 @@
 import benzoBackground from "./background.jpg";
 import benzoBody from "./benzo_new.png";
 import benzoTitle from "./benzo_title.png";
+import canvasOverlay from "./canvas.jpg";
 import crystalBall from "./crystal_ball.png";
 import glowBenzo from "./benzo_new.png";
 import glowGlasses from "./glow_glasses.png";
@@ -15,6 +16,7 @@ export {
   benzoBackground,
   benzoBody,
   benzoTitle,
+  canvasOverlay,
   crystalBall,
   glowBenzo,
   glowGlasses,

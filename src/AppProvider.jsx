@@ -63,7 +63,6 @@ export const AppProvider = ({ children }) => {
         currentSection = section.className;
       }
     });
-    console.log("Current section:", currentSection);
     setCurrentSection(currentSection);
   }, []);
 

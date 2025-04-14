@@ -1,5 +1,6 @@
 import BenzoBody from "./components/BenzoBody";
 import BenzoTitle from "./components/BenzoTitle";
+import CanvasOverlay from "./components/CanvasOverlay";
 import CrystalBall from "./components/CrystalBall";
 import GlowBenzo from "./components/GlowBenzo";
 import GlowGlasses from "./components/GlowGlasses";
@@ -15,6 +16,7 @@ export default function Benzo({ parentRef }) {
     <pixiContainer resizeTo={parentRef}>
       <Hypnosis />
       <Smoke />
+      <CanvasOverlay />
       <GlowOuter />
       <BenzoBody />
       <GlowBenzo />
