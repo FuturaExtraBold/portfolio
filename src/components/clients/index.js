@@ -2,6 +2,7 @@ import Disney from "./Logos/Disney";
 import DreamWorks from "./Logos/DreamWorks";
 import FindingNemo from "./Logos/FindingNemo";
 import FOX from "./Logos/FOX";
+import Glee from "./Logos/Glee";
 import Honda from "./Logos/Honda";
 import Kajabi from "./Logos/Kajabi";
 import KIA from "./Logos/KIA";
@@ -20,6 +21,7 @@ export const clientLogos = [
   { component: DreamWorks, id: "dreamworks", order: 3 },
   { component: Pixar, id: "pixar", order: 4 },
   { component: FindingNemo, id: "nemo", order: 5 },
+  { component: Glee, id: "glee", order: 5 },
   { component: Sony, id: "sony", order: 6 },
   { component: TheSimpsons, id: "simpsons", order: 7 },
   { component: SouthPark, id: "southpark", order: 8 },

@@ -8,9 +8,9 @@ export default function Project({ project, index }) {
       <span className="heading--3 text-dark client-modal__project-title">
         {project.title}
       </span>
-      <span className="body client-modal__project-description">
+      {/* <span className="body client-modal__project-description">
         {project.description}
-      </span>
+      </span> */}
     </div>
   );
 }

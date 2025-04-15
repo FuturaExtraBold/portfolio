@@ -26,11 +26,12 @@ export default function Footer() {
             <TechListing category="Code" tech="TypeScript, React, Sass" />
             <TechListing category="Animations" tech="PixiJS, GSAP" />
             <TechListing
-              category="Linting"
-              tech="ESLint, Stylelint"
+              category="Production"
+              tech="Adobe Creative Suite"
               hideSlash
             />
             <br />
+            <TechListing category="Linting" tech="ESLint, Stylelint" />
             <TechListing category="Source Control" tech="Github" />
             <TechListing category="Testing" tech="Jest" />
             <TechListing category="Auditing" tech="Google Lighthouse" />
