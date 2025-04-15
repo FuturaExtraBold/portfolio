@@ -143,7 +143,7 @@ export const BenzoProvider = ({ parentRef }) => {
 
   useEffect(() => {
     if (allTexturesLoaded) {
-      console.log("Kaboom! All textures loaded");
+      console.log("All Benzo textures loaded");
       updateParentSize();
     }
   }, [allTexturesLoaded, updateParentSize]);

@@ -75,7 +75,6 @@ function Score({ circleDelay = 0, containerDelay = 0 }) {
     if (currentSection === "lighthouse") {
       if (!animationRunOnceRef.current) {
         animationRunOnceRef.current = true;
-        console.log("boom!");
         animateCircle();
         animateValue();
         animateContainer();
