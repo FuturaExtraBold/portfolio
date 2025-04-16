@@ -55,13 +55,18 @@ export const HellProvider = ({ parentRef }) => {
   }, [texturePaths]);
 
   useEffect(() => {
-    window.addEventListener("resize", updateParentSize);
     loadTextures();
+  }, [loadTextures]);
+
+  useEffect(() => {
+    if (!parentRef.current) return;
+    const observer = new ResizeObserver(() => {
+      updateParentSize();
+    });
+    observer.observe(parentRef.current);
     updateParentSize();
-    return () => {
-      window.removeEventListener("resize", updateParentSize);
-    };
-  }, [loadTextures, parentRef, updateParentSize]);
+    return () => observer.disconnect();
+  }, [parentRef, updateParentSize]);
 
   useEffect(() => {
     if (allTexturesLoaded) {

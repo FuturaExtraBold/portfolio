@@ -23,6 +23,7 @@ export default function Lighthouse() {
             subtitle="Lighthouse audits performance, accessibility, and more."
             useHairline={false}
             useShadow={true}
+            variant="default"
           />
         </Content>
       </Container>

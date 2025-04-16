@@ -138,9 +138,7 @@ export const BenzoProvider = ({ parentRef }) => {
       updateParentSize();
     });
     observer.observe(parentRef.current);
-    return () => {
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [parentRef, updateParentSize]);
 
   useEffect(() => {

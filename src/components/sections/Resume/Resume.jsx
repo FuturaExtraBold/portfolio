@@ -20,6 +20,7 @@ export default function Resume() {
           <SectionHeader
             subtitle="An illustrious career has earned his fame far and wide."
             title="Work History"
+            variant="default"
           />
           <Employers />
         </Content>

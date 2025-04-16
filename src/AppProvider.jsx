@@ -7,48 +7,20 @@ import {
   useState,
 } from "react";
 import { deviceDetect } from "react-device-detect";
+import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
 import "./assets/stylesheets/all.scss";
-import exportedBreakpoints from "./assets/stylesheets/base/_breakpoints.scss";
-
 import App from "./App";
+
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [currentSection, setCurrentSection] = useState(null);
-  const [mediaClass, setMediaClass] = useState("desktop");
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   const [isModalActive, setIsModalActive] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
   const [userDevice, setUserDevice] = useState(() => deviceDetect() || {});
 
-  const breakpoints = useMemo(() => {
-    const resolvedBreakpoints = {};
-    Object.keys(exportedBreakpoints).forEach((key) => {
-      resolvedBreakpoints[key] = parseInt(exportedBreakpoints[key], 10);
-    });
-    return resolvedBreakpoints;
-  }, []);
-
-  const updateWindowSize = useCallback(() => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    if (width < breakpoints.md) {
-      setMediaClass("mobile");
-    }
-    if (width >= breakpoints.md && width < breakpoints.lg) {
-      setMediaClass("tablet");
-    }
-    if (width >= breakpoints.lg && width < breakpoints.xl) {
-      setMediaClass("desktop");
-    }
-    if (width >= breakpoints.xl && width < breakpoints.xxl) {
-      setMediaClass("desktop-large");
-    }
-    if (width >= breakpoints.xxl) {
-      setMediaClass("desktop-max");
-    }
-    setWindowSize({ width, height });
-  }, [breakpoints]);
+  const { windowSize, mediaClass, breakpoints } =
+    useWindowSizeWithBreakpoints();
 
   const updateCurrentSection = useCallback(() => {
     const appElement = document.querySelector("#benzo-app");
@@ -65,14 +37,6 @@ export const AppProvider = ({ children }) => {
     });
     setCurrentSection(currentSection);
   }, []);
-
-  useEffect(() => {
-    window.addEventListener("resize", updateWindowSize);
-    updateWindowSize();
-    return () => {
-      window.removeEventListener("resize", updateWindowSize);
-    };
-  }, [updateWindowSize]);
 
   useEffect(() => {
     window.addEventListener("scroll", updateCurrentSection, true);
