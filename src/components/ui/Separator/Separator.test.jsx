@@ -1,8 +1,6 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import Separator from "./Separator";
 
-// Mock the image import
 jest.mock("./separator.png", () => "mock-separator.png");
 
 describe("Separator Component", () => {

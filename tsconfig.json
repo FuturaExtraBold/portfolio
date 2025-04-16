@@ -8,5 +8,6 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "outDir": "build"
-  }
+  },
+  "include": ["src"]
 }

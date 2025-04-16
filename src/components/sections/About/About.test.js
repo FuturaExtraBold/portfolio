@@ -3,14 +3,9 @@ import { render, screen } from "@testing-library/react";
 import About from "./About";
 import { useApp } from "AppProvider";
 
-// Mock the AppProvider to provide breakpoints
 jest.mock("AppProvider", () => ({
   useApp: jest.fn(),
 }));
-
-jest.mock("components/ui/Wallpaper", () => () => (
-  <div data-testid="wallpaper" />
-));
 
 describe("About Component", () => {
   beforeEach(() => {

@@ -23,10 +23,15 @@ export default function SectionHeader({
   });
 
   return (
-    <header className={headerClass}>
+    <header className={headerClass} data-testid="section-header">
       <span className="heading--1">{title}</span>
       <span className="body body--large">{subtitle}</span>
-      {useHairline && <div className="section-header__hairline" />}
+      {useHairline && (
+        <div
+          className="section-header__hairline"
+          data-testid="section-header__hairline"
+        />
+      )}
     </header>
   );
 }
