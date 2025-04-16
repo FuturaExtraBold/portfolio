@@ -8,7 +8,7 @@ import {
   Hero,
   Lighthouse,
   Resume,
-} from "components/sections";
+} from "features";
 import { ClientModal, PictureFrame } from "components/ui";
 import { useApp } from "AppProvider";
 import "./app.scss";

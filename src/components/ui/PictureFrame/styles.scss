@@ -21,8 +21,7 @@
   .picture-frame {
     display: block;
     max-width: 1620px;
-    border-image: url("../../../assets/images/ui/frame_full.jpg") 180 / 90px
-      round;
+    border-image: url("./frame_full.jpg") 180 / 90px round;
     opacity: 1;
   }
 }
@@ -31,8 +30,7 @@
   .picture-frame {
     display: block;
     max-width: $breaks-xxl;
-    border-image: url("../../../assets/images/ui/frame_full.jpg") 180 / 180px
-      round;
+    border-image: url("./frame_full.jpg") 180 / 180px round;
     opacity: 1;
   }
 }

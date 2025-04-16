@@ -2,9 +2,9 @@ import React, { useEffect, useRef, type JSX } from "react";
 import { useApp } from "AppProvider";
 import { Background, Container, Content, Section } from "components/layout";
 import { OverlayFade, Separator, Wallpaper } from "components/ui";
-import { imageShip } from "assets/images";
 import { animateFloat } from "assets/javascripts/utils";
 import { fluidProperty } from "assets/javascripts/layout";
+import imageShip from "./ship.png";
 import "./styles.scss";
 
 export default function About(): JSX.Element {
@@ -35,7 +35,7 @@ export default function About(): JSX.Element {
         tickTime: 0.0075,
       });
     }
-  }, [breakpoints, fluidAmplitudeX, fluidAmplitudeY]);
+  }, [breakpoints, fluidAmplitudeX, fluidAmplitudeY, refShip]);
 
   return (
     <Section className="about">

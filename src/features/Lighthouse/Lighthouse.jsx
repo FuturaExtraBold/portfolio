@@ -1,7 +1,7 @@
 import { Background, Container, Content, Section } from "components/layout";
 import { SectionHeader, Separator, Vignette } from "components/ui";
 import Scores from "./components";
-import { imageLighthouse } from "assets/images";
+import imageLighthouse from "./lighthouse.jpg";
 import "./styles.scss";
 
 export default function Lighthouse() {

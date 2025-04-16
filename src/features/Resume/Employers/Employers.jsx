@@ -1,7 +1,7 @@
 import Employer from "./Employer/Employer";
-import HookyGrand from "../../../clients/Logos/HookyGrand";
-import Kajabi from "../../../clients/Logos/Kajabi";
-import Studio318 from "../../../clients/Logos/Studio318";
+import HookyGrand from "../../../components/ui/Logos/HookyGrand";
+import Kajabi from "../../../components/ui/Logos/Kajabi";
+import Studio318 from "../../../components/ui/Logos/Studio318";
 import "./styles.scss";
 
 export default function Employers() {

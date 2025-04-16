@@ -1,10 +1,10 @@
 import ClientModal from "./ClientModal/ClientModal";
-import OverlayFade from "./OverlayFade/OverlayFade";
-import PictureFrame from "./PictureFrame/PictureFrame";
-import SectionHeader from "./SectionHeader/SectionHeader";
-import Separator from "./Separator/Separator";
-import Vignette from "./Vignette/Vignette";
-import Wallpaper from "./Wallpaper/Wallpaper";
+import OverlayFade from "./OverlayFade";
+import PictureFrame from "./PictureFrame";
+import SectionHeader from "./SectionHeader";
+import Separator from "./Separator";
+import Vignette from "./Vignette";
+import Wallpaper from "./Wallpaper";
 
 export {
   ClientModal,

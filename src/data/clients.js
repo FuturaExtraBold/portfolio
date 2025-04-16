@@ -1,16 +1,16 @@
-import Disney from "components/clients/Logos/Disney";
-import DreamWorks from "components/clients/Logos/DreamWorks";
-import FOX from "components/clients/Logos/FOX";
-import Honda from "components/clients/Logos/Honda";
-import Kajabi from "components/clients/Logos/Kajabi";
-import KIA from "components/clients/Logos/KIA";
-import KSwiss from "components/clients/Logos/KSwiss";
-import Lexus from "components/clients/Logos/Lexus";
-import Pixar from "components/clients/Logos/Pixar";
-import Sony from "components/clients/Logos/Sony";
-import SouthPark from "components/clients/Logos/SouthPark";
-import TheSimpsons from "components/clients/Logos/TheSimpsons";
-import U2 from "components/clients/Logos/U2";
+import Disney from "components/ui/Logos/Disney";
+import DreamWorks from "components/ui/Logos/DreamWorks";
+import FOX from "components/ui/Logos/FOX";
+import Honda from "components/ui/Logos/Honda";
+import Kajabi from "components/ui/Logos/Kajabi";
+import KIA from "components/ui/Logos/KIA";
+import KSwiss from "components/ui/Logos/KSwiss";
+import Lexus from "components/ui/Logos/Lexus";
+import Pixar from "components/ui/Logos/Pixar";
+import Sony from "components/ui/Logos/Sony";
+import SouthPark from "components/ui/Logos/SouthPark";
+import TheSimpsons from "components/ui/Logos/TheSimpsons";
+import U2 from "components/ui/Logos/U2";
 
 export const caseStudies = [
   {
