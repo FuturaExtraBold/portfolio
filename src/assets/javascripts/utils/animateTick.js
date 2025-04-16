@@ -35,8 +35,8 @@ export const animateTick = ({
     const resolvedAY = amplitudeY * scaleRef.current * 2;
 
     // Oscillation effect
-    const offsetX = Math.sin(time * 0.8) * resolvedAX;
-    const offsetY = Math.cos(time * 0.6) * resolvedAY;
+    const offsetX = Math.sin(time * 0.8) * resolvedAX * window.devicePixelRatio;
+    const offsetY = Math.cos(time * 0.6) * resolvedAY * window.devicePixelRatio;
     const yPosition = baseY() + offsetY - offScreenBottomOffset;
     const rotation = Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180); // convert degrees to radians
 

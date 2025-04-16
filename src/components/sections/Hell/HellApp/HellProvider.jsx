@@ -35,7 +35,7 @@ export const HellProvider = ({ parentRef }) => {
     if (parentRef.current) {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
-      console.log("Parent size updated:", width, height);
+      // console.log("Parent size updated:", width, height);
       setParentSize({ width, height });
       parentSizeRef.current = { width, height };
     }

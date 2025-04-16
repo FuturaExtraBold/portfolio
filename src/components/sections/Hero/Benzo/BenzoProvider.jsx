@@ -67,19 +67,19 @@ export const BenzoProvider = ({ parentRef }) => {
 
   const texturePaths = useMemo(() => {
     return {
-      benzoBackground: benzoBackground,
-      benzoBody: benzoBody,
-      benzoTitle: benzoTitle,
-      canvasOverlay: canvasOverlay,
-      crystalBall: crystalBall,
-      glowBenzo: glowBenzo,
-      glowGlasses: glowGlasses,
-      glowInner: glowInner,
-      glowOuter: glowOuter,
-      handLeft: handLeft,
-      handRight: handRight,
-      hypnosis: hypnosis,
-      smokeParticle: smokeParticle,
+      benzoBackground,
+      benzoBody,
+      benzoTitle,
+      canvasOverlay,
+      crystalBall,
+      glowBenzo,
+      glowGlasses,
+      glowInner,
+      glowOuter,
+      handLeft,
+      handRight,
+      hypnosis,
+      smokeParticle,
     };
   }, []);
 
@@ -98,9 +98,7 @@ export const BenzoProvider = ({ parentRef }) => {
       const duration = Math.random() * 1 + 0.5;
       setColorCrystalBall(color);
       setDurationCrystalBall(duration);
-      setTimeout(() => {
-        updateCrystalBall();
-      }, duration * 1000);
+      setTimeout(updateCrystalBall, duration * 1000);
     }
   }, [glowColors, parentRef]);
 
@@ -113,9 +111,7 @@ export const BenzoProvider = ({ parentRef }) => {
       const duration = Math.random() * 1 + 0.5;
       setColorSmoke(color);
       setDurationSmoke(duration);
-      setTimeout(() => {
-        updateReflection();
-      }, duration * 1000);
+      setTimeout(updateReflection, duration * 1000);
     }
   }, [glowColorsReflection, parentRef]);
 
@@ -140,6 +136,17 @@ export const BenzoProvider = ({ parentRef }) => {
       window.removeEventListener("resize", updateParentSize);
     };
   }, [loadTextures, parentRef, updateParentSize]);
+
+  useEffect(() => {
+    if (!parentRef.current) return;
+    const observer = new ResizeObserver(() => {
+      updateParentSize();
+    });
+    observer.observe(parentRef.current);
+    return () => {
+      observer.disconnect();
+    };
+  }, [parentRef, updateParentSize]);
 
   useEffect(() => {
     if (allTexturesLoaded) {

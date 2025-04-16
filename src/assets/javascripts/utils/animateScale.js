@@ -9,21 +9,21 @@ export const animateScale = ({
   scaleAmount = 1.2,
 }) => {
   if (!ref.current) {
-    console.warn("animateRotation ref.current is not defined");
+    console.warn("animateScale ref.current is not defined");
     return;
   }
 
-  const yoyoSquare = gsap.timeline();
+  gsap.killTweensOf(ref.current, "pixi");
 
-  yoyoSquare.fromTo(
+  gsap.fromTo(
     ref.current,
     { pixi: { scale: 1 } },
     {
       pixi: { scale: scaleAmount },
-      duration: duration,
-      ease: ease,
-      repeat: repeat,
-      yoyo: true,
+      duration,
+      ease,
+      repeat,
+      yoyo,
     }
   );
 };

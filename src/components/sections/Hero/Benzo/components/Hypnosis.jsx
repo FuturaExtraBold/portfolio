@@ -7,6 +7,8 @@ export default function Hypnosis() {
     parentSize,
     animateRotation,
     animateScale,
+    setScale,
+    scaleRef,
     textures,
   } = useBenzo();
 
@@ -25,21 +27,33 @@ export default function Hypnosis() {
 
   useEffect(() => {
     if (refHypnosis.current) {
-      animateScale({
-        duration: 10,
+      setScale({
         ref: refHypnosis,
-        scaleAmount: 0.5,
+        parentSize: parentSize,
+        minScale: 0.5,
+        maxScale: 1,
+        minWidth: 768,
+        maxWidth: 1440,
+        scaleRef,
+      });
+
+      const baseScale = scaleRef.current ?? 1;
+      animateScale({
+        duration: 4,
+        ref: refHypnosis,
+        scaleAmount: baseScale * 0.5,
         ease: "sine.inOut",
         repeat: -1,
       });
     }
-  }, [animateScale]);
+  }, [animateScale, parentSize, setScale, scaleRef]);
 
   if (!allTexturesLoaded || !textures.hypnosis) return null;
 
   return (
     <pixiSprite
       anchor={0.5}
+      scale={scaleRef}
       height={1800}
       ref={refHypnosis}
       texture={textures.hypnosis}

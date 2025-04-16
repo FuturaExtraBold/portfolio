@@ -12,6 +12,8 @@ export const animateFloat = ({
     return;
   }
 
+  gsap.killTweensOf(ref.current);
+
   let time = 0;
 
   const tick = () => {
@@ -32,5 +34,6 @@ export const animateFloat = ({
 
   return () => {
     gsap.ticker.remove(tick);
+    gsap.killTweensOf(ref.current);
   };
 };
