@@ -1,30 +1,41 @@
-import React from "react";
+import { MouseEvent, WheelEvent, TouchEvent, type JSX } from "react";
 import classnames from "classnames";
+import { Fragment } from "react/jsx-runtime";
 import { useApp } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
+import { Gallery, Header, Project } from "./components";
 import "./styles.scss";
-import Header from "./components/Header/Header";
-import Gallery from "./components/Gallery/Gallery";
-import Project from "./components/Project/Project";
-import { Fragment } from "react/jsx-runtime";
 
-export default function ClientModal() {
+interface CaseStudy {
+  id: string;
+  title?: string;
+  client?: string;
+  projects?: {
+    title: string;
+    gallery: string[];
+  }[];
+}
+
+export default function ClientModal(): JSX.Element {
   const { activeCaseStudy, isModalActive, setIsModalActive } = useApp();
 
   const modalClasses = classnames("client-modal", {
     "client-modal--active": isModalActive,
   });
 
-  const caseStudy = caseStudies.find((study) => study.id === activeCaseStudy);
+  const caseStudy: CaseStudy | undefined = caseStudies.find(
+    (study) => study.id === activeCaseStudy
+  );
 
-  const preventEvents = (e) => {
+  const preventEvents = (e: MouseEvent | WheelEvent | TouchEvent): void => {
     e.stopPropagation();
   };
 
   return (
-    <div className={modalClasses}>
+    <div className={modalClasses} role="dialog">
       <div
         className="client-modal__overlay"
+        data-testid="client-modal-overlay"
         onClick={(e) => {
           preventEvents(e);
           setIsModalActive(false);
@@ -35,6 +46,7 @@ export default function ClientModal() {
       />
       <div
         className="client-modal__content"
+        data-testid="client-modal-content"
         onClick={(e) => preventEvents(e)}
         onWheel={(e) => preventEvents(e)}
         onTouchStart={(e) => preventEvents(e)}
@@ -48,7 +60,11 @@ export default function ClientModal() {
             >
               <span className="client-modal__close-icon">X</span>
             </div>
-            <Header title={caseStudy.title} client={caseStudy.client} />
+            <Header
+              title={caseStudy.title}
+              client={caseStudy.client}
+              description="Lorem ipsum dolor sit amet"
+            />
             <hr className="client-modal__divider" />
             {caseStudy.projects.map((project, index) => (
               <Fragment key={index}>
