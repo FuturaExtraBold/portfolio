@@ -1,9 +1,9 @@
-import Background from "./components/Background";
+import Heat from "./components/Heat";
 
 export default function HellApp({ parentRef }) {
   return (
     <pixiContainer resizeTo={parentRef}>
-      <Background />
+      <Heat />
     </pixiContainer>
   );
 }

@@ -12,7 +12,7 @@ import HellApp from "./HellApp";
 
 import { setPosition, setScale } from "assets/javascripts/utils";
 
-import { hellBackground } from "./images";
+import { displacementMap, hellBackground } from "./images";
 
 const HellContext = createContext();
 
@@ -26,6 +26,7 @@ export const HellProvider = ({ parentRef }) => {
 
   const texturePaths = useMemo(() => {
     return {
+      displacementMap: displacementMap,
       hellBackground: hellBackground,
     };
   }, []);

@@ -8,13 +8,15 @@ import {
   Section,
 } from "components/layout";
 import { OverlayFade, SectionHeader } from "components/ui";
-import { Container, Sprite } from "pixi.js";
+import { Container, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import { HellProvider } from "./HellApp/HellProvider";
 import "./styles.scss";
 
 extend({
   Container,
+  DisplacementFilter,
   Sprite,
+  TilingSprite,
 });
 
 export default function Hell(): JSX.Element {
