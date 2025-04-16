@@ -129,13 +129,8 @@ export const BenzoProvider = ({ parentRef }) => {
   }, [texturePaths]);
 
   useEffect(() => {
-    window.addEventListener("resize", updateParentSize);
     loadTextures();
-    updateParentSize();
-    return () => {
-      window.removeEventListener("resize", updateParentSize);
-    };
-  }, [loadTextures, parentRef, updateParentSize]);
+  }, [loadTextures]);
 
   useEffect(() => {
     if (!parentRef.current) return;

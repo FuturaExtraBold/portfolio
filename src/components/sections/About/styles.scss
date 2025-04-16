@@ -3,10 +3,12 @@
 .about__content {
   padding-right: 0;
   padding-left: 0;
+  margin: 0 auto;
 
   @include fluid-property($breaks-md, $breaks-xl, 60px, 80px, gap);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-bottom);
+  @include fluid-property($breaks-md, $breaks-xl, 640px, 1440px, max-width);
 }
 
 .about__description {

@@ -21,8 +21,8 @@ export default function About() {
   const fluidAmplitudeY = fluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
-    minValue: 10,
-    maxValue: 20,
+    minValue: 20,
+    maxValue: 30,
   });
 
   useEffect(() => {

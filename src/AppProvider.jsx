@@ -88,6 +88,7 @@ export const AppProvider = ({ children }) => {
       console.log("Detected device:", detectedDevice);
       setUserDevice(detectedDevice);
     }
+    console.log("window.devicePixelRatio", window.devicePixelRatio);
   }, []);
 
   const contextValues = useMemo(

@@ -24,8 +24,8 @@ export const animateFloat = ({
     const rotation = Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180);
 
     gsap.set(ref.current, {
-      x: offsetX * window.devicePixelRatio,
-      y: offsetY * window.devicePixelRatio,
+      x: offsetX,
+      y: offsetY,
       rotation,
     });
   };
