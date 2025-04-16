@@ -5,7 +5,7 @@ import { useHell } from "../HellProvider";
 import Background from "./Background";
 
 export default function Heat() {
-  const { allTexturesLoaded, parentSize, textures } = useHell();
+  const { allTexturesLoaded, parentSize, parentSizeRef, textures } = useHell();
 
   const [displacementFilter, setDisplacementFilter] = useState(null);
 
@@ -30,26 +30,30 @@ export default function Heat() {
       repeat: -1,
       y: -512,
     });
-  }, [displacementSpriteRef, parentSize]);
+  }, [displacementSpriteRef, parentSizeRef]);
 
   if (!allTexturesLoaded || !textures.displacementMap) return null;
 
   return (
-    <pixiContainer
-      alpha={1}
-      eventMode={"static"}
-      filters={[displacementFilter]}
-      height={parentSize.height}
-      width={parentSize.width}
-    >
-      <Background />
+    <>
+      <pixiContainer
+        alpha={1}
+        filters={[displacementFilter]}
+        height={parentSize.height}
+        width={parentSize.width}
+      >
+        <Background />
+      </pixiContainer>
+
+      {/* This is the displacement sprite, which is used to create the displacement effect
+      It is positioned in the same place as the background sprite
+      and has the same size as the background sprite
+      The displacement sprite is animated to create a wave effect */}
       <pixiTilingSprite
         alpha={0}
         ref={displacementSpriteRef}
-        height={parentSize.height * 2}
         texture={textures.displacementMap}
-        width={parentSize.width * 2}
       />
-    </pixiContainer>
+    </>
   );
 }

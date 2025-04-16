@@ -1,5 +1,11 @@
 @use "assets/stylesheets/consumables" as *;
 
+.hell {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .hell__container {
   aspect-ratio: 9 / 5;
 }
