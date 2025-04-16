@@ -8,8 +8,8 @@ import {
 } from "react";
 import { deviceDetect } from "react-device-detect";
 import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
-import "./assets/stylesheets/all.scss";
-import App from "./App";
+import "../assets/stylesheets/all.scss";
+import App from "../App";
 
 const AppContext = createContext();
 

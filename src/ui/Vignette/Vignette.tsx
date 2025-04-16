@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { useApp } from "AppProvider";
+import { useApp } from "providers/AppProvider";
 import { fluidProperty } from "assets/javascripts/layout";
 import "./styles.scss";
 

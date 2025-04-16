@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import { useApp } from "AppProvider";
+import { useApp } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
 import "./styles.scss";
 import Header from "./components/Header/Header";

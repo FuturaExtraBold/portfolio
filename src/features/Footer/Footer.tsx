@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { Container, Content } from "components/layout";
+import { Container, Content } from "layout";
 import "./styles.scss";
 
 interface TechListingProps {

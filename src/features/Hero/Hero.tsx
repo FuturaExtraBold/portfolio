@@ -6,10 +6,10 @@ import {
   Container as BenzoContainer,
   Content,
   Section,
-} from "components/layout";
+} from "layout";
 import { Container, Sprite } from "pixi.js";
 import { BenzoProvider } from "./Benzo/BenzoProvider";
-import { Separator } from "../../components/ui";
+import { Separator } from "../../ui";
 import "./styles.scss";
 import { benzoTitle } from "./Benzo/images";
 

@@ -1,8 +1,8 @@
 import React from "react";
-import { useApp } from "AppProvider";
-import { Background, Container, Content, Section } from "components/layout";
+import { useApp } from "providers/AppProvider";
+import { Background, Container, Content, Section } from "layout";
 import { Board, ClientQuilt, Planchette } from "./components";
-import { OverlayFade, SectionHeader, Separator, Vignette } from "components/ui";
+import { OverlayFade, SectionHeader, Separator, Vignette } from "ui";
 import "./styles.scss";
 
 export default function Clients() {

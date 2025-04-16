@@ -6,8 +6,8 @@ import {
   Container as HellContainer,
   Content,
   Section,
-} from "components/layout";
-import { OverlayFade, SectionHeader } from "components/ui";
+} from "layout";
+import { OverlayFade, SectionHeader } from "ui";
 import { Container, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import { HellProvider } from "./HellApp/HellProvider";
 import "./styles.scss";

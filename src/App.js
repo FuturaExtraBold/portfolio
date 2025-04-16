@@ -9,8 +9,8 @@ import {
   Lighthouse,
   Resume,
 } from "features";
-import { ClientModal, PictureFrame } from "components/ui";
-import { useApp } from "AppProvider";
+import { ClientModal, PictureFrame } from "ui";
+import { useApp } from "providers/AppProvider";
 import "./app.scss";
 
 function App() {

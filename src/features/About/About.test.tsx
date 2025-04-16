@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import About from "./About";
-import { useApp } from "AppProvider";
+import { useApp } from "providers/AppProvider";
 
 jest.mock("AppProvider", () => ({
   useApp: jest.fn(),

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef } from "react";
-import { useApp } from "AppProvider";
+import { useApp } from "providers/AppProvider";
 import { gsap } from "gsap";
 import "./styles.scss";
 

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Vignette from "./Vignette";
-import { useApp } from "AppProvider";
+import { useApp } from "providers/AppProvider";
 
 // Mock the `useApp` hook
 jest.mock("AppProvider", () => ({

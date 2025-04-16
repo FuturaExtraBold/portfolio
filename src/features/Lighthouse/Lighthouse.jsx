@@ -1,5 +1,5 @@
-import { Background, Container, Content, Section } from "components/layout";
-import { SectionHeader, Separator, Vignette } from "components/ui";
+import { Background, Container, Content, Section } from "layout";
+import { SectionHeader, Separator, Vignette } from "ui";
 import Scores from "./components";
 import imageLighthouse from "./lighthouse.jpg";
 import "./styles.scss";

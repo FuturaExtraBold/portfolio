@@ -1,5 +1,5 @@
-import { Background, Container, Content, Section } from "components/layout";
-import { OverlayFade, Separator, Wallpaper } from "components/ui";
+import { Background, Container, Content, Section } from "layout";
+import { OverlayFade, Separator, Wallpaper } from "ui";
 import "./styles.scss";
 
 export default function CallToAction() {

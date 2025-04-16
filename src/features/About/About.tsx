@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, type JSX } from "react";
-import { useApp } from "AppProvider";
-import { Background, Container, Content, Section } from "components/layout";
-import { OverlayFade, Separator, Wallpaper } from "components/ui";
+import { useApp } from "providers/AppProvider";
+import { Background, Container, Content, Section } from "layout";
+import { OverlayFade, Separator, Wallpaper } from "ui";
 import { animateFloat } from "assets/javascripts/utils";
 import { fluidProperty } from "assets/javascripts/layout";
 import imageShip from "./ship.png";

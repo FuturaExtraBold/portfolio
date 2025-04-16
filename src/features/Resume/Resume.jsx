@@ -1,10 +1,5 @@
-import { Background, Container, Content, Section } from "components/layout";
-import {
-  OverlayFade,
-  SectionHeader,
-  Separator,
-  Wallpaper,
-} from "components/ui";
+import { Background, Container, Content, Section } from "layout";
+import { OverlayFade, SectionHeader, Separator, Wallpaper } from "ui";
 import Employers from "./Employers/Employers";
 import "./styles.scss";
 
