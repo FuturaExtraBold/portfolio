@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import About from "./About";
 import { useApp } from "AppProvider";
@@ -9,7 +8,7 @@ jest.mock("AppProvider", () => ({
 
 describe("About Component", () => {
   beforeEach(() => {
-    useApp.mockReturnValue({
+    (useApp as jest.Mock).mockReturnValue({
       breakpoints: {
         md: 768,
         xl: 1440,

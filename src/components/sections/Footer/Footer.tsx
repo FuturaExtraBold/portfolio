@@ -1,8 +1,18 @@
-import React from "react";
+import type { JSX } from "react";
 import { Container, Content } from "components/layout";
 import "./styles.scss";
 
-function TechListing({ category, hideSlash, tech }) {
+interface TechListingProps {
+  category: string;
+  hideSlash?: boolean;
+  tech: string;
+}
+
+function TechListing({
+  category,
+  hideSlash = false,
+  tech,
+}: TechListingProps): JSX.Element {
   return (
     <span className="disclaimer-text disclaimer-text--small">
       {`${category}: ${tech}`}
@@ -11,7 +21,7 @@ function TechListing({ category, hideSlash, tech }) {
   );
 }
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   const currentYear = new Date().getFullYear();
 
   return (

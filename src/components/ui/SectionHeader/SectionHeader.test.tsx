@@ -1,9 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import SectionHeader from "./SectionHeader";
 
-const baseProps = {
+const baseProps: {
+  title: string;
+  subtitle: string;
+  variant: "default" | "dark";
+} = {
   title: "Test Title",
   subtitle: "Test Subtitle",
+  variant: "default",
 };
 
 const renderHeader = (props = {}) => {

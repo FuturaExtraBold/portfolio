@@ -2,12 +2,11 @@
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": "src",
-    "paths": {
-      "assets/javascripts/*": ["assets/javascripts/*"]
-    },
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "outDir": "build"
+    "outDir": "build",
+    "paths": { "assets/javascripts/*": ["assets/javascripts/*"] },
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src"]
 }

@@ -7,6 +7,9 @@ module.exports = {
     "\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/__mocks__/fileMock.js",
     "^AppProvider$": "<rootDir>/src/AppProvider.jsx",
   },
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  setupFilesAfterEnv: [
+    "<rootDir>/jest.setup.js",
+    "<rootDir>/src/setupTests.ts",
+  ],
   testEnvironment: "jest-environment-jsdom",
 };

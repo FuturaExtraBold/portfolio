@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, type JSX } from "react";
 import { useApp } from "AppProvider";
 import { Background, Container, Content, Section } from "components/layout";
 import { OverlayFade, Separator, Wallpaper } from "components/ui";
@@ -7,9 +7,9 @@ import { animateFloat } from "assets/javascripts/utils";
 import { fluidProperty } from "assets/javascripts/layout";
 import "./styles.scss";
 
-export default function About() {
+export default function About(): JSX.Element {
   const { breakpoints } = useApp();
-  const refShip = useRef(null);
+  const refShip = useRef<HTMLImageElement | null>(null);
 
   const fluidAmplitudeX = fluidProperty({
     minWidth: breakpoints.md,
