@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import { useApp } from "providers/AppProvider";
-import { fluidProperty } from "assets/javascripts/layout";
+import { fluidProperty } from "utils/layout";
 import "./styles.scss";
 
 export default function Vignette(): JSX.Element {

@@ -17,7 +17,7 @@ import {
   animateTint,
   setPosition,
   setScale,
-} from "assets/javascripts/utils";
+} from "utils/animation";
 
 import {
   benzoBackground,

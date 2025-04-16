@@ -1,5 +1,5 @@
 import React from "react";
-import { accentMoon, accentSun, board } from "./assets/images";
+import { accentMoon, accentSun, board } from "./images";
 import "./styles.scss";
 
 export default function Board() {

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AppProvider } from "providers/AppProvider";
-import "assets/javascripts/utils/gsapSetup";
+import "utils/animation/gsapSetup";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

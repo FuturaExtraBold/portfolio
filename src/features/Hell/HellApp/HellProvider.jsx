@@ -10,7 +10,7 @@ import {
 import { Assets } from "pixi.js";
 import HellApp from "./HellApp";
 
-import { setPosition, setScale } from "assets/javascripts/utils";
+import { setPosition, setScale } from "utils/animation";
 
 import { displacementMap, hellBackground } from "./images";
 
