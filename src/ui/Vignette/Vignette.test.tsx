@@ -8,7 +8,7 @@ jest.mock("AppProvider", () => ({
 }));
 
 // Mock the `fluidProperty` function
-jest.mock("assets/javascripts/layout", () => ({
+jest.mock("utils/layout", () => ({
   fluidProperty: jest.fn(),
 }));
 
@@ -18,9 +18,7 @@ describe("Vignette Component", () => {
       breakpoints: { md: 768, lg: 1024 },
     });
 
-    const mockFluidProperty = jest.requireMock(
-      "assets/javascripts/layout"
-    ).fluidProperty;
+    const mockFluidProperty = jest.requireMock("utils/layout").fluidProperty;
     mockFluidProperty.mockReturnValue(0.3); // Mock opacity value
   });
 

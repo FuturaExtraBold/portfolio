@@ -5,7 +5,9 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "outDir": "build",
-    "paths": { "assets/javascripts/*": ["assets/javascripts/*"] },
+    "paths": {
+      "ui/*": ["ui/*"]
+    },
     "types": ["@testing-library/jest-dom"]
   },
   "include": ["src"]
