@@ -24,13 +24,13 @@ function App() {
         id="benzo-app"
       >
         <PictureFrame />
-        <Hell />
         <Hero />
         <About />
         <Clients />
         <Resume />
         <Lighthouse />
         <CallToAction />
+        <Hell />
       </main>
       <Footer />
       <ClientModal />

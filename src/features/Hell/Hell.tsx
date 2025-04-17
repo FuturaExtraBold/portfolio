@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import { useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, SectionHeader } from "ui";
-import PixiApp from "experiences/Hell/App";
+import PixiApp from "experiences/Hell/PixiApp";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {

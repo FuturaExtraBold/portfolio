@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { Separator } from "ui";
 import { benzoTitle } from "experiences/Benzo/images";
-import PixiApp from "experiences/Benzo/App";
+import PixiApp from "experiences/Benzo/PixiApp";
 import "./styles.scss";
 
 export default function Hero(): JSX.Element {
