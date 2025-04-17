@@ -1,3 +1,4 @@
+import { type JSX, RefObject } from "react";
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
 import { BenzoProvider } from "./BenzoProvider";
@@ -7,12 +8,18 @@ extend({
   Sprite,
 });
 
-export default function PixiApp({ parentRef }) {
+interface PixiAppProps {
+  parentRef: RefObject<HTMLElement>;
+}
+
+export default function PixiApp({
+  parentRef,
+}: PixiAppProps): JSX.Element | null {
   return (
     <Application
       antialias={true}
       autoDensity={true}
-      background="#000000"
+      background={0x000000}
       backgroundAlpha={0}
       resizeTo={parentRef.current}
       resolution={window.devicePixelRatio || 1}

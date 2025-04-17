@@ -1,5 +1,8 @@
 import {
   createContext,
+  type JSX,
+  type ReactNode,
+  type RefObject,
   useCallback,
   useContext,
   useEffect,
@@ -7,7 +10,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets } from "pixi.js";
+import { Assets, Texture } from "pixi.js";
 import Benzo from "./Benzo";
 
 import {
@@ -35,35 +38,67 @@ import {
   smokeParticle,
 } from "./images";
 
-const BenzoContext = createContext();
+interface BenzoContextProps {
+  allTexturesLoaded: boolean;
+  animateRotation: typeof animateRotation;
+  animateScale: typeof animateScale;
+  animateTick: typeof animateTick;
+  animateTint: typeof animateTint;
+  colorCrystalBall: number;
+  colorSmoke: number;
+  durationCrystalBall: number;
+  durationSmoke: number;
+  glowColorsSmoke: number[];
+  parentRef: RefObject<HTMLElement>;
+  parentSize: { width: number; height: number };
+  parentSizeRef: RefObject<{ width: number; height: number }>;
+  scaleRef: RefObject<number>;
+  setPosition: typeof setPosition;
+  setScale: typeof setScale;
+  textures: Record<string, Texture>;
+}
 
-export const BenzoProvider = ({ parentRef }) => {
-  const parentSizeRef = useRef({ width: 0, height: 0 });
-  const scaleRef = useRef(0.5);
+const BenzoContext = createContext<BenzoContextProps | undefined>(undefined);
+
+interface BenzoProviderProps {
+  parentRef: RefObject<HTMLElement>;
+  children?: ReactNode;
+}
+
+export const BenzoProvider = ({
+  parentRef,
+  children,
+}: BenzoProviderProps): JSX.Element => {
+  const parentSizeRef = useRef<{ width: number; height: number }>({
+    width: 0,
+    height: 0,
+  });
+  const scaleRef = useRef<number>(0.5);
 
   const glowColors = useMemo(
     () => [0x00ff00, 0xff0000, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff],
     []
   );
-
   const glowColorsSmoke = useMemo(
     () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
     []
   );
-
   const glowColorsReflection = useMemo(
     () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
     []
   );
 
-  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
-  const [colorCrystalBall, setColorCrystalBall] = useState(0xffffff);
-  const [colorSmoke, setColorSmoke] = useState(0xffffff);
-  const [durationCrystalBall, setDurationCrystalBall] = useState(0.5);
-  const [durationSmoke, setDurationSmoke] = useState(0.5);
+  const [parentSize, setParentSize] = useState<{
+    width: number;
+    height: number;
+  }>({ width: 0, height: 0 });
+  const [colorCrystalBall, setColorCrystalBall] = useState<number>(0xffffff);
+  const [colorSmoke, setColorSmoke] = useState<number>(0xffffff);
+  const [durationCrystalBall, setDurationCrystalBall] = useState<number>(0.5);
+  const [durationSmoke, setDurationSmoke] = useState<number>(0.5);
 
-  const [textures, setTextures] = useState({});
-  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
+  const [textures, setTextures] = useState<Record<string, Texture>>({});
+  const [allTexturesLoaded, setAllTexturesLoaded] = useState<boolean>(false);
 
   const texturePaths = useMemo(() => {
     return {
@@ -116,7 +151,7 @@ export const BenzoProvider = ({ parentRef }) => {
   }, [glowColorsReflection, parentRef]);
 
   const loadTextures = useCallback(async () => {
-    const loadedTextures = {};
+    const loadedTextures: Record<string, Texture> = {};
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path).then((result) => {
         result.source.autoGenerateMipmaps = true;
@@ -156,7 +191,7 @@ export const BenzoProvider = ({ parentRef }) => {
     updateReflection();
   }, [updateReflection]);
 
-  const contextValues = useMemo(
+  const contextValues = useMemo<BenzoContextProps>(
     () => ({
       allTexturesLoaded,
       animateRotation,
@@ -193,9 +228,16 @@ export const BenzoProvider = ({ parentRef }) => {
 
   return (
     <BenzoContext.Provider value={contextValues}>
-      {allTexturesLoaded && <Benzo parentRef={parentRef} />}
+      {allTexturesLoaded && <Benzo />}
+      {children}
     </BenzoContext.Provider>
   );
 };
 
-export const useBenzo = () => useContext(BenzoContext);
+export const useBenzo = (): BenzoContextProps => {
+  const context = useContext(BenzoContext);
+  if (!context) {
+    throw new Error("useBenzo must be used within a BenzoProvider");
+  }
+  return context;
+};

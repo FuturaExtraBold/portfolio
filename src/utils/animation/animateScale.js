@@ -12,6 +12,7 @@ export const animateScale = ({
     console.warn("animateScale ref.current is not defined");
     return;
   }
+  const repeatValue = repeat ? -1 : 0;
 
   gsap.killTweensOf(ref.current, "pixi");
 
@@ -22,7 +23,7 @@ export const animateScale = ({
       pixi: { scale: scaleAmount },
       duration,
       ease,
-      repeat,
+      repeat: repeatValue,
       yoyo,
     }
   );

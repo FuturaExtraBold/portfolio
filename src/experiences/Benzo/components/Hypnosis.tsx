@@ -44,7 +44,7 @@ export default function Hypnosis(): JSX.Element | null {
         ref: refHypnosis,
         scaleAmount: baseScale * 0.5,
         ease: "sine.inOut",
-        repeat: -1,
+        repeat: true,
       });
     }
   }, [animateScale, parentSize, setScale, scaleRef]);
@@ -56,7 +56,7 @@ export default function Hypnosis(): JSX.Element | null {
       anchor={0.5}
       height={1800}
       ref={refHypnosis}
-      scale={scaleRef}
+      scale={scaleRef.current ?? 1}
       texture={textures.hypnosis}
       width={1800}
       x={parentSize.width / 2}
