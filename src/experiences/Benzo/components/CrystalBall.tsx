@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
+import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function CrystalBall() {
-  const refCrystalBall = useRef(null);
-
+export default function CrystalBall(): JSX.Element | null {
   const {
     allTexturesLoaded,
     animateRotation,
@@ -16,6 +15,8 @@ export default function CrystalBall() {
     setScale,
     textures,
   } = useBenzo();
+
+  const refCrystalBall = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (refCrystalBall.current) {
@@ -69,7 +70,7 @@ export default function CrystalBall() {
       height={250}
       ref={refCrystalBall}
       texture={textures.crystalBall}
-      tint="#ffffff"
+      tint={0xffffff}
       width={250}
     />
   );

@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function GlowInner() {
-  const refGlowInner = useRef(null);
-
+export default function GlowInner(): JSX.Element | null {
   const { allTexturesLoaded, colorSmoke, durationSmoke, parentSize, textures } =
     useBenzo();
+
+  const refGlowInner = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (refGlowInner.current) {
@@ -21,12 +22,11 @@ export default function GlowInner() {
 
   return (
     <pixiSprite
-      alpha="0.8"
-      eventMode={"static"}
+      alpha={0.8}
       height={parentSize.height}
       ref={refGlowInner}
       texture={textures.glowInner}
-      tint="#ffffff"
+      tint={0xffffff}
       width={parentSize.width}
     />
   );

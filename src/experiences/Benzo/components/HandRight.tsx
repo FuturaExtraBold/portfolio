@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
+import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function HandRight() {
+export default function HandRight(): JSX.Element | null {
   const {
     allTexturesLoaded,
     animateTick,
@@ -16,7 +17,7 @@ export default function HandRight() {
     textures,
   } = useBenzo();
 
-  const handRef = useRef(null);
+  const handRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (handRef.current) {
@@ -74,10 +75,10 @@ export default function HandRight() {
     <pixiSprite
       alpha={1}
       anchor={0.5}
-      scale={0.5}
       ref={handRef}
+      scale={0.5}
       texture={textures.handRight}
-      tint="#ffffff"
+      tint={0xffffff}
     />
   );
 }

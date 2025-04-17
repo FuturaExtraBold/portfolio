@@ -1,16 +1,16 @@
-import { createRef, useEffect, useRef, useState } from "react";
+import { createRef, type JSX, useEffect, useRef, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { gsap } from "gsap";
-import { Texture } from "pixi.js";
+import { Sprite, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function Smoke() {
-  const refParticlesSmoke = useRef(null);
-
-  const [particlesSmoke, setParticlesSmoke] = useState([]);
-
+export default function Smoke(): JSX.Element | null {
   const { allTexturesLoaded, glowColorsSmoke, parentSize, textures } =
     useBenzo();
+
+  const [particlesSmoke, setParticlesSmoke] = useState<JSX.Element[]>([]);
+
+  const refParticlesSmoke = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (
@@ -19,9 +19,9 @@ export default function Smoke() {
       parentSize.width > 0
     ) {
       const numParticles = 100;
-      const particles = [];
+      const particles: JSX.Element[] = [];
       for (let i = 0; i < numParticles; i++) {
-        const refParticle = createRef();
+        const refParticle = createRef<Sprite>();
         const randColor =
           glowColorsSmoke[Math.floor(Math.random() * glowColorsSmoke.length)];
 
@@ -31,7 +31,7 @@ export default function Smoke() {
           <pixiSprite
             alpha={0.4}
             anchor={0.5}
-            eventMode={"static"}
+            eventMode="static"
             key={uuid()}
             rotation={Math.random() * 40 - 20}
             ref={refParticle}

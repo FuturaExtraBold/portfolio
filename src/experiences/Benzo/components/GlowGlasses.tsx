@@ -1,10 +1,9 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function GlowGlasses() {
-  const refGlowGlasses = useRef(null);
-
+export default function GlowGlasses(): JSX.Element | null {
   const {
     allTexturesLoaded,
     colorCrystalBall,
@@ -12,6 +11,8 @@ export default function GlowGlasses() {
     parentSize,
     textures,
   } = useBenzo();
+
+  const refGlowGlasses = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (refGlowGlasses.current) {
@@ -26,12 +27,11 @@ export default function GlowGlasses() {
 
   return (
     <pixiSprite
-      alpha="1"
-      eventMode={"static"}
+      alpha={1}
       height={parentSize.height}
       ref={refGlowGlasses}
       texture={textures.glowGlasses}
-      tint="#ffffff"
+      tint={0xffffff}
       width={parentSize.width}
     />
   );

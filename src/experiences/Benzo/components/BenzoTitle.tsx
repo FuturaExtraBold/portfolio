@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
+import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function BenzoTitle() {
+export default function BenzoTitle(): JSX.Element | null {
   const {
     allTexturesLoaded,
     parentSize,
@@ -11,7 +12,7 @@ export default function BenzoTitle() {
     textures,
   } = useBenzo();
 
-  const refTitle = useRef(null);
+  const refTitle = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (refTitle.current) {
@@ -41,10 +42,9 @@ export default function BenzoTitle() {
   return (
     <pixiSprite
       alpha={1}
-      scale={0.5}
       anchor={0.5}
-      eventMode={"static"}
       ref={refTitle}
+      scale={0.5}
       texture={textures.benzoTitle}
       x={parentSize.width / 2}
       y={180}

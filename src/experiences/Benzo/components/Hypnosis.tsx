@@ -1,7 +1,8 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
+import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function Hypnosis() {
+export default function Hypnosis(): JSX.Element | null {
   const {
     allTexturesLoaded,
     parentSize,
@@ -12,7 +13,7 @@ export default function Hypnosis() {
     textures,
   } = useBenzo();
 
-  const refHypnosis = useRef(null);
+  const refHypnosis = useRef<Sprite | null>(null);
 
   useEffect(() => {
     if (refHypnosis.current) {
@@ -53,9 +54,9 @@ export default function Hypnosis() {
   return (
     <pixiSprite
       anchor={0.5}
-      scale={scaleRef}
       height={1800}
       ref={refHypnosis}
+      scale={scaleRef}
       texture={textures.hypnosis}
       width={1800}
       x={parentSize.width / 2}
