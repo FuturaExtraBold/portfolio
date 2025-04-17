@@ -1,8 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { type JSX } from "react";
 import "./styles.scss";
 
-export default function Gallery({ gallery, title }) {
+interface GalleryProps {
+  gallery: string[];
+  title: string;
+}
+
+export default function Gallery({
+  gallery,
+  title,
+}: GalleryProps): JSX.Element | null {
   if (!gallery || gallery.length === 0) {
     return null;
   }
@@ -20,8 +27,3 @@ export default function Gallery({ gallery, title }) {
     </div>
   );
 }
-
-Gallery.propTypes = {
-  gallery: PropTypes.arrayOf(PropTypes.string).isRequired,
-  title: PropTypes.string.isRequired,
-};

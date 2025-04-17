@@ -1,6 +1,7 @@
+import { type JSX } from "react";
 import { useHell } from "../HellProvider";
 
-export default function Background() {
+export default function Background(): JSX.Element | null {
   const { allTexturesLoaded, parentSize, textures } = useHell();
 
   if (!allTexturesLoaded || !textures.hellBackground) return null;

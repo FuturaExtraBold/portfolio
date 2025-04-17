@@ -1,5 +1,5 @@
-import { Application, extend } from "@pixi/react";
 import { Container, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
+import { Application, extend } from "@pixi/react";
 import { HellProvider } from "./HellProvider";
 
 extend({

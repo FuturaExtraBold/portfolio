@@ -1,8 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { type JSX } from "react";
 import "./styles.scss";
 
-export default function Project({ project, index }) {
+interface ProjectProps {
+  project: {
+    title: string;
+    description: string;
+  };
+  index: number;
+}
+
+const Project = ({ project, index }: ProjectProps): JSX.Element => {
   return (
     <div key={index} className="client-modal__project">
       <span className="heading--3 text-dark client-modal__project-title">
@@ -13,12 +20,6 @@ export default function Project({ project, index }) {
       </span> */}
     </div>
   );
-}
-
-Project.propTypes = {
-  project: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }).isRequired,
-  index: PropTypes.number.isRequired,
 };
+
+export default Project;
