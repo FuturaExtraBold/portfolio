@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import { Assets } from "pixi.js";
-import HellApp from "./HellApp";
+import Hell from "./Hell";
 
 import { setPosition, setScale } from "utils/animation";
 
@@ -98,7 +98,7 @@ export const HellProvider = ({ parentRef }) => {
 
   return (
     <HellContext.Provider value={contextValues}>
-      {allTexturesLoaded && <HellApp parentRef={parentRef} />}
+      {allTexturesLoaded && <Hell parentRef={parentRef} />}
     </HellContext.Provider>
   );
 };

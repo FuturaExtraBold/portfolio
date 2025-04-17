@@ -1,42 +1,19 @@
 import type { JSX } from "react";
 import { useRef } from "react";
-import { Application, extend } from "@pixi/react";
-import {
-  Background,
-  Container as BenzoContainer,
-  Content,
-  Section,
-} from "layout";
-import { Container, Sprite } from "pixi.js";
-import { BenzoProvider } from "./Benzo/BenzoProvider";
-import { Separator } from "../../ui";
+import { Background, Container, Content, Section } from "layout";
+import { Separator } from "ui";
+import { benzoTitle } from "experiences/Benzo/images";
+import PixiApp from "experiences/Benzo/App";
 import "./styles.scss";
-import { benzoTitle } from "./Benzo/images";
-
-extend({
-  Container,
-  Sprite,
-});
 
 export default function Hero(): JSX.Element {
   const parentRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <Section className="hero">
-      <BenzoContainer className="hero__container" ref={parentRef}>
+      <Container className="hero__container" ref={parentRef}>
         <Background className="hero__background">
-          {parentRef.current && (
-            <Application
-              antialias={true}
-              autoDensity={true}
-              background="#000000"
-              backgroundAlpha={0}
-              resizeTo={parentRef.current}
-              resolution={window.devicePixelRatio || 1}
-            >
-              <BenzoProvider parentRef={parentRef} />
-            </Application>
-          )}
+          {parentRef.current && <PixiApp parentRef={parentRef} />}
         </Background>
         <Content className="hero__content">
           <img
@@ -49,7 +26,7 @@ export default function Hero(): JSX.Element {
           />
         </Content>
         <div className="overlay hero__overlay"></div>
-      </BenzoContainer>
+      </Container>
       <Separator />
     </Section>
   );
