@@ -1,4 +1,19 @@
 import { gsap } from "gsap";
+import type { RefObject } from "react";
+import type { DisplayObject } from "pixi.js";
+
+interface AnimateTickOptions {
+  amplitudeX?: number;
+  amplitudeY?: number;
+  baseXAmount: number;
+  baseYAmount: number;
+  ref: RefObject<DisplayObject>;
+  offsetYAmount: number;
+  parentSizeRef: RefObject<{ width: number; height: number }>;
+  rotationRange?: number;
+  scaleRef: RefObject<number>;
+  tickTime?: number;
+}
 
 export const animateTick = ({
   amplitudeX = 10,
@@ -11,28 +26,29 @@ export const animateTick = ({
   rotationRange = 360,
   scaleRef,
   tickTime = 0.01,
-}) => {
+}: AnimateTickOptions): (() => void) => {
   if (!ref.current) {
     console.warn("animateTick ref.current is not defined");
-    return;
+    return () => {};
   }
 
   let time = 0;
 
   // Set the initial position
   const baseX = () =>
-    parentSizeRef.current.width / 2 - parentSizeRef.current.width / baseXAmount;
+    parentSizeRef.current!.width / 2 -
+    parentSizeRef.current!.width / baseXAmount;
   const baseY = () =>
-    parentSizeRef.current.height - ref.current.height / baseYAmount;
+    parentSizeRef.current!.height - (ref.current as any).height / baseYAmount;
 
-  const offScreenBottomOffset = ref.current.height / 2 - offsetYAmount; // Adjust the offset as needed
+  const offScreenBottomOffset = (ref.current as any).height / 2 - offsetYAmount;
 
   // Function to calculate the new position and rotation
   const tick = () => {
     time += tickTime;
 
-    const resolvedAX = amplitudeX * scaleRef.current * 2;
-    const resolvedAY = amplitudeY * scaleRef.current * 2;
+    const resolvedAX = amplitudeX * scaleRef.current! * 2;
+    const resolvedAY = amplitudeY * scaleRef.current! * 2;
 
     // Oscillation effect
     const offsetX = Math.sin(time * 0.8) * resolvedAX;

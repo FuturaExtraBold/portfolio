@@ -20,8 +20,8 @@
 
 {
   "compilerOptions": {
-    "target": "ESNext", // or "ES2015"
-    "module": "ESNext",
+    "target": "es6", // or "ES2015"
+    "module": "esnext",
     "moduleResolution": "node",
     "jsx": "react-jsx", // For React 17+ JSX transform
     "strict": true, // Optional: ensures stricter type-checking
@@ -33,7 +33,8 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "types": ["pixi.js"]
   },
   "include": [
     "src/**/*", // Ensure all files in `src/` are included

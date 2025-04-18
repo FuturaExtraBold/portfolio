@@ -1,4 +1,15 @@
 import { gsap } from "gsap";
+import type { DisplayObject } from "pixi.js";
+import type { RefObject } from "react";
+
+interface AnimateScaleOptions {
+  duration: number;
+  ease?: string;
+  ref: RefObject<DisplayObject>;
+  repeat?: boolean;
+  yoyo?: boolean;
+  scaleAmount?: number;
+}
 
 export const animateScale = ({
   duration,
@@ -7,7 +18,7 @@ export const animateScale = ({
   repeat = true,
   yoyo = true,
   scaleAmount = 1.2,
-}) => {
+}: AnimateScaleOptions): void => {
   if (!ref.current) {
     console.warn("animateScale ref.current is not defined");
     return;

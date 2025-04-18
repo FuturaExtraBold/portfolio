@@ -28,27 +28,32 @@ declare module "providers/AppProvider" {
   };
 }
 
+// declare namespace JSX {
+//   interface IntrinsicElements {
+//     pixiContainer: {
+//       alpha?: number;
+//       filters?: any[];
+//       width?: number;
+//       height?: number;
+//       children?: React.ReactNode;
+//     };
+//     pixiTilingSprite: {
+//       alpha?: number;
+//       ref?: React.Ref<any>;
+//       texture?: any;
+//       width?: number;
+//       height?: number;
+//       x?: number;
+//       y?: number;
+//     };
+//   }
+// }
+
 declare namespace JSX {
   interface IntrinsicElements {
-    pixiContainer: {
-      alpha?: number;
-      filters?: any[];
-      width?: number;
-      height?: number;
-      children?: React.ReactNode;
-    };
-    pixiTilingSprite: {
-      alpha?: number;
-      ref?: React.Ref<any>;
-      texture?: any;
-      width?: number;
-      height?: number;
-      x?: number;
-      y?: number;
-    };
+    pixiContainer: React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    >;
   }
 }
-
-console.log(
-  "This is a custom module declaration file for images and JSX elements."
-);

@@ -1,4 +1,16 @@
-const fluidProperty = ({ minWidth, maxWidth, minValue, maxValue }) => {
+interface FluidPropertyOptions {
+  minWidth: number;
+  maxWidth: number;
+  minValue: number;
+  maxValue: number;
+}
+
+const fluidProperty = ({
+  minWidth,
+  maxWidth,
+  minValue,
+  maxValue,
+}: FluidPropertyOptions): number => {
   const windowWidth = window.innerWidth;
 
   return Math.min(

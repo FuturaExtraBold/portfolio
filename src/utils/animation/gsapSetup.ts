@@ -4,6 +4,6 @@ import * as PIXI from "pixi.js";
 
 gsap.registerPlugin(PixiPlugin);
 PixiPlugin.registerPIXI(PIXI);
-window.PIXI = PIXI;
+(window as any).PIXI = PIXI;
 
 console.log("GSAP plugins:", gsap.plugins);

@@ -1,4 +1,15 @@
 import { gsap } from "gsap";
+import type { DisplayObject } from "pixi.js";
+import type { RefObject } from "react";
+
+interface AnimateRotationOptions {
+  duration: number;
+  ease?: string;
+  origin?: number;
+  ref: RefObject<DisplayObject>;
+  repeat?: boolean;
+  rotationAmount?: number;
+}
 
 export const animateRotation = ({
   duration,
@@ -7,7 +18,7 @@ export const animateRotation = ({
   ref,
   repeat = true,
   rotationAmount = 360,
-}) => {
+}: AnimateRotationOptions): void => {
   if (!ref.current) {
     console.warn("animateRotation ref.current is not defined");
     return;

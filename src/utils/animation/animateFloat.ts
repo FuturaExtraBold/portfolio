@@ -1,4 +1,14 @@
 import { gsap } from "gsap";
+import type { DisplayObject } from "pixi.js";
+import type { RefObject } from "react";
+
+interface AnimateFloatOptions {
+  amplitudeX?: number;
+  amplitudeY?: number;
+  ref: RefObject<DisplayObject>;
+  rotationRange?: number;
+  tickTime?: number;
+}
 
 export const animateFloat = ({
   amplitudeX = 10,
@@ -6,10 +16,10 @@ export const animateFloat = ({
   ref,
   rotationRange = 360,
   tickTime = 0.01,
-}) => {
+}: AnimateFloatOptions): (() => void) => {
   if (!ref.current) {
-    console.warn("animateTickSimple ref.current is not defined");
-    return;
+    console.warn("animateFloat ref.current is not defined");
+    return () => {};
   }
 
   gsap.killTweensOf(ref.current);
