@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@pixi/assets": "^7.4.3",
+    "@pixi/display": "^7.4.3",
     "@pixi/react": "^8.0.0",
     "classnames": "^2.5.1",
     "cra-template": "1.2.0",

@@ -5,7 +5,7 @@ interface FluidPropertyOptions {
   maxValue: number;
 }
 
-const fluidProperty = ({
+export const fluidProperty = ({
   minWidth,
   maxWidth,
   minValue,

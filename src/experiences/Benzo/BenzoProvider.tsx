@@ -10,7 +10,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets, Texture } from "pixi.js";
+import { Texture } from "pixi.js";
+import { Assets } from "@pixi/assets";
 import Benzo from "./Benzo";
 
 import {

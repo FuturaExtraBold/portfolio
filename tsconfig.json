@@ -1,40 +1,21 @@
-// {
-//   "compilerOptions": {
-//     "allowJs": true,
-//     "baseUrl": "src",
-//     "esModuleInterop": true,
-//     "jsx": "react-jsx",
-//     "lib": ["dom", "es2017"],
-//     "outDir": "build",
-//     "paths": {
-//       "ui/*": ["ui/*"]
-//     },
-//     "types": ["@testing-library/jest-dom"]
-//   },
-//   "include": [
-//     "src/**/*", // Ensure all files in `src/` are included
-//     "declarations.d.ts" // Explicitly include the type declarations file
-//   ],
-//   "exclude": ["node_modules"]
-// }
-
 {
   "compilerOptions": {
-    "target": "es6", // or "ES2015"
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "react-jsx", // For React 17+ JSX transform
-    "strict": true, // Optional: ensures stricter type-checking
+    "allowJs": true,
+    "baseUrl": "src",
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "lib": ["dom", "esnext"],
-    "baseUrl": "./src",
+    "jsx": "react-jsx",
+    "strict": true, // Optional: ensures stricter type-checking
+    "lib": ["dom", "es2017"],
+    "outDir": "build",
     "paths": {
-      "@/*": ["src/*"]
+      "ui/*": ["ui/*"],
+      "layout/*": ["layout/*"],
+      "utils/*": ["utils/*"],
+      "providers/*": ["providers/*"],
+      "data/*": ["data/*"],
+      "experiences/*": ["experiences/*"]
     },
-    "types": ["pixi.js"]
+    "types": ["@testing-library/jest-dom"]
   },
   "include": [
     "src/**/*", // Ensure all files in `src/` are included

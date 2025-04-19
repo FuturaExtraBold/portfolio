@@ -1,11 +1,11 @@
 declare module "utils/animation" {
-  import type { DisplayObject } from "pixi.js";
+  import { Sprite } from "pixi.js";
   import type { RefObject } from "react";
 
   export interface AnimateFloatOptions {
     amplitudeX?: number;
     amplitudeY?: number;
-    ref: RefObject<DisplayObject>;
+    ref: RefObject<Sprite | null>;
     rotationRange?: number;
     tickTime?: number;
   }
@@ -15,7 +15,7 @@ declare module "utils/animation" {
     duration: number;
     ease?: string;
     origin?: number;
-    ref: RefObject<DisplayObject>;
+    ref: RefObject<Sprite | null>;
     repeat?: boolean;
     rotationAmount?: number;
   }
@@ -24,15 +24,20 @@ declare module "utils/animation" {
   export interface AnimateScaleOptions {
     duration: number;
     ease?: string;
-    ref: RefObject<DisplayObject>;
+    ref: RefObject<Sprite | null>;
     repeat?: boolean;
-    yoyo?: boolean;
     scaleAmount?: number;
+    yoyo?: boolean;
   }
   export function animateScale(options: AnimateScaleOptions): void;
 
   export interface AnimateTickOptions {
-    ref: RefObject<DisplayObject>;
+    amplitudeX?: number;
+    amplitudeY?: number;
+    baseXAmount?: number;
+    baseYAmount?: number;
+    offsetYAmount?: number;
+    ref: RefObject<Sprite | null>;
     tickTime?: number;
   }
   export function animateTick(options: AnimateTickOptions): () => void;
@@ -41,29 +46,36 @@ declare module "utils/animation" {
     color: number;
     duration: number;
     ease?: string;
-    ref: RefObject<DisplayObject>;
+    ref: RefObject<Sprite | null>;
     repeat?: boolean;
     yoyo?: boolean;
   }
   export function animateTint(options: AnimateTintOptions): void;
 
   export interface SetPositionOptions {
-    ref: RefObject<DisplayObject>;
-    x: number;
-    y: number;
     duration?: number;
     ease?: string;
+    ref: RefObject<Sprite | null>;
     repeat?: boolean;
+    usePixi?: boolean;
+    x: number;
+    y: number;
     yoyo?: boolean;
   }
   export function setPosition(options: SetPositionOptions): void;
 
   export interface SetScaleOptions {
-    ref: RefObject<DisplayObject>;
-    scale: number;
     duration?: number;
     ease?: string;
+    maxScale: number;
+    minScale: number;
+    maxWidth: number;
+    minWidth: number;
+    parentSize: { width: number; height: number };
+    ref: RefObject<Sprite | null>;
     repeat?: boolean;
+    scale: number;
+    usePixi?: boolean;
     yoyo?: boolean;
   }
   export function setScale(options: SetScaleOptions): void;

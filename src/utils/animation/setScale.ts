@@ -1,6 +1,6 @@
-import { gsap } from "gsap";
 import type { RefObject } from "react";
-import type { DisplayObject } from "pixi.js";
+import type { DisplayObject } from "@pixi/display";
+import { gsap } from "gsap";
 
 interface SetScaleOptions {
   maxScale?: number;
