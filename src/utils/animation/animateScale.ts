@@ -1,15 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { AnimateScaleOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface AnimateScaleOptions {
-  duration: number;
-  ease?: string;
-  ref: RefObject<DisplayObject>;
-  repeat?: boolean;
-  yoyo?: boolean;
-  scaleAmount?: number;
-}
 
 export const animateScale = ({
   duration,

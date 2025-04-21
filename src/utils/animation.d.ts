@@ -34,10 +34,10 @@ declare module "utils/animation" {
   export interface AnimateTickOptions {
     amplitudeX?: number;
     amplitudeY?: number;
-    baseXAmount?: number;
-    baseYAmount?: number;
-    offsetYAmount?: number;
-    parentSizeRef?: RefObject<{ width: number; height: number }>;
+    baseXAmount: number;
+    baseYAmount: number;
+    offsetYAmount: number;
+    parentSizeRef: RefObject<{ width: number; height: number }>;
     rotationRange?: number;
     ref: RefObject<Sprite | null>;
     scaleRef: RefObject<number>;

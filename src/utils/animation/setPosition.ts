@@ -1,13 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { SetPositionOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface SetPositionOptions {
-  ref: RefObject<DisplayObject>;
-  usePixi?: boolean;
-  x: number;
-  y: number;
-}
 
 export const setPosition = ({
   ref,

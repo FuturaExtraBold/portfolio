@@ -1,15 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { AnimateRotationOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface AnimateRotationOptions {
-  duration: number;
-  ease?: string;
-  origin?: number;
-  ref: RefObject<DisplayObject>;
-  repeat?: boolean;
-  rotationAmount?: number;
-}
 
 export const animateRotation = ({
   duration,

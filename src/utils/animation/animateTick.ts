@@ -1,19 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { AnimateTickOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface AnimateTickOptions {
-  amplitudeX?: number;
-  amplitudeY?: number;
-  baseXAmount: number;
-  baseYAmount: number;
-  ref: RefObject<DisplayObject>;
-  offsetYAmount: number;
-  parentSizeRef: RefObject<{ width: number; height: number }>;
-  rotationRange?: number;
-  scaleRef: RefObject<number>;
-  tickTime?: number;
-}
 
 export const animateTick = ({
   amplitudeX = 10,

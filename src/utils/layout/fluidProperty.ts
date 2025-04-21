@@ -1,9 +1,4 @@
-interface FluidPropertyOptions {
-  minWidth: number;
-  maxWidth: number;
-  minValue: number;
-  maxValue: number;
-}
+import { FluidPropertyOptions } from "utils/layout";
 
 export const fluidProperty = ({
   minWidth,

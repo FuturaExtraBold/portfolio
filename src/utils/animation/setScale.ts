@@ -1,16 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { SetScaleOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface SetScaleOptions {
-  maxScale?: number;
-  minScale?: number;
-  maxWidth?: number;
-  minWidth?: number;
-  ref: RefObject<DisplayObject>;
-  parentSize: { width: number; height: number };
-  scaleRef: RefObject<number>;
-}
 
 export const setScale = ({
   maxScale = 1,

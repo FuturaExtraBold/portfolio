@@ -1,12 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { AnimateTintOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface AnimateTintOptions {
-  color: number;
-  duration: number;
-  ref: RefObject<DisplayObject>;
-}
 
 export const animateTint = ({
   color,

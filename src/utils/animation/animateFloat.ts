@@ -1,14 +1,5 @@
-import type { RefObject } from "react";
-import type { DisplayObject } from "@pixi/display";
+import type { AnimateFloatOptions } from "utils/animation";
 import { gsap } from "gsap";
-
-interface AnimateFloatOptions {
-  amplitudeX?: number;
-  amplitudeY?: number;
-  ref: RefObject<DisplayObject | HTMLImageElement | null>;
-  rotationRange?: number;
-  tickTime?: number;
-}
 
 export const animateFloat = ({
   amplitudeX = 10,
