@@ -1,9 +1,10 @@
+import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, SectionHeader, Separator, Wallpaper } from "ui";
-import Employers from "./Employers/Employers";
+import Employers from "./components/Employers/Employers";
 import "./styles.scss";
 
-export default function Resume() {
+export default function Resume(): JSX.Element {
   return (
     <Section className="resume">
       <Container>

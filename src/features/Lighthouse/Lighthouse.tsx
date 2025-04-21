@@ -1,10 +1,11 @@
+import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { SectionHeader, Separator, Vignette } from "ui";
 import Scores from "./components";
 import imageLighthouse from "./lighthouse.jpg";
 import "./styles.scss";
 
-export default function Lighthouse() {
+export default function Lighthouse(): JSX.Element {
   return (
     <Section className="lighthouse">
       <Container className="lighthouse__container">

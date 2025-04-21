@@ -1,7 +1,7 @@
-import { type JSX } from "react";
+import { ReactNode, type JSX } from "react";
 
 interface SectionProps {
-  children: JSX.Element;
+  children: ReactNode;
   className: string;
 }
 

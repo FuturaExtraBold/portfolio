@@ -1,7 +1,19 @@
-import PropTypes from "prop-types";
+import { type JSX } from "react";
 import "./styles.scss";
 
-export default function Employer({ description, logo, name, tenure }) {
+interface EmployerProps {
+  description: string;
+  logo: JSX.Element | null;
+  name: string;
+  tenure: string;
+}
+
+export default function Employer({
+  description = "Description",
+  logo = null,
+  name = "Employer",
+  tenure = "Two",
+}: EmployerProps): JSX.Element {
   return (
     <div className={`employer employer--${name.toLowerCase()}`}>
       <div className="employer__logo">{logo}</div>
@@ -14,17 +26,3 @@ export default function Employer({ description, logo, name, tenure }) {
     </div>
   );
 }
-
-Employer.propTypes = {
-  description: PropTypes.string,
-  logo: PropTypes.node,
-  name: PropTypes.string,
-  tenure: PropTypes.string,
-};
-
-Employer.defaultProps = {
-  description: "Description",
-  logo: null,
-  name: "Employer",
-  tenure: "Two",
-};

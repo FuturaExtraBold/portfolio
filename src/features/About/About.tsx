@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, type JSX } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { useApp } from "providers/AppProvider";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, Separator, Wallpaper } from "ui";

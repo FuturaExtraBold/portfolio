@@ -1,10 +1,11 @@
-import Employer from "./Employer/Employer";
-import HookyGrand from "../../../ui/Logos/HookyGrand";
-import Kajabi from "../../../ui/Logos/Kajabi";
-import Studio318 from "../../../ui/Logos/Studio318";
+import { type JSX } from "react";
+import Employer from "../Employer/Employer";
+import HookyGrand from "ui/Logos/HookyGrand";
+import Kajabi from "ui/Logos/Kajabi";
+import Studio318 from "ui/Logos/Studio318";
 import "./styles.scss";
 
-export default function Employers() {
+export default function Employers(): JSX.Element {
   return (
     <div className="employers">
       <Employer
