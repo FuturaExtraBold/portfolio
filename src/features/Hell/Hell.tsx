@@ -10,7 +10,7 @@ export default function Hell(): JSX.Element {
 
   return (
     <Section className="hell">
-      <Container className="hell__container" ref={parentRef}>
+      <Container className="hell__container" ref={parentRef as any}>
         <Background className="hell__background">
           {parentRef.current && <PixiApp parentRef={parentRef} />}
         </Background>

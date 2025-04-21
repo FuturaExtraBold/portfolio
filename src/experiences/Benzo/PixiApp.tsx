@@ -9,7 +9,7 @@ extend({
 });
 
 interface PixiAppProps {
-  parentRef: RefObject<HTMLElement>;
+  parentRef: RefObject<HTMLDivElement>;
 }
 
 export default function PixiApp({

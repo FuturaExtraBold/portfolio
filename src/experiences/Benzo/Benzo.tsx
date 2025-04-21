@@ -14,9 +14,9 @@ import {
   Smoke,
 } from "./components";
 
-export default function Benzo(): JSX.Element | null {
+export default function Benzo(): JSX.Element {
   return (
-    <>
+    <pixiContainer>
       <Hypnosis />
       <Smoke />
       <CanvasOverlay />
@@ -29,6 +29,6 @@ export default function Benzo(): JSX.Element | null {
       <HandRight />
       <GlowInner />
       <BenzoTitle />
-    </>
+    </pixiContainer>
   );
 }

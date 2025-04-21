@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 interface AnimateFloatOptions {
   amplitudeX?: number;
   amplitudeY?: number;
-  ref: RefObject<DisplayObject>;
+  ref: RefObject<DisplayObject | HTMLImageElement | null>;
   rotationRange?: number;
   tickTime?: number;
 }

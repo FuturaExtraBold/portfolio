@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import { type JSX } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function CanvasOverlay(): JSX.Element | null {

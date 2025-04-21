@@ -11,9 +11,9 @@ export default function Hero(): JSX.Element {
 
   return (
     <Section className="hero">
-      <Container className="hero__container" ref={parentRef}>
+      <Container className="hero__container" ref={parentRef as any}>
         <Background className="hero__background">
-          {parentRef.current && <PixiApp parentRef={parentRef} />}
+          {parentRef.current && <PixiApp parentRef={parentRef as any} />}
         </Background>
         <Content className="hero__content">
           <img

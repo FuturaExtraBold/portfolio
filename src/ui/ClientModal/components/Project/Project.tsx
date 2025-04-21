@@ -4,7 +4,7 @@ import "./styles.scss";
 interface ProjectProps {
   project: {
     title: string;
-    description: string;
+    description?: string;
   };
   index: number;
 }

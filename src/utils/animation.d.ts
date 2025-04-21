@@ -5,7 +5,7 @@ declare module "utils/animation" {
   export interface AnimateFloatOptions {
     amplitudeX?: number;
     amplitudeY?: number;
-    ref: RefObject<Sprite | null>;
+    ref: RefObject<Sprite | HTMLImageElement | null>;
     rotationRange?: number;
     tickTime?: number;
   }
@@ -37,15 +37,19 @@ declare module "utils/animation" {
     baseXAmount?: number;
     baseYAmount?: number;
     offsetYAmount?: number;
+    parentSizeRef?: RefObject<{ width: number; height: number }>;
+    rotationRange?: number;
     ref: RefObject<Sprite | null>;
+    scaleRef: RefObject<number>;
     tickTime?: number;
   }
   export function animateTick(options: AnimateTickOptions): () => void;
 
   export interface AnimateTintOptions {
-    color: number;
-    duration: number;
+    color?: number;
+    duration?: number;
     ease?: string;
+    parentSizeRef?: RefObject<{ width: number; height: number }>;
     ref: RefObject<Sprite | null>;
     repeat?: boolean;
     yoyo?: boolean;
@@ -69,12 +73,13 @@ declare module "utils/animation" {
     ease?: string;
     maxScale: number;
     minScale: number;
-    maxWidth: number;
-    minWidth: number;
+    maxWidth?: number;
+    minWidth?: number;
     parentSize: { width: number; height: number };
     ref: RefObject<Sprite | null>;
     repeat?: boolean;
-    scale: number;
+    scale?: number;
+    scaleRef: RefObject<number>;
     usePixi?: boolean;
     yoyo?: boolean;
   }

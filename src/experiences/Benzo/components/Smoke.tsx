@@ -1,5 +1,4 @@
 import { createRef, type JSX, useEffect, useRef, useState } from "react";
-import { v4 as uuid } from "uuid";
 import { gsap } from "gsap";
 import { Sprite, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
@@ -32,7 +31,7 @@ export default function Smoke(): JSX.Element | null {
             alpha={0.4}
             anchor={0.5}
             eventMode="static"
-            key={uuid()}
+            key={`particle-${i}`}
             rotation={Math.random() * 40 - 20}
             ref={refParticle}
             scale={Math.random() * 0.2 + 0.8}

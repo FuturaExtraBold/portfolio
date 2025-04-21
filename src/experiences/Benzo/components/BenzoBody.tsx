@@ -7,13 +7,16 @@ export default function BenzoBody(): JSX.Element | null {
 
   const refBenzoBody = useRef<Sprite | null>(null);
 
-  if (!allTexturesLoaded || !textures.benzoBody) return null;
+  const texture = textures.benzoBody;
+
+  if (!allTexturesLoaded || !texture) return null;
 
   return (
     <pixiSprite
+      alpha={1}
       height={parentSize.height}
       ref={refBenzoBody}
-      texture={textures.benzoBody}
+      texture={texture}
       width={parentSize.width}
     />
   );

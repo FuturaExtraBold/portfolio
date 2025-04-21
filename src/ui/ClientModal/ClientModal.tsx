@@ -61,12 +61,12 @@ export default function ClientModal(): JSX.Element {
               <span className="client-modal__close-icon">X</span>
             </div>
             <Header
-              title={caseStudy.title}
+              title={caseStudy.title ?? ""}
               client={caseStudy.client}
               description="Lorem ipsum dolor sit amet"
             />
             <hr className="client-modal__divider" />
-            {caseStudy.projects.map((project, index) => (
+            {caseStudy.projects?.map((project, index) => (
               <Fragment key={index}>
                 <Project project={project} index={index} />
                 <Gallery gallery={project.gallery} title={project.title} />

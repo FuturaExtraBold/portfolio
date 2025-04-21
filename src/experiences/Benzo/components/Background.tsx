@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { type JSX } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 const Background = (): JSX.Element | null => {
