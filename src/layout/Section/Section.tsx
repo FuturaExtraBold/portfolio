@@ -9,5 +9,9 @@ export default function Section({
   children,
   className,
 }: SectionProps): JSX.Element {
-  return <section className={className}>{children}</section>;
+  return (
+    <section className={className} data-testid="section">
+      {children}
+    </section>
+  );
 }

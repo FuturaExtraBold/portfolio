@@ -18,7 +18,7 @@ export default function Background({
   });
 
   return (
-    <div className={backgroundClass} ref={ref}>
+    <div className={backgroundClass} data-testid="background" ref={ref}>
       {children}
     </div>
   );

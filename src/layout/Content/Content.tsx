@@ -18,7 +18,7 @@ export default function Content({
   });
 
   return (
-    <div className={contentClass} ref={ref}>
+    <div className={contentClass} data-testid="content" ref={ref}>
       {children}
     </div>
   );

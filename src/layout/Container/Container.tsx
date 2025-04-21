@@ -18,7 +18,7 @@ export default function Container({
   });
 
   return (
-    <div className={containerClass} ref={ref}>
+    <div className={containerClass} data-testid="container" ref={ref}>
       {children}
     </div>
   );
