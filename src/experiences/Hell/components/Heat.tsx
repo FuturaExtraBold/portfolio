@@ -1,13 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import { type JSX, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { DisplacementFilter, Sprite } from "pixi.js";
 import { useHell } from "../HellProvider";
 import Background from "./Background";
 
-export default function Heat() {
+export default function Heat(): JSX.Element | null {
   const { allTexturesLoaded, parentSize, parentSizeRef, textures } = useHell();
 
-  const [displacementFilter, setDisplacementFilter] = useState(null);
+  const [displacementFilter, setDisplacementFilter] =
+    useState<DisplacementFilter | null>(null);
 
   const displacementSpriteRef = useRef(null);
 
@@ -38,7 +39,7 @@ export default function Heat() {
     <>
       <pixiContainer
         alpha={1}
-        filters={[displacementFilter]}
+        filters={displacementFilter ? [displacementFilter] : []}
         height={parentSize.height}
         width={parentSize.width}
       >

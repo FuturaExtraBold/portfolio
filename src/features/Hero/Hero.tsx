@@ -1,5 +1,4 @@
-import type { JSX } from "react";
-import { useRef } from "react";
+import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { Separator } from "ui";
 import { benzoTitle } from "experiences/Benzo/images";

@@ -1,5 +1,7 @@
 import {
   createContext,
+  RefObject,
+  type JSX,
   useCallback,
   useContext,
   useEffect,
@@ -14,9 +16,24 @@ import { setPosition, setScale } from "utils/animation";
 
 import { displacementMap, hellBackground } from "./images";
 
-const HellContext = createContext();
+export interface UseHellProps {
+  allTexturesLoaded: boolean;
+  parentRef: RefObject<HTMLDivElement | null>;
+  parentSize: { width: number; height: number };
+  parentSizeRef: RefObject<{ width: number; height: number }>;
+  scaleRef: RefObject<number>;
+  setPosition: Function;
+  setScale: Function;
+  textures: Record<string, any>;
+}
 
-export const HellProvider = ({ parentRef }) => {
+const HellContext = createContext<UseHellProps | undefined>(undefined);
+
+interface HellProviderProps {
+  parentRef: RefObject<HTMLDivElement | null>;
+}
+
+export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
 
@@ -35,14 +52,13 @@ export const HellProvider = ({ parentRef }) => {
     if (parentRef.current) {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
-      // console.log("Parent size updated:", width, height);
       setParentSize({ width, height });
       parentSizeRef.current = { width, height };
     }
   }, [parentRef]);
 
   const loadTextures = useCallback(async () => {
-    const loadedTextures = {};
+    const loadedTextures: Record<string, any> = {};
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path).then((result) => {
         result.source.autoGenerateMipmaps = true;
@@ -98,9 +114,15 @@ export const HellProvider = ({ parentRef }) => {
 
   return (
     <HellContext.Provider value={contextValues}>
-      {allTexturesLoaded && <Hell parentRef={parentRef} />}
+      {allTexturesLoaded && <Hell />}
     </HellContext.Provider>
   );
 };
 
-export const useHell = () => useContext(HellContext);
+export const useHell = (): UseHellProps => {
+  const context = useContext(HellContext);
+  if (!context) {
+    throw new Error("useHell must be used within a HellProvider");
+  }
+  return context;
+};

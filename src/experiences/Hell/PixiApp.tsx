@@ -1,5 +1,6 @@
-import { Container, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
+import { RefObject, type JSX } from "react";
 import { Application, extend } from "@pixi/react";
+import { Container, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import { HellProvider } from "./HellProvider";
 
 extend({
@@ -9,7 +10,13 @@ extend({
   TilingSprite,
 });
 
-export default function PixiApp({ parentRef }) {
+interface PixiAppProps {
+  parentRef: RefObject<HTMLDivElement>;
+}
+
+export default function PixiApp({
+  parentRef,
+}: PixiAppProps): JSX.Element | null {
   return (
     <Application
       antialias={true}

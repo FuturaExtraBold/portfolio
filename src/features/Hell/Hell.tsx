@@ -1,5 +1,4 @@
-import type { JSX } from "react";
-import { useRef } from "react";
+import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, SectionHeader } from "ui";
 import PixiApp from "experiences/Hell/PixiApp";
@@ -12,7 +11,7 @@ export default function Hell(): JSX.Element {
     <Section className="hell">
       <Container className="hell__container" ref={parentRef as any}>
         <Background className="hell__background">
-          {parentRef.current && <PixiApp parentRef={parentRef} />}
+          {parentRef.current && <PixiApp parentRef={parentRef as any} />}
         </Background>
         <Content className="hell__content">
           <SectionHeader

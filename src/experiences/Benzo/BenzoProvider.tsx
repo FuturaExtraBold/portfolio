@@ -1,12 +1,13 @@
 import React, {
   createContext,
+  RefObject,
+  type JSX,
   useCallback,
   useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
-  type JSX,
 } from "react";
 import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
@@ -47,10 +48,10 @@ export interface UseBenzoProps {
   durationCrystalBall: number;
   durationSmoke: number;
   glowColorsSmoke: number[];
-  parentRef: React.RefObject<HTMLDivElement | null>;
+  parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
-  parentSizeRef: React.RefObject<{ width: number; height: number }>;
-  scaleRef: React.RefObject<number>;
+  parentSizeRef: RefObject<{ width: number; height: number }>;
+  scaleRef: RefObject<number>;
   setPosition: Function;
   setScale: Function;
   textures: Record<string, any>;
@@ -59,7 +60,7 @@ export interface UseBenzoProps {
 const BenzoContext = createContext<UseBenzoProps | undefined>(undefined);
 
 interface BenzoProviderProps {
-  parentRef: React.RefObject<HTMLDivElement>;
+  parentRef: RefObject<HTMLDivElement>;
 }
 
 export const BenzoProvider = ({
