@@ -1,4 +1,4 @@
-import React from "react";
+import { type JSX } from "react";
 import {
   About,
   CallToAction,
@@ -13,7 +13,7 @@ import { ClientModal, PictureFrame } from "ui";
 import { useApp } from "providers/AppProvider";
 import "./app.scss";
 
-function App() {
+function App(): JSX.Element {
   const { currentSection, mediaClass } = useApp();
 
   return (

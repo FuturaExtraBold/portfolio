@@ -34,7 +34,7 @@ const AppContext = createContext<{
   isModalActive: false,
   currentSection: null,
   mediaClass: "",
-  setActiveCaseStudy: () => {},
+  setActiveCaseStudy: () => null,
   setIsModalActive: () => {},
   userDevice: {},
   windowSize: { width: 0, height: 0 },

@@ -12,7 +12,7 @@ module.exports = {
     "^utils/(.*)$": "<rootDir>/src/utils/$1",
     "\\.(css|scss)$": "identity-obj-proxy",
     "\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/__mocks__/fileMock.js",
-    "^AppProvider$": "<rootDir>/src/providers/AppProvider.jsx",
+    "^AppProvider$": "<rootDir>/src/providers/AppProvider.tsx",
   },
   setupFilesAfterEnv: [
     "<rootDir>/jest.setup.js",
