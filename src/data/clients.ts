@@ -19,11 +19,9 @@ export const caseStudies = [
     id: "disney",
     logoComponent: Disney,
     title: "Disney",
-    client: "Disney",
     projects: [
       {
         title: "Official Mickey Mouse Homepage",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "mickey_1.jpg",
           "mickey_2.jpg",
@@ -35,12 +33,10 @@ export const caseStudies = [
       },
       {
         title: "Winnie the Pooh",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["pooh_1.jpg", "pooh_2.jpg", "pooh_3.jpg", "pooh_4.jpg"],
       },
       {
         title: "The Muppets",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "muppets_1.jpg",
           "muppets_2.jpg",
@@ -52,7 +48,6 @@ export const caseStudies = [
       },
       {
         title: "Disney Share Internal Website",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["disney_share_1.jpg", "disney_share_2.jpg"],
       },
     ],
@@ -62,11 +57,9 @@ export const caseStudies = [
     id: "pixar",
     logoComponent: Pixar,
     title: "Pixar Animation Studios",
-    client: "Disney, Pixar Animation Studios",
     projects: [
       {
         title: "Finding Nemo 3D Website",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "nemo_1.jpg",
           "nemo_2.jpg",
@@ -82,11 +75,9 @@ export const caseStudies = [
     id: "simpsons",
     logoComponent: TheSimpsons,
     title: "The Simpsons",
-    client: "Fox Broadcasting Company",
     projects: [
       {
         title: "25th Anniversary Website",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "simpsons_1.jpg",
           "simpsons_2.jpg",
@@ -100,11 +91,9 @@ export const caseStudies = [
     id: "southpark",
     logoComponent: SouthPark,
     title: "South Park Studios",
-    client: "Comedy Central, South Park Studios",
     projects: [
       {
         title: "Avatar Creator",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "southpark_1.jpg",
           "southpark_2.jpg",
@@ -114,7 +103,6 @@ export const caseStudies = [
       },
       {
         title: "The Stick of Truth",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["southpark_5.jpg", "southpark_6.jpg"],
       },
     ],
@@ -123,11 +111,9 @@ export const caseStudies = [
     id: "fox",
     logoComponent: FOX,
     title: "Fox Broadcasting Company",
-    client: "Fox Broadcasting Company",
     projects: [
       {
         title: "Glee Photo Booth",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "gleepb_1.jpg",
           "gleepb_2.jpg",
@@ -137,7 +123,6 @@ export const caseStudies = [
       },
       {
         title: "Test your Glee N A",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "gleena_1.jpg",
           "gleena_2.jpg",
@@ -147,12 +132,10 @@ export const caseStudies = [
       },
       {
         title: "Fox Holiday Snowball Fight",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["snow_1.jpg", "snow_2.jpg", "snow_3.jpg", "snow_4.jpg"],
       },
       {
         title: "Human Target Practice",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["ht_1.jpg", "ht_2.jpg", "ht_3.jpg", "ht_4.jpg"],
       },
     ],
@@ -161,11 +144,9 @@ export const caseStudies = [
     id: "kia",
     logoComponent: KIA,
     title: "KIA",
-    client: "KIA",
     projects: [
       {
         title: "KIA Soul Website",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "kia_soul_1.jpg",
           "kia_soul_2.jpg",
@@ -175,7 +156,6 @@ export const caseStudies = [
       },
       {
         title: "KIA Soul Shuffle Slam",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: [
           "kia_slam_1.jpg",
           "kia_slam_2.jpg",
@@ -190,11 +170,9 @@ export const caseStudies = [
     id: "honda",
     logoComponent: Honda,
     title: "Honda",
-    client: "Honda",
     projects: [
       {
         title: "Super Civic Quest",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["honda_1.jpg", "honda_2.jpg", "honda_3.jpg", "honda_4.jpg"],
       },
     ],
@@ -203,11 +181,9 @@ export const caseStudies = [
     id: "lexus",
     logoComponent: Lexus,
     title: "Lexus",
-    client: "Lexus",
     projects: [
       {
         title: "Lexus Hybrids Website",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["lexus_1.jpg", "lexus_2.jpg", "lexus_3.jpg", "lexus_4.jpg"],
       },
     ],
@@ -217,11 +193,9 @@ export const caseStudies = [
     id: "u2",
     logoComponent: U2,
     title: "U2",
-    client: "U2",
     projects: [
       {
         title: "U2 360 Tour Website",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         gallery: ["u2_1.jpg", "u2_2.jpg", "u2_3.jpg", "u2_4.jpg", "u2_5.jpg"],
       },
     ],

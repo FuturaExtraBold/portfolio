@@ -1,7 +1,7 @@
-export { default as ClientModal } from "./ClientModal";
-export { default as OverlayFade } from "./OverlayFade";
-export { default as PictureFrame } from "./PictureFrame";
-export { default as SectionHeader } from "./SectionHeader";
-export { default as Separator } from "./Separator";
-export { default as Vignette } from "./Vignette";
-export { default as Wallpaper } from "./Wallpaper";
+export { default as ClientModal } from "./ClientModal/ClientModal";
+export { default as OverlayFade } from "./OverlayFade/OverlayFade";
+export { default as PictureFrame } from "./PictureFrame/PictureFrame";
+export { default as SectionHeader } from "./SectionHeader/SectionHeader";
+export { default as Separator } from "./Separator/Separator";
+export { default as Vignette } from "./Vignette/Vignette";
+export { default as Wallpaper } from "./Wallpaper/Wallpaper";

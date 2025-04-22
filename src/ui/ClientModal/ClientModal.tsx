@@ -1,4 +1,4 @@
-import { MouseEvent, WheelEvent, TouchEvent, type JSX } from "react";
+import { MouseEvent, TouchEvent, type JSX, WheelEvent } from "react";
 import classnames from "classnames";
 import { Fragment } from "react/jsx-runtime";
 import { useApp } from "providers/AppProvider";
@@ -32,7 +32,7 @@ export default function ClientModal(): JSX.Element {
   };
 
   return (
-    <div className={modalClasses} role="dialog">
+    <div className={modalClasses} data-testid="client-modal" role="dialog">
       <div
         className="client-modal__overlay"
         data-testid="client-modal-overlay"
@@ -56,15 +56,12 @@ export default function ClientModal(): JSX.Element {
           <>
             <div
               className="client-modal__close"
+              data-testid="client-modal-close-icon"
               onClick={() => setIsModalActive(false)}
             >
               <span className="client-modal__close-icon">X</span>
             </div>
-            <Header
-              title={caseStudy.title ?? ""}
-              client={caseStudy.client}
-              description="Lorem ipsum dolor sit amet"
-            />
+            <Header title={caseStudy.title ?? ""} />
             <hr className="client-modal__divider" />
             {caseStudy.projects?.map((project, index) => (
               <Fragment key={index}>

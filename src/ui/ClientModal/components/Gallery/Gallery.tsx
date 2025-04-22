@@ -1,8 +1,8 @@
-import React, { type JSX } from "react";
+import { type JSX } from "react";
 import "./styles.scss";
 
 interface GalleryProps {
-  gallery: string[];
+  gallery: string[] | undefined;
   title: string;
 }
 
@@ -15,7 +15,7 @@ export default function Gallery({
   }
 
   return (
-    <div className="client-modal__gallery">
+    <div className="client-modal__gallery" data-testid="client-modal-gallery">
       {gallery.map((image, index) => (
         <img
           key={index}

@@ -20,9 +20,12 @@ module.exports = {
   ],
   testEnvironment: "jest-environment-jsdom",
   coveragePathIgnorePatterns: [
-    "<rootDir>/src/ui/index.ts",
-    "<rootDir>/src/ui/ClientModal/index.ts",
-    "<rootDir>/src/ui/ClientModal/components/index.ts",
     "<rootDir>/src/layout/index.ts",
+    "<rootDir>/src/ui/ClientModal/components/index.ts",
+    "<rootDir>/src/ui/ClientModal/index.ts",
+    "<rootDir>/src/ui/index.ts",
+    "<rootDir>/src/ui/Logos/index.ts",
+    "<rootDir>/src/utils/animation/index.ts",
+    "<rootDir>/src/utils/layout/index.ts",
   ],
 };
