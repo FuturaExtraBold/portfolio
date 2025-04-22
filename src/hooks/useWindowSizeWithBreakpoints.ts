@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
 import exportedBreakpoints from "assets/stylesheets/base/_breakpoints.scss";
 
-interface WindowSize {
+export interface WindowSize {
   width: number;
   height: number;
 }

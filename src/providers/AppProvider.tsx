@@ -1,5 +1,9 @@
 import {
   createContext,
+  Dispatch,
+  PropsWithChildren,
+  SetStateAction,
+  type JSX,
   useCallback,
   useContext,
   useEffect,
@@ -7,17 +11,44 @@ import {
   useState,
 } from "react";
 import { deviceDetect } from "react-device-detect";
-import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
+import {
+  useWindowSizeWithBreakpoints,
+  type WindowSize,
+} from "hooks/useWindowSizeWithBreakpoints";
 import "../assets/stylesheets/all.scss";
 import App from "../App";
 
-const AppContext = createContext();
+const AppContext = createContext<{
+  activeCaseStudy: string | null;
+  breakpoints: Record<string, number>;
+  isModalActive: boolean;
+  currentSection: string | null;
+  mediaClass: string;
+  setActiveCaseStudy: Dispatch<SetStateAction<string | null>>;
+  setIsModalActive: Dispatch<SetStateAction<boolean>>;
+  userDevice: any;
+  windowSize: WindowSize;
+}>({
+  activeCaseStudy: null,
+  breakpoints: {},
+  isModalActive: false,
+  currentSection: null,
+  mediaClass: "",
+  setActiveCaseStudy: () => {},
+  setIsModalActive: () => {},
+  userDevice: {},
+  windowSize: { width: 0, height: 0 },
+});
 
-export const AppProvider = ({ children }) => {
-  const [currentSection, setCurrentSection] = useState(null);
+export const AppProvider = ({
+  children,
+}: PropsWithChildren<{}>): JSX.Element => {
+  const [currentSection, setCurrentSection] = useState<string | null>(null);
   const [isModalActive, setIsModalActive] = useState(false);
-  const [activeCaseStudy, setActiveCaseStudy] = useState(null);
-  const [userDevice, setUserDevice] = useState(() => deviceDetect() || {});
+  const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
+  const [userDevice, setUserDevice] = useState(
+    () => deviceDetect(navigator.userAgent) || {}
+  );
 
   const { windowSize, mediaClass, breakpoints } =
     useWindowSizeWithBreakpoints();
@@ -47,7 +78,7 @@ export const AppProvider = ({ children }) => {
   }, [updateCurrentSection]);
 
   useEffect(() => {
-    const detectedDevice = deviceDetect();
+    const detectedDevice = deviceDetect(navigator.userAgent);
     if (detectedDevice) {
       console.log("Detected device:", detectedDevice);
       setUserDevice(detectedDevice);
