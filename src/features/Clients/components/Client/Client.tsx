@@ -1,17 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import classnames from "classnames";
 import "./styles.scss";
 
-export default function Client({ LogoComponent, onClick, title }) {
+interface ClientProps {
+  LogoComponent: () => JSX.Element;
+  onClick: () => void;
+  title?: string;
+}
+
+export default function Client({
+  LogoComponent,
+  onClick,
+  title,
+}: ClientProps): JSX.Element {
   const classNames = classnames("client", {
     "client--available": title && title.length > 0,
   });
 
-  const particleContainerRef = useRef(null);
+  const particleContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const particleContainer = particleContainerRef.current;
+
+    if (!particleContainer) return;
 
     const particles = [];
     for (let i = 0; i < 20; i++) {

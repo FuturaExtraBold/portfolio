@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { type JSX, useCallback, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useApp } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
@@ -6,17 +6,25 @@ import { fluidProperty } from "utils/layout";
 import Client from "../Client/Client";
 import "./styles.scss";
 
-export default function ClientQuilt() {
+export default function ClientQuilt(): JSX.Element {
   const { breakpoints, setActiveCaseStudy, setIsModalActive, windowSize } =
     useApp();
   const { width } = windowSize;
 
-  const quiltRef = useRef(null);
+  const quiltRef = useRef<HTMLDivElement | null>(null);
 
   const [animationHasRun, setAnimationHasRun] = useState(false);
 
   const setRowStyles = useCallback(
-    ({ countPerRow, radius, startingIndex, spacingOffset }) => {
+    (params: {
+      countPerRow: number;
+      radius: number;
+      startingIndex: number;
+      spacingOffset: number;
+    }) => {
+      const { countPerRow, radius, startingIndex, spacingOffset } = params;
+
+      if (!quiltRef.current) return;
       const clientElements = quiltRef.current.children;
       const arcAngle = Math.PI / 8;
       const angleStep = arcAngle / (countPerRow - 1);
@@ -29,9 +37,9 @@ export default function ClientQuilt() {
         const angle = -arcAngle + (i - startingIndex) * angleStep * 2;
         const x = radius * Math.sin(angle) * 2;
         const y = radius * (1 - Math.cos(angle)) * 2 - spacingOffset;
-        clientElements[
-          i
-        ].style.transform = `translate(${x}px, ${y}px) rotate(${angle}rad) scale(0.8)`;
+        (
+          clientElements[i] as HTMLElement
+        ).style.transform = `translate(${x}px, ${y}px) rotate(${angle}rad) scale(0.8)`;
       }
 
       if (!animationHasRun)
@@ -86,7 +94,7 @@ export default function ClientQuilt() {
     }
   }, [breakpoints, setRowStyles, width]);
 
-  const handleLogoClick = (id) => {
+  const handleLogoClick = (id: string): void => {
     console.log("Logo clicked:", id);
     const selectedCaseStudy = caseStudies.find((study) => study.id === id);
     if (selectedCaseStudy && selectedCaseStudy.projects) {
