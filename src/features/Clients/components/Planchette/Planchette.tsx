@@ -1,26 +1,25 @@
-import { useEffect, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import imagePlanchette from "./planchette.png";
 import "./styles.scss";
 
-export default function Planchette({ enable }) {
-  const refPlanchette = useRef(null);
-
-  const enabled = enable || true;
+export default function Planchette(): JSX.Element {
+  const refPlanchette = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!enabled) return;
     const planchette = refPlanchette.current;
 
-    const handleMove = (event) => {
-      const mouseX = event.clientX;
-      const mouseY = event.clientY;
-      const parentElement = planchette.parentElement;
-      const parentRect = parentElement.getBoundingClientRect();
-      const parentWidth = parentElement.offsetWidth;
-      const parentHeight = parentElement.offsetHeight;
+    const handleMove = (event: MouseEvent): void => {
+      if (!planchette) return;
+      const mouseX: number = event.clientX;
+      const mouseY: number = event.clientY;
+      const parentElement: HTMLElement =
+        planchette.parentElement as HTMLElement;
+      const parentRect: DOMRect = parentElement.getBoundingClientRect();
+      const parentWidth: number = parentElement.offsetWidth;
+      const parentHeight: number = parentElement.offsetHeight;
 
-      const rotation =
+      const rotation: number =
         -(parentRect.left + parentRect.width / 2 - mouseX) / 22.5;
 
       gsap.to(planchette, {
@@ -42,9 +41,7 @@ export default function Planchette({ enable }) {
       window.removeEventListener("mousemove", handleMove);
       document.head.removeChild(styleElement); // Restore cursor styles on cleanup
     };
-  }, [enabled]);
-
-  if (!enabled) return null;
+  }, []);
 
   return (
     <div

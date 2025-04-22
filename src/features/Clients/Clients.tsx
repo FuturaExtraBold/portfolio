@@ -1,11 +1,11 @@
-import React from "react";
+import { type JSX } from "react";
 import { useApp } from "providers/AppProvider";
 import { Background, Container, Content, Section } from "layout";
 import { Board, ClientQuilt, Planchette } from "./components";
 import { OverlayFade, SectionHeader, Separator, Vignette } from "ui";
 import "./styles.scss";
 
-export default function Clients() {
+export default function Clients(): JSX.Element {
   const { userDevice } = useApp();
   const { isMobile } = userDevice;
 
@@ -18,7 +18,7 @@ export default function Clients() {
             <ClientQuilt />
             {!isMobile && <Planchette />}
             <Vignette />
-            <OverlayFade opacity="0.5" />
+            <OverlayFade opacity={0.5} />
           </div>
         </Background>
         <Content className="clients__content">

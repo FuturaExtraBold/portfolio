@@ -1,8 +1,8 @@
-import React from "react";
+import { type JSX } from "react";
 import { accentMoon, accentSun, board } from "./images";
 import "./styles.scss";
 
-export default function Board() {
+export default function Board(): JSX.Element {
   return (
     <div className="board">
       <img alt="Board" className="board__image" src={board} />

@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { useApp } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
 import { fluidProperty } from "utils/layout";
-import Client from "../Client";
+import Client from "../Client/Client";
 import "./styles.scss";
 
 export default function ClientQuilt() {
