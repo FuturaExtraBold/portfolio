@@ -15,7 +15,7 @@
       "data/*": ["data/*"],
       "experiences/*": ["experiences/*"]
     },
-    "types": ["@testing-library/jest-dom"]
+    "types": ["node", "jest", "@testing-library/jest-dom"]
   },
   "include": [
     "src/**/*", // Ensure all files in `src/` are included

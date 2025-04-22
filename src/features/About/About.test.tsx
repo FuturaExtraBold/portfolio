@@ -1,9 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import About from "./About";
 import { useApp } from "providers/AppProvider";
+import { animateFloat } from "utils/animation";
 
 jest.mock("AppProvider", () => ({
   useApp: jest.fn(),
+}));
+
+jest.mock("utils/animation", () => ({
+  animateFloat: jest.fn(),
 }));
 
 describe("About Component", () => {
@@ -30,6 +35,11 @@ describe("About Component", () => {
     const shipImage = screen.getByAltText("Ship");
     expect(shipImage).toBeInTheDocument();
     expect(shipImage).toHaveClass("about__image");
+  });
+
+  it("calls animateFloat on mount", () => {
+    render(<About />);
+    expect(animateFloat).toHaveBeenCalled();
   });
 
   it("renders the description text", () => {

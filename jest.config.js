@@ -19,4 +19,10 @@ module.exports = {
     "<rootDir>/src/setupTests.ts",
   ],
   testEnvironment: "jest-environment-jsdom",
+  coveragePathIgnorePatterns: [
+    "<rootDir>/src/ui/index.ts",
+    "<rootDir>/src/ui/ClientModal/index.ts",
+    "<rootDir>/src/ui/ClientModal/components/index.ts",
+    "<rootDir>/src/layout/index.ts",
+  ],
 };
