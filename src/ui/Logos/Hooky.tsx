@@ -1,4 +1,6 @@
-export default function Hooky() {
+import { type JSX } from "react";
+
+export default function Hooky(): JSX.Element {
   return (
     <svg viewBox="0 0 128 76" xmlns="http://www.w3.org/2000/svg">
       <path

@@ -1,4 +1,6 @@
-export default function Disney() {
+import { type JSX } from "react";
+
+export default function Disney(): JSX.Element {
   return (
     <svg viewBox="0 0 129 55" xmlns="http://www.w3.org/2000/svg">
       <path

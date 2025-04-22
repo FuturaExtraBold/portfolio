@@ -1,6 +1,6 @@
-import React from "react";
+import { type JSX } from "react";
 
-export default function Muppets() {
+export default function Muppets(): JSX.Element {
   return (
     <svg
       viewBox="0 0 561.5 86.4"

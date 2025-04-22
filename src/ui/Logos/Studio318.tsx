@@ -1,4 +1,6 @@
-export default function Studio318() {
+import { type JSX } from "react";
+
+export default function Studio318(): JSX.Element {
   return (
     <svg viewBox="0 0 542 72" xmlns="http://www.w3.org/2000/svg">
       <path

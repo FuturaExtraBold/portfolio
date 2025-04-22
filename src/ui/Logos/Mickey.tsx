@@ -1,4 +1,6 @@
-export default function Mickey() {
+import { type JSX } from "react";
+
+export default function Mickey(): JSX.Element {
   return (
     <svg
       viewBox="0 0 120.9 52.2"

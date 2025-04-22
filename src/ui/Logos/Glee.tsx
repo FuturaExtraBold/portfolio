@@ -1,6 +1,6 @@
-import React from "react";
+import { type JSX } from "react";
 
-export default function Glee() {
+export default function Glee(): JSX.Element {
   return (
     <svg
       viewBox="0 0 238.3 125.2"

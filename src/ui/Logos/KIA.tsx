@@ -1,4 +1,6 @@
-export default function KIA() {
+import { type JSX } from "react";
+
+export default function KIA(): JSX.Element {
   return (
     <svg viewBox="0 0 129 31" xmlns="http://www.w3.org/2000/svg">
       <path

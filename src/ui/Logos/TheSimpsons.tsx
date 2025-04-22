@@ -1,4 +1,6 @@
-export default function TheSimpsons() {
+import { type JSX } from "react";
+
+export default function TheSimpsons(): JSX.Element {
   return (
     <svg
       viewBox="0 0 120 62.31"
