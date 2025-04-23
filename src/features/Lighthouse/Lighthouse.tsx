@@ -1,20 +1,18 @@
-import { type JSX } from "react";
+import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { SectionHeader, Separator, Vignette } from "ui";
+import PixiApp from "experiences/Lighthouse/PixiApp";
 import Scores from "./components";
-import imageLighthouse from "./lighthouse.jpg";
 import "./styles.scss";
 
 export default function Lighthouse(): JSX.Element {
+  const parentRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <Section className="lighthouse">
-      <Container className="lighthouse__container">
+      <Container className="lighthouse__container" ref={parentRef as any}>
         <Background>
-          <img
-            className="lighthouse__image"
-            src={imageLighthouse}
-            alt="Background"
-          />
+          {parentRef.current && <PixiApp parentRef={parentRef as any} />}
           <Vignette />
         </Background>
         <Content className="content lighthouse__content">

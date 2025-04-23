@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { Assets } from "pixi.js";
@@ -14,6 +15,8 @@ import Lighthouse from "./Lighthouse";
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
   parentRef: RefObject<HTMLDivElement | null>;
+  parentSize: { width: number; height: number };
+  parentSizeRef: RefObject<{ width: number; height: number }>;
   textures: Record<string, any>;
 }
 
@@ -28,6 +31,9 @@ interface LighthouseProviderProps {
 export const LighthouseProvider = ({
   parentRef,
 }: LighthouseProviderProps): JSX.Element => {
+  const parentSizeRef = useRef({ width: 0, height: 0 });
+
+  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [textures, setTextures] = useState<Record<string, any>>({});
   const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
 
@@ -35,12 +41,20 @@ export const LighthouseProvider = ({
     return {};
   }, []);
 
+  const updateParentSize = useCallback(() => {
+    if (parentRef.current) {
+      const width = parentRef.current.clientWidth;
+      const height = parentRef.current.clientHeight;
+      setParentSize({ width, height });
+      parentSizeRef.current = { width, height };
+    }
+  }, [parentRef]);
+
   const loadTextures = useCallback(async () => {
     const loadedTextures: Record<string, any> = {};
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path as string).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("Texture loaded:", key, result);
         return result;
       });
     }
@@ -52,13 +66,22 @@ export const LighthouseProvider = ({
     loadTextures();
   }, [loadTextures]);
 
+  useEffect(() => {
+    if (allTexturesLoaded) {
+      console.log("All Lighthouse textures loaded");
+      updateParentSize();
+    }
+  }, [allTexturesLoaded, updateParentSize]);
+
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
       parentRef,
+      parentSize,
+      parentSizeRef,
       textures,
     }),
-    [allTexturesLoaded, parentRef, textures]
+    [allTexturesLoaded, parentRef, parentSize, textures]
   );
 
   return (

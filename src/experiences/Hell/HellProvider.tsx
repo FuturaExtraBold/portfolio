@@ -62,7 +62,6 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("Texture loaded:", key, result);
         return result;
       });
     }

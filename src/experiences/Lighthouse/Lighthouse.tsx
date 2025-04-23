@@ -1,5 +1,10 @@
 import { type JSX } from "react";
+import Background from "./components/Background";
 
 export default function Lighthouse(): JSX.Element {
-  return <div>Lighthouse</div>;
+  return (
+    <pixiContainer>
+      <Background />
+    </pixiContainer>
+  );
 }
