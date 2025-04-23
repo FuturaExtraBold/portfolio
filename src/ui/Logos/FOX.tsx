@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function FOX(): JSX.Element {
   return (
-    <svg viewBox="0 0 129 56" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="fox"
+      role="img"
+      viewBox="0 0 129 56"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="fox"
         fill="#000000"

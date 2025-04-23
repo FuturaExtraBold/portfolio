@@ -1,16 +1,12 @@
 export { default as Disney } from "./Disney";
 export { default as DreamWorks } from "./DreamWorks";
-export { default as FindingNemo } from "./FindingNemo";
 export { default as FOX } from "./FOX";
-export { default as Glee } from "./Glee";
 export { default as Honda } from "./Honda";
 export { default as HookyGrand } from "./HookyGrand";
 export { default as Kajabi } from "./Kajabi";
 export { default as KIA } from "./KIA";
 export { default as KSwiss } from "./KSwiss";
 export { default as Lexus } from "./Lexus";
-export { default as Mickey } from "./Mickey";
-export { default as Muppets } from "./Muppets";
 export { default as Pixar } from "./Pixar";
 export { default as Sony } from "./Sony";
 export { default as SouthPark } from "./SouthPark";

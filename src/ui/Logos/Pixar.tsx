@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function Pixar(): JSX.Element {
   return (
-    <svg viewBox="0 0 129 27" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="pixar"
+      role="img"
+      viewBox="0 0 129 27"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="pixar"
         fill="#000000"

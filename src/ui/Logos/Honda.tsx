@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function Honda(): JSX.Element {
   return (
-    <svg viewBox="0 0 129 16" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="honda"
+      role="img"
+      viewBox="0 0 129 16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="honda"
         fill="#000000"

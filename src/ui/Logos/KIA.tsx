@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function KIA(): JSX.Element {
   return (
-    <svg viewBox="0 0 129 31" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="kia"
+      role="img"
+      viewBox="0 0 129 31"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="kia"
         fill="#000000"

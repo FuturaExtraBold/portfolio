@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function HookyGrand(): JSX.Element {
   return (
-    <svg viewBox="0 0 1652 674" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="hooky"
+      role="img"
+      viewBox="0 0 1652 674"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="Path"
         fill="#e1eae2"

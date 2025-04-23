@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function Lexus(): JSX.Element {
   return (
-    <svg viewBox="0 0 129 58" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="lexus"
+      role="img"
+      viewBox="0 0 129 58"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="lexus"
         fill="#000000"

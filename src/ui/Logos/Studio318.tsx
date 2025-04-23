@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function Studio318(): JSX.Element {
   return (
-    <svg viewBox="0 0 542 72" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="studio318"
+      role="img"
+      viewBox="0 0 542 72"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="STUDIO-318"
         fill="#000000"

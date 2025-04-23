@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function SouthPark(): JSX.Element {
   return (
-    <svg viewBox="0 0 128 63" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="southpark"
+      role="img"
+      viewBox="0 0 128 63"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="southpark"
         fill="#000000"

@@ -2,7 +2,12 @@ import { type JSX } from "react";
 
 export default function Kajabi(): JSX.Element {
   return (
-    <svg viewBox="0 0 128 43" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      data-testid="kajabi"
+      role="img"
+      viewBox="0 0 128 43"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         id="kajabi"
         fill="#000000"
