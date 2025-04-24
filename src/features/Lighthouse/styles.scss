@@ -1,7 +1,25 @@
 @use "assets/stylesheets/consumables" as *;
+@use "sass:math";
+
+$mobile-lighthouse-container-width: $breaks-md;
+$mobile-lighthouse-container-center: calc(
+  math.div(#{$mobile-lighthouse-container-width}, 2) * -1 + 50vw
+);
+
+.lighthouse {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lighthouse__background {
+  left: $mobile-lighthouse-container-center;
+}
 
 .lighthouse__container {
   aspect-ratio: 9 / 4;
+  width: $mobile-lighthouse-container-width;
+  padding: 0;
 }
 
 .lighthouse__content {
@@ -9,6 +27,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  gap: 2rem;
+  padding: 2rem 0 0;
+  left: $mobile-lighthouse-container-center;
+  margin: 0 auto;
+  @include fluid-property($breaks-xs, $breaks-xl, 10px, 30px, gap);
+  @include fluid-property($breaks-xs, $breaks-xl, 300px, 800px, max-width);
+}
+
+.lighthouse__overlay {
+  z-index: 1000;
+}
+
+@media (min-width: $breaks-md) {
+  .lighthouse__background {
+    left: 0;
+  }
+
+  .lighthouse__container {
+    width: auto;
+  }
+
+  .lighthouse__content {
+    left: 0;
+  }
 }

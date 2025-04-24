@@ -1,6 +1,8 @@
-import { type JSX, useCallback, useEffect, useRef } from "react";
+import { type JSX, useCallback, useEffect, useRef, useState } from "react";
 import { useApp } from "providers/AppProvider";
 import { gsap } from "gsap";
+import { fluidProperty } from "utils/layout";
+import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
 import "./styles.scss";
 
 interface ScoreProps {
@@ -13,11 +15,40 @@ export default function Score({
   containerDelay = 0,
 }: ScoreProps): JSX.Element {
   const { currentSection } = useApp();
+  const { breakpoints } = useWindowSizeWithBreakpoints();
+
+  const [circumference, setCircumference] = useState(0);
 
   const circleRef = useRef<SVGCircleElement>(null);
   const containerRef = useRef(null);
   const valueRef = useRef<HTMLDivElement | null>(null);
   const animationRunOnceRef = useRef(false);
+
+  const circleSize = fluidProperty({
+    minWidth: breakpoints.md,
+    maxWidth: breakpoints.xl,
+    minValue: 50,
+    maxValue: 100,
+  });
+  const strokeWidth = fluidProperty({
+    minWidth: breakpoints.md,
+    maxWidth: breakpoints.xl,
+    minValue: 4,
+    maxValue: 8,
+  });
+  const radius = circleSize / 2 - strokeWidth / 2;
+  const boxShadowSize = fluidProperty({
+    minWidth: breakpoints.md,
+    maxWidth: breakpoints.xl,
+    minValue: 3,
+    maxValue: 8,
+  });
+  const insetBoxShadow = fluidProperty({
+    minWidth: breakpoints.md,
+    maxWidth: breakpoints.xl,
+    minValue: 7,
+    maxValue: 14,
+  });
 
   const animateCircle = useCallback(() => {
     const circle = circleRef.current;
@@ -36,6 +67,9 @@ export default function Score({
       duration: 2,
       ease: "power1.inout",
       delay: circleDelay,
+      onComplete: () => {
+        setCircumference(0);
+      },
     });
   }, [circleDelay]);
 
@@ -99,17 +133,33 @@ export default function Score({
     currentSection,
   ]);
 
+  useEffect(() => {
+    if (circleRef.current) {
+      const circle = circleRef.current;
+      gsap.set(circle, {
+        strokeDasharray: circumference,
+        strokeDashoffset: circumference,
+      });
+    }
+  }, [circleRef, circleSize, circumference]);
+
   return (
-    <div className="score" ref={containerRef}>
-      <svg className="score__circle" width="120" height="120">
+    <div
+      className="score"
+      ref={containerRef}
+      style={{
+        boxShadow: `0 0 ${boxShadowSize}px ${boxShadowSize}px rgb(0 0 0 / 0.5), inset 0 0 ${boxShadowSize}px ${insetBoxShadow}px rgb(0 0 0 / 0.5)`,
+      }}
+    >
+      <svg className="score__circle" width={circleSize} height={circleSize}>
         <circle
           ref={circleRef}
-          cx="60"
-          cy="60"
-          r="52"
+          cx={circleSize / 2}
+          cy={circleSize / 2}
+          r={radius}
           fill="none"
           stroke="white"
-          strokeWidth="8"
+          strokeWidth={strokeWidth}
         />
       </svg>
       <div className="score__value" ref={valueRef}>

@@ -1,9 +1,12 @@
+@use "assets/stylesheets/consumables" as *;
+
 .scores {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   gap: 8rem;
+  @include fluid-property($breaks-md, $breaks-xl, 70px, 140px, gap);
 }
 
 .scores__section {
@@ -11,4 +14,5 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  @include fluid-property($breaks-md, $breaks-xl, 16px, 40px, gap);
 }

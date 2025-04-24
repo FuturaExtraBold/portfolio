@@ -11,11 +11,11 @@ export default function Lighthouse(): JSX.Element {
   return (
     <Section className="lighthouse">
       <Container className="lighthouse__container" ref={parentRef as any}>
-        <Background>
+        <Background className="lighthouse__background">
           {parentRef.current && <PixiApp parentRef={parentRef as any} />}
           <Vignette />
         </Background>
-        <Content className="content lighthouse__content">
+        <Content className="lighthouse__content">
           <Scores />
           <SectionHeader
             title="Google Lighthouse"

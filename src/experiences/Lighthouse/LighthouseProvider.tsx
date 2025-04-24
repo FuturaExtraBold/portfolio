@@ -11,6 +11,7 @@ import {
 } from "react";
 import { Assets } from "pixi.js";
 import Lighthouse from "./Lighthouse";
+import { lighthouseBackground } from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
@@ -25,7 +26,7 @@ const LighthouseContext = createContext<UseLighthouseProps | undefined>(
 );
 
 interface LighthouseProviderProps {
-  parentRef: RefObject<HTMLDivElement>;
+  parentRef: RefObject<HTMLDivElement | null>;
 }
 
 export const LighthouseProvider = ({
@@ -38,7 +39,9 @@ export const LighthouseProvider = ({
   const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
 
   const texturePaths = useMemo<Record<string, string>>(() => {
-    return {};
+    return {
+      lighthouseBackground: lighthouseBackground,
+    };
   }, []);
 
   const updateParentSize = useCallback(() => {
@@ -55,6 +58,7 @@ export const LighthouseProvider = ({
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path as string).then((result) => {
         result.source.autoGenerateMipmaps = true;
+        console.log("Texture loaded:", key, result);
         return result;
       });
     }
@@ -65,6 +69,16 @@ export const LighthouseProvider = ({
   useEffect(() => {
     loadTextures();
   }, [loadTextures]);
+
+  useEffect(() => {
+    if (!parentRef.current) return;
+    const observer = new ResizeObserver(() => {
+      updateParentSize();
+    });
+    observer.observe(parentRef.current);
+    updateParentSize();
+    return () => observer.disconnect();
+  }, [parentRef, updateParentSize]);
 
   useEffect(() => {
     if (allTexturesLoaded) {
