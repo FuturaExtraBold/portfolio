@@ -11,14 +11,18 @@ import {
 } from "react";
 import { Assets } from "pixi.js";
 import Lighthouse from "./Lighthouse";
-import { lighthouseBackground } from "./images";
+import { beam, lighthouseBackground, windowGlow } from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
+  backgroundRef: RefObject<any>;
+  beamRef: RefObject<any>;
+  overlayRef: RefObject<any>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
   parentSizeRef: RefObject<{ width: number; height: number }>;
   textures: Record<string, any>;
+  windowGlowRef: RefObject<any>;
 }
 
 const LighthouseContext = createContext<UseLighthouseProps | undefined>(
@@ -33,6 +37,10 @@ export const LighthouseProvider = ({
   parentRef,
 }: LighthouseProviderProps): JSX.Element => {
   const parentSizeRef = useRef({ width: 0, height: 0 });
+  const backgroundRef = useRef<any>(null);
+  const beamRef = useRef<any>(null);
+  const overlayRef = useRef<any>(null);
+  const windowGlowRef = useRef<any>(null);
 
   const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [textures, setTextures] = useState<Record<string, any>>({});
@@ -41,6 +49,8 @@ export const LighthouseProvider = ({
   const texturePaths = useMemo<Record<string, string>>(() => {
     return {
       lighthouseBackground: lighthouseBackground,
+      windowGlow: windowGlow,
+      beam: beam,
     };
   }, []);
 
@@ -90,10 +100,14 @@ export const LighthouseProvider = ({
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
+      backgroundRef,
+      beamRef,
+      overlayRef,
       parentRef,
       parentSize,
       parentSizeRef,
       textures,
+      windowGlowRef,
     }),
     [allTexturesLoaded, parentRef, parentSize, textures]
   );

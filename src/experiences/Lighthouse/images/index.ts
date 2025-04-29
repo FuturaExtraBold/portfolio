@@ -1,3 +1,5 @@
+import beam from "./beam.png";
 import lighthouseBackground from "./lighthouseBackground.jpg";
+import windowGlow from "./windowGlow.png";
 
-export { lighthouseBackground };
+export { beam, lighthouseBackground, windowGlow };
