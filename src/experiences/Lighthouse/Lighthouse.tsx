@@ -11,14 +11,14 @@ import WindowGlow from "./components/WindowGlow";
 import Overlay from "./components/Overlay";
 
 export default function Lighthouse(): JSX.Element {
-  const { beamLeftRef, beamRightRef, overlayRef, parentSize, windowGlowRef } =
+  const { beamLeftRef, beamRightRef, overlayRef, windowGlowRef } =
     useLighthouse();
 
   useEffect(() => {
-    animateBeams({ beamLeftRef, beamRightRef, parentSize });
+    animateBeams({ beamLeftRef, beamRightRef });
     animateFlash({ overlayRef });
     animateWindowGlow({ windowGlowRef });
-  }, [beamLeftRef, beamRightRef, overlayRef, parentSize, windowGlowRef]);
+  }, [beamLeftRef, beamRightRef, overlayRef, windowGlowRef]);
 
   return (
     <pixiContainer>

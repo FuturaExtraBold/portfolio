@@ -1,6 +1,9 @@
 import { gsap } from "gsap";
+
 const beamDuration = 6;
 const flashDuration = 0.4;
+let beamTimeline: gsap.core.Timeline | null = null;
+let flashTimeline: gsap.core.Timeline | null = null;
 
 export const animateWindowGlow = ({ windowGlowRef }: any): void => {
   console.log("animate windows");
@@ -27,23 +30,24 @@ export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
   const beamScale = 3;
 
   requestAnimationFrame(() => {
+    if (beamTimeline) return;
     const rbl = beamLeftRef.current;
     const rbr = beamRightRef.current;
 
     if (!rbl || !rbr) return;
 
-    const tl = gsap.timeline({ repeat: -1 });
+    beamTimeline = gsap.timeline({ repeat: -1 });
 
-    tl.set(rbl, { pixi: { scaleY: beamScale, alpha: beamAlphaMax } });
-    tl.set(rbr, { pixi: { scaleY: 0, alpha: 0 } });
-    tl.to(rbl, {
+    beamTimeline.set(rbl, { pixi: { scaleY: beamScale, alpha: beamAlphaMax } });
+    beamTimeline.set(rbr, { pixi: { scaleY: 0, alpha: 0 } });
+    beamTimeline.to(rbl, {
       pixi: { scaleY: 0, alpha: beamAlphaMin },
       ease: "circ.out",
       duration: beamDuration,
     });
-    tl.set(rbl, { pixi: { alpha: 0 } });
-    tl.set(rbr, { pixi: { alpha: 0.1 } });
-    tl.to(rbr, {
+    beamTimeline.set(rbl, { pixi: { alpha: 0, scaleY: 0 } });
+    beamTimeline.set(rbr, { pixi: { alpha: 0, scaleY: 0 } });
+    beamTimeline.to(rbr, {
       pixi: { scaleY: beamScale, alpha: beamAlphaMax },
       ease: "circ.in",
       delay: beamDuration,
@@ -56,19 +60,20 @@ export const animateFlash = ({ overlayRef }: any): void => {
   console.log("animate flash");
 
   requestAnimationFrame(() => {
+    if (flashTimeline) return;
     const or = overlayRef.current;
 
     if (!or) return;
 
-    const tl = gsap.timeline({ repeat: -1 });
+    flashTimeline = gsap.timeline({ repeat: -1 });
 
-    tl.to(or, {
+    flashTimeline.to(or, {
       pixi: {
         alpha: 0,
       },
       duration: flashDuration,
     });
-    tl.to(or, {
+    flashTimeline.to(or, {
       pixi: {
         alpha: 0.7,
       },

@@ -9,21 +9,17 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets } from "pixi.js";
+import { Assets, DisplacementFilter, Sprite } from "pixi.js";
 import Hell from "./Hell";
-
-import { setPosition, setScale } from "utils/animation";
 
 import { displacementMap, hellBackground } from "./images";
 
 export interface UseHellProps {
   allTexturesLoaded: boolean;
+  displacementFilter: DisplacementFilter | null;
+  displacementMapRef: RefObject<any>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
-  parentSizeRef: RefObject<{ width: number; height: number }>;
-  scaleRef: RefObject<number>;
-  setPosition: Function;
-  setScale: Function;
   textures: Record<string, any>;
 }
 
@@ -34,12 +30,13 @@ interface HellProviderProps {
 }
 
 export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
-  const parentSizeRef = useRef({ width: 0, height: 0 });
-  const scaleRef = useRef(0.5);
+  const displacementMapRef = useRef<any>(null);
 
   const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [textures, setTextures] = useState({});
   const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
+  const [displacementFilter, setDisplacementFilter] =
+    useState<DisplacementFilter | null>(null);
 
   const texturePaths = useMemo(() => {
     return {
@@ -53,7 +50,6 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
       setParentSize({ width, height });
-      parentSizeRef.current = { width, height };
     }
   }, [parentRef]);
 
@@ -90,25 +86,23 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
     }
   }, [allTexturesLoaded, updateParentSize]);
 
+  useEffect(() => {
+    if (!displacementMapRef.current) return;
+    var displacementSprite = new Sprite(displacementMapRef.current);
+    var displacementFilter = new DisplacementFilter(displacementSprite);
+    setDisplacementFilter(displacementFilter);
+  }, [allTexturesLoaded, displacementMapRef]);
+
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
+      displacementFilter,
+      displacementMapRef,
       parentRef,
       parentSize,
-      parentSizeRef,
-      scaleRef,
-      setPosition,
-      setScale,
       textures,
     }),
-    [
-      allTexturesLoaded,
-      parentRef,
-      parentSize,
-      parentSizeRef,
-      scaleRef,
-      textures,
-    ]
+    [allTexturesLoaded, displacementFilter, parentRef, parentSize, textures]
   );
 
   return (

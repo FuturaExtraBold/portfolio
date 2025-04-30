@@ -9,26 +9,21 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets } from "pixi.js";
-
-import { animateScale, setPosition, setScale } from "utils/animation";
+import { Assets, Graphics, Sprite } from "pixi.js";
 
 import Lighthouse from "./Lighthouse";
 import { beam, lighthouseBackground, windowGlow } from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
-  animateScale: Function;
   backgroundRef: RefObject<any>;
-  beamLeftRef: RefObject<any>;
-  beamRightRef: RefObject<any>;
-  overlayRef: RefObject<any>;
+  beamLeftRef: RefObject<Sprite | null>;
+  beamRightRef: RefObject<Sprite | null>;
+  overlayRef: RefObject<Graphics | null>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
   parentSizeRef: RefObject<{ width: number; height: number }>;
   scaleRef: RefObject<number>;
-  setPosition: Function;
-  setScale: Function;
   textures: Record<string, any>;
   windowGlowRef: RefObject<any>;
 }
@@ -64,15 +59,6 @@ export const LighthouseProvider = ({
       beam: beam,
     };
   }, []);
-
-  // const updateParentSize = useCallback(() => {
-  //   if (parentRef.current) {
-  //     const width = parentRef.current.clientWidth;
-  //     const height = parentRef.current.clientHeight;
-  //     setParentSize({ width, height });
-  //     parentSizeRef.current = { width, height };
-  //   }
-  // }, [parentRef]);
 
   const loadTextures = useCallback(async () => {
     const loadedTextures: Record<string, any> = {};
@@ -122,7 +108,6 @@ export const LighthouseProvider = ({
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
-      animateScale,
       backgroundRef,
       beamLeftRef,
       beamRightRef,
@@ -131,8 +116,6 @@ export const LighthouseProvider = ({
       parentSize,
       parentSizeRef,
       scaleRef,
-      setPosition,
-      setScale,
       textures,
       windowGlowRef,
     }),
