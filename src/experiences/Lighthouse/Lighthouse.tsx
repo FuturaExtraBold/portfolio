@@ -1,19 +1,24 @@
 import { type JSX, useEffect } from "react";
 import { useLighthouse } from "./LighthouseProvider";
-import { animateBeams, animateWindowGlow } from "./utils/animations";
+import {
+  animateBeams,
+  animateFlash,
+  animateWindowGlow,
+} from "./utils/animations";
 import Background from "./components/Background";
 import Beam from "./components/Beam";
 import WindowGlow from "./components/WindowGlow";
 import Overlay from "./components/Overlay";
 
 export default function Lighthouse(): JSX.Element {
-  const { beamLeftRef, beamRightRef, parentSize, windowGlowRef } =
+  const { beamLeftRef, beamRightRef, overlayRef, parentSize, windowGlowRef } =
     useLighthouse();
 
   useEffect(() => {
-    animateWindowGlow(windowGlowRef);
     animateBeams({ beamLeftRef, beamRightRef, parentSize });
-  }, [beamLeftRef, beamRightRef, parentSize, windowGlowRef]);
+    animateFlash({ overlayRef });
+    animateWindowGlow({ windowGlowRef });
+  }, [beamLeftRef, beamRightRef, overlayRef, parentSize, windowGlowRef]);
 
   return (
     <pixiContainer>

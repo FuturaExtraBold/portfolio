@@ -1,7 +1,9 @@
 import { gsap } from "gsap";
+const beamDuration = 6;
+const flashDuration = 0.4;
 
-export const animateWindowGlow = (windowGlowRef: any): void => {
-  console.log("animate window glow");
+export const animateWindowGlow = ({ windowGlowRef }: any): void => {
+  console.log("animate windows");
 
   const flicker = () => {
     if (windowGlowRef.current) {
@@ -20,10 +22,8 @@ export const animateWindowGlow = (windowGlowRef: any): void => {
 
 export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
   console.log("animate beams");
-
   const beamAlphaMin = 0.1;
   const beamAlphaMax = 0.8;
-  const beamDuration = 6;
   const beamScale = 3;
 
   requestAnimationFrame(() => {
@@ -46,6 +46,7 @@ export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
     tl.to(rbr, {
       pixi: { scaleY: beamScale, alpha: beamAlphaMax },
       ease: "circ.in",
+      delay: beamDuration,
       duration: beamDuration,
     });
   });
@@ -53,18 +54,26 @@ export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
 
 export const animateFlash = ({ overlayRef }: any): void => {
   console.log("animate flash");
-  // tlo.to(orc, {
-  //   pixi: {
-  //     alpha: 0,
-  //   },
-  //   duration: 0.4,
-  // });
-  // tlo.to(orc, {
-  //   pixi: {
-  //     alpha: 0.7,
-  //   },
-  //   delay: 11.2,
-  //   duration: 0.4,
-  // });
-  // console.log(tlo.totalDuration());
+
+  requestAnimationFrame(() => {
+    const or = overlayRef.current;
+
+    if (!or) return;
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    tl.to(or, {
+      pixi: {
+        alpha: 0,
+      },
+      duration: flashDuration,
+    });
+    tl.to(or, {
+      pixi: {
+        alpha: 0.7,
+      },
+      delay: beamDuration * 3 - flashDuration * 2,
+      duration: flashDuration,
+    });
+  });
 };

@@ -24,11 +24,11 @@ function App(): JSX.Element {
         id="benzo-app"
       >
         <PictureFrame />
-        <Lighthouse />
         <Hero />
         <About />
         <Clients />
         <Resume />
+        <Lighthouse />
         <CallToAction />
         <Hell />
       </main>
