@@ -27,44 +27,49 @@ export const animateLighthouse = ({
   const brc = beamRef.current;
   const orc = overlayRef.current;
 
+  console.log("parentSize:", parentSize);
+
+  tl.set(brc, {
+    pixi: {
+      scaleY: 0.5,
+    },
+  });
   tl.to(brc, {
     pixi: {
-      alpha: 0.3,
       scaleY: 0,
     },
     ease: "circ.out",
-    duration: 6,
+    duration: 3,
   });
   tl.set(brc, {
     pixi: {
-      anchorX: 0,
-      x: parentSize.width,
       scaleX: -0.5,
+      scaleY: 0.5,
     },
   });
-  tl.to(brc, {
-    pixi: {
-      alpha: 0.8,
-      scaleY: 10,
-    },
-    ease: "circ.in",
-    duration: 6,
-  });
+  // tl.to(brc, {
+  //   pixi: {
+  //     alpha: 0.8,
+  //     scaleY: 10,
+  //   },
+  //   ease: "circ.in",
+  //   duration: 6,
+  // });
   console.log(tl.totalDuration());
 
-  tlo.to(orc, {
-    pixi: {
-      alpha: 0,
-    },
-    duration: 0.4,
-  });
-  tlo.to(orc, {
-    pixi: {
-      alpha: 0.7,
-    },
-    delay: 11.2,
-    duration: 0.4,
-  });
+  // tlo.to(orc, {
+  //   pixi: {
+  //     alpha: 0,
+  //   },
+  //   duration: 0.4,
+  // });
+  // tlo.to(orc, {
+  //   pixi: {
+  //     alpha: 0.7,
+  //   },
+  //   delay: 11.2,
+  //   duration: 0.4,
+  // });
 
-  console.log(tlo.totalDuration());
+  // console.log(tlo.totalDuration());
 };

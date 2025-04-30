@@ -10,17 +10,28 @@ import {
   useState,
 } from "react";
 import { Assets } from "pixi.js";
+
+import { animateScale, setPosition, setScale } from "utils/animation";
+
 import Lighthouse from "./Lighthouse";
-import { beam, lighthouseBackground, windowGlow } from "./images";
+import {
+  beamLeft,
+  beamRight,
+  lighthouseBackground,
+  windowGlow,
+} from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
+  animateScale: Function;
   backgroundRef: RefObject<any>;
-  beamRef: RefObject<any>;
   overlayRef: RefObject<any>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
   parentSizeRef: RefObject<{ width: number; height: number }>;
+  scaleRef: RefObject<number>;
+  setPosition: Function;
+  setScale: Function;
   textures: Record<string, any>;
   windowGlowRef: RefObject<any>;
 }
@@ -29,16 +40,17 @@ const LighthouseContext = createContext<UseLighthouseProps | undefined>(
   undefined
 );
 
-interface LighthouseProviderProps {
+export interface LighthouseProviderProps {
   parentRef: RefObject<HTMLDivElement | null>;
+  children?: React.ReactNode;
 }
 
 export const LighthouseProvider = ({
   parentRef,
 }: LighthouseProviderProps): JSX.Element => {
-  const parentSizeRef = useRef({ width: 0, height: 0 });
   const backgroundRef = useRef<any>(null);
-  const beamRef = useRef<any>(null);
+  const parentSizeRef = useRef({ width: 0, height: 0 });
+  const scaleRef = useRef(0.5);
   const overlayRef = useRef<any>(null);
   const windowGlowRef = useRef<any>(null);
 
@@ -50,18 +62,19 @@ export const LighthouseProvider = ({
     return {
       lighthouseBackground: lighthouseBackground,
       windowGlow: windowGlow,
-      beam: beam,
+      beamLeft: beamLeft,
+      beamRight: beamRight,
     };
   }, []);
 
-  const updateParentSize = useCallback(() => {
-    if (parentRef.current) {
-      const width = parentRef.current.clientWidth;
-      const height = parentRef.current.clientHeight;
-      setParentSize({ width, height });
-      parentSizeRef.current = { width, height };
-    }
-  }, [parentRef]);
+  // const updateParentSize = useCallback(() => {
+  //   if (parentRef.current) {
+  //     const width = parentRef.current.clientWidth;
+  //     const height = parentRef.current.clientHeight;
+  //     setParentSize({ width, height });
+  //     parentSizeRef.current = { width, height };
+  //   }
+  // }, [parentRef]);
 
   const loadTextures = useCallback(async () => {
     const loadedTextures: Record<string, any> = {};
@@ -81,35 +94,49 @@ export const LighthouseProvider = ({
   }, [loadTextures]);
 
   useEffect(() => {
-    if (!parentRef.current) return;
+    const parent = parentRef.current;
+    if (!parent) return;
+
     const observer = new ResizeObserver(() => {
-      updateParentSize();
+      const width = parent.clientWidth;
+      const height = parent.clientHeight;
+      setParentSize({ width, height });
+      parentSizeRef.current = { width, height };
     });
-    observer.observe(parentRef.current);
-    updateParentSize();
+
+    observer.observe(parent);
+
+    // Set initial size
+    const width = parent.clientWidth;
+    const height = parent.clientHeight;
+    setParentSize({ width, height });
+    parentSizeRef.current = { width, height };
+
     return () => observer.disconnect();
-  }, [parentRef, updateParentSize]);
+  }, [parentRef]);
 
   useEffect(() => {
     if (allTexturesLoaded) {
       console.log("All Lighthouse textures loaded");
-      updateParentSize();
     }
-  }, [allTexturesLoaded, updateParentSize]);
+  }, [allTexturesLoaded]);
 
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
+      animateScale,
       backgroundRef,
-      beamRef,
       overlayRef,
       parentRef,
       parentSize,
       parentSizeRef,
+      scaleRef,
+      setPosition,
+      setScale,
       textures,
       windowGlowRef,
     }),
-    [allTexturesLoaded, parentRef, parentSize, textures]
+    [allTexturesLoaded, parentRef, parentSize, scaleRef, textures]
   );
 
   return (
@@ -122,7 +149,7 @@ export const LighthouseProvider = ({
 export const useLighthouse = (): UseLighthouseProps => {
   const context = useContext(LighthouseContext);
   if (!context) {
-    throw new Error("useLighthouse must be used within a BenzoProvider");
+    throw new Error("useLighthouse must be used within a LighthouseProvder");
   }
   return context;
 };

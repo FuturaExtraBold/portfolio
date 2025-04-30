@@ -58,7 +58,7 @@ export const AppProvider = ({
     if (!appElement) return;
 
     const sections = appElement.querySelectorAll("section");
-    let currentSection = "lighthouse";
+    let currentSection = "hero";
     const windowHeight = window.innerHeight;
     sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
