@@ -26,13 +26,9 @@
   }
 }
 
-.client--available {
-  cursor: pointer;
-
-  .particle-container {
-    position: absolute;
-    display: block;
-  }
+.client--available .particle-container {
+  position: absolute;
+  display: block;
 }
 
 .client > svg {
