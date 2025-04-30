@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 
 export const animateWindowGlow = (windowGlowRef: any): void => {
+  console.log("animate window glow");
+
   const flicker = () => {
     if (windowGlowRef.current) {
       gsap.to(windowGlowRef.current, {
@@ -16,47 +18,41 @@ export const animateWindowGlow = (windowGlowRef: any): void => {
   flicker();
 };
 
-export const animateLighthouse = ({
-  beamRef,
-  overlayRef,
-  parentSize,
-}: any): void => {
-  const repeat = -1;
-  const tl = gsap.timeline({ repeat: repeat });
-  const tlo = gsap.timeline({ repeat: repeat });
-  const brc = beamRef.current;
-  const orc = overlayRef.current;
+export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
+  console.log("animate beams");
 
-  console.log("parentSize:", parentSize);
+  const beamAlphaMin = 0.1;
+  const beamAlphaMax = 0.8;
+  const beamDuration = 6;
+  const beamScale = 3;
 
-  tl.set(brc, {
-    pixi: {
-      scaleY: 0.5,
-    },
-  });
-  tl.to(brc, {
-    pixi: {
-      scaleY: 0,
-    },
-    ease: "circ.out",
-    duration: 3,
-  });
-  tl.set(brc, {
-    pixi: {
-      scaleX: -0.5,
-      scaleY: 0.5,
-    },
-  });
-  // tl.to(brc, {
-  //   pixi: {
-  //     alpha: 0.8,
-  //     scaleY: 10,
-  //   },
-  //   ease: "circ.in",
-  //   duration: 6,
-  // });
-  console.log(tl.totalDuration());
+  requestAnimationFrame(() => {
+    const rbl = beamLeftRef.current;
+    const rbr = beamRightRef.current;
 
+    if (!rbl || !rbr) return;
+
+    const tl = gsap.timeline({ repeat: -1 });
+
+    tl.set(rbl, { pixi: { scaleY: beamScale, alpha: beamAlphaMax } });
+    tl.set(rbr, { pixi: { scaleY: 0, alpha: 0 } });
+    tl.to(rbl, {
+      pixi: { scaleY: 0, alpha: beamAlphaMin },
+      ease: "circ.out",
+      duration: beamDuration,
+    });
+    tl.set(rbl, { pixi: { alpha: 0 } });
+    tl.set(rbr, { pixi: { alpha: 0.1 } });
+    tl.to(rbr, {
+      pixi: { scaleY: beamScale, alpha: beamAlphaMax },
+      ease: "circ.in",
+      duration: beamDuration,
+    });
+  });
+};
+
+export const animateFlash = ({ overlayRef }: any): void => {
+  console.log("animate flash");
   // tlo.to(orc, {
   //   pixi: {
   //     alpha: 0,
@@ -70,6 +66,5 @@ export const animateLighthouse = ({
   //   delay: 11.2,
   //   duration: 0.4,
   // });
-
   // console.log(tlo.totalDuration());
 };

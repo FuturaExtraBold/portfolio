@@ -14,17 +14,14 @@ import { Assets } from "pixi.js";
 import { animateScale, setPosition, setScale } from "utils/animation";
 
 import Lighthouse from "./Lighthouse";
-import {
-  beamLeft,
-  beamRight,
-  lighthouseBackground,
-  windowGlow,
-} from "./images";
+import { beam, lighthouseBackground, windowGlow } from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
   animateScale: Function;
   backgroundRef: RefObject<any>;
+  beamLeftRef: RefObject<any>;
+  beamRightRef: RefObject<any>;
   overlayRef: RefObject<any>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
@@ -53,6 +50,8 @@ export const LighthouseProvider = ({
   const scaleRef = useRef(0.5);
   const overlayRef = useRef<any>(null);
   const windowGlowRef = useRef<any>(null);
+  const beamLeftRef = useRef<any>(null);
+  const beamRightRef = useRef<any>(null);
 
   const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [textures, setTextures] = useState<Record<string, any>>({});
@@ -62,8 +61,7 @@ export const LighthouseProvider = ({
     return {
       lighthouseBackground: lighthouseBackground,
       windowGlow: windowGlow,
-      beamLeft: beamLeft,
-      beamRight: beamRight,
+      beam: beam,
     };
   }, []);
 
@@ -126,6 +124,8 @@ export const LighthouseProvider = ({
       allTexturesLoaded,
       animateScale,
       backgroundRef,
+      beamLeftRef,
+      beamRightRef,
       overlayRef,
       parentRef,
       parentSize,
