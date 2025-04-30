@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
 export const animateDisplacementMap = ({ displacementMapRef }: any) => {
-  console.log("animateDisplacementMap");
+  console.log("animate heat");
 
   requestAnimationFrame(() => {
     const dmr = displacementMapRef.current;

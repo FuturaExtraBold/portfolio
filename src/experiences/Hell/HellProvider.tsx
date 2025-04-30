@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets, DisplacementFilter, Sprite } from "pixi.js";
+import { Assets, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import Hell from "./Hell";
 
 import { displacementMap, hellBackground } from "./images";
@@ -17,7 +17,7 @@ import { displacementMap, hellBackground } from "./images";
 export interface UseHellProps {
   allTexturesLoaded: boolean;
   displacementFilter: DisplacementFilter | null;
-  displacementMapRef: RefObject<any>;
+  displacementMapRef: RefObject<TilingSprite | any>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
   textures: Record<string, any>;

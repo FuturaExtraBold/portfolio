@@ -16,7 +16,7 @@ import { beam, lighthouseBackground, windowGlow } from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
-  backgroundRef: RefObject<any>;
+  backgroundRef: RefObject<Sprite | null>;
   beamLeftRef: RefObject<Sprite | null>;
   beamRightRef: RefObject<Sprite | null>;
   overlayRef: RefObject<Graphics | null>;
@@ -25,7 +25,7 @@ export interface UseLighthouseProps {
   parentSizeRef: RefObject<{ width: number; height: number }>;
   scaleRef: RefObject<number>;
   textures: Record<string, any>;
-  windowGlowRef: RefObject<any>;
+  windowGlowRef: RefObject<Sprite | null>;
 }
 
 const LighthouseContext = createContext<UseLighthouseProps | undefined>(
