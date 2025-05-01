@@ -124,6 +124,7 @@ export function useGlowBenzoAnimations({
 interface UseGlowGlassesAnimationsProps {
   glowGlassesRef: RefObject<Sprite | null>;
 }
+
 export function useGlowGlassesAnimations({
   glowGlassesRef,
 }: UseGlowGlassesAnimationsProps): void {
@@ -141,6 +142,7 @@ export function useGlowGlassesAnimations({
 interface UseGlowInnerAnimationsProps {
   glowInnerRef: RefObject<Sprite | null>;
 }
+
 export function useGlowInnerAnimations({
   glowInnerRef,
 }: UseGlowInnerAnimationsProps): void {
@@ -158,6 +160,7 @@ export function useGlowInnerAnimations({
 interface UseGlowOuterAnimationsProps {
   glowOuterRef: RefObject<Sprite | null>;
 }
+
 export function useGlowOuterAnimations({
   glowOuterRef,
 }: UseGlowOuterAnimationsProps): void {
@@ -175,6 +178,7 @@ export function useGlowOuterAnimations({
 interface UseHandLeftAnimationsProps {
   handLeftRef: RefObject<Sprite | null>;
 }
+
 export function useHandLeftAnimations({
   handLeftRef,
 }: UseHandLeftAnimationsProps): void {
@@ -234,6 +238,7 @@ export function useHandLeftAnimations({
 interface UseHandRightAnimationsProps {
   handRightRef: RefObject<Sprite | null>;
 }
+
 export function useHandRightAnimations({
   handRightRef,
 }: UseHandRightAnimationsProps): void {
@@ -293,6 +298,7 @@ export function useHandRightAnimations({
 interface UseHypnosisAnimationsProps {
   hypnosisRef: RefObject<Sprite | null>;
 }
+
 export function useHypnosisAnimations({
   hypnosisRef,
 }: UseHypnosisAnimationsProps): void {
