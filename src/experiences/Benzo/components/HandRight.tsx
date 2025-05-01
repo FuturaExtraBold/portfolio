@@ -1,73 +1,13 @@
-import { type JSX, useEffect, useRef } from "react";
+import { type JSX, useRef } from "react";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
+import { useHandRightAnimations } from "../hooks/animations";
 
 export default function HandRight(): JSX.Element | null {
-  const {
-    allTexturesLoaded,
-    animateTick,
-    animateTint,
-    colorCrystalBall,
-    durationCrystalBall,
-    parentSize,
-    parentSizeRef,
-    scaleRef,
-    setPosition,
-    setScale,
-    textures,
-  } = useBenzo();
+  const { allTexturesLoaded, textures } = useBenzo();
+  const handRightRef = useRef<Sprite | null>(null);
 
-  const handRef = useRef<Sprite | null>(null);
-
-  useEffect(() => {
-    if (handRef.current) {
-      animateTick({
-        amplitudeX: 20,
-        amplitudeY: 10,
-        baseXAmount: -6.75,
-        baseYAmount: 2,
-        offsetYAmount: 120,
-        ref: handRef,
-        parentSizeRef,
-        rotationRange: 240,
-        scaleRef,
-        tickTime: 0.009,
-      });
-    }
-  }, [animateTick, parentSizeRef, scaleRef]);
-
-  useEffect(() => {
-    if (handRef.current) {
-      animateTint({
-        color: colorCrystalBall,
-        duration: durationCrystalBall,
-        ref: handRef,
-      });
-    }
-  }, [colorCrystalBall, durationCrystalBall, animateTint]);
-
-  useEffect(() => {
-    if (handRef.current) {
-      setPosition({
-        ref: handRef,
-        usePixi: true,
-        x: parentSize.width / 2 - parentSize.width / -6.75,
-        y: parentSize.height - handRef.current.height / 2,
-      });
-    }
-  }, [parentSize, setPosition]);
-
-  useEffect(() => {
-    if (handRef.current) {
-      setScale({
-        ref: handRef,
-        parentSize: parentSize,
-        minScale: 0.25,
-        maxScale: 0.5,
-        scaleRef,
-      });
-    }
-  }, [parentSize, scaleRef, setScale]);
+  useHandRightAnimations({ handRightRef });
 
   if (!allTexturesLoaded || !textures.handRight) return null;
 
@@ -75,7 +15,7 @@ export default function HandRight(): JSX.Element | null {
     <pixiSprite
       alpha={1}
       anchor={0.5}
-      ref={handRef}
+      ref={handRightRef}
       scale={0.5}
       texture={textures.handRight}
       tint={0xffffff}

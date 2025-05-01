@@ -1,22 +1,13 @@
-import { type JSX, useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { type JSX, useRef } from "react";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
+import { useGlowOuterAnimations } from "../hooks/animations";
 
 export default function GlowOuter(): JSX.Element | null {
-  const { colorSmoke, durationSmoke, parentSize, allTexturesLoaded, textures } =
-    useBenzo();
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
+  const glowOuterRef = useRef<Sprite | null>(null);
 
-  const refGlowOuter = useRef<Sprite | null>(null);
-
-  useEffect(() => {
-    if (refGlowOuter.current) {
-      gsap.to(refGlowOuter.current, {
-        pixi: { tint: colorSmoke },
-        duration: durationSmoke,
-      });
-    }
-  }, [colorSmoke, durationSmoke]);
+  useGlowOuterAnimations({ glowOuterRef });
 
   if (!allTexturesLoaded || !textures.glowOuter) return null;
 
@@ -24,7 +15,7 @@ export default function GlowOuter(): JSX.Element | null {
     <pixiSprite
       alpha={0.4}
       height={parentSize.height}
-      ref={refGlowOuter}
+      ref={glowOuterRef}
       texture={textures.glowOuter}
       tint={0xffffff}
       width={parentSize.width}

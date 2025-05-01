@@ -5,7 +5,6 @@ import { useGlowBenzoAnimations } from "../hooks/animations";
 
 export default function GlowBenzo(): JSX.Element | null {
   const { allTexturesLoaded, parentSize, textures } = useBenzo();
-
   const glowBenzoRef = useRef<Sprite | null>(null);
 
   useGlowBenzoAnimations({ glowBenzoRef });

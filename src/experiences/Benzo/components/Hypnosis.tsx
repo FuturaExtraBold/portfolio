@@ -1,53 +1,13 @@
-import { type JSX, useEffect, useRef } from "react";
+import { type JSX, useRef } from "react";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
+import { useHypnosisAnimations } from "../hooks/animations";
 
 export default function Hypnosis(): JSX.Element | null {
-  const {
-    allTexturesLoaded,
-    parentSize,
-    animateRotation,
-    animateScale,
-    setScale,
-    scaleRef,
-    textures,
-  } = useBenzo();
+  const { allTexturesLoaded, parentSize, scaleRef, textures } = useBenzo();
+  const hypnosisRef = useRef<Sprite | null>(null);
 
-  const refHypnosis = useRef<Sprite | null>(null);
-
-  useEffect(() => {
-    if (refHypnosis.current) {
-      animateRotation({
-        duration: 20,
-        ref: refHypnosis,
-        ease: "none",
-        repeat: true,
-      });
-    }
-  }, [animateRotation]);
-
-  useEffect(() => {
-    if (refHypnosis.current) {
-      setScale({
-        ref: refHypnosis,
-        parentSize: parentSize,
-        minScale: 0.5,
-        maxScale: 1,
-        minWidth: 768,
-        maxWidth: 1440,
-        scaleRef,
-      });
-
-      const baseScale = scaleRef.current ?? 1;
-      animateScale({
-        duration: 4,
-        ref: refHypnosis,
-        scaleAmount: baseScale * 0.5,
-        ease: "sine.inOut",
-        repeat: true,
-      });
-    }
-  }, [animateScale, parentSize, setScale, scaleRef]);
+  useHypnosisAnimations({ hypnosisRef });
 
   if (!allTexturesLoaded || !textures.hypnosis) return null;
 
@@ -55,7 +15,7 @@ export default function Hypnosis(): JSX.Element | null {
     <pixiSprite
       anchor={0.5}
       height={1800}
-      ref={refHypnosis}
+      ref={hypnosisRef}
       scale={scaleRef.current ?? 1}
       texture={textures.hypnosis}
       width={1800}
