@@ -1,65 +1,13 @@
-import { type JSX, useEffect, useRef } from "react";
+import { type JSX, useRef } from "react";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
+import { useCrystalBallAnimations } from "../hooks/animations";
 
 export default function CrystalBall(): JSX.Element | null {
-  const {
-    allTexturesLoaded,
-    animateRotation,
-    animateTint,
-    colorCrystalBall,
-    durationCrystalBall,
-    parentSize,
-    scaleRef,
-    setPosition,
-    setScale,
-    textures,
-  } = useBenzo();
+  const { allTexturesLoaded, textures } = useBenzo();
+  const crystalBallRef = useRef<Sprite | null>(null);
 
-  const refCrystalBall = useRef<Sprite | null>(null);
-
-  useEffect(() => {
-    if (refCrystalBall.current) {
-      animateRotation({
-        duration: Math.random() * 4 + 4,
-        origin: (45 + Math.random() * 10) / 100,
-        ref: refCrystalBall,
-      });
-    }
-  }, [animateRotation]);
-
-  useEffect(() => {
-    if (refCrystalBall.current) {
-      animateTint({
-        color: colorCrystalBall,
-        duration: durationCrystalBall,
-        ref: refCrystalBall,
-      });
-    }
-  }, [animateTint, colorCrystalBall, durationCrystalBall]);
-
-  useEffect(() => {
-    if (refCrystalBall.current) {
-      setPosition({
-        ref: refCrystalBall,
-        usePixi: true,
-        x: parentSize.width / 2,
-        y: parentSize.height - parentSize.height / 6,
-      });
-    }
-  }, [setPosition, parentSize]);
-
-  useEffect(() => {
-    if (refCrystalBall.current) {
-      setScale({
-        ref: refCrystalBall,
-        parentSize: parentSize,
-        minScale: 0.22,
-        maxScale: 0.5,
-        scaleRef,
-      });
-    }
-  }, [parentSize, scaleRef, setScale]);
+  useCrystalBallAnimations({ crystalBallRef });
 
   if (!allTexturesLoaded || !textures.crystalBall) return null;
 
@@ -68,7 +16,7 @@ export default function CrystalBall(): JSX.Element | null {
       alpha={0.96}
       anchor={0.5}
       height={250}
-      ref={refCrystalBall}
+      ref={crystalBallRef}
       texture={textures.crystalBall}
       tint={0xffffff}
       width={250}

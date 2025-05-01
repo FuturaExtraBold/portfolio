@@ -18,6 +18,7 @@ declare module "utils/animation" {
     ref: RefObject<Sprite | null>;
     repeat?: boolean;
     rotationAmount?: number;
+    getNextParams?: () => { duration: number; origin: number };
   }
   export function animateRotation(options: AnimateRotationOptions): void;
 

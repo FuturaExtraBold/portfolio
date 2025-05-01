@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 export const animateRotation = ({
   duration,
   ease = "none",
+  getNextParams,
   origin = 0.5,
   ref,
   repeat = true,
@@ -14,6 +15,8 @@ export const animateRotation = ({
     return;
   }
 
+  console.log("animateRotation", duration, origin);
+
   gsap.killTweensOf(ref.current, "pixi");
 
   gsap.set(ref.current, {
@@ -22,17 +25,19 @@ export const animateRotation = ({
 
   gsap.to(ref.current, {
     pixi: { anchor: origin, rotation: rotationAmount },
-    duration: duration,
-    ease: ease,
+    duration,
+    ease,
     onComplete: () => {
-      if (repeat) {
+      if (repeat && getNextParams) {
+        const { duration: nextDuration, origin: nextOrigin } = getNextParams();
         animateRotation({
-          duration,
+          duration: nextDuration,
+          origin: nextOrigin,
           ease,
-          origin,
           ref,
           rotationAmount,
           repeat,
+          getNextParams,
         });
       }
     },

@@ -1,27 +1,14 @@
-import { type JSX, useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { type JSX, useRef } from "react";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
+import { useGlowBenzoAnimations } from "../hooks/animations";
 
 export default function GlowBenzo(): JSX.Element | null {
-  const {
-    allTexturesLoaded,
-    colorCrystalBall,
-    durationCrystalBall,
-    parentSize,
-    textures,
-  } = useBenzo();
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
 
-  const refGlowBenzo = useRef<Sprite | null>(null);
+  const glowBenzoRef = useRef<Sprite | null>(null);
 
-  useEffect(() => {
-    if (refGlowBenzo.current) {
-      gsap.to(refGlowBenzo.current, {
-        pixi: { tint: colorCrystalBall },
-        duration: durationCrystalBall,
-      });
-    }
-  }, [colorCrystalBall, durationCrystalBall]);
+  useGlowBenzoAnimations({ glowBenzoRef });
 
   if (!allTexturesLoaded || !textures.glowBenzo) return null;
 
@@ -29,7 +16,7 @@ export default function GlowBenzo(): JSX.Element | null {
     <pixiSprite
       alpha={0.6}
       height={parentSize.height}
-      ref={refGlowBenzo}
+      ref={glowBenzoRef}
       texture={textures.glowBenzo}
       tint={0xffffff}
       width={parentSize.width}
