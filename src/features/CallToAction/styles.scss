@@ -2,13 +2,13 @@
 
 .cta__content {
   display: flex;
-  max-width: 620px;
+  max-width: 960px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0;
   margin: 0 auto;
-  gap: 12px;
+  gap: 20px;
   text-align: center;
 
   @include fluid-property($breaks-md, $breaks-xl, 40px, 100px, padding-top);

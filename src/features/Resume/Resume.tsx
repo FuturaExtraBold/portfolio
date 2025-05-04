@@ -14,7 +14,7 @@ export default function Resume(): JSX.Element {
         </Background>
         <Content className="resume__content">
           <SectionHeader
-            subtitle="An illustrious career has earned his fame far and wide."
+            subtitle="Apprentice turned master — now accepting encore opportunities."
             title="Work History"
             variant="default"
           />

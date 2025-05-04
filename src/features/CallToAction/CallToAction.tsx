@@ -12,10 +12,15 @@ export default function CallToAction(): JSX.Element {
           <OverlayFade opacity={0.8} />
         </Background>
         <Content className="cta__content">
-          <span className="heading--1 cta__title">Call to Action</span>
+          <span className="heading--2 cta__title">
+            Beyond Illusion Lies Innovation
+          </span>
           <span className="body text-accent cta__description">
-            This is the call to action section. A title, description, and an
-            email me button should be here. Open to design suggestions.
+            Step right up and make contact — whether you seek a conjurer of
+            code, a weaver of wondrous interfaces, or simply a skilled hand to
+            bring visions to life. With a résumé of marvels and a flair for the
+            extraordinary, your next collaborator awaits. Reveal the artisan —
+            inquire within!
           </span>
         </Content>
       </Container>

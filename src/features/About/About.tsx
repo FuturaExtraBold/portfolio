@@ -53,16 +53,16 @@ export default function About(): JSX.Element {
           />
           <div className="about__text">
             <h1 className="heading--2 about__title">
-              Marvel at feats of spectacular ingenuity.
+              Marvel at Feats of Spectacular Ingenuity
             </h1>
             <div className="body text-accent about__description">
               <span>
-                I am a Frontend Developer with a penchant for creating
-                pixel-perfect and responsive web experiences. I have over 20
-                years of experience building websites, interactive advertising,
-                and web applications. My expertise includes working with React
-                and its variants, as well as HTML, CSS, and their modern
-                frameworks.
+                A seasoned practitioner of the digital arts, I’ve spent over two
+                decades conjuring responsive websites, immersive interfaces, and
+                interactive experiences that delight and perform. With a sharp
+                eye for detail and a touch of the theatrical, I specialize in
+                elegant animations, refined design, and front-end sorcery
+                powered by React, HTML, CSS, and their modern kin.
               </span>
             </div>
           </div>

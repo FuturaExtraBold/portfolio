@@ -1,6 +1,6 @@
 import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
-import { SectionHeader, Separator, Vignette } from "ui";
+import { Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
 import Scores from "./components";
 import "./styles.scss";
@@ -17,13 +17,16 @@ export default function Lighthouse(): JSX.Element {
         </Background>
         <Content className="lighthouse__content">
           <Scores />
-          <SectionHeader
-            title="Google Lighthouse"
-            subtitle="Lighthouse audits performance, accessibility, and more."
-            useHairline={false}
-            useShadow={true}
-            variant="default"
-          />
+          <span className="heading--2 lighthouse__title">
+            The Pursuit of Perfection
+          </span>
+          <span className="body text-light lighthouse__description">
+            Through tools arcane and modern — like Google Lighthouse — I conjure
+            sites that vanish lag, dodge layout shifts, and charm every metric
+            into perfection. Performance, accessibility, SEO, and best
+            practices? All brought to heel with a flourish. Witness the rare and
+            wondrous: a full suite of glowing 100s.
+          </span>
         </Content>
       </Container>
       <Separator />

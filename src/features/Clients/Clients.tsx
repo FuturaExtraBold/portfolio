@@ -47,7 +47,7 @@ export default function Clients(): JSX.Element {
         </Background>
         <Content className="clients__content">
           <SectionHeader
-            subtitle="Choose a client to reveal tales from beyond the veil."
+            subtitle="Select a client to summon projects past, conjured from beyond the veil."
             title="Client Archive"
             variant="dark"
           />

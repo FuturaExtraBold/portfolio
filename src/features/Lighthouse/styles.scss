@@ -17,19 +17,23 @@ $mobile-lighthouse-container-center: calc(
 }
 
 .lighthouse__container {
-  aspect-ratio: 9 / 4;
   width: $mobile-lighthouse-container-width;
   padding: 0;
+  aspect-ratio: 9 / 4;
 }
 
 .lighthouse__content {
   display: flex;
+  max-width: 960px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0 0;
-  left: $mobile-lighthouse-container-center;
+  padding: 0;
   margin: 0 auto;
+  gap: 20px;
+  text-align: center;
+  text-shadow: 0 0 20px rgb(0 0 0 / 1);
+
   @include fluid-property($breaks-xs, $breaks-xl, 10px, 30px, gap);
   @include fluid-property($breaks-xs, $breaks-xl, 300px, 800px, max-width);
 }
