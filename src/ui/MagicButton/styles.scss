@@ -1,0 +1,31 @@
+.magic-button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 12px 24px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, gold, crimson);
+  box-shadow: 0 0 10px rgb(255 215 0 / 0.3);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.magic-button:hover {
+  animation: sparkle 1s infinite ease-in-out;
+  box-shadow: 0 0 20px rgb(255 215 0 / 0.6), 0 0 40px crimson;
+}
+
+/* Optional sparkle-like glow animation */
+@keyframes sparkle {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 2px gold);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px gold);
+  }
+}

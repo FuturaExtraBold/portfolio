@@ -1,5 +1,12 @@
 @use "assets/stylesheets/consumables" as *;
 
+.cta__buttons {
+  display: flex;
+  gap: 20px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 10px, 20px, margin-top);
+}
+
 .cta__content {
   display: flex;
   max-width: 960px;
