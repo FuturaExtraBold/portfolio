@@ -6,12 +6,12 @@
   "dependencies": {
     "@pixi/assets": "^7.4.3",
     "@pixi/display": "^7.4.3",
-    "@pixi/filter-drop-shadow": "^5.2.0",
     "@pixi/react": "^8.0.0",
     "classnames": "^2.5.1",
     "cra-template": "1.2.0",
     "gh-pages": "^6.3.0",
     "gsap": "^3.12.7",
+    "pixi-filters": "^6.1.2",
     "pixi.js": "^8.9.1",
     "postcss-scss": "^4.0.9",
     "react": "^19.1.0",
