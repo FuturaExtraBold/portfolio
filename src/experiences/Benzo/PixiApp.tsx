@@ -19,7 +19,7 @@ export default function PixiApp({
     <Application
       antialias={true}
       autoDensity={true}
-      background={0xff0000}
+      background={0x000000}
       backgroundAlpha={0}
       resizeTo={parentRef.current}
       resolution={window.devicePixelRatio || 1}
