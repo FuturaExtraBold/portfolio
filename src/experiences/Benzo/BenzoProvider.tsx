@@ -51,16 +51,7 @@ export interface UseBenzoProps {
   animateScale: Function;
   animateTick: Function;
   animateTint: Function;
-  colorCrystalBall: number;
-  colorSmoke: number;
-  debugSettings: {
-    position: boolean;
-    rotation: boolean;
-    scale: boolean;
-    tint: boolean;
-  };
-  durationCrystalBall: number;
-  durationSmoke: number;
+  glowProps: { color: number; duration: number };
   glowColorsSmoke: number[];
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
@@ -68,6 +59,7 @@ export interface UseBenzoProps {
   scaleRef: RefObject<number>;
   setPosition: Function;
   setScale: Function;
+  smokeProps: { color: number; duration: number };
   textures: Record<string, any>;
 }
 
@@ -83,6 +75,18 @@ export const BenzoProvider = ({
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
 
+  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
+  const [glowProps, setGlowProps] = useState({
+    color: 0xffffff,
+    duration: 0.5,
+  });
+  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
+  const [smokeProps, setSmokeProps] = useState({
+    color: 0xffffff,
+    duration: 0.5,
+  });
+  const [textures, setTextures] = useState<Record<string, any>>({});
+
   const glowColors = useMemo(
     () => [0x00ff00, 0xff0000, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff],
     []
@@ -97,15 +101,6 @@ export const BenzoProvider = ({
     () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
     []
   );
-
-  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
-  const [colorCrystalBall, setColorCrystalBall] = useState(0xffffff);
-  const [colorSmoke, setColorSmoke] = useState(0xffffff);
-  const [durationCrystalBall, setDurationCrystalBall] = useState(0.5);
-  const [durationSmoke, setDurationSmoke] = useState(0.5);
-
-  const [textures, setTextures] = useState<Record<string, any>>({});
-  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
 
   const texturePaths = useMemo(() => {
     return {
@@ -133,17 +128,9 @@ export const BenzoProvider = ({
     };
   }, []);
 
-  const debugSettings = useMemo(() => {
-    return {
-      position: true,
-      rotation: true,
-      scale: true,
-      tint: false,
-    };
-  }, []);
-
   const updateParentSize = useCallback(() => {
     if (parentRef.current) {
+      console.log("Benzo - Provider - updateParentSize");
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
       setParentSize({ width, height });
@@ -151,30 +138,27 @@ export const BenzoProvider = ({
     }
   }, [parentRef]);
 
-  const updateCrystalBall = useCallback(() => {
-    if (parentRef.current) {
-      const color = glowColors[Math.floor(Math.random() * glowColors.length)];
-      const duration = Math.random() * 1 + 0.5;
-      setColorCrystalBall(color);
-      setDurationCrystalBall(duration);
-      setTimeout(updateCrystalBall, duration * 1000);
-    }
-  }, [glowColors, parentRef]);
+  const updateGlowProps = useCallback(() => {
+    const color = glowColors[Math.floor(Math.random() * glowColors.length)];
+    const duration = Math.random() * 3 + 0.5;
+    console.log("Benzo - Provider - updateGlowProps", color, duration);
+    setGlowProps({ color, duration });
+    setTimeout(updateGlowProps, duration * 1000);
+  }, [glowColors]);
 
-  const updateReflection = useCallback(() => {
-    if (parentRef.current) {
-      const color =
-        glowColorsReflection[
-          Math.floor(Math.random() * glowColorsReflection.length)
-        ];
-      const duration = Math.random() * 1 + 0.5;
-      setColorSmoke(color);
-      setDurationSmoke(duration);
-      setTimeout(updateReflection, duration * 1000);
-    }
-  }, [glowColorsReflection, parentRef]);
+  const updateSmokeProps = useCallback(() => {
+    const color =
+      glowColorsReflection[
+        Math.floor(Math.random() * glowColorsReflection.length)
+      ];
+    const duration = Math.random() * 3 + 0.5;
+    console.log("Benzo - Provider - updateSmokeProps", color, duration);
+    setSmokeProps({ color, duration });
+    setTimeout(updateSmokeProps, duration * 1000);
+  }, [glowColorsReflection]);
 
   const loadTextures = useCallback(async () => {
+    console.log("Benzo - Provider - loadTextures");
     const loadedTextures: Record<string, any> = {};
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path).then((result) => {
@@ -182,17 +166,19 @@ export const BenzoProvider = ({
         return result;
       });
     }
-    console.log("Benzo - All textures loaded");
+    console.log("Benzo - Provider - All textures loaded complete");
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
   }, [texturePaths]);
 
   useEffect(() => {
+    console.log("Benzo - Provider - loadTextures");
     loadTextures();
   }, [loadTextures]);
 
   useEffect(() => {
     if (!parentRef.current) return;
+    console.log("Benzo - Provider - ResizeObserver");
     const observer = new ResizeObserver(() => {
       updateParentSize();
     });
@@ -202,17 +188,20 @@ export const BenzoProvider = ({
 
   useEffect(() => {
     if (allTexturesLoaded) {
+      console.log("Benzo - Provider - allTexturesLoaded");
       updateParentSize();
     }
   }, [allTexturesLoaded, updateParentSize]);
 
   useEffect(() => {
-    updateCrystalBall();
-  }, [updateCrystalBall]);
+    console.log("Benzo - Provider - updateGlowProps");
+    updateGlowProps();
+  }, [updateGlowProps]);
 
   useEffect(() => {
-    updateReflection();
-  }, [updateReflection]);
+    console.log("Benzo - Provider - updateSmokeProps");
+    updateSmokeProps();
+  }, [updateSmokeProps]);
 
   const contextValues = useMemo(
     () => ({
@@ -221,11 +210,7 @@ export const BenzoProvider = ({
       animateScale,
       animateTick,
       animateTint,
-      colorCrystalBall,
-      colorSmoke,
-      debugSettings,
-      durationCrystalBall,
-      durationSmoke,
+      glowProps,
       glowColorsSmoke,
       parentRef,
       parentSize,
@@ -233,20 +218,18 @@ export const BenzoProvider = ({
       scaleRef,
       setPosition,
       setScale,
+      smokeProps,
       textures,
     }),
     [
       allTexturesLoaded,
-      colorCrystalBall,
-      colorSmoke,
-      debugSettings,
-      durationCrystalBall,
-      durationSmoke,
+      glowProps,
       glowColorsSmoke,
       parentRef,
       parentSize,
       parentSizeRef,
       scaleRef,
+      smokeProps,
       textures,
     ]
   );

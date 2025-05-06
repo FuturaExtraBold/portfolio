@@ -1,13 +1,20 @@
-import { type JSX, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import { useGlowBenzoAnimations } from "../hooks/animations";
 
 export default function GlowBenzo(): JSX.Element | null {
-  const { allTexturesLoaded, parentSize, textures } = useBenzo();
+  const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();
   const glowBenzoRef = useRef<Sprite | null>(null);
 
-  useGlowBenzoAnimations({ glowBenzoRef });
+  useEffect(() => {
+    if (!glowBenzoRef) return;
+    // console.log("Benzo - Glow Benzo - GSAP Tint");
+    gsap.to(glowBenzoRef.current, {
+      pixi: { tint: glowProps.color },
+      duration: glowProps.duration,
+    });
+  }, [glowBenzoRef, glowProps]);
 
   if (!allTexturesLoaded || !textures.glowBenzo) return null;
 

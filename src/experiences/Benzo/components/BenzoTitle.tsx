@@ -1,9 +1,7 @@
-import { RefObject, type JSX, useMemo, useRef } from "react";
-// import { Point, Sprite, Texture } from "pixi.js";
+import { RefObject, type JSX, useEffect, useMemo, useRef } from "react";
+import { gsap } from "gsap";
 import { Sprite, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-// import { DropShadowFilter } from "pixi-filters";
-import { useTitleAnimations } from "../hooks/animations";
 
 export default function BenzoTitle(): JSX.Element | null {
   const { allTexturesLoaded, parentSizeRef, textures } = useBenzo();
@@ -27,22 +25,20 @@ export default function BenzoTitle(): JSX.Element | null {
     []
   );
 
-  // const shadowOffset = useMemo<Point>(() => {
-  //   return new Point(0, 4);
-  // }, []);
-
-  // const dsf = useMemo(
-  //   () =>
-  //     new DropShadowFilter({
-  //       alpha: 1,
-  //       color: 0x0b3518,
-  //       blur: 0,
-  //       offset: shadowOffset,
-  //     }),
-  //   [shadowOffset]
-  // );
-
-  useTitleAnimations({ refs });
+  useEffect(() => {
+    if (!refs) return;
+    console.log("Benzo - Title - animateLetters");
+    const letters = refs.slice(0, 5);
+    letters.forEach((ref, index) => {
+      gsap.from(ref.current, {
+        delay: index * 0.05 + 1,
+        duration: 0.5,
+        ease: "back.out",
+        pixi: { alpha: 0 },
+        y: -200,
+      });
+    });
+  }, [refs]);
 
   const getSprite = (
     key: string,
@@ -73,8 +69,5 @@ export default function BenzoTitle(): JSX.Element | null {
     getSprite("developer", titleRef7, textures.title7),
   ];
 
-  return (
-    // <pixiContainer filters={[dsf, dsf, dsf] as any}>{content}</pixiContainer>
-    <pixiContainer>{content}</pixiContainer>
-  );
+  return <pixiContainer>{content}</pixiContainer>;
 }

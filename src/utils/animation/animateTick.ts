@@ -12,11 +12,13 @@ export const animateTick = ({
   rotationRange = 360,
   scaleRef,
   tickTime = 0.01,
-}: AnimateTickOptions): (() => void) => {
+}: AnimateTickOptions) => {
   if (!ref.current) {
     console.warn("animateTick ref.current is not defined");
-    return () => {};
+    return;
   }
+
+  console.log("ref.current", ref.current);
 
   let time = 0;
 

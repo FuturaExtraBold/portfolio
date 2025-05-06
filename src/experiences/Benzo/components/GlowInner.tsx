@@ -1,19 +1,26 @@
-import { type JSX, useRef } from "react";
+import { type JSX, useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import { useGlowInnerAnimations } from "../hooks/animations";
 
 export default function GlowInner(): JSX.Element | null {
-  const { allTexturesLoaded, parentSize, textures } = useBenzo();
+  const { allTexturesLoaded, parentSize, smokeProps, textures } = useBenzo();
   const glowInnerRef = useRef<Sprite | null>(null);
 
-  useGlowInnerAnimations({ glowInnerRef });
+  useEffect(() => {
+    if (!glowInnerRef) return;
+    // console.log("Benzo - Glow Inner - GSAP Tint");
+    gsap.to(glowInnerRef.current, {
+      pixi: { tint: smokeProps.color },
+      duration: smokeProps.duration,
+    });
+  }, [glowInnerRef, smokeProps]);
 
   if (!allTexturesLoaded || !textures.glowInner) return null;
 
   return (
     <pixiSprite
-      alpha={1}
+      alpha={0.8}
       height={parentSize.height}
       ref={glowInnerRef}
       texture={textures.glowInner}
