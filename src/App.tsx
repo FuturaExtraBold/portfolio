@@ -9,7 +9,7 @@ import {
   Lighthouse,
   Resume,
 } from "features";
-import { ClientModal, PictureFrame } from "ui";
+import { ClientModal, PictureFrame } from "ui/index";
 import { useApp } from "providers/AppProvider";
 import "./app.scss";
 

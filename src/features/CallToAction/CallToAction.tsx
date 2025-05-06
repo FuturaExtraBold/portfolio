@@ -1,7 +1,7 @@
 import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
-import { OverlayFade, Separator, Wallpaper } from "ui";
-import { MagicButton } from "ui";
+import { OverlayFade, Separator, Wallpaper } from "ui/index";
+import { MagicButton } from "ui/index";
 import "./styles.scss";
 
 export default function CallToAction(): JSX.Element {

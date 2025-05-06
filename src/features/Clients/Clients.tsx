@@ -2,7 +2,7 @@ import { type JSX, useEffect } from "react";
 import { useApp } from "providers/AppProvider";
 import { Background, Container, Content, Section } from "layout";
 import { Board, ClientQuilt, Planchette } from "./components";
-import { OverlayFade, SectionHeader, Separator, Vignette } from "ui";
+import { OverlayFade, SectionHeader, Separator, Vignette } from "ui/index";
 import "./styles.scss";
 
 export default function Clients(): JSX.Element {

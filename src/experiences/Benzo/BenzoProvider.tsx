@@ -167,6 +167,7 @@ export const BenzoProvider = ({
         return result;
       });
     }
+    console.log("Benzo - All textures loaded");
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
   }, [texturePaths]);
@@ -186,7 +187,6 @@ export const BenzoProvider = ({
 
   useEffect(() => {
     if (allTexturesLoaded) {
-      console.log("All Benzo textures loaded");
       updateParentSize();
     }
   }, [allTexturesLoaded, updateParentSize]);

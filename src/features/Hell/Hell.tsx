@@ -1,6 +1,6 @@
 import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
-import { OverlayFade, SectionHeader } from "ui";
+import { OverlayFade, SectionHeader } from "ui/index";
 import PixiApp from "experiences/Hell/PixiApp";
 import "./styles.scss";
 

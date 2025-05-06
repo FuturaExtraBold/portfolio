@@ -61,6 +61,7 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
         return result;
       });
     }
+    console.log("Hell - All textures loaded");
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
   }, [texturePaths]);
@@ -81,7 +82,6 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
 
   useEffect(() => {
     if (allTexturesLoaded) {
-      console.log("All Hell textures loaded");
       updateParentSize();
     }
   }, [allTexturesLoaded, updateParentSize]);

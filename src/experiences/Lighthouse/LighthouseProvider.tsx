@@ -65,10 +65,10 @@ export const LighthouseProvider = ({
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path as string).then((result) => {
         result.source.autoGenerateMipmaps = true;
-        console.log("Texture loaded:", key, result);
         return result;
       });
     }
+    console.log("Lighthouse - All textures loaded");
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
   }, [texturePaths]);
@@ -98,12 +98,6 @@ export const LighthouseProvider = ({
 
     return () => observer.disconnect();
   }, [parentRef]);
-
-  useEffect(() => {
-    if (allTexturesLoaded) {
-      console.log("All Lighthouse textures loaded");
-    }
-  }, [allTexturesLoaded]);
 
   const contextValues = useMemo(
     () => ({

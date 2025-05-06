@@ -6,7 +6,7 @@ let beamTimeline: gsap.core.Timeline | null = null;
 let flashTimeline: gsap.core.Timeline | null = null;
 
 export const animateWindowGlow = ({ windowGlowRef }: any): void => {
-  console.log("animate windows");
+  console.log("Lighthouse - Window - animateWindowGlow");
 
   const flicker = () => {
     if (windowGlowRef.current) {
@@ -24,7 +24,7 @@ export const animateWindowGlow = ({ windowGlowRef }: any): void => {
 };
 
 export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
-  console.log("animate beams");
+  console.log("Lighthouse - Beam - animateBeams");
   const beamAlphaMin = 0.1;
   const beamAlphaMax = 0.8;
   const beamScale = 3;
@@ -57,7 +57,7 @@ export const animateBeams = ({ beamLeftRef, beamRightRef }: any): void => {
 };
 
 export const animateFlash = ({ overlayRef }: any): void => {
-  console.log("animate flash");
+  console.log("Lighthouse - Flash - animateFlash");
 
   requestAnimationFrame(() => {
     if (flashTimeline) return;

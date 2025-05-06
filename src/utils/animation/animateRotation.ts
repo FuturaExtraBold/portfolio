@@ -15,8 +15,6 @@ export const animateRotation = ({
     return;
   }
 
-  console.log("animateRotation", duration, origin);
-
   gsap.killTweensOf(ref.current, "pixi");
 
   gsap.set(ref.current, {
