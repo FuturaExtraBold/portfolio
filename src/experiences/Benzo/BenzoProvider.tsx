@@ -13,7 +13,6 @@ import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
 
 import {
-  benzoBackground,
   benzoBody,
   benzoTitle,
   canvasOverlay,
@@ -89,7 +88,6 @@ export const BenzoProvider = ({
 
   const texturePaths = useMemo(() => {
     return {
-      benzoBackground,
       benzoBody,
       benzoTitle,
       canvasOverlay,

@@ -1,4 +1,3 @@
-import benzoBackground from "./background.jpg";
 import benzoBody from "./benzo_new.png";
 import benzoTitle from "./benzo_title.png";
 import canvasOverlay from "./canvas.jpg";
@@ -21,7 +20,6 @@ import title6 from "./title/title_6.png";
 import title7 from "./title/title_7.png";
 
 export {
-  benzoBackground,
   benzoBody,
   benzoTitle,
   canvasOverlay,
