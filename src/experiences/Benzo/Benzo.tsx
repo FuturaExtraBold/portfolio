@@ -1,7 +1,7 @@
 import { type JSX } from "react";
 import {
   BenzoBody,
-  BenzoTitle,
+  // BenzoTitle,
   CanvasOverlay,
   CrystalBall,
   GlowBenzo,
@@ -28,7 +28,7 @@ export default function Benzo(): JSX.Element {
       <HandLeft />
       <HandRight />
       <GlowInner />
-      <BenzoTitle />
+      {/* <BenzoTitle /> */}
     </pixiContainer>
   );
 }
