@@ -28,6 +28,7 @@ export default function Lighthouse(): JSX.Element {
             wondrous: a full suite of glowing 100s.
           </span>
         </Content>
+        <div className="overlay lighthouse__overlay"></div>
       </Container>
       <Separator />
     </Section>

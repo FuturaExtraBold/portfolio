@@ -35,6 +35,14 @@ import {
   handRight,
   hypnosis,
   smokeParticle,
+  title,
+  title1,
+  title2,
+  title3,
+  title4,
+  title5,
+  title6,
+  title7,
 } from "./images";
 
 export interface UseBenzoProps {
@@ -108,6 +116,14 @@ export const BenzoProvider = ({
       handRight,
       hypnosis,
       smokeParticle,
+      title,
+      title1,
+      title2,
+      title3,
+      title4,
+      title5,
+      title6,
+      title7,
     };
   }, []);
 

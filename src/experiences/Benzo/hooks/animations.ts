@@ -74,32 +74,24 @@ export function useCrystalBallAnimations({
 
 // Title animations
 interface UseTitleAnimationsProps {
-  titleRef: RefObject<Sprite | null>;
+  refs: RefObject<Sprite | null>[];
 }
 
-export function useTitleAnimations({
-  titleRef,
-}: UseTitleAnimationsProps): void {
-  const { parentSize, scaleRef } = useBenzo();
-
+export function useTitleAnimations({ refs }: UseTitleAnimationsProps): void {
   useEffect(() => {
-    setPosition({
-      ref: titleRef,
-      usePixi: true,
-      x: parentSize.width / 2,
-      y: 0.175 * parentSize.height,
+    if (!refs) return;
+    const letters = refs.slice(0, 5);
+    console.log("one time");
+    letters.forEach((ref, index) => {
+      gsap.from(ref.current, {
+        delay: index * 0.05 + 1,
+        duration: 0.5,
+        ease: "back.out",
+        pixi: { alpha: 0 },
+        y: -200,
+      });
     });
-  }, [titleRef, parentSize]);
-
-  useEffect(() => {
-    setScale({
-      ref: titleRef,
-      parentSize: parentSize,
-      minScale: 0.22,
-      maxScale: 0.5,
-      scaleRef,
-    });
-  }, [titleRef, parentSize, scaleRef]);
+  }, [refs]);
 }
 
 // Glow Benzo animations
