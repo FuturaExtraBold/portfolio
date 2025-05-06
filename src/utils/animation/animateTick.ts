@@ -18,8 +18,6 @@ export const animateTick = ({
     return;
   }
 
-  console.log("ref.current", ref.current);
-
   let time = 0;
 
   // Set the initial position

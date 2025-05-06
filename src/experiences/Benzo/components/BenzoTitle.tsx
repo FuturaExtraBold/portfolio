@@ -27,6 +27,7 @@ export default function BenzoTitle(): JSX.Element | null {
 
   useEffect(() => {
     if (!refs) return;
+    console.log("refs", refs);
     console.log("Benzo - Title - animateLetters");
     const letters = refs.slice(0, 5);
     letters.forEach((ref, index) => {

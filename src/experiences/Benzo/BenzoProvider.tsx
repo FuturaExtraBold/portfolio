@@ -13,15 +13,6 @@ import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
 
 import {
-  animateRotation,
-  animateScale,
-  animateTick,
-  animateTint,
-  setPosition,
-  setScale,
-} from "utils/animation";
-
-import {
   benzoBackground,
   benzoBody,
   benzoTitle,
@@ -47,18 +38,12 @@ import {
 
 export interface UseBenzoProps {
   allTexturesLoaded: boolean;
-  animateRotation: Function;
-  animateScale: Function;
-  animateTick: Function;
-  animateTint: Function;
   glowProps: { color: number; duration: number };
   glowColorsSmoke: number[];
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
   parentSizeRef: RefObject<{ width: number; height: number }>;
   scaleRef: RefObject<number>;
-  setPosition: Function;
-  setScale: Function;
   smokeProps: { color: number; duration: number };
   textures: Record<string, any>;
 }
@@ -141,7 +126,7 @@ export const BenzoProvider = ({
   const updateGlowProps = useCallback(() => {
     const color = glowColors[Math.floor(Math.random() * glowColors.length)];
     const duration = Math.random() * 3 + 0.5;
-    console.log("Benzo - Provider - updateGlowProps", color, duration);
+    // console.log("Benzo - Provider - updateGlowProps", color, duration);
     setGlowProps({ color, duration });
     setTimeout(updateGlowProps, duration * 1000);
   }, [glowColors]);
@@ -152,7 +137,7 @@ export const BenzoProvider = ({
         Math.floor(Math.random() * glowColorsReflection.length)
       ];
     const duration = Math.random() * 3 + 0.5;
-    console.log("Benzo - Provider - updateSmokeProps", color, duration);
+    // console.log("Benzo - Provider - updateSmokeProps", color, duration);
     setSmokeProps({ color, duration });
     setTimeout(updateSmokeProps, duration * 1000);
   }, [glowColorsReflection]);
@@ -206,18 +191,12 @@ export const BenzoProvider = ({
   const contextValues = useMemo(
     () => ({
       allTexturesLoaded,
-      animateRotation,
-      animateScale,
-      animateTick,
-      animateTint,
       glowProps,
       glowColorsSmoke,
       parentRef,
       parentSize,
       parentSizeRef,
       scaleRef,
-      setPosition,
-      setScale,
       smokeProps,
       textures,
     }),
