@@ -26,7 +26,7 @@ export default function useCrystalBallAnimations({
   };
 
   useEffect(() => {
-    console.log("Benzo - Crystal Ball - animateRotation");
+    // console.log("Benzo - Crystal Ball - animateRotation");
     animateRotation({
       ...getRotationParams(),
       ref: crystalBallRef,
@@ -37,7 +37,7 @@ export default function useCrystalBallAnimations({
   }, [crystalBallRef]);
 
   useEffect(() => {
-    console.log("Benzo - Crystal Ball - animateTint");
+    // console.log("Benzo - Crystal Ball - animateTint");
     animateTint({
       color: colorCrystalBall,
       duration: durationCrystalBall,

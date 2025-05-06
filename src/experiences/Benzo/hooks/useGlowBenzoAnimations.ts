@@ -13,7 +13,7 @@ export default function useGlowBenzoAnimations({
   const { colorCrystalBall, durationCrystalBall } = useBenzo();
 
   useEffect(() => {
-    console.log("Benzo - Glow Benzo - GSAP Tint");
+    // console.log("Benzo - Glow Benzo - GSAP Tint");
     gsap.to(glowBenzoRef.current, {
       pixi: { tint: colorCrystalBall },
       duration: durationCrystalBall,

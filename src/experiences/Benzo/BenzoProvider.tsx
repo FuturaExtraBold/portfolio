@@ -53,6 +53,12 @@ export interface UseBenzoProps {
   animateTint: Function;
   colorCrystalBall: number;
   colorSmoke: number;
+  debugSettings: {
+    position: boolean;
+    rotation: boolean;
+    scale: boolean;
+    tint: boolean;
+  };
   durationCrystalBall: number;
   durationSmoke: number;
   glowColorsSmoke: number[];
@@ -124,6 +130,15 @@ export const BenzoProvider = ({
       title5,
       title6,
       title7,
+    };
+  }, []);
+
+  const debugSettings = useMemo(() => {
+    return {
+      position: true,
+      rotation: true,
+      scale: true,
+      tint: false,
     };
   }, []);
 
@@ -208,6 +223,7 @@ export const BenzoProvider = ({
       animateTint,
       colorCrystalBall,
       colorSmoke,
+      debugSettings,
       durationCrystalBall,
       durationSmoke,
       glowColorsSmoke,
@@ -223,6 +239,7 @@ export const BenzoProvider = ({
       allTexturesLoaded,
       colorCrystalBall,
       colorSmoke,
+      debugSettings,
       durationCrystalBall,
       durationSmoke,
       glowColorsSmoke,

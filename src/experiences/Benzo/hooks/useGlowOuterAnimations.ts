@@ -13,7 +13,7 @@ export default function useGlowOuterAnimations({
   const { colorSmoke, durationSmoke } = useBenzo();
 
   useEffect(() => {
-    console.log("Benzo - Glow Outer - GSAP Tint");
+    // console.log("Benzo - Glow Outer - GSAP Tint");
     gsap.to(glowOuterRef.current, {
       pixi: { tint: colorSmoke },
       duration: durationSmoke,

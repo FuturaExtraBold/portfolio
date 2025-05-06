@@ -41,7 +41,7 @@ export default function useHandRightAnimations({
   }, [handRightRef, parentSizeRef, scaleRef]);
 
   useEffect(() => {
-    console.log("Benzo - Hand Right - animateTint");
+    // console.log("Benzo - Hand Right - animateTint");
     animateTint({
       color: colorCrystalBall,
       duration: durationCrystalBall,
