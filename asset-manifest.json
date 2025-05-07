@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.66f35c64.css",
-    "main.js": "/static/js/main.6ee4b432.js",
+    "main.js": "/static/js/main.5b64845c.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
     "static/media/benzo_new.png": "/static/media/benzo_new.b5e40ba3573da60b9a64.png",
     "static/media/canvas.jpg": "/static/media/canvas.1b0aca9eea67006dd53b.jpg",
+    "static/media/title_spritesheet.png": "/static/media/title_spritesheet.a5adcd89b062d5938a86.png",
     "static/media/hell.jpg": "/static/media/hell.20e1f2c1f8890021b864.jpg",
-    "static/media/title.png": "/static/media/title.833cb2354dfc2f118648.png",
     "static/media/benzo_title.png": "/static/media/benzo_title.9db73ebbe59229cbf865.png",
     "static/media/lighthouseBackground.jpg": "/static/media/lighthouseBackground.b768c46eef87faf80b5b.jpg",
     "static/media/particle_smoke.png": "/static/media/particle_smoke.561dfdd21093fab32e24.png",
@@ -27,23 +27,16 @@
     "static/media/wallpaper_tile.png": "/static/media/wallpaper_tile.06bfc460087a604611cf.png",
     "static/media/windowGlow.png": "/static/media/windowGlow.84881132cb9de42bd654.png",
     "static/media/itc-benguiat-bold-condensed.woff": "/static/media/itc-benguiat-bold-condensed.baf8fa6557a5c706ca79.woff",
-    "static/media/title_3.png": "/static/media/title_3.d7b9e467120ae53580f5.png",
-    "static/media/title_5.png": "/static/media/title_5.ef8d6a2560c022bbc487.png",
-    "static/media/title_1.png": "/static/media/title_1.4f2fbecbbb57f4e1edcc.png",
     "static/media/ouija_sun.svg": "/static/media/ouija_sun.8d0b2a5306318bd623e728a9cb10dd08.svg",
-    "static/media/title_4.png": "/static/media/title_4.90988f4fe46a666b10b0.png",
-    "static/media/title_2.png": "/static/media/title_2.88fcb31676bc0c2e6683.png",
-    "static/media/title_6.png": "/static/media/title_6.8c4fb3129129c465d144.png",
-    "static/media/title_7.png": "/static/media/title_7.5f43d8d179bdcbb28d51.png",
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
     "main.66f35c64.css.map": "/static/css/main.66f35c64.css.map",
-    "main.6ee4b432.js.map": "/static/js/main.6ee4b432.js.map",
+    "main.5b64845c.js.map": "/static/js/main.5b64845c.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.66f35c64.css",
-    "static/js/main.6ee4b432.js"
+    "static/js/main.5b64845c.js"
   ]
 }
