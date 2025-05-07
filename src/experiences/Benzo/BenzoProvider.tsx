@@ -156,6 +156,13 @@ export const BenzoProvider = ({
   }, [parentRef, updateParentSize]);
 
   useEffect(() => {
+    if (allTexturesLoaded) {
+      console.log("Benzo - Provider - allTexturesLoaded");
+      updateParentSize();
+    }
+  }, [allTexturesLoaded, updateParentSize]);
+
+  useEffect(() => {
     console.log("Benzo - Provider - updateGlowProps");
     updateGlowProps();
   }, [updateGlowProps]);
@@ -173,11 +180,9 @@ export const BenzoProvider = ({
       parentRef,
       parentSize,
       parentSizeRef,
-
       scaleRef,
       smokeProps,
       textures,
-      updateParentSize,
     }),
     [
       allTexturesLoaded,
@@ -189,7 +194,6 @@ export const BenzoProvider = ({
       scaleRef,
       smokeProps,
       textures,
-      updateParentSize,
     ]
   );
 
