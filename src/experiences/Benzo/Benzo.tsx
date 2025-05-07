@@ -2,7 +2,7 @@ import { type JSX } from "react";
 import {
   BenzoBody,
   BenzoTitle,
-  CanvasOverlay,
+  // CanvasOverlay,
   CrystalBall,
   GlowBenzo,
   GlowGlasses,
@@ -19,7 +19,7 @@ export default function Benzo(): JSX.Element {
     <pixiContainer>
       <Hypnosis />
       <Smoke />
-      <CanvasOverlay />
+      {/* <CanvasOverlay /> */}
       <GlowOuter />
       <BenzoBody />
       <GlowBenzo />

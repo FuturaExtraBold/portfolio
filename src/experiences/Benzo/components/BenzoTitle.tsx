@@ -61,22 +61,24 @@ export default function BenzoTitle(): JSX.Element | null {
 
   useEffect(() => {
     if (!parsedSpritesheet) return;
-    const letters = ["B", "E", "N", "Z", "O"];
-    letters.forEach((letter, index) => {
-      const sprite = letterRefs.current[letter];
-      if (sprite) {
-        gsap.set(sprite, {
-          pixi: { alpha: 0 },
-          y: -200,
-        });
-        gsap.to(sprite, {
-          pixi: { alpha: 1 },
-          y: 0,
-          ease: "back.out(3)",
-          duration: 0.2 + index * 0.1,
-          delay: 2 + index * 0.025,
-        });
-      }
+    requestAnimationFrame(() => {
+      const letters = ["B", "E", "N", "Z", "O"];
+      letters.forEach((letter, index) => {
+        const sprite = letterRefs.current[letter];
+        if (sprite) {
+          gsap.set(sprite, {
+            pixi: { alpha: 0 },
+            y: -200,
+          });
+          gsap.to(sprite, {
+            pixi: { alpha: 1 },
+            y: 0,
+            ease: "back.out(3)",
+            duration: 0.2 + index * 0.1,
+            delay: 2 + index * 0.025,
+          });
+        }
+      });
     });
   }, [parsedSpritesheet]);
 
