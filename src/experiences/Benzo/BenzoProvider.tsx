@@ -26,13 +26,6 @@ import {
   hypnosis,
   smokeParticle,
   title,
-  title1,
-  title2,
-  title3,
-  title4,
-  title5,
-  title6,
-  title7,
 } from "./images";
 
 export interface UseBenzoProps {
@@ -101,13 +94,6 @@ export const BenzoProvider = ({
       hypnosis,
       smokeParticle,
       title,
-      title1,
-      title2,
-      title3,
-      title4,
-      title5,
-      title6,
-      title7,
     };
   }, []);
 
@@ -145,7 +131,6 @@ export const BenzoProvider = ({
     const loadedTextures: Record<string, any> = {};
     for (const [key, path] of Object.entries(texturePaths)) {
       loadedTextures[key] = await Assets.load(path).then((result) => {
-        result.source.autoGenerateMipmaps = true;
         return result;
       });
     }

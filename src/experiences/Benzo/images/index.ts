@@ -10,14 +10,7 @@ import handLeft from "./hand_left.png";
 import handRight from "./hand_right.png";
 import hypnosis from "./hypnosis/hypnosis_4.jpg";
 import smokeParticle from "./particle_smoke.png";
-import title from "./title.png";
-import title1 from "./title/title_1.png";
-import title2 from "./title/title_2.png";
-import title3 from "./title/title_3.png";
-import title4 from "./title/title_4.png";
-import title5 from "./title/title_5.png";
-import title6 from "./title/title_6.png";
-import title7 from "./title/title_7.png";
+import title from "./title/title_spritesheet.png";
 
 export {
   benzoBody,
@@ -33,11 +26,4 @@ export {
   hypnosis,
   smokeParticle,
   title,
-  title1,
-  title2,
-  title3,
-  title4,
-  title5,
-  title6,
-  title7,
 };
