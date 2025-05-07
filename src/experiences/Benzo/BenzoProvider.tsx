@@ -135,9 +135,10 @@ export const BenzoProvider = ({
       });
     }
     console.log("Benzo - Provider - All textures loaded complete");
+    updateParentSize();
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
-  }, [texturePaths]);
+  }, [texturePaths, updateParentSize]);
 
   useEffect(() => {
     console.log("Benzo - Provider - loadTextures");
@@ -153,13 +154,6 @@ export const BenzoProvider = ({
     observer.observe(parentRef.current);
     return () => observer.disconnect();
   }, [parentRef, updateParentSize]);
-
-  useEffect(() => {
-    if (allTexturesLoaded) {
-      console.log("Benzo - Provider - allTexturesLoaded");
-      updateParentSize();
-    }
-  }, [allTexturesLoaded, updateParentSize]);
 
   useEffect(() => {
     console.log("Benzo - Provider - updateGlowProps");
@@ -179,9 +173,11 @@ export const BenzoProvider = ({
       parentRef,
       parentSize,
       parentSizeRef,
+
       scaleRef,
       smokeProps,
       textures,
+      updateParentSize,
     }),
     [
       allTexturesLoaded,
@@ -193,6 +189,7 @@ export const BenzoProvider = ({
       scaleRef,
       smokeProps,
       textures,
+      updateParentSize,
     ]
   );
 

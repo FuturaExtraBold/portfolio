@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Spritesheet, Texture } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import { titleAtlas } from "../data/titleData";
+import { titleAtlas } from "../data/titleAtlas";
 
 interface TitleLetterProps {
   letter: string;

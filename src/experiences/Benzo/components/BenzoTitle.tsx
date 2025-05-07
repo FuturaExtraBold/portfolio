@@ -1,55 +1,61 @@
-import { type JSX, useRef } from "react";
-import { Sprite } from "pixi.js";
+import { type JSX, useEffect, useMemo, useRef, useState } from "react";
+import { Sprite, Spritesheet } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import { titleAtlas } from "../data/titleData";
-import TitleLetter from "./TitleLetter";
+import { titleAtlas } from "../data/titleAtlas";
 
 export default function BenzoTitle(): JSX.Element | null {
-  const { allTexturesLoaded } = useBenzo();
-  const titleRef = useRef<Sprite | null>(null);
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
 
-  if (!allTexturesLoaded) return null;
-  const scale = 0.5;
-  // const letters = ["B", "E", "N", "Z", "O"] as const;
+  const [parsedSpritesheet, setParsedSpritesheet] =
+    useState<Spritesheet | null>(null);
+  const titleRef = useRef<Sprite | null>(null);
   const spacing = 96;
 
+  const spritesheet = useMemo(() => {
+    console.log("textures.title", textures.title);
+    return new Spritesheet(textures.title.source, titleAtlas);
+  }, [textures.title]);
+
+  const renderedLetters = useMemo(() => {
+    if (!parsedSpritesheet) return null;
+    const letters = ["B", "E", "N", "Z", "O"] as const;
+
+    return letters.map((letter, index) => {
+      const x = titleAtlas.frames[letter].frame.x - spacing * index;
+      const frameTexture =
+        parsedSpritesheet.textures[letter as keyof typeof spritesheet.textures];
+      return (
+        <pixiSprite
+          key={letter}
+          alpha={0.2}
+          anchor={0}
+          texture={frameTexture}
+          x={x}
+          y={0}
+        />
+      );
+    });
+  }, [parsedSpritesheet, spacing, spritesheet]);
+
+  const centerX = useMemo(() => {
+    if (!titleRef.current) return 0;
+    const { width } = titleRef.current.getLocalBounds();
+    return parentSize.width / 2 - (width * 0.25) / 2;
+  }, [parentSize, titleRef]);
+
+  useEffect(() => {
+    if (!spritesheet) return;
+    spritesheet.parse().then(() => {
+      console.log("spritesheet", spritesheet);
+      setParsedSpritesheet(spritesheet);
+    });
+  }, [spritesheet]);
+
+  if (!allTexturesLoaded) return null;
+
   return (
-    <pixiContainer ref={titleRef}>
-      <TitleLetter
-        // key={letter}
-        letter={"B"}
-        x={0}
-        y={0}
-        scale={scale}
-      />
-      <TitleLetter
-        // key={letter}
-        letter={"E"}
-        x={(titleAtlas.frames.E.frame.x - spacing) * scale}
-        y={0}
-        scale={scale}
-      />
-      <TitleLetter
-        // key={letter}
-        letter={"N"}
-        x={(titleAtlas.frames.N.frame.x - spacing * 2) * scale}
-        y={0}
-        scale={scale}
-      />
-      <TitleLetter
-        // key={letter}
-        letter={"Z"}
-        x={(titleAtlas.frames.Z.frame.x - spacing * 3) * scale}
-        y={0}
-        scale={scale}
-      />
-      <TitleLetter
-        // key={letter}
-        letter={"O"}
-        x={(titleAtlas.frames.O.frame.x - (spacing + 10) * 4) * scale}
-        y={0}
-        scale={scale}
-      />
+    <pixiContainer ref={titleRef} scale={0.25} x={centerX} y={25}>
+      {renderedLetters}
     </pixiContainer>
   );
 }
