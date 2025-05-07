@@ -10,7 +10,7 @@ import handLeft from "./hand_left.png";
 import handRight from "./hand_right.png";
 import hypnosis from "./hypnosis/hypnosis_4.jpg";
 import smokeParticle from "./particle_smoke.png";
-import title from "./title/title_spritesheet.png";
+import title from "./title_spritesheet.webp";
 
 export {
   benzoBody,
