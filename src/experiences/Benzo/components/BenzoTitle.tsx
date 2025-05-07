@@ -26,11 +26,14 @@ export default function BenzoTitle(): JSX.Element | null {
   );
 
   useEffect(() => {
-    if (!refs) return;
+    const letters = refs.slice(0, 5);
+    if (!letters.every((ref) => ref.current)) return;
+
     console.log("refs", refs);
     console.log("Benzo - Title - animateLetters");
-    const letters = refs.slice(0, 5);
+
     letters.forEach((ref, index) => {
+      if (!ref.current) return;
       gsap.from(ref.current, {
         delay: index * 0.05 + 1,
         duration: 0.5,
@@ -58,7 +61,7 @@ export default function BenzoTitle(): JSX.Element | null {
     );
   };
 
-  if (!allTexturesLoaded) return null;
+  if (!allTexturesLoaded || !parentSizeRef.current) return null;
 
   const content = [
     getSprite("letter-b", titleRef1, textures.title1),
