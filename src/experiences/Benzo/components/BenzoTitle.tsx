@@ -16,7 +16,7 @@ export default function BenzoTitle(): JSX.Element | null {
   const scale = 0.5;
 
   const spritesheet = useMemo(() => {
-    console.log("textures.title", textures.title);
+    if (!textures.title || !textures.title.source) return null;
     return new Spritesheet(textures.title.source, titleAtlas);
   }, [textures.title]);
 
@@ -28,7 +28,9 @@ export default function BenzoTitle(): JSX.Element | null {
       let x = titleAtlas.frames[letter].frame.x - spacing * index;
       if (letter === "O") x -= 26;
       const frameTexture =
-        parsedSpritesheet.textures[letter as keyof typeof spritesheet.textures];
+        parsedSpritesheet.textures[
+          letter as keyof typeof parsedSpritesheet.textures
+        ];
       return (
         <pixiSprite
           alpha={0}
@@ -43,7 +45,7 @@ export default function BenzoTitle(): JSX.Element | null {
         />
       );
     });
-  }, [parsedSpritesheet, spacing, spritesheet]);
+  }, [parsedSpritesheet, spacing]);
 
   useEffect(() => {
     if (!titleRef.current) return;
@@ -82,7 +84,8 @@ export default function BenzoTitle(): JSX.Element | null {
     });
   }, [parsedSpritesheet]);
 
-  if (!allTexturesLoaded) return null;
+  if (!allTexturesLoaded || !textures.title || !textures.title.source)
+    return null;
 
   return (
     <pixiContainer ref={titleRef} scale={scale} x={centerX} y={20}>

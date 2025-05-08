@@ -16,14 +16,14 @@ export default function GlowBenzo(): JSX.Element | null {
     });
   }, [glowBenzoRef, glowProps]);
 
-  if (!allTexturesLoaded || !textures.glowBenzo) return null;
+  if (!allTexturesLoaded || !textures.benzoBody) return null;
 
   return (
     <pixiSprite
       alpha={0.6}
       height={parentSize.height}
       ref={glowBenzoRef}
-      texture={textures.glowBenzo}
+      texture={textures.benzoBody}
       tint={0xffffff}
       width={parentSize.width}
     />
