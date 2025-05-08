@@ -1,13 +1,12 @@
 import { type JSX } from "react";
 import {
   BenzoBody,
+  BenzoGlow,
   BenzoTitle,
   CanvasOverlay,
   CrystalBall,
   GlowBenzo,
   GlowGlasses,
-  GlowInner,
-  GlowOuter,
   HandLeft,
   HandRight,
   Hypnosis,
@@ -20,14 +19,13 @@ export default function Benzo(): JSX.Element {
       <Hypnosis />
       <Smoke />
       <CanvasOverlay />
-      <GlowOuter />
       <BenzoBody />
       <GlowBenzo />
       <GlowGlasses />
       <CrystalBall />
       <HandLeft />
       <HandRight />
-      <GlowInner />
+      <BenzoGlow />
       <BenzoTitle />
     </pixiContainer>
   );

@@ -14,6 +14,7 @@ import Benzo from "./Benzo";
 
 import {
   benzoBody,
+  benzoGlow,
   canvasOverlay,
   crystalBall,
   glowGlasses,
@@ -80,6 +81,7 @@ export const BenzoProvider = ({
   const texturePaths = useMemo(() => {
     return {
       benzoBody,
+      benzoGlow,
       canvasOverlay,
       crystalBall,
       glowGlasses,

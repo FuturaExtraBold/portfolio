@@ -40,7 +40,7 @@ export default function GlowGlasses(): JSX.Element | null {
       y:
         parentSize.height / 2 -
         glowGlassesRef.current.height / 2 -
-        20 * scaleRef.current * 2,
+        22 * scaleRef.current * 2,
     });
   }, [glowGlassesRef, parentSize, scaleRef]);
 

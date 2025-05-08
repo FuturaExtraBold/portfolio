@@ -1,5 +1,6 @@
-import benzoBody from "./benzo_new_high.webp"; // Optimized
-import canvasOverlay from "./canvas_10.webp"; // Optimized
+import benzoBody from "./benzo_crop_medium.webp"; // Optimized
+import benzoGlow from "./benzo_glow.png"; // Optimized
+import canvasOverlay from "./canvas_low.webp"; // Optimized
 import crystalBall from "./crystal_ball_90.webp"; // Optimized
 import glowGlasses from "./glow_glasses_optimized.png"; // Optimized
 import glowInner from "./glow_inner.png";
@@ -12,6 +13,7 @@ import title from "./title_spritesheet.webp"; // Optimized
 
 export {
   benzoBody,
+  benzoGlow,
   canvasOverlay,
   crystalBall,
   glowGlasses,

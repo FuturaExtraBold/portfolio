@@ -8,7 +8,7 @@ export default function CanvasOverlay(): JSX.Element | null {
 
   return (
     <pixiSprite
-      alpha={0.5}
+      alpha={0.7}
       blendMode="multiply"
       height={parentSize.height}
       texture={textures.canvasOverlay}
