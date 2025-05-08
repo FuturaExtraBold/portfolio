@@ -24,7 +24,7 @@ export default function GlowGlasses(): JSX.Element | null {
     setScale({
       ref: glowGlassesRef,
       parentSize: parentSize,
-      minScale: 0.27,
+      minScale: 0.25,
       maxScale: 0.5,
       scaleRef,
     });
@@ -37,10 +37,7 @@ export default function GlowGlasses(): JSX.Element | null {
       ref: glowGlassesRef,
       usePixi: true,
       x: parentSize.width / 2 - glowGlassesRef.current.width / 2,
-      y:
-        parentSize.height / 2 -
-        glowGlassesRef.current.height / 2 -
-        22 * scaleRef.current * 2,
+      y: parentSize.height - glowGlassesRef.current.height,
     });
   }, [glowGlassesRef, parentSize, scaleRef]);
 
@@ -48,7 +45,7 @@ export default function GlowGlasses(): JSX.Element | null {
 
   return (
     <pixiSprite
-      alpha={0.5}
+      alpha={1}
       ref={glowGlassesRef}
       texture={textures.glowGlasses}
       tint={0xffffff}

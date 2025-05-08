@@ -2,9 +2,7 @@ import benzoBody from "./benzo_crop_medium.webp"; // Optimized
 import benzoGlow from "./benzo_glow.png"; // Optimized
 import canvasOverlay from "./canvas_low.webp"; // Optimized
 import crystalBall from "./crystal_ball_90.webp"; // Optimized
-import glowGlasses from "./glow_glasses_optimized.png"; // Optimized
-import glowInner from "./glow_inner.png";
-import glowOuter from "./glow_outer.png";
+import glowGlasses from "./glasses.png"; // Optimized
 import handLeft from "./hand_left.png";
 import handRight from "./hand_right.png";
 import hypnosis from "./hypnosis_high.webp"; // Optimized
@@ -17,8 +15,6 @@ export {
   canvasOverlay,
   crystalBall,
   glowGlasses,
-  glowInner,
-  glowOuter,
   handLeft,
   handRight,
   hypnosis,
