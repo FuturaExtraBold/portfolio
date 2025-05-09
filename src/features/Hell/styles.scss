@@ -1,11 +1,56 @@
 @use "assets/stylesheets/consumables" as *;
+@use "sass:math";
+
+$mobile-hell-container-width: $breaks-md;
+$mobile-hell-container-center: calc(
+  math.div(#{$mobile-hell-container-width}, 2) * -1 + 50vw
+);
 
 .hell {
+  position: relative;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.hell__background {
+  left: $mobile-hell-container-center;
+}
+
 .hell__container {
+  width: $mobile-hell-container-width;
+  padding: 0;
   aspect-ratio: 9 / 5;
+}
+
+.hell__content {
+  left: $mobile-hell-container-center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+
+  @include fluid-property($breaks-xs, $breaks-xl, 10px, 30px, gap);
+  @include fluid-property($breaks-xs, $breaks-xl, 300px, 800px, max-width);
+}
+
+.hell__overlay {
+  z-index: 1000;
+}
+
+@media (min-width: $breaks-md) {
+  .hell__background {
+    left: 0;
+  }
+
+  .hell__container {
+    width: auto;
+  }
+
+  .hell__content {
+    left: 0;
+  }
 }
