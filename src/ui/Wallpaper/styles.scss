@@ -1,10 +1,9 @@
 @use "assets/stylesheets/consumables" as *;
 
 .wallpaper {
-  background-image: url("./wallpaper_tile.png");
+  background-image: url("./wallpaper_tile_4color.png");
   background-position: top center;
   background-repeat: repeat;
-  opacity: 1;
 
   @include fit();
   @include fluid-property(
