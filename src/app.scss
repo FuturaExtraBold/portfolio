@@ -8,7 +8,7 @@ body {
 
 #benzo-app {
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   width: 100%;
   max-width: $breaks-xxl;
   height: 100%;
@@ -20,6 +20,7 @@ body {
 
 #benzo-app.media--desktop-large {
   padding: 90px;
+  background-color: transparent;
 }
 
 #benzo-app.media--desktop-max {

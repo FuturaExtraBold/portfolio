@@ -1,4 +1,4 @@
-import displacementMap from "./displacement_map.png";
-import hellBackground from "./hell.jpg";
+import displacementMap from "./displacement_map_high.webp";
+import hellBackground from "./hell_10.webp";
 
 export { displacementMap, hellBackground };
