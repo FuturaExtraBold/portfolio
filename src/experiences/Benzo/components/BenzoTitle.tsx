@@ -3,9 +3,10 @@ import { gsap } from "gsap";
 import { Sprite, Spritesheet } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 import { titleAtlas } from "../data/titleAtlas";
+import { setScale } from "utils/animation";
 
 export default function BenzoTitle(): JSX.Element | null {
-  const { allTexturesLoaded, parentSize, textures } = useBenzo();
+  const { allTexturesLoaded, parentSize, scaleRef, textures } = useBenzo();
 
   const [parsedSpritesheet, setParsedSpritesheet] =
     useState<Spritesheet | null>(null);
@@ -13,45 +14,11 @@ export default function BenzoTitle(): JSX.Element | null {
   const titleRef = useRef<Sprite | null>(null);
   const letterRefs = useRef<Record<string, Sprite | null>>({});
   const spacing = 10;
-  const scale = 0.5;
 
   const spritesheet = useMemo(() => {
     if (!textures.title || !textures.title.source) return null;
     return new Spritesheet(textures.title.source, titleAtlas);
   }, [textures.title]);
-
-  const renderedLetters = useMemo(() => {
-    if (!parsedSpritesheet) return null;
-    const letters = ["B", "E", "N", "Z", "O"] as const;
-
-    return letters.map((letter, index) => {
-      let x = titleAtlas.frames[letter].frame.x - spacing * index;
-      if (letter === "O") x -= 26;
-      const frameTexture =
-        parsedSpritesheet.textures[
-          letter as keyof typeof parsedSpritesheet.textures
-        ];
-      return (
-        <pixiSprite
-          alpha={0}
-          anchor={0}
-          key={letter}
-          ref={(el) => {
-            letterRefs.current[letter] = el;
-          }}
-          texture={frameTexture}
-          x={x}
-          y={0}
-        />
-      );
-    });
-  }, [parsedSpritesheet, spacing]);
-
-  useEffect(() => {
-    if (!titleRef.current) return;
-    const { width } = titleRef.current.getLocalBounds();
-    setCenterX(parentSize.width / 2 - (width * scale) / 2);
-  }, [parentSize, titleRef]);
 
   useEffect(() => {
     if (!spritesheet) return;
@@ -84,11 +51,58 @@ export default function BenzoTitle(): JSX.Element | null {
     });
   }, [parsedSpritesheet]);
 
+  useEffect(() => {
+    if (!titleRef.current || !parsedSpritesheet) return;
+    const { width } = titleRef.current.getLocalBounds();
+    console.log("width", width);
+    console.log("parentSize", parentSize);
+    setCenterX(parentSize.width / 2 - (width / 2) * scaleRef.current);
+  }, [parentSize, parsedSpritesheet, scaleRef, titleRef]);
+
+  const renderedLetters = useMemo(() => {
+    if (!parsedSpritesheet) return null;
+    const letters = ["B", "E", "N", "Z", "O"] as const;
+
+    return letters.map((letter, index) => {
+      let x = titleAtlas.frames[letter].frame.x - spacing * index;
+      if (letter === "O") x -= 26;
+      const frameTexture =
+        parsedSpritesheet.textures[
+          letter as keyof typeof parsedSpritesheet.textures
+        ];
+      return (
+        <pixiSprite
+          alpha={0}
+          anchor={0}
+          key={letter}
+          ref={(el) => {
+            letterRefs.current[letter] = el;
+          }}
+          texture={frameTexture}
+          x={x}
+          y={0}
+        />
+      );
+    });
+  }, [parsedSpritesheet, spacing]);
+
+  useEffect(() => {
+    if (!titleRef) return;
+    console.log("Benzo - Title - setScale");
+    setScale({
+      ref: titleRef,
+      parentSize: parentSize,
+      minScale: 0.25,
+      maxScale: 0.5,
+      scaleRef,
+    });
+  }, [titleRef, parentSize, scaleRef]);
+
   if (!allTexturesLoaded || !textures.title || !textures.title.source)
     return null;
 
   return (
-    <pixiContainer ref={titleRef} scale={scale} x={centerX} y={20}>
+    <pixiContainer anchor={0.5} ref={titleRef} x={centerX} y={20}>
       {renderedLetters}
     </pixiContainer>
   );
