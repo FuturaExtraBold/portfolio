@@ -1,6 +1,6 @@
 import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import imagePlanchette from "./planchette.png";
+import imagePlanchette from "./planchette_high.webp"; // Optimized
 import "./styles.scss";
 
 export default function Planchette(): JSX.Element {

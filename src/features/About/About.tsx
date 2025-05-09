@@ -4,7 +4,7 @@ import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, Separator, Wallpaper } from "ui/index";
 import { animateFloat } from "utils/animation";
 import { fluidProperty } from "utils/layout";
-import imageShip from "./ship.png";
+import imageShip from "./ship_medium.webp"; // Optimized
 import "./styles.scss";
 
 export default function About(): JSX.Element {

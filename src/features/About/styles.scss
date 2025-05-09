@@ -22,8 +22,10 @@
 .about__image {
   position: relative;
   display: none;
-  filter: drop-shadow(0 6px 24px rgb(#2ee554, 0.5));
+  overflow: visible;
+  filter: drop-shadow(0 6px 24px #2ee554);
   transform: rotate(-10deg);
+  will-change: filter;
 
   @include fluid-property($breaks-md, $breaks-xl, 180px, 248px, width);
 }

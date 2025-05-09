@@ -6,4 +6,5 @@
 
 .planchette__image {
   filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.8));
+  will-change: filter;
 }
