@@ -1,5 +1,5 @@
-import beam from "./beam.png"; // Optimized
-import lighthouseBackground from "./lighthouse_high.webp"; // Optimized
-import windowGlow from "./windows.png"; // Optimized
+import beam from "./beam.png";
+import lighthouseBackground from "./lighthouse.webp";
+import windowGlow from "./windows.png";
 
 export { beam, lighthouseBackground, windowGlow };
