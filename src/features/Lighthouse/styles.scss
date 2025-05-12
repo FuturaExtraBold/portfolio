@@ -1,7 +1,7 @@
 @use "assets/stylesheets/consumables" as *;
 @use "sass:math";
 
-$mobile-lighthouse-container-width: $breaks-md;
+$mobile-lighthouse-container-width: $breaks-lg;
 $mobile-lighthouse-container-center: calc(
   math.div(#{$mobile-lighthouse-container-width}, 2) * -1 + 50vw
 );
@@ -23,12 +23,11 @@ $mobile-lighthouse-container-center: calc(
 }
 
 .lighthouse__content {
+  left: $mobile-lighthouse-container-center;
   display: flex;
-  max-width: 960px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
   margin: 0 auto;
   gap: 20px;
   text-align: center;
@@ -42,7 +41,7 @@ $mobile-lighthouse-container-center: calc(
   z-index: 1000;
 }
 
-@media (min-width: $breaks-md) {
+@media (min-width: $breaks-lg) {
   .lighthouse__background {
     left: 0;
   }

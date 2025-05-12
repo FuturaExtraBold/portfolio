@@ -6,6 +6,7 @@
   justify-content: center;
   margin: 0 auto;
   gap: 8rem;
+
   @include fluid-property($breaks-md, $breaks-xl, 70px, 140px, gap);
 }
 
@@ -14,5 +15,6 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+
   @include fluid-property($breaks-md, $breaks-xl, 16px, 40px, gap);
 }

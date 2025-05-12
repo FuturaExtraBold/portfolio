@@ -21,11 +21,9 @@ export default function Lighthouse(): JSX.Element {
             The Pursuit of Perfection
           </span>
           <span className="body text-light lighthouse__description">
-            Through tools arcane and modern — like Google Lighthouse — I conjure
-            sites that vanish lag, dodge layout shifts, and charm every metric
-            into perfection. Performance, accessibility, SEO, and best
-            practices? All brought to heel with a flourish. Witness the rare and
-            wondrous: a full suite of glowing 100s.
+            With tools old and new — like Google Lighthouse — I build sites that
+            banish lag, skip layout shifts, and make every metric shine. Speed!
+            Accessibility! SEO! All dazzled into perfect 100s.
           </span>
         </Content>
         <div className="overlay lighthouse__overlay"></div>
