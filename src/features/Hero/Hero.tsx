@@ -7,7 +7,7 @@ import "./styles.scss";
 
 export default function Hero(): JSX.Element {
   const parentRef = useRef<HTMLDivElement | null>(null);
-  const { benzoLoadProgress } = useApp();
+  const { benzoLoadProgress, userDevice } = useApp();
 
   return (
     <Section className="hero">
@@ -16,7 +16,7 @@ export default function Hero(): JSX.Element {
           {parentRef.current && <PixiApp parentRef={parentRef as any} />}
         </Background>
         <Content className="hero__content">
-          {benzoLoadProgress !== 1 && (
+          {benzoLoadProgress !== 1 ? (
             <div className="progress-bar">
               <span className="progress-bar__title">Loading</span>
               <div className="progress-bar__container">
@@ -28,6 +28,10 @@ export default function Hero(): JSX.Element {
                 ></div>
               </div>
             </div>
+          ) : (
+            <span className="device-info text-light">
+              Device: {JSON.stringify(userDevice)}
+            </span>
           )}
         </Content>
         <div className="overlay hero__overlay"></div>

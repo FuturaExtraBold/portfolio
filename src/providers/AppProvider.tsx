@@ -85,8 +85,8 @@ export const AppProvider = ({
   useEffect(() => {
     const detectedDevice = deviceDetect(navigator.userAgent);
     if (detectedDevice) {
-      // console.log("Detected device:", detectedDevice);
-      // console.log("window.devicePixelRatio", window.devicePixelRatio);
+      console.log("Detected device:", detectedDevice);
+      console.log("window.devicePixelRatio", window.devicePixelRatio);
       setUserDevice(detectedDevice);
     }
   }, []);
