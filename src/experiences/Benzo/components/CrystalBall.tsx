@@ -21,7 +21,6 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!crystalBallRef) return;
-    // console.log("Benzo - Crystal Ball - animateRotation");
     animateRotation({
       ...getRotationParams(),
       ref: crystalBallRef,
@@ -33,7 +32,6 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!crystalBallRef) return;
-    // console.log("Benzo - Crystal Ball - animateTint");
     animateTint({
       color: glowProps.color,
       duration: glowProps.duration,
@@ -43,7 +41,6 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!crystalBallRef) return;
-    console.log("Benzo - Crystal Ball - setPosition");
     setPosition({
       ref: crystalBallRef,
       usePixi: true,
@@ -54,7 +51,6 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!crystalBallRef) return;
-    console.log("Benzo - Crystal Ball - setScale");
     setScale({
       ref: crystalBallRef,
       parentSize: parentSize,

@@ -20,7 +20,6 @@ export default function HandLeft(): JSX.Element | null {
   const handLeftRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
-    console.log("Benzo - Hand Left - animateTick");
     if (!handLeftRef) return;
     animateTick({
       amplitudeX: 20,
@@ -38,7 +37,6 @@ export default function HandLeft(): JSX.Element | null {
 
   useEffect(() => {
     if (!handLeftRef) return;
-    // console.log("Benzo - Hand Left - animateTint");
     animateTint({
       color: glowProps.color,
       duration: glowProps.duration,
@@ -48,7 +46,6 @@ export default function HandLeft(): JSX.Element | null {
 
   useEffect(() => {
     if (!handLeftRef.current) return;
-    console.log("Benzo - Hand Left - setPosition");
     setPosition({
       ref: handLeftRef,
       usePixi: true,
@@ -59,7 +56,6 @@ export default function HandLeft(): JSX.Element | null {
 
   useEffect(() => {
     if (!handLeftRef) return;
-    console.log("Benzo - Hand Left - setScale");
     setScale({
       ref: handLeftRef,
       parentSize: parentSize,

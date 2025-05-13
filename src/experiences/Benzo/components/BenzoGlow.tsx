@@ -20,7 +20,6 @@ export default function BenzoGlow(): JSX.Element | null {
 
   useEffect(() => {
     if (!benzoGlowRef) return;
-    console.log("Benzo - Glow - setScale");
     setScale({
       ref: benzoGlowRef,
       parentSize: parentSize,
@@ -32,7 +31,6 @@ export default function BenzoGlow(): JSX.Element | null {
 
   useEffect(() => {
     if (!benzoGlowRef.current) return;
-    console.log("Benzo - Glow - setPosition");
     setPosition({
       ref: benzoGlowRef,
       usePixi: true,

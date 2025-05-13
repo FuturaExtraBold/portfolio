@@ -10,7 +10,6 @@ export default function BenzoBody(): JSX.Element | null {
 
   useEffect(() => {
     if (!benzoRef) return;
-    console.log("Benzo - Glow Glasses - setScale");
     setScale({
       ref: benzoRef,
       parentSize: parentSize,
@@ -22,7 +21,6 @@ export default function BenzoBody(): JSX.Element | null {
 
   useEffect(() => {
     if (!benzoRef.current) return;
-    console.log("Benzo - Glow Glasses - setPosition");
     setPosition({
       ref: benzoRef,
       usePixi: true,

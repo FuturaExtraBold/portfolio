@@ -54,8 +54,6 @@ export default function BenzoTitle(): JSX.Element | null {
   useEffect(() => {
     if (!titleRef.current || !parsedSpritesheet) return;
     const { width } = titleRef.current.getLocalBounds();
-    console.log("width", width);
-    console.log("parentSize", parentSize);
     setCenterX(parentSize.width / 2 - (width / 2) * scaleRef.current);
   }, [parentSize, parsedSpritesheet, scaleRef, titleRef]);
 
@@ -88,7 +86,6 @@ export default function BenzoTitle(): JSX.Element | null {
 
   useEffect(() => {
     if (!titleRef) return;
-    console.log("Benzo - Title - setScale");
     setScale({
       ref: titleRef,
       parentSize: parentSize,

@@ -1,34 +1,15 @@
 @use "assets/stylesheets/consumables" as *;
 
 .client {
-  position: absolute;
   display: flex;
   height: 100px;
   align-items: center;
   justify-content: center;
   background-color: rgb(255 0 0 / 0);
-  opacity: 0;
+  // opacity: 0;
   transform-origin: center;
 
   @include fluid-property($breaks-md, $breaks-xl, 108px, 160px, width);
-
-  .particle-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    width: 100%;
-    height: 100%;
-  }
-
-  .particle {
-    pointer-events: none;
-  }
-}
-
-.client--available .particle-container {
-  position: absolute;
-  display: block;
 }
 
 .client > svg {
@@ -42,6 +23,6 @@
   transition: fill 0.2s ease-in-out;
 }
 
-.client--available:hover > svg path {
+.client:hover > svg path {
   fill: #ffffff;
 }

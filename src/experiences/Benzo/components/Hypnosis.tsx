@@ -14,7 +14,6 @@ export default function Hypnosis(): JSX.Element | null {
   };
 
   useEffect(() => {
-    console.log("Benzo - Hypnosis - animateRotation");
     animateRotation({
       ...getRotationParams(),
       ref: hypnosisRef,

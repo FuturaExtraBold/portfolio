@@ -1,14 +1,10 @@
 import {
   Disney,
-  DreamWorks,
   FOX,
   Honda,
-  Kajabi,
   KIA,
-  KSwiss,
   Lexus,
   Pixar,
-  Sony,
   SouthPark,
   TheSimpsons,
   U2,
@@ -52,7 +48,6 @@ export const caseStudies = [
       },
     ],
   },
-  { id: "dreamworks", logoComponent: DreamWorks },
   {
     id: "pixar",
     logoComponent: Pixar,
@@ -70,7 +65,6 @@ export const caseStudies = [
       },
     ],
   },
-  { id: "sony", logoComponent: Sony },
   {
     id: "simpsons",
     logoComponent: TheSimpsons,
@@ -188,7 +182,6 @@ export const caseStudies = [
       },
     ],
   },
-  { id: "kswiss", logoComponent: KSwiss },
   {
     id: "u2",
     logoComponent: U2,
@@ -200,5 +193,4 @@ export const caseStudies = [
       },
     ],
   },
-  { id: "kajabi", logoComponent: Kajabi },
 ];

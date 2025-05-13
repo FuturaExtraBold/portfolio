@@ -93,7 +93,6 @@ export const BenzoProvider = ({
 
   const updateParentSize = useCallback(() => {
     if (parentRef.current) {
-      console.log("Benzo - Provider - updateParentSize");
       const width = parentRef.current.clientWidth;
       const height = parentRef.current.clientHeight;
       setParentSize({ width, height });
@@ -104,7 +103,6 @@ export const BenzoProvider = ({
   const updateGlowProps = useCallback(() => {
     const color = glowColors[Math.floor(Math.random() * glowColors.length)];
     const duration = Math.random() * 3 + 0.5;
-    // console.log("Benzo - Provider - updateGlowProps", color, duration);
     setGlowProps({ color, duration });
     setTimeout(updateGlowProps, duration * 1000);
   }, [glowColors]);
@@ -115,7 +113,6 @@ export const BenzoProvider = ({
         Math.floor(Math.random() * glowColorsReflection.length)
       ];
     const duration = Math.random() * 3 + 0.5;
-    // console.log("Benzo - Provider - updateSmokeProps", color, duration);
     setSmokeProps({ color, duration });
     setTimeout(updateSmokeProps, duration * 1000);
   }, [glowColorsReflection]);
@@ -141,7 +138,6 @@ export const BenzoProvider = ({
 
   useEffect(() => {
     if (!parentRef.current) return;
-    console.log("Benzo - Provider - ResizeObserver");
     const observer = new ResizeObserver(() => {
       updateParentSize();
     });
@@ -157,12 +153,10 @@ export const BenzoProvider = ({
   }, [allTexturesLoaded, updateParentSize]);
 
   useEffect(() => {
-    console.log("Benzo - Provider - updateGlowProps");
     updateGlowProps();
   }, [updateGlowProps]);
 
   useEffect(() => {
-    console.log("Benzo - Provider - updateSmokeProps");
     updateSmokeProps();
   }, [updateSmokeProps]);
 

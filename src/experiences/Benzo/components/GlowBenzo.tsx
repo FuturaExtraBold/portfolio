@@ -11,7 +11,6 @@ export default function GlowBenzo(): JSX.Element | null {
 
   useEffect(() => {
     if (!glowBenzoRef) return;
-    // console.log("Benzo - Glow Benzo - GSAP Tint");
     gsap.to(glowBenzoRef.current, {
       pixi: { tint: glowProps.color },
       duration: glowProps.duration,
@@ -20,7 +19,6 @@ export default function GlowBenzo(): JSX.Element | null {
 
   useEffect(() => {
     if (!glowBenzoRef) return;
-    console.log("Benzo - Glow Glasses - setScale");
     setScale({
       ref: glowBenzoRef,
       parentSize: parentSize,
@@ -32,7 +30,6 @@ export default function GlowBenzo(): JSX.Element | null {
 
   useEffect(() => {
     if (!glowBenzoRef.current) return;
-    console.log("Benzo - Glow Glasses - setPosition");
     setPosition({
       ref: glowBenzoRef,
       usePixi: true,
