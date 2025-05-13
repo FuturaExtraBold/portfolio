@@ -10,15 +10,15 @@ export default function GlowBenzo(): JSX.Element | null {
   const glowBenzoRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
-    if (!glowBenzoRef) return;
+    if (!glowBenzoRef.current || !allTexturesLoaded) return;
     gsap.to(glowBenzoRef.current, {
       pixi: { tint: glowProps.color },
       duration: glowProps.duration,
     });
-  }, [glowBenzoRef, glowProps]);
+  }, [allTexturesLoaded, glowBenzoRef, glowProps]);
 
   useEffect(() => {
-    if (!glowBenzoRef) return;
+    if (!glowBenzoRef.current || !allTexturesLoaded) return;
     setScale({
       ref: glowBenzoRef,
       parentSize: parentSize,
@@ -26,17 +26,17 @@ export default function GlowBenzo(): JSX.Element | null {
       maxScale: 0.5,
       scaleRef,
     });
-  }, [glowBenzoRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, glowBenzoRef, parentSize, scaleRef]);
 
   useEffect(() => {
-    if (!glowBenzoRef.current) return;
+    if (!glowBenzoRef.current || !allTexturesLoaded) return;
     setPosition({
       ref: glowBenzoRef,
       usePixi: true,
       x: parentSize.width / 2 - glowBenzoRef.current.width / 2,
       y: parentSize.height - glowBenzoRef.current.height,
     });
-  }, [glowBenzoRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, glowBenzoRef, parentSize, scaleRef]);
 
   if (!allTexturesLoaded || !textures.benzoBody) return null;
 

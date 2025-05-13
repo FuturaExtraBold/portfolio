@@ -21,20 +21,24 @@ import App from "../App";
 const AppContext = createContext<{
   activeCaseStudy: string | null;
   breakpoints: Record<string, number>;
+  benzoLoadProgress: number;
   isModalActive: boolean;
   currentSection: string | null;
   mediaClass: string;
   setActiveCaseStudy: Dispatch<SetStateAction<string | null>>;
+  setBenzoLoadProgress: Dispatch<SetStateAction<number>>;
   setIsModalActive: Dispatch<SetStateAction<boolean>>;
   userDevice: any;
   windowSize: WindowSize;
 }>({
   activeCaseStudy: null,
+  benzoLoadProgress: 0,
   breakpoints: {},
   isModalActive: false,
   currentSection: null,
   mediaClass: "",
   setActiveCaseStudy: () => null,
+  setBenzoLoadProgress: () => null,
   setIsModalActive: () => {},
   userDevice: {},
   windowSize: { width: 0, height: 0 },
@@ -49,6 +53,7 @@ export const AppProvider = ({
   const [userDevice, setUserDevice] = useState(
     () => deviceDetect(navigator.userAgent) || {}
   );
+  const [benzoLoadProgress, setBenzoLoadProgress] = useState(0);
 
   const { windowSize, mediaClass, breakpoints } =
     useWindowSizeWithBreakpoints();
@@ -89,22 +94,26 @@ export const AppProvider = ({
   const contextValues = useMemo(
     () => ({
       activeCaseStudy,
+      benzoLoadProgress,
       breakpoints,
       isModalActive,
       currentSection,
       mediaClass,
       setActiveCaseStudy,
+      setBenzoLoadProgress,
       setIsModalActive,
       userDevice,
       windowSize,
     }),
     [
       activeCaseStudy,
+      benzoLoadProgress,
       breakpoints,
       isModalActive,
       currentSection,
       mediaClass,
       setActiveCaseStudy,
+      setBenzoLoadProgress,
       setIsModalActive,
       userDevice,
       windowSize,

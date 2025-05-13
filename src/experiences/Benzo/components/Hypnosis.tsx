@@ -14,6 +14,7 @@ export default function Hypnosis(): JSX.Element | null {
   };
 
   useEffect(() => {
+    if (!hypnosisRef.current || !allTexturesLoaded) return;
     animateRotation({
       ...getRotationParams(),
       ref: hypnosisRef,
@@ -21,7 +22,7 @@ export default function Hypnosis(): JSX.Element | null {
       getNextParams: getRotationParams,
       repeat: true,
     });
-  }, []);
+  }, [allTexturesLoaded, hypnosisRef]);
 
   if (!allTexturesLoaded || !textures.hypnosis) return null;
 

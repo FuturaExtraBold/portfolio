@@ -9,7 +9,7 @@ export default function BenzoBody(): JSX.Element | null {
   const benzoRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
-    if (!benzoRef) return;
+    if (!benzoRef.current || !allTexturesLoaded) return;
     setScale({
       ref: benzoRef,
       parentSize: parentSize,
@@ -17,17 +17,17 @@ export default function BenzoBody(): JSX.Element | null {
       maxScale: 0.5,
       scaleRef,
     });
-  }, [benzoRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, benzoRef, parentSize, scaleRef]);
 
   useEffect(() => {
-    if (!benzoRef.current) return;
+    if (!benzoRef.current || !allTexturesLoaded) return;
     setPosition({
       ref: benzoRef,
       usePixi: true,
       x: parentSize.width / 2 - benzoRef.current.width / 2,
       y: parentSize.height - benzoRef.current.height,
     });
-  }, [benzoRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, benzoRef, parentSize, scaleRef]);
 
   if (!allTexturesLoaded || !textures.benzoBody) return null;
 

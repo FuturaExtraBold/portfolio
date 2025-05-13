@@ -85,7 +85,7 @@ export default function BenzoTitle(): JSX.Element | null {
   }, [parsedSpritesheet, spacing]);
 
   useEffect(() => {
-    if (!titleRef) return;
+    if (!titleRef.current) return;
     setScale({
       ref: titleRef,
       parentSize: parentSize,

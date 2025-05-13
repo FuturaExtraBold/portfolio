@@ -20,7 +20,7 @@ export default function HandRight(): JSX.Element | null {
   const handRightRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
-    if (!handRightRef) return;
+    if (!handRightRef.current || !allTexturesLoaded) return;
     animateTick({
       amplitudeX: 20,
       amplitudeY: 10,
@@ -33,29 +33,29 @@ export default function HandRight(): JSX.Element | null {
       scaleRef,
       tickTime: 0.009,
     });
-  }, [handRightRef, parentSizeRef, scaleRef]);
+  }, [allTexturesLoaded, handRightRef, parentSizeRef, scaleRef]);
 
   useEffect(() => {
-    if (!handRightRef) return;
+    if (!handRightRef.current || !allTexturesLoaded) return;
     animateTint({
       color: glowProps.color,
       duration: glowProps.duration,
       ref: handRightRef,
     });
-  }, [glowProps, handRightRef]);
+  }, [allTexturesLoaded, glowProps, handRightRef]);
 
   useEffect(() => {
-    if (!handRightRef.current) return;
+    if (!handRightRef.current || !allTexturesLoaded) return;
     setPosition({
       ref: handRightRef,
       usePixi: true,
       x: parentSize.width / 2 - parentSize.width / -6.75,
       y: parentSize.height - handRightRef.current.height / 2,
     });
-  }, [handRightRef, parentSize]);
+  }, [allTexturesLoaded, handRightRef, parentSize]);
 
   useEffect(() => {
-    if (!handRightRef) return;
+    if (!handRightRef.current || !allTexturesLoaded) return;
     setScale({
       ref: handRightRef,
       parentSize: parentSize,
@@ -63,7 +63,7 @@ export default function HandRight(): JSX.Element | null {
       maxScale: 0.5,
       scaleRef,
     });
-  }, [handRightRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, handRightRef, parentSize, scaleRef]);
 
   if (!allTexturesLoaded || !textures.handRight) return null;
 

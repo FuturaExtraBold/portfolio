@@ -12,6 +12,7 @@ export default function Smoke(): JSX.Element | null {
   const refParticlesSmoke = useRef<Sprite | null>(null);
 
   useEffect(() => {
+    if (!allTexturesLoaded) return;
     if (
       textures.smokeParticle !== Texture.EMPTY &&
       parentSize.height > 0 &&
@@ -72,7 +73,7 @@ export default function Smoke(): JSX.Element | null {
         return particles;
       });
     }
-  }, [glowColorsSmoke, parentSize, textures.smokeParticle]);
+  }, [allTexturesLoaded, glowColorsSmoke, parentSize, textures.smokeParticle]);
 
   if (!allTexturesLoaded || !textures.smokeParticle) return null;
 

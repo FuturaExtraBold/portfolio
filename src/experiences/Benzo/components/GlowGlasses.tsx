@@ -11,15 +11,15 @@ export default function GlowGlasses(): JSX.Element | null {
   const glowGlassesRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
-    if (!glowGlassesRef.current) return;
+    if (!glowGlassesRef.current || !allTexturesLoaded) return;
     gsap.to(glowGlassesRef.current, {
       pixi: { tint: glowProps.color },
       duration: glowProps.duration,
     });
-  }, [glowProps, glowGlassesRef]);
+  }, [allTexturesLoaded, glowProps, glowGlassesRef]);
 
   useEffect(() => {
-    if (!glowGlassesRef) return;
+    if (!glowGlassesRef.current || !allTexturesLoaded) return;
     setScale({
       ref: glowGlassesRef,
       parentSize: parentSize,
@@ -27,17 +27,17 @@ export default function GlowGlasses(): JSX.Element | null {
       maxScale: 0.5,
       scaleRef,
     });
-  }, [glowGlassesRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, glowGlassesRef, parentSize, scaleRef]);
 
   useEffect(() => {
-    if (!glowGlassesRef.current) return;
+    if (!glowGlassesRef.current || !allTexturesLoaded) return;
     setPosition({
       ref: glowGlassesRef,
       usePixi: true,
       x: parentSize.width / 2 - glowGlassesRef.current.width / 2,
       y: parentSize.height - glowGlassesRef.current.height,
     });
-  }, [glowGlassesRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, glowGlassesRef, parentSize, scaleRef]);
 
   if (!allTexturesLoaded || !textures.glowGlasses) return null;
 

@@ -20,7 +20,7 @@ export default function CrystalBall(): JSX.Element | null {
   };
 
   useEffect(() => {
-    if (!crystalBallRef) return;
+    if (!crystalBallRef.current || !allTexturesLoaded) return;
     animateRotation({
       ...getRotationParams(),
       ref: crystalBallRef,
@@ -28,29 +28,29 @@ export default function CrystalBall(): JSX.Element | null {
       repeat: true,
       getNextParams: getRotationParams,
     });
-  }, [crystalBallRef]);
+  }, [allTexturesLoaded, crystalBallRef]);
 
   useEffect(() => {
-    if (!crystalBallRef) return;
+    if (!crystalBallRef.current || !allTexturesLoaded) return;
     animateTint({
       color: glowProps.color,
       duration: glowProps.duration,
       ref: crystalBallRef,
     });
-  }, [crystalBallRef, glowProps]);
+  }, [allTexturesLoaded, crystalBallRef, glowProps]);
 
   useEffect(() => {
-    if (!crystalBallRef) return;
+    if (!crystalBallRef.current || !allTexturesLoaded) return;
     setPosition({
       ref: crystalBallRef,
       usePixi: true,
       x: parentSize.width / 2,
       y: parentSize.height - parentSize.height / 6,
     });
-  }, [crystalBallRef, parentSize]);
+  }, [allTexturesLoaded, crystalBallRef, parentSize]);
 
   useEffect(() => {
-    if (!crystalBallRef) return;
+    if (!crystalBallRef.current || !allTexturesLoaded) return;
     setScale({
       ref: crystalBallRef,
       parentSize: parentSize,
@@ -58,7 +58,7 @@ export default function CrystalBall(): JSX.Element | null {
       maxScale: 0.5,
       scaleRef,
     });
-  }, [crystalBallRef, parentSize, scaleRef]);
+  }, [allTexturesLoaded, crystalBallRef, parentSize, scaleRef]);
 
   if (!allTexturesLoaded || !textures.crystalBall) return null;
 

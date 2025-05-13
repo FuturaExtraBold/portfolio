@@ -11,6 +11,7 @@ import {
 } from "react";
 import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
+import { useApp } from "providers/AppProvider";
 
 import {
   benzoBody,
@@ -46,6 +47,7 @@ interface BenzoProviderProps {
 export const BenzoProvider = ({
   parentRef,
 }: BenzoProviderProps): JSX.Element => {
+  const { setBenzoLoadProgress } = useApp();
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
 
@@ -120,19 +122,22 @@ export const BenzoProvider = ({
   const loadTextures = useCallback(async () => {
     console.log("Benzo - Provider - loadTextures");
     const loadedTextures: Record<string, any> = {};
-    for (const [key, path] of Object.entries(texturePaths)) {
-      loadedTextures[key] = await Assets.load(path).then((result) => {
-        return result;
-      });
+    const entries = Object.entries(texturePaths);
+    const total = entries.length;
+    let loaded = 0;
+    for (const [key, path] of entries) {
+      const texture = await Assets.load(path);
+      loadedTextures[key] = texture;
+      loaded++;
+      setBenzoLoadProgress(loaded / total);
     }
     console.log("Benzo - Provider - All textures loaded complete");
     updateParentSize();
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
-  }, [texturePaths, updateParentSize]);
+  }, [setBenzoLoadProgress, texturePaths, updateParentSize]);
 
   useEffect(() => {
-    console.log("Benzo - Provider - loadTextures");
     loadTextures();
   }, [loadTextures]);
 
@@ -187,7 +192,7 @@ export const BenzoProvider = ({
 
   return (
     <BenzoContext.Provider value={contextValues}>
-      {allTexturesLoaded && <Benzo />}
+      <Benzo />
     </BenzoContext.Provider>
   );
 };
