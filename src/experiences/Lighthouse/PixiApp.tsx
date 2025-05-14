@@ -18,10 +18,14 @@ export default function PixiApp({
 }: PixiAppProps): JSX.Element | null {
   return (
     <Application
-      antialias={true}
-      autoDensity={true}
+      antialias
+      autoDensity
       background="#000000"
       backgroundAlpha={0}
+      powerPreference="high-performance"
+      preference="webgl"
+      preferWebGLVersion={1}
+      preserveDrawingBuffer={false}
       resizeTo={parentRef.current}
       resolution={window.devicePixelRatio || 1}
     >

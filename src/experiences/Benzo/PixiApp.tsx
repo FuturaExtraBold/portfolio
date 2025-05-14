@@ -15,10 +15,16 @@ interface PixiAppProps {
 export default function PixiApp({
   parentRef,
 }: PixiAppProps): JSX.Element | null {
+  if (!parentRef.current) return null;
+
   return (
     <Application
-      antialias={true}
-      autoDensity={true}
+      antialias
+      autoDensity
+      powerPreference="high-performance"
+      preference="webgl"
+      preferWebGLVersion={1}
+      preserveDrawingBuffer={false}
       resizeTo={parentRef.current}
       resolution={window.devicePixelRatio || 1}
     >
