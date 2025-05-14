@@ -61,16 +61,29 @@ export const LighthouseProvider = ({
   }, []);
 
   const loadTextures = useCallback(async () => {
+    console.log("Lighthouse - Provider - loadTextures");
     const loadedTextures: Record<string, any> = {};
-    for (const [key, path] of Object.entries(texturePaths)) {
-      loadedTextures[key] = await Assets.load(path as string).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        return result;
-      });
+    const entries = Object.entries(texturePaths);
+    const total = entries.length;
+    let loaded = 0;
+
+    for (const [key, path] of entries) {
+      try {
+        const texture = await Assets.load(path);
+        loadedTextures[key] = texture;
+        loaded++;
+      } catch (e) {
+        console.error(`Error loading ${key}:`, e);
+      }
     }
-    console.log("Lighthouse - All textures loaded");
-    setTextures(loadedTextures);
-    setAllTexturesLoaded(true);
+
+    if (loaded === total) {
+      console.log("Lighthouse - Provider - All textures loaded complete");
+      setTextures(loadedTextures);
+      setAllTexturesLoaded(true);
+    } else {
+      console.warn(`Only ${loaded} out of ${total} textures loaded.`);
+    }
   }, [texturePaths]);
 
   useEffect(() => {
@@ -90,7 +103,6 @@ export const LighthouseProvider = ({
 
     observer.observe(parent);
 
-    // Set initial size
     const width = parent.clientWidth;
     const height = parent.clientHeight;
     setParentSize({ width, height });

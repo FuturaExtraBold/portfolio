@@ -45,6 +45,13 @@ export default function ClientModal(): JSX.Element {
         onMouseMove={(e) => preventEvents(e)}
       />
       <div
+        className="client-modal__close"
+        data-testid="client-modal-close-icon"
+        onClick={() => setIsModalActive(false)}
+      >
+        <span className="client-modal__close-icon">X</span>
+      </div>
+      <div
         className="client-modal__content"
         data-testid="client-modal-content"
         onClick={(e) => preventEvents(e)}
@@ -54,13 +61,6 @@ export default function ClientModal(): JSX.Element {
       >
         {caseStudy && (
           <>
-            <div
-              className="client-modal__close"
-              data-testid="client-modal-close-icon"
-              onClick={() => setIsModalActive(false)}
-            >
-              <span className="client-modal__close-icon">X</span>
-            </div>
             <Header title={caseStudy.title ?? ""} />
             <hr className="client-modal__divider" />
             {caseStudy.projects?.map((project, index) => (

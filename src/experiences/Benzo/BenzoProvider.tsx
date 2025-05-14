@@ -125,16 +125,26 @@ export const BenzoProvider = ({
     const entries = Object.entries(texturePaths);
     const total = entries.length;
     let loaded = 0;
+
     for (const [key, path] of entries) {
-      const texture = await Assets.load(path);
-      loadedTextures[key] = texture;
-      loaded++;
-      setBenzoLoadProgress(loaded / total);
+      try {
+        const texture = await Assets.load(path);
+        loadedTextures[key] = texture;
+        loaded++;
+        setBenzoLoadProgress(loaded / total);
+      } catch (e) {
+        console.error(`Error loading ${key}:`, e);
+      }
     }
-    console.log("Benzo - Provider - All textures loaded complete");
-    updateParentSize();
-    setTextures(loadedTextures);
-    setAllTexturesLoaded(true);
+
+    if (loaded === total) {
+      console.log("Benzo - Provider - All textures loaded complete");
+      updateParentSize();
+      setTextures(loadedTextures);
+      setAllTexturesLoaded(true);
+    } else {
+      console.warn(`Only ${loaded} out of ${total} textures loaded.`);
+    }
   }, [setBenzoLoadProgress, texturePaths, updateParentSize]);
 
   useEffect(() => {
