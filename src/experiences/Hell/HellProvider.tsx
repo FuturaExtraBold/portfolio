@@ -107,7 +107,7 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
 
   return (
     <HellContext.Provider value={contextValues}>
-      {allTexturesLoaded && <Hell />}
+      <Hell />
     </HellContext.Provider>
   );
 };

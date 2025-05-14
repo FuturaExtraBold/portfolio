@@ -1,4 +1,5 @@
-import { type JSX } from "react";
+import { useEffect, type JSX } from "react";
+import { gsap } from "gsap";
 import { useHell } from "../HellProvider";
 import Background from "./Background";
 
@@ -10,6 +11,30 @@ export default function Heat(): JSX.Element | null {
     parentSize,
     textures,
   } = useHell();
+
+  useEffect(() => {
+    if (!allTexturesLoaded || !displacementMapRef.current) return;
+    console.log("Hell - Heat - animateDisplacementMap");
+
+    requestAnimationFrame(() => {
+      const dmr = displacementMapRef.current;
+
+      if (!dmr) return;
+
+      gsap.to(dmr, {
+        ease: "none",
+        duration: 3,
+        repeat: -1,
+        x: -512,
+      });
+      gsap.to(dmr, {
+        ease: "none",
+        duration: 8,
+        repeat: -1,
+        y: -512,
+      });
+    });
+  }, [allTexturesLoaded, displacementMapRef]);
 
   if (!allTexturesLoaded || !textures.displacementMap) return null;
 
@@ -23,11 +48,6 @@ export default function Heat(): JSX.Element | null {
       >
         <Background />
       </pixiContainer>
-
-      {/* This is the displacement sprite, which is used to create the displacement effect
-      It is positioned in the same place as the background sprite
-      and has the same size as the background sprite
-      The displacement sprite is animated to create a wave effect */}
       <pixiTilingSprite
         alpha={0}
         ref={displacementMapRef}

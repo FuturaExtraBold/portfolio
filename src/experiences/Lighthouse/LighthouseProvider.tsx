@@ -130,7 +130,7 @@ export const LighthouseProvider = ({
 
   return (
     <LighthouseContext.Provider value={contextValues}>
-      {allTexturesLoaded && <Lighthouse />}
+      <Lighthouse />
     </LighthouseContext.Provider>
   );
 };
