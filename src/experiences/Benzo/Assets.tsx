@@ -18,6 +18,7 @@ export const Assets = () => {
       handRight: `${basePath}/hand_right.webp`,
       hypnosis: `${basePath}/hypnosis.jpg`,
       smokeParticle: `${basePath}/smoke.webp`,
+      title: `assets/images/experiences/benzo/desktop/title_spritesheet.webp`,
     };
   }, [basePath]);
 

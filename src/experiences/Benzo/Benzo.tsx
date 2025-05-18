@@ -3,8 +3,7 @@ import {
   BenzoBody,
   BenzoGlow,
   Halo,
-  // BenzoTitle,
-  // CanvasOverlay,
+  BenzoTitle,
   CrystalBall,
   Glasses,
   HandLeft,
@@ -18,7 +17,6 @@ export default function Benzo(): JSX.Element {
     <pixiContainer>
       <Hypnosis />
       <Smoke />
-      {/* <CanvasOverlay /> */}
       <BenzoBody />
       <BenzoGlow />
       <Glasses />
@@ -26,7 +24,7 @@ export default function Benzo(): JSX.Element {
       <HandLeft />
       <HandRight />
       <Halo />
-      {/* <BenzoTitle /> */}
+      <BenzoTitle />
     </pixiContainer>
   );
 }
