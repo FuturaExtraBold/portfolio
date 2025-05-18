@@ -10,10 +10,12 @@ export const Assets = () => {
 
   const texturePaths = useMemo(() => {
     return {
-      crystalBall: `${basePath}/crystal_ball.png`,
+      crystalBall: `${basePath}/crystal_ball.webp`,
       benzoBody: `${basePath}/benzo.webp`,
       glasses: `${basePath}/glasses.png`,
       halo: `${basePath}/halo.png`,
+      handLeft: `${basePath}/hand_left.webp`,
+      handRight: `${basePath}/hand_right.webp`,
     };
   }, [basePath]);
 

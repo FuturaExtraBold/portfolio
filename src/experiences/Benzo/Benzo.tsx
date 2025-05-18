@@ -7,8 +7,8 @@ import {
   // CanvasOverlay,
   CrystalBall,
   Glasses,
-  // HandLeft,
-  // HandRight,
+  HandLeft,
+  HandRight,
   // Hypnosis,
   // Smoke,
 } from "./components";
@@ -22,10 +22,10 @@ export default function Benzo(): JSX.Element {
       <BenzoBody />
       <BenzoGlow />
       <Glasses />
-      <Halo />
       <CrystalBall />
-      {/* <HandLeft /> */}
-      {/* <HandRight /> */}
+      <HandLeft />
+      <HandRight />
+      <Halo />
       {/* <BenzoTitle /> */}
     </pixiContainer>
   );
