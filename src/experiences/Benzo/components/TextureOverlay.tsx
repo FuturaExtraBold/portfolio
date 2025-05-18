@@ -1,17 +1,17 @@
 import { type JSX } from "react";
 import { useBenzo } from "../BenzoProvider";
 
-export default function CanvasOverlay(): JSX.Element | null {
+export default function TextureOverlay(): JSX.Element | null {
   const { allTexturesLoaded, parentSize, textures } = useBenzo();
 
-  if (!allTexturesLoaded || !textures.canvasOverlay) return null;
+  if (!allTexturesLoaded || !textures.textureOverlay) return null;
 
   return (
     <pixiSprite
       alpha={0.7}
       blendMode="multiply"
       height={parentSize.height}
-      texture={textures.canvasOverlay}
+      texture={textures.textureOverlay}
       tint={0xffffff}
       width={parentSize.width}
     />

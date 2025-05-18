@@ -3,28 +3,28 @@ import { gsap } from "gsap";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 
-export default function BenzoGlow(): JSX.Element | null {
+export default function Glasses(): JSX.Element | null {
   const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();
-  const benzoGlowRef = useRef<Sprite | null>(null);
+
+  const glassesRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
-    if (!benzoGlowRef.current || !allTexturesLoaded) return;
-    gsap.to(benzoGlowRef.current, {
+    if (!glassesRef.current || !allTexturesLoaded) return;
+    gsap.to(glassesRef.current, {
       pixi: { tint: glowProps.color },
       duration: glowProps.duration,
     });
-  }, [allTexturesLoaded, benzoGlowRef, glowProps]);
+  }, [allTexturesLoaded, glowProps, glassesRef]);
 
-  if (!allTexturesLoaded || !textures.benzoBody) return null;
+  if (!allTexturesLoaded || !textures.glasses) return null;
 
   return (
     <pixiSprite
-      alpha={0.6}
-      height={parentSize.height}
-      ref={benzoGlowRef}
-      texture={textures.benzoBody}
+      ref={glassesRef}
+      texture={textures.glasses}
       tint={0xffffff}
       width={parentSize.width}
+      height={parentSize.height}
     />
   );
 }

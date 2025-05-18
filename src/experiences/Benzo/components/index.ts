@@ -1,10 +1,10 @@
 export { default as BenzoBody } from "./BenzoBody";
-export { default as BenzoGlow } from "./BenzoGlow";
+export { default as Halo } from "./Halo";
 export { default as BenzoTitle } from "./BenzoTitle";
-export { default as CanvasOverlay } from "./CanvasOverlay";
+export { default as TextureOverlay } from "./TextureOverlay";
 export { default as CrystalBall } from "./CrystalBall";
-export { default as GlowBenzo } from "./GlowBenzo";
-export { default as GlowGlasses } from "./GlowGlasses";
+export { default as BenzoGlow } from "./BenzoGlow";
+export { default as Glasses } from "./Glasses";
 export { default as HandLeft } from "./HandLeft";
 export { default as HandRight } from "./HandRight";
 export { default as Hypnosis } from "./Hypnosis";

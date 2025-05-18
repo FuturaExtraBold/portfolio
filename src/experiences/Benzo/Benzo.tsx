@@ -2,31 +2,31 @@ import { type JSX } from "react";
 import {
   BenzoBody,
   BenzoGlow,
-  BenzoTitle,
-  CanvasOverlay,
+  Halo,
+  // BenzoTitle,
+  // CanvasOverlay,
   CrystalBall,
-  GlowBenzo,
-  GlowGlasses,
-  HandLeft,
-  HandRight,
-  Hypnosis,
-  Smoke,
+  Glasses,
+  // HandLeft,
+  // HandRight,
+  // Hypnosis,
+  // Smoke,
 } from "./components";
 
 export default function Benzo(): JSX.Element {
   return (
     <pixiContainer>
-      <Hypnosis />
-      <Smoke />
-      <CanvasOverlay />
+      {/* <Hypnosis /> */}
+      {/* <Smoke /> */}
+      {/* <CanvasOverlay /> */}
       <BenzoBody />
-      <GlowBenzo />
-      <GlowGlasses />
-      <CrystalBall />
-      <HandLeft />
-      <HandRight />
       <BenzoGlow />
-      <BenzoTitle />
+      <Glasses />
+      <Halo />
+      <CrystalBall />
+      {/* <HandLeft /> */}
+      {/* <HandRight /> */}
+      {/* <BenzoTitle /> */}
     </pixiContainer>
   );
 }

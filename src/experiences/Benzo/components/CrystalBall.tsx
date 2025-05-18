@@ -1,16 +1,10 @@
 import { type JSX, useEffect, useRef } from "react";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import {
-  animateRotation,
-  animateTint,
-  setPosition,
-  setScale,
-} from "utils/animation";
+import { animateRotation, animateTint, setPosition } from "utils/animation";
 
 export default function CrystalBall(): JSX.Element | null {
-  const { allTexturesLoaded, glowProps, parentSize, scaleRef, textures } =
-    useBenzo();
+  const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();
   const crystalBallRef = useRef<Sprite | null>(null);
 
   const getRotationParams = () => {
@@ -49,28 +43,16 @@ export default function CrystalBall(): JSX.Element | null {
     });
   }, [allTexturesLoaded, crystalBallRef, parentSize]);
 
-  useEffect(() => {
-    if (!crystalBallRef.current || !allTexturesLoaded) return;
-    setScale({
-      ref: crystalBallRef,
-      parentSize: parentSize,
-      minScale: 0.22,
-      maxScale: 0.5,
-      scaleRef,
-    });
-  }, [allTexturesLoaded, crystalBallRef, parentSize, scaleRef]);
-
   if (!allTexturesLoaded || !textures.crystalBall) return null;
 
   return (
     <pixiSprite
-      alpha={0.96}
       anchor={0.5}
-      height={250}
+      height={0.3 * parentSize.width}
       ref={crystalBallRef}
       texture={textures.crystalBall}
       tint={0xffffff}
-      width={250}
+      width={0.3 * parentSize.width}
     />
   );
 }

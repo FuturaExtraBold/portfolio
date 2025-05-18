@@ -12,19 +12,20 @@ import {
 import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
 import { useApp } from "providers/AppProvider";
+import { Assets as AssetPaths } from "./Assets";
 
-import {
-  benzoBody,
-  benzoGlow,
-  canvasOverlay,
-  crystalBall,
-  glowGlasses,
-  handLeft,
-  handRight,
-  hypnosis,
-  smokeParticle,
-  title,
-} from "./images";
+// import {
+//   benzoBody,
+//   benzoGlow,
+//   canvasOverlay,
+//   crystalBall,
+//   glowGlasses,
+//   handLeft,
+//   handRight,
+//   hypnosis,
+//   smokeParticle,
+//   title,
+// } from "./images";
 
 export interface UseBenzoProps {
   allTexturesLoaded: boolean;
@@ -78,20 +79,22 @@ export const BenzoProvider = ({
     []
   );
 
-  const texturePaths = useMemo(() => {
-    return {
-      benzoBody,
-      benzoGlow,
-      canvasOverlay,
-      crystalBall,
-      glowGlasses,
-      handLeft,
-      handRight,
-      hypnosis,
-      smokeParticle,
-      title,
-    };
-  }, []);
+  // const texturePaths = useMemo(() => {
+  //   return {
+  //     benzoBody,
+  //     benzoGlow,
+  //     canvasOverlay,
+  //     crystalBall,
+  //     glowGlasses,
+  //     handLeft,
+  //     handRight,
+  //     hypnosis,
+  //     smokeParticle,
+  //     title,
+  //   };
+  // }, []);
+
+  const texturePaths = AssetPaths();
 
   const updateParentSize = useCallback(() => {
     if (parentRef.current) {

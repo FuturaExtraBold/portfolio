@@ -15,11 +15,13 @@ import {
   useWindowSizeWithBreakpoints,
   type WindowSize,
 } from "hooks/useWindowSizeWithBreakpoints";
+import { useAssetSelector } from "hooks/useAssetSelector";
 import "../assets/stylesheets/all.scss";
 import App from "../App";
 
 const AppContext = createContext<{
   activeCaseStudy: string | null;
+  assetSize: string;
   breakpoints: Record<string, number>;
   benzoLoadProgress: number;
   isModalActive: boolean;
@@ -32,6 +34,7 @@ const AppContext = createContext<{
   windowSize: WindowSize;
 }>({
   activeCaseStudy: null,
+  assetSize: "desktop",
   benzoLoadProgress: 0,
   breakpoints: {},
   isModalActive: false,
@@ -57,6 +60,8 @@ export const AppProvider = ({
 
   const { windowSize, mediaClass, breakpoints } =
     useWindowSizeWithBreakpoints();
+
+  const assetSize = useAssetSelector();
 
   const updateCurrentSection = useCallback(() => {
     const appElement = document.querySelector("#benzo-app");
@@ -94,6 +99,7 @@ export const AppProvider = ({
   const contextValues = useMemo(
     () => ({
       activeCaseStudy,
+      assetSize,
       benzoLoadProgress,
       breakpoints,
       isModalActive,
@@ -107,6 +113,7 @@ export const AppProvider = ({
     }),
     [
       activeCaseStudy,
+      assetSize,
       benzoLoadProgress,
       breakpoints,
       isModalActive,
