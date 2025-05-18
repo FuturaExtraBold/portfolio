@@ -6,7 +6,7 @@ import {
   Footer,
   // Hell,
   Hero,
-  // Lighthouse,
+  Lighthouse,
   Resume,
 } from "features";
 import { ClientModal, PictureFrame } from "ui/index";
@@ -28,7 +28,7 @@ function App(): JSX.Element {
         <About />
         <Clients />
         <Resume />
-        {/* <Lighthouse /> */}
+        <Lighthouse />
         <CallToAction />
         {/* <Hell /> */}
       </main>

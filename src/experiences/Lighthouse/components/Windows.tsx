@@ -2,13 +2,13 @@ import { type JSX, useCallback, useEffect } from "react";
 import { gsap } from "gsap";
 import { useLighthouse } from "../LighthouseProvider";
 
-const WindowGlow = (): JSX.Element | null => {
-  const { allTexturesLoaded, parentSize, textures, windowGlowRef } =
+const Windows = (): JSX.Element | null => {
+  const { allTexturesLoaded, parentSize, textures, windowsRef } =
     useLighthouse();
 
   const flicker = useCallback(() => {
-    if (!allTexturesLoaded || !windowGlowRef.current) return;
-    gsap.to(windowGlowRef.current, {
+    if (!allTexturesLoaded || !windowsRef.current) return;
+    gsap.to(windowsRef.current, {
       alpha: Math.random() * 0.5 + 0.5,
       duration: Math.random() * 0.1 + 0.2,
       repeat: 0,
@@ -16,25 +16,25 @@ const WindowGlow = (): JSX.Element | null => {
       ease: "power1.inOut",
       onComplete: () => flicker(),
     });
-  }, [allTexturesLoaded, windowGlowRef]);
+  }, [allTexturesLoaded, windowsRef]);
 
   useEffect(() => {
-    if (windowGlowRef.current && allTexturesLoaded) {
+    if (windowsRef.current && allTexturesLoaded) {
       flicker();
     }
-  }, [allTexturesLoaded, flicker, windowGlowRef]);
+  }, [allTexturesLoaded, flicker, windowsRef]);
 
-  if (!allTexturesLoaded || !textures.windowGlow) return null;
+  if (!allTexturesLoaded || !textures.windows) return null;
 
   return (
     <pixiSprite
-      ref={windowGlowRef}
+      ref={windowsRef}
       alpha={1}
       height={parentSize.height}
-      texture={textures.windowGlow}
+      texture={textures.windows}
       width={parentSize.width}
     />
   );
 };
 
-export default WindowGlow;
+export default Windows;

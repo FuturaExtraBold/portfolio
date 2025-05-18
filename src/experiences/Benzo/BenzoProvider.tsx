@@ -14,19 +14,6 @@ import Benzo from "./Benzo";
 import { useApp } from "providers/AppProvider";
 import { Assets as AssetPaths } from "./Assets";
 
-// import {
-//   benzoBody,
-//   benzoGlow,
-//   canvasOverlay,
-//   crystalBall,
-//   glowGlasses,
-//   handLeft,
-//   handRight,
-//   hypnosis,
-//   smokeParticle,
-//   title,
-// } from "./images";
-
 export interface UseBenzoProps {
   allTexturesLoaded: boolean;
   glowProps: { color: number; duration: number };
@@ -78,21 +65,6 @@ export const BenzoProvider = ({
     () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
     []
   );
-
-  // const texturePaths = useMemo(() => {
-  //   return {
-  //     benzoBody,
-  //     benzoGlow,
-  //     canvasOverlay,
-  //     crystalBall,
-  //     glowGlasses,
-  //     handLeft,
-  //     handRight,
-  //     hypnosis,
-  //     smokeParticle,
-  //     title,
-  //   };
-  // }, []);
 
   const texturePaths = AssetPaths();
 

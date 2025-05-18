@@ -10,9 +10,9 @@ import {
   useState,
 } from "react";
 import { Assets, Graphics, Sprite } from "pixi.js";
+import { Assets as AssetPaths } from "./Assets";
 
 import Lighthouse from "./Lighthouse";
-import { beam, lighthouseBackground, windowGlow } from "./images";
 
 export interface UseLighthouseProps {
   allTexturesLoaded: boolean;
@@ -25,7 +25,7 @@ export interface UseLighthouseProps {
   parentSizeRef: RefObject<{ width: number; height: number }>;
   scaleRef: RefObject<number>;
   textures: Record<string, any>;
-  windowGlowRef: RefObject<Sprite | null>;
+  windowsRef: RefObject<Sprite | null>;
 }
 
 const LighthouseContext = createContext<UseLighthouseProps | undefined>(
@@ -44,7 +44,7 @@ export const LighthouseProvider = ({
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
   const overlayRef = useRef<any>(null);
-  const windowGlowRef = useRef<any>(null);
+  const windowsRef = useRef<any>(null);
   const beamLeftRef = useRef<any>(null);
   const beamRightRef = useRef<any>(null);
 
@@ -52,13 +52,7 @@ export const LighthouseProvider = ({
   const [textures, setTextures] = useState<Record<string, any>>({});
   const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
 
-  const texturePaths = useMemo<Record<string, string>>(() => {
-    return {
-      lighthouseBackground: lighthouseBackground,
-      windowGlow: windowGlow,
-      beam: beam,
-    };
-  }, []);
+  const texturePaths = AssetPaths();
 
   const loadTextures = useCallback(async () => {
     console.log("Lighthouse - Provider - loadTextures");
@@ -123,7 +117,7 @@ export const LighthouseProvider = ({
       parentSizeRef,
       scaleRef,
       textures,
-      windowGlowRef,
+      windowsRef,
     }),
     [allTexturesLoaded, parentRef, parentSize, scaleRef, textures]
   );

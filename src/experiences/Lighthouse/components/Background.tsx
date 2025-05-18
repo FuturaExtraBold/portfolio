@@ -4,13 +4,13 @@ import { useLighthouse } from "../LighthouseProvider";
 const Background = (): JSX.Element | null => {
   const { allTexturesLoaded, parentSize, textures } = useLighthouse();
 
-  if (!allTexturesLoaded || !textures.lighthouseBackground) return null;
+  if (!allTexturesLoaded || !textures.lighthouse) return null;
 
   return (
     <pixiSprite
       alpha={1}
       height={parentSize.height}
-      texture={textures.lighthouseBackground}
+      texture={textures.lighthouse}
       width={parentSize.width}
     />
   );
