@@ -9,15 +9,15 @@ import {
   Glasses,
   HandLeft,
   HandRight,
-  // Hypnosis,
-  // Smoke,
+  Hypnosis,
+  Smoke,
 } from "./components";
 
 export default function Benzo(): JSX.Element {
   return (
     <pixiContainer>
-      {/* <Hypnosis /> */}
-      {/* <Smoke /> */}
+      <Hypnosis />
+      <Smoke />
       {/* <CanvasOverlay /> */}
       <BenzoBody />
       <BenzoGlow />

@@ -16,6 +16,8 @@ export const Assets = () => {
       halo: `${basePath}/halo.png`,
       handLeft: `${basePath}/hand_left.webp`,
       handRight: `${basePath}/hand_right.webp`,
+      hypnosis: `${basePath}/hypnosis.jpg`,
+      smokeParticle: `${basePath}/smoke.webp`,
     };
   }, [basePath]);
 

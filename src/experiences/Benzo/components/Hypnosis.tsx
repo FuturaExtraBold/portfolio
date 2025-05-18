@@ -4,12 +4,12 @@ import { useBenzo } from "../BenzoProvider";
 import { animateRotation } from "utils/animation";
 
 export default function Hypnosis(): JSX.Element | null {
-  const { allTexturesLoaded, parentSize, scaleRef, textures } = useBenzo();
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
   const hypnosisRef = useRef<Sprite | null>(null);
 
   const getRotationParams = () => {
     const duration = Math.random() * 4 + 10;
-    const origin = Math.random() * 0.03 + 0.47;
+    const origin = 0.5;
     return { duration, origin };
   };
 
@@ -29,11 +29,8 @@ export default function Hypnosis(): JSX.Element | null {
   return (
     <pixiSprite
       anchor={0.5}
-      height={1800}
       ref={hypnosisRef}
-      scale={scaleRef.current ?? 1}
       texture={textures.hypnosis}
-      width={1800}
       x={parentSize.width / 2}
       y={parentSize.height / 2}
     />

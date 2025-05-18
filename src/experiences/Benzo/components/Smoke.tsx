@@ -29,7 +29,7 @@ export default function Smoke(): JSX.Element | null {
 
         particles.push(
           <pixiSprite
-            alpha={0.4}
+            alpha={0.8}
             anchor={0.5}
             eventMode="static"
             key={`particle-${i}`}
