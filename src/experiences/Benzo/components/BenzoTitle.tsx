@@ -13,6 +13,7 @@ export default function BenzoTitle(): JSX.Element | null {
   const [parsedPatternSpritesheet, setParsedPatternSpritesheet] =
     useState<Spritesheet | null>(null);
   const titleRef = useRef<Sprite | null>(null);
+  const greatRef = useRef<Sprite | null>(null);
   const letterRefs = useRef<Record<string, Sprite | null>>({});
   const patternRef = useRef<Sprite | null>(null);
   const patternLetterRefs = useRef<Record<string, Sprite | null>>({});
@@ -97,7 +98,8 @@ export default function BenzoTitle(): JSX.Element | null {
   }, [patternSpritesheet]);
 
   useEffect(() => {
-    if (!parsedSpritesheet || !parsedPatternSpritesheet) return;
+    if (!parsedSpritesheet || !parsedPatternSpritesheet || !greatRef.current)
+      return;
 
     requestAnimationFrame(() => {
       const letters = ["B", "E", "N", "Z", "O"];
@@ -132,12 +134,26 @@ export default function BenzoTitle(): JSX.Element | null {
             }
           );
         }
+
+        gsap.fromTo(
+          greatRef.current,
+          {
+            pixi: { alpha: 0 },
+            y: 260 * (scaleRef.current * 2),
+          },
+          {
+            pixi: { alpha: 1 },
+            y: 225 * (scaleRef.current * 2) + 20,
+            duration: 0.2,
+            delay: 3,
+          }
+        );
       });
     });
-  }, [parsedPatternSpritesheet, parsedSpritesheet]);
+  }, [greatRef, parsedPatternSpritesheet, parsedSpritesheet, scaleRef]);
 
   useEffect(() => {
-    if (!titleRef.current || !patternRef.current) return;
+    if (!titleRef.current || !patternRef.current || !greatRef.current) return;
     setScale({
       ref: titleRef,
       parentSize: parentSize,
@@ -153,10 +169,18 @@ export default function BenzoTitle(): JSX.Element | null {
       maxScale: 0.5,
       scaleRef,
     });
-  }, [patternRef, titleRef, parentSize, scaleRef]);
+
+    setScale({
+      ref: greatRef,
+      parentSize: parentSize,
+      minScale: 0.225,
+      maxScale: 0.5,
+      scaleRef,
+    });
+  }, [greatRef, patternRef, titleRef, parentSize, scaleRef]);
 
   useEffect(() => {
-    if (!titleRef.current || !patternRef.current) return;
+    if (!greatRef.current || !titleRef.current || !patternRef.current) return;
 
     gsap.set(titleRef.current, {
       x: parentSize.width / 2 - titleRef.current.width / 2,
@@ -167,7 +191,12 @@ export default function BenzoTitle(): JSX.Element | null {
       x: parentSize.width / 2 - titleRef.current.width / 2,
       y: 20,
     });
-  }, [patternRef, titleRef, parentSize]);
+
+    gsap.set(greatRef.current, {
+      x: parentSize.width / 2,
+      y: 225 * (scaleRef.current * 2) + 20,
+    });
+  }, [greatRef, patternRef, titleRef, scaleRef, parentSize]);
 
   if (
     !allTexturesLoaded ||
@@ -181,6 +210,12 @@ export default function BenzoTitle(): JSX.Element | null {
 
   return (
     <pixiContainer>
+      <pixiSprite
+        alpha={0}
+        anchor={0.5}
+        ref={greatRef}
+        texture={textures.titleGreat}
+      />
       <pixiContainer anchor={0.5} ref={titleRef}>
         {renderedLetters}
       </pixiContainer>

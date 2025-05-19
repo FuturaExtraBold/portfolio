@@ -20,6 +20,7 @@ export const Assets = () => {
       smokeParticle: `${basePath}/smoke.webp`,
       title: `assets/images/experiences/benzo/desktop/title_spritesheet.webp`,
       titlePattern: `assets/images/experiences/benzo/desktop/title_pattern_spritesheet.webp`,
+      titleGreat: `assets/images/experiences/benzo/desktop/great.webp`,
     };
   }, [basePath]);
 
