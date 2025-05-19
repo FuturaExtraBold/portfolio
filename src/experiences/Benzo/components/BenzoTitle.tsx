@@ -10,7 +10,7 @@ export default function BenzoTitle(): JSX.Element | null {
 
   const [parsedSpritesheet, setParsedSpritesheet] =
     useState<Spritesheet | null>(null);
-  const [centerX, setCenterX] = useState(0);
+  // const [centerX, setCenterX] = useState(0);
   const titleRef = useRef<Sprite | null>(null);
   const letterRefs = useRef<Record<string, Sprite | null>>({});
   const spacing = 10;
@@ -23,7 +23,6 @@ export default function BenzoTitle(): JSX.Element | null {
   useEffect(() => {
     if (!spritesheet) return;
     spritesheet.parse().then(() => {
-      console.log("spritesheet", spritesheet);
       setParsedSpritesheet(spritesheet);
     });
   }, [spritesheet]);
@@ -50,12 +49,6 @@ export default function BenzoTitle(): JSX.Element | null {
       });
     });
   }, [parsedSpritesheet]);
-
-  useEffect(() => {
-    if (!titleRef.current || !parsedSpritesheet) return;
-    const { width } = titleRef.current.getLocalBounds();
-    setCenterX(parentSize.width / 2 - (width / 2) * scaleRef.current);
-  }, [parentSize, parsedSpritesheet, scaleRef, titleRef]);
 
   const renderedLetters = useMemo(() => {
     if (!parsedSpritesheet) return null;
@@ -89,7 +82,7 @@ export default function BenzoTitle(): JSX.Element | null {
     setScale({
       ref: titleRef,
       parentSize: parentSize,
-      minScale: 0.25,
+      minScale: 0.225,
       maxScale: 0.5,
       scaleRef,
     });
@@ -98,8 +91,13 @@ export default function BenzoTitle(): JSX.Element | null {
   if (!allTexturesLoaded || !textures.title || !textures.title.source)
     return null;
 
+  const titleRefCenter = titleRef.current
+    ? parentSize.width / 2 -
+      (titleRef.current.getLocalBounds().width / 2) * scaleRef.current
+    : 0;
+
   return (
-    <pixiContainer anchor={0.5} ref={titleRef} x={centerX} y={20}>
+    <pixiContainer anchor={0.5} ref={titleRef} x={titleRefCenter} y={20}>
       {renderedLetters}
     </pixiContainer>
   );

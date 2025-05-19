@@ -8,7 +8,7 @@ import imageShip from "./ship.webp";
 import "./styles.scss";
 
 export default function About(): JSX.Element {
-  const { breakpoints } = useApp();
+  const { breakpoints, assetSize } = useApp();
   const refShip = useRef<HTMLImageElement | null>(null);
 
   const fluidAmplitudeX = fluidProperty({
@@ -26,7 +26,7 @@ export default function About(): JSX.Element {
   });
 
   useEffect(() => {
-    if (refShip.current) {
+    if (refShip.current && assetSize !== "mobile") {
       animateFloat({
         amplitudeX: fluidAmplitudeX,
         amplitudeY: fluidAmplitudeY,
@@ -35,7 +35,7 @@ export default function About(): JSX.Element {
         tickTime: 0.0075,
       });
     }
-  }, [breakpoints, fluidAmplitudeX, fluidAmplitudeY, refShip]);
+  }, [breakpoints, fluidAmplitudeX, fluidAmplitudeY, assetSize, refShip]);
 
   return (
     <Section className="about">
@@ -45,12 +45,14 @@ export default function About(): JSX.Element {
           <OverlayFade opacity={0.8} />
         </Background>
         <Content className="about__content">
-          <img
-            alt="Ship"
-            className="about__image"
-            ref={refShip}
-            src={imageShip}
-          />
+          {assetSize !== "mobile" && (
+            <img
+              alt="Ship"
+              className="about__image"
+              ref={refShip}
+              src={imageShip}
+            />
+          )}
           <div className="about__text">
             <h1 className="heading--2 about__title">
               Marvel at Feats of Spectacular Ingenuity
