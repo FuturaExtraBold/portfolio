@@ -19,6 +19,7 @@ export const Assets = () => {
       hypnosis: `${basePath}/hypnosis.jpg`,
       smokeParticle: `${basePath}/smoke.webp`,
       title: `assets/images/experiences/benzo/desktop/title_spritesheet.webp`,
+      titlePattern: `assets/images/experiences/benzo/desktop/title_pattern_spritesheet.webp`,
     };
   }, [basePath]);
 
