@@ -4,7 +4,7 @@ import {
   CallToAction,
   Clients,
   Footer,
-  // Hell,
+  Hell,
   Hero,
   Lighthouse,
   Resume,
@@ -30,7 +30,7 @@ function App(): JSX.Element {
         <Resume />
         <Lighthouse />
         <CallToAction />
-        {/* <Hell /> */}
+        <Hell />
       </main>
       <Footer />
       <ClientModal />

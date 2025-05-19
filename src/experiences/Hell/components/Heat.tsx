@@ -23,13 +23,13 @@ export default function Heat(): JSX.Element | null {
 
       gsap.to(dmr, {
         ease: "none",
-        duration: 3,
+        duration: 6,
         repeat: -1,
-        x: -512,
+        x: -521,
       });
       gsap.to(dmr, {
         ease: "none",
-        duration: 8,
+        duration: 3,
         repeat: -1,
         y: -512,
       });
@@ -52,6 +52,8 @@ export default function Heat(): JSX.Element | null {
         alpha={0}
         ref={displacementMapRef}
         texture={textures.displacementMap}
+        width={512}
+        height={512}
       />
     </>
   );

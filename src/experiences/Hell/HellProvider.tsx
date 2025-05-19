@@ -10,9 +10,8 @@ import {
   useState,
 } from "react";
 import { Assets, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
+import { Assets as AssetPaths } from "./Assets";
 import Hell from "./Hell";
-
-import { displacementMap, hellBackground } from "./images";
 
 export interface UseHellProps {
   allTexturesLoaded: boolean;
@@ -38,12 +37,7 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
   const [displacementFilter, setDisplacementFilter] =
     useState<DisplacementFilter | null>(null);
 
-  const texturePaths = useMemo(() => {
-    return {
-      displacementMap: displacementMap,
-      hellBackground: hellBackground,
-    };
-  }, []);
+  const texturePaths = AssetPaths();
 
   const updateParentSize = useCallback(() => {
     if (parentRef.current) {
