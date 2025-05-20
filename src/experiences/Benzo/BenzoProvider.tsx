@@ -13,6 +13,8 @@ import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
 import { useApp } from "providers/AppProvider";
 import { Assets as AssetPaths } from "./Assets";
+import { Spritesheet } from "pixi.js";
+import { titleAtlas } from "./data/titleAtlas";
 
 export interface UseBenzoProps {
   allTexturesLoaded: boolean;
@@ -24,6 +26,8 @@ export interface UseBenzoProps {
   scaleRef: RefObject<number>;
   smokeProps: { color: number; duration: number };
   textures: Record<string, any>;
+  renderedLetters: JSX.Element[] | null;
+  renderedPatternLetters: JSX.Element[] | null;
 }
 
 const BenzoContext = createContext<UseBenzoProps | undefined>(undefined);
@@ -50,6 +54,12 @@ export const BenzoProvider = ({
     duration: 0.5,
   });
   const [textures, setTextures] = useState<Record<string, any>>({});
+  const [renderedLetters, setRenderedLetters] = useState<JSX.Element[] | null>(
+    null
+  );
+  const [renderedPatternLetters, setRenderedPatternLetters] = useState<
+    JSX.Element[] | null
+  >(null);
 
   const glowColors = useMemo(
     () => [0x00ff00, 0xff0000, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff],
@@ -143,12 +153,75 @@ export const BenzoProvider = ({
   }, [allTexturesLoaded, updateParentSize]);
 
   useEffect(() => {
+    if (renderedLetters && renderedPatternLetters) {
+      console.log("this should trace once!");
+      updateParentSize();
+    }
+  }, [renderedLetters, renderedPatternLetters, updateParentSize]);
+
+  useEffect(() => {
     updateGlowProps();
   }, [updateGlowProps]);
 
   useEffect(() => {
     updateSmokeProps();
   }, [updateSmokeProps]);
+
+  useEffect(() => {
+    if (
+      !textures.title ||
+      !textures.title.source ||
+      !textures.titlePattern ||
+      !textures.titlePattern.source
+    )
+      return;
+
+    const spacing = 10;
+    const letters = ["B", "E", "N", "Z", "O"] as const;
+    const titleSpritesheet = new Spritesheet(textures.title.source, titleAtlas);
+    const patternSpritesheet = new Spritesheet(
+      textures.titlePattern.source,
+      titleAtlas
+    );
+
+    titleSpritesheet.parse().then(() => {
+      const rendered = letters.map((letter, index) => {
+        let x = titleAtlas.frames[letter].frame.x - spacing * index;
+        if (letter === "O") x -= 26;
+        const frameTexture = titleSpritesheet.textures[letter];
+        return (
+          <pixiSprite
+            alpha={0}
+            anchor={0}
+            key={letter}
+            texture={frameTexture}
+            x={x}
+            y={0}
+          />
+        );
+      });
+      setRenderedLetters(rendered);
+    });
+
+    patternSpritesheet.parse().then(() => {
+      const renderedPattern = letters.map((letter, index) => {
+        let x = titleAtlas.frames[letter].frame.x - spacing * index;
+        if (letter === "O") x -= 26;
+        const frameTexture = patternSpritesheet.textures[letter];
+        return (
+          <pixiSprite
+            alpha={0}
+            anchor={0}
+            key={letter}
+            texture={frameTexture}
+            x={x}
+            y={0}
+          />
+        );
+      });
+      setRenderedPatternLetters(renderedPattern);
+    });
+  }, [textures]);
 
   const contextValues = useMemo(
     () => ({
@@ -161,6 +234,8 @@ export const BenzoProvider = ({
       scaleRef,
       smokeProps,
       textures,
+      renderedLetters,
+      renderedPatternLetters,
     }),
     [
       allTexturesLoaded,
@@ -172,6 +247,8 @@ export const BenzoProvider = ({
       scaleRef,
       smokeProps,
       textures,
+      renderedLetters,
+      renderedPatternLetters,
     ]
   );
 
