@@ -183,12 +183,12 @@ export default function BenzoTitle(): JSX.Element | null {
     if (!greatRef.current || !titleRef.current || !patternRef.current) return;
 
     gsap.set(titleRef.current, {
-      x: parentSize.width / 2 - titleRef.current.width / 2,
+      x: parentSize.width / 2,
       y: 20,
     });
 
     gsap.set(patternRef.current, {
-      x: parentSize.width / 2 - titleRef.current.width / 2,
+      x: parentSize.width / 2,
       y: 20,
     });
 
@@ -203,7 +203,9 @@ export default function BenzoTitle(): JSX.Element | null {
     !textures.title ||
     !textures.title.source ||
     !textures.titlePattern ||
-    !textures.titlePattern.source
+    !textures.titlePattern.source ||
+    renderedLetters === null ||
+    renderedPatternLetters === null
   ) {
     return null;
   }
