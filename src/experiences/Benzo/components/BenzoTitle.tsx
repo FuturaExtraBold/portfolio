@@ -2,7 +2,7 @@ import { cloneElement, type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import { setPosition, setScale } from "utils/animation";
+import { setScale } from "utils/animation";
 
 export default function BenzoTitle(): JSX.Element | null {
   const {
@@ -103,7 +103,7 @@ export default function BenzoTitle(): JSX.Element | null {
       x: parentSize.width / 2 - patternRef.current.width / 2,
       y: 20,
     });
-  }, [patternRef, titleRef, parentSize]);
+  }, [patternRef, titleRef, parentSize, scaleRef]);
 
   if (!allTexturesLoaded || !renderedLetters || !renderedPatternLetters) {
     return null;
