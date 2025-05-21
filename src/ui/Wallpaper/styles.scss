@@ -1,7 +1,7 @@
 @use "assets/stylesheets/consumables" as *;
 
 .wallpaper {
-  background-image: url("./wallpaper_tile.jpg");
+  // NOTE - Image loaded in <head> as a background image
   background-position: top center;
   background-repeat: repeat;
 
