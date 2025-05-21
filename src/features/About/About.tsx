@@ -44,14 +44,13 @@ export default function About(): JSX.Element {
           <OverlayFade opacity={0.8} />
         </Background>
         <Content className="about__content">
-          {assetSize !== "mobile" && (
-            <img
-              alt="Ship"
-              className="about__image"
-              ref={refShip}
-              src="/assets/images/ui/ship.webp"
-            />
-          )}
+          <img
+            alt="Ship"
+            className="about__image"
+            ref={refShip}
+            src=""
+            srcSet="/assets/images/ui/transparent_pixel.webp 1535w, /assets/images/ui/ship@2x.webp 1536w"
+          />
           <div className="about__text">
             <h1 className="heading--2 about__title">
               Marvel at Feats of Spectacular Ingenuity
