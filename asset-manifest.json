@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.8a7c4669.css",
-    "main.js": "/static/js/main.83350b98.js",
+    "main.css": "/static/css/main.f860fbc0.css",
+    "main.js": "/static/js/main.c7e53be7.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
-    "static/media/ship.webp": "/static/media/ship.0dd0a3cc3715be787bf7.webp",
     "static/media/wallpaper_high.webp": "/static/media/wallpaper_high.0f6842f20c6103b0b7fe.webp",
     "static/media/board.webp": "/static/media/board.fc0f2f6e6744e8d36728.webp",
     "static/media/frame.webp": "/static/media/frame.139aa67b13c532d9506b.webp",
@@ -12,15 +11,16 @@
     "static/media/planchette.webp": "/static/media/planchette.fec339a159dab7ad5213.webp",
     "static/media/itc-benguiat-bold-condensed.woff": "/static/media/itc-benguiat-bold-condensed.baf8fa6557a5c706ca79.woff",
     "static/media/ouija_sun.svg": "/static/media/ouija_sun.8d0b2a5306318bd623e728a9cb10dd08.svg",
+    "static/media/wallpaper_tile.webp": "/static/media/wallpaper_tile.2ab0a6d576f3322f0e7c.webp",
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
-    "main.8a7c4669.css.map": "/static/css/main.8a7c4669.css.map",
-    "main.83350b98.js.map": "/static/js/main.83350b98.js.map",
+    "main.f860fbc0.css.map": "/static/css/main.f860fbc0.css.map",
+    "main.c7e53be7.js.map": "/static/js/main.c7e53be7.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a7c4669.css",
-    "static/js/main.83350b98.js"
+    "static/css/main.f860fbc0.css",
+    "static/js/main.c7e53be7.js"
   ]
 }
