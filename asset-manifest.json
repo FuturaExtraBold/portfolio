@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.a12c1d30.css",
+    "main.css": "/static/css/main.8a7c4669.css",
     "main.js": "/static/js/main.83350b98.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
@@ -10,18 +10,17 @@
     "static/media/frame.webp": "/static/media/frame.139aa67b13c532d9506b.webp",
     "static/media/dolly-roman.woff": "/static/media/dolly-roman.ca59a417df1da3c0e960.woff",
     "static/media/planchette.webp": "/static/media/planchette.fec339a159dab7ad5213.webp",
-    "static/media/wallpaper_tile.jpg": "/static/media/wallpaper_tile.2c304c0fb2d156ad76c0.jpg",
     "static/media/itc-benguiat-bold-condensed.woff": "/static/media/itc-benguiat-bold-condensed.baf8fa6557a5c706ca79.woff",
     "static/media/ouija_sun.svg": "/static/media/ouija_sun.8d0b2a5306318bd623e728a9cb10dd08.svg",
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
     "index.html": "/index.html",
-    "main.a12c1d30.css.map": "/static/css/main.a12c1d30.css.map",
+    "main.8a7c4669.css.map": "/static/css/main.8a7c4669.css.map",
     "main.83350b98.js.map": "/static/js/main.83350b98.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a12c1d30.css",
+    "static/css/main.8a7c4669.css",
     "static/js/main.83350b98.js"
   ]
 }
