@@ -1,10 +1,6 @@
 @use "assets/stylesheets/consumables" as *;
 
 .wallpaper {
-  background-image: url("../../../public/assets/images/ui/wallpaper_tile.webp");
-  background-position: top center;
-  background-repeat: repeat;
-
   @include fit();
   @include fluid-property(
     $breaks-md,
