@@ -1,7 +1,7 @@
 @use "assets/stylesheets/consumables" as *;
 
 .wallpaper {
-  // NOTE - Image loaded in <head> as a background image
+  background-image: url("../../../public/assets/images/ui/wallpaper_tile.webp");
   background-position: top center;
   background-repeat: repeat;
 

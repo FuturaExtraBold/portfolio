@@ -4,7 +4,6 @@ import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, Separator, Wallpaper } from "ui/index";
 import { animateFloat } from "utils/animation";
 import { fluidProperty } from "utils/layout";
-import imageShip from "./ship.webp";
 import "./styles.scss";
 
 export default function About(): JSX.Element {
@@ -50,7 +49,7 @@ export default function About(): JSX.Element {
               alt="Ship"
               className="about__image"
               ref={refShip}
-              src={imageShip}
+              src="/assets/images/ui/ship.webp"
             />
           )}
           <div className="about__text">

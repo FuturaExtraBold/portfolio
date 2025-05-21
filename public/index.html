@@ -66,11 +66,27 @@
     </script>
 
     <!-- Preload(s) for LCP -->
-    <style>
-      .wallpaper {
-        background-image: url("%PUBLIC_URL%/assets/images/ui/wallpaper_tile.jpg");
-      }
-    </style>
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/ui/wallpaper_tile.webp"
+      fetchpriority="high"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/ui/separator.webp"
+      fetchpriority="high"
+      type="image/webp"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/ui/ship.webp"
+      fetchpriority="high"
+      type="image/webp"
+    />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
