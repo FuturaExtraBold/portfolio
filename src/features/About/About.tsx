@@ -51,7 +51,6 @@ export default function About(): JSX.Element {
             src="/assets/images/ui/ship@2x.webp"
             width={496}
             height={544}
-            // srcSet="/assets/images/ui/transparent_pixel.webp 1535w, /assets/images/ui/ship@2x.webp 1536w"
           />
           <div className="about__text">
             <h1 className="heading--2 about__title">
