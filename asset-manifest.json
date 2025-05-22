@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d67a2b35.css",
-    "main.js": "/static/js/main.45b62740.js",
+    "main.css": "/static/css/main.5675e28a.css",
+    "main.js": "/static/js/main.f1ddf8bf.js",
     "static/js/250.643d84dd.chunk.js": "/static/js/250.643d84dd.chunk.js",
     "static/js/929.64d31208.chunk.js": "/static/js/929.64d31208.chunk.js",
     "static/media/wallpaper_high.webp": "/static/media/wallpaper_high.0f6842f20c6103b0b7fe.webp",
@@ -10,17 +10,17 @@
     "static/media/dolly-roman.woff": "/static/media/dolly-roman.ca59a417df1da3c0e960.woff",
     "static/media/planchette.webp": "/static/media/planchette.fec339a159dab7ad5213.webp",
     "static/media/itc-benguiat-bold-condensed.woff": "/static/media/itc-benguiat-bold-condensed.baf8fa6557a5c706ca79.woff",
+    "static/media/board@1x.webp": "/static/media/board@1x.0e85293afc94d149509b.webp",
     "static/media/ouija_sun.svg": "/static/media/ouija_sun.8d0b2a5306318bd623e728a9cb10dd08.svg",
     "static/media/ouija_moon.svg": "/static/media/ouija_moon.297b361f9abb291e49c3ac0b05d7a739.svg",
-    "static/media/board@1x.webp": "/static/media/board@1x.ef23016bf080805d97f7.webp",
     "index.html": "/index.html",
-    "main.d67a2b35.css.map": "/static/css/main.d67a2b35.css.map",
-    "main.45b62740.js.map": "/static/js/main.45b62740.js.map",
+    "main.5675e28a.css.map": "/static/css/main.5675e28a.css.map",
+    "main.f1ddf8bf.js.map": "/static/js/main.f1ddf8bf.js.map",
     "250.643d84dd.chunk.js.map": "/static/js/250.643d84dd.chunk.js.map",
     "929.64d31208.chunk.js.map": "/static/js/929.64d31208.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d67a2b35.css",
-    "static/js/main.45b62740.js"
+    "static/css/main.5675e28a.css",
+    "static/js/main.f1ddf8bf.js"
   ]
 }
