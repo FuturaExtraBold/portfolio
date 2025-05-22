@@ -58,6 +58,8 @@ export default function Planchette(): JSX.Element {
         alt="Planchette"
         className="planchette__image"
         src={imagePlanchette}
+        width={385}
+        height={534}
       />
     </div>
   );

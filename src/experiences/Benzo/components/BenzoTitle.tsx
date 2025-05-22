@@ -62,6 +62,7 @@ export default function BenzoTitle(): JSX.Element | null {
           greatRef.current,
           {
             pixi: { alpha: 0 },
+            x: -(8 * scaleRef.current),
             y: 20,
           },
           {
