@@ -48,8 +48,8 @@ export default function About(): JSX.Element {
             alt="Ship"
             className="about__image"
             ref={refShip}
-            src=""
-            srcSet="/assets/images/ui/transparent_pixel.webp 1535w, /assets/images/ui/ship@2x.webp 1536w"
+            src="/assets/images/ui/ship@2x.webp"
+            // srcSet="/assets/images/ui/transparent_pixel.webp 1535w, /assets/images/ui/ship@2x.webp 1536w"
           />
           <div className="about__text">
             <h1 className="heading--2 about__title">
