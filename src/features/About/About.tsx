@@ -1,6 +1,12 @@
 import { type JSX, useEffect, useRef } from "react";
 import { useApp } from "providers/AppProvider";
-import { Background, Container, Content, Section } from "layout";
+import {
+  Background,
+  Container,
+  Content,
+  ResponsiveImage,
+  Section,
+} from "layout";
 import { OverlayFade, Separator, Wallpaper } from "ui/index";
 import { animateFloat } from "utils/animation";
 import { fluidProperty } from "utils/layout";
@@ -8,7 +14,7 @@ import "./styles.scss";
 
 export default function About(): JSX.Element {
   const { breakpoints, assetSize } = useApp();
-  const refShip = useRef<HTMLImageElement | null>(null);
+  const refShip = useRef<HTMLImageElement>(null);
 
   const fluidAmplitudeX = fluidProperty({
     minWidth: breakpoints.md,
@@ -44,13 +50,14 @@ export default function About(): JSX.Element {
           <OverlayFade opacity={0.8} />
         </Background>
         <Content className="about__content">
-          <img
+          <ResponsiveImage
             alt="Ship"
             className="about__image"
+            fallbackSrc="/assets/images/ui/ship@2x.webp"
             ref={refShip}
-            src="/assets/images/ui/ship@2x.webp"
-            width={496}
-            height={544}
+            width={248}
+            height={272}
+            hideOnMobile={true}
           />
           <div className="about__text">
             <h1 className="heading--2 about__title">

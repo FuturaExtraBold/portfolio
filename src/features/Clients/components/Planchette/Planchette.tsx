@@ -2,6 +2,7 @@ import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import imagePlanchette from "./planchette.webp";
 import "./styles.scss";
+import { ResponsiveImage } from "layout/index";
 
 export default function Planchette(): JSX.Element {
   const refPlanchette = useRef<HTMLDivElement>(null);
@@ -54,12 +55,13 @@ export default function Planchette(): JSX.Element {
         pointerEvents: "none",
       }}
     >
-      <img
+      <ResponsiveImage
         alt="Planchette"
         className="planchette__image"
-        src={imagePlanchette}
+        fallbackSrc={imagePlanchette}
         width={385}
         height={534}
+        hideOnMobile={true}
       />
     </div>
   );
