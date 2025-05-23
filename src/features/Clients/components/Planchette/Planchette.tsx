@@ -1,8 +1,9 @@
 import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import imagePlanchette from "./planchette.webp";
-import "./styles.scss";
 import { ResponsiveImage } from "layout/index";
+import planchetteImage1x from "./planchette@1x.webp";
+import planchetteImage2x from "./planchette@2x.webp";
+import "./styles.scss";
 
 export default function Planchette(): JSX.Element {
   const refPlanchette = useRef<HTMLDivElement>(null);
@@ -58,10 +59,11 @@ export default function Planchette(): JSX.Element {
       <ResponsiveImage
         alt="Planchette"
         className="planchette__image"
-        fallbackSrc={imagePlanchette}
-        width={385}
+        fallbackSrc={planchetteImage1x}
         height={534}
-        hideOnMobile={true}
+        sizes="(max-width: 768px) 192px, 385px"
+        srcSet={`${planchetteImage1x} 1x, ${planchetteImage2x} 2x`}
+        width={385}
       />
     </div>
   );

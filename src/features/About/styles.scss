@@ -26,7 +26,7 @@
   transform: rotate(-10deg);
   will-change: filter;
 
-  @include fluid-property($breaks-md, $breaks-xl, 180px, 248px, width);
+  @include fluid-property($breaks-md, $breaks-xl, 180px, 248px, max-width);
 }
 
 .about__text {

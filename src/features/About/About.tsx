@@ -10,6 +10,8 @@ import {
 import { OverlayFade, Separator, Wallpaper } from "ui/index";
 import { animateFloat } from "utils/animation";
 import { fluidProperty } from "utils/layout";
+import shipImage1x from "./images/ship@1x.webp";
+import shipImage2x from "./images/ship@2x.webp";
 import "./styles.scss";
 
 export default function About(): JSX.Element {
@@ -53,11 +55,13 @@ export default function About(): JSX.Element {
           <ResponsiveImage
             alt="Ship"
             className="about__image"
-            fallbackSrc="/assets/images/ui/ship@2x.webp"
-            ref={refShip}
-            width={248}
-            height={272}
+            fallbackSrc={shipImage1x}
+            height={544}
             hideOnMobile={true}
+            ref={refShip}
+            sizes="(max-width: 768px) 248px, 496px"
+            srcSet={`${shipImage1x} 1x, ${shipImage2x} 2x`}
+            width={496}
           />
           <div className="about__text">
             <h1 className="heading--2 about__title">
