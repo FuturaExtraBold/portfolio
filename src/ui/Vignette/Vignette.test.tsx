@@ -2,12 +2,10 @@ import { render, screen } from "@testing-library/react";
 import Vignette from "./Vignette";
 import { useApp } from "providers/AppProvider";
 
-// Mock the `useApp` hook
 jest.mock("AppProvider", () => ({
   useApp: jest.fn(),
 }));
 
-// Mock the `fluidProperty` function
 jest.mock("utils/layout", () => ({
   fluidProperty: jest.fn(),
 }));
@@ -19,7 +17,7 @@ describe("Vignette Component", () => {
     });
 
     const mockFluidProperty = jest.requireMock("utils/layout").fluidProperty;
-    mockFluidProperty.mockReturnValue(0.3); // Mock opacity value
+    mockFluidProperty.mockReturnValue(0.3);
   });
 
   it("renders the Vignette component", () => {

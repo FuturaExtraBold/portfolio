@@ -3,7 +3,7 @@
 
 $mobile-separator-container-width: $breaks-md;
 $mobile-separator-container-center: calc(
-  math.div(#{$mobile-separator-container-width}, 2) * -1 + 50vw
+  (math.div($mobile-separator-container-width, 2) * -1) + 50vw
 );
 
 .separator {

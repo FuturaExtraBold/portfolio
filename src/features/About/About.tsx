@@ -9,7 +9,7 @@ import {
 } from "layout";
 import { OverlayFade, Separator, Wallpaper } from "ui/index";
 import { animateFloat } from "utils/animation";
-import { fluidProperty } from "utils/layout";
+import { useFluidProperty } from "hooks/useFluidProperty";
 import shipImage1x from "./images/ship@1x.webp";
 import shipImage2x from "./images/ship@2x.webp";
 import "./styles.scss";
@@ -18,14 +18,14 @@ export default function About(): JSX.Element {
   const { breakpoints, assetSize } = useApp();
   const refShip = useRef<HTMLImageElement>(null);
 
-  const fluidAmplitudeX = fluidProperty({
+  const fluidAmplitudeX = useFluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
     minValue: 5,
     maxValue: 10,
   });
 
-  const fluidAmplitudeY = fluidProperty({
+  const fluidAmplitudeY = useFluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
     minValue: 20,
@@ -58,6 +58,7 @@ export default function About(): JSX.Element {
             fallbackSrc={shipImage1x}
             height={544}
             hideOnMobile={true}
+            lazy={false}
             ref={refShip}
             sizes="(max-width: 768px) 248px, 496px"
             srcSet={`${shipImage1x} 1x, ${shipImage2x} 2x`}

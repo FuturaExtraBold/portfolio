@@ -7,7 +7,7 @@
   justify-content: center;
   border-radius: 50%;
   background-color: transparent;
-  // box-shadow: 0 0 3px 3px rgb(0 0 0 / 0.5), inset 0 0 3px 11px rgb(0 0 0 / 0.5);
+
   @include fluid-property($breaks-md, $breaks-xl, 50px, 100px, width);
   @include fluid-property($breaks-md, $breaks-xl, 50px, 100px, height);
 
@@ -22,5 +22,6 @@
   color: $text-light;
   font-weight: 700;
   text-shadow: 0 0 10px rgb(0 0 0 / 1);
+
   @include fluid-property($breaks-md, $breaks-xl, 16px, 48px, font-size);
 }

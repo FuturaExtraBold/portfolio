@@ -3,7 +3,7 @@
 
 $mobile-lighthouse-container-width: $breaks-lg;
 $mobile-lighthouse-container-center: calc(
-  math.div(#{$mobile-lighthouse-container-width}, 2) * -1 + 50vw
+  (math.div($mobile-lighthouse-container-width, 2) * -1) + 50vw
 );
 
 .lighthouse {

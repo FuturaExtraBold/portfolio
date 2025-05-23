@@ -1,7 +1,7 @@
 import { type JSX, useCallback, useEffect, useRef, useState } from "react";
 import { useApp } from "providers/AppProvider";
 import { gsap } from "gsap";
-import { fluidProperty } from "utils/layout";
+import { useFluidProperty } from "hooks/useFluidProperty";
 import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
 import "./styles.scss";
 
@@ -24,26 +24,26 @@ export default function Score({
   const valueRef = useRef<HTMLDivElement | null>(null);
   const animationRunOnceRef = useRef(false);
 
-  const circleSize = fluidProperty({
+  const circleSize = useFluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
     minValue: 50,
     maxValue: 100,
   });
-  const strokeWidth = fluidProperty({
+  const strokeWidth = useFluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
     minValue: 4,
     maxValue: 8,
   });
   const radius = circleSize / 2 - strokeWidth / 2;
-  const boxShadowSize = fluidProperty({
+  const boxShadowSize = useFluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
     minValue: 3,
     maxValue: 8,
   });
-  const insetBoxShadow = fluidProperty({
+  const insetBoxShadow = useFluidProperty({
     minWidth: breakpoints.md,
     maxWidth: breakpoints.xl,
     minValue: 7,
@@ -55,13 +55,11 @@ export default function Score({
     if (!circle) return;
     const circumference = circle.getTotalLength();
 
-    // Set initial stroke-dasharray and stroke-dashoffset
     gsap.set(circle, {
       strokeDasharray: circumference,
       strokeDashoffset: circumference,
     });
 
-    // Animate the stroke-dashoffset to 0
     gsap.to(circle, {
       strokeDashoffset: 0,
       duration: 2,
@@ -74,7 +72,6 @@ export default function Score({
   }, [circleDelay]);
 
   const animateValue = useCallback(() => {
-    // Animate the score value from 0 to 100
     gsap.to(
       {},
       {
@@ -91,7 +88,6 @@ export default function Score({
   }, [circleDelay]);
 
   const animateContainer = useCallback(() => {
-    // Animate the score container
     gsap.fromTo(
       containerRef.current,
       {

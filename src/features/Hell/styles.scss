@@ -3,7 +3,7 @@
 
 $mobile-hell-container-width: $breaks-md;
 $mobile-hell-container-center: calc(
-  math.div(#{$mobile-hell-container-width}, 2) * -1 + 50vw
+  (math.div($mobile-hell-container-width, 2) * -1) + 50vw
 );
 
 .hell {

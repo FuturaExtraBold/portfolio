@@ -3,7 +3,7 @@
 
 $mobile-hero-container-width: $breaks-md;
 $mobile-hero-container-center: calc(
-  math.div(#{$mobile-hero-container-width}, 2) * -1 + 50vw
+  (math.div($mobile-hero-container-width, 2) * -1) + 50vw
 );
 
 .hero {

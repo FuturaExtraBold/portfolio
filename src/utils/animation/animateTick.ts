@@ -20,7 +20,6 @@ export const animateTick = ({
 
   let time = 0;
 
-  // Set the initial position
   const baseX = () =>
     parentSizeRef.current!.width / 2 -
     parentSizeRef.current!.width / baseXAmount;
@@ -29,18 +28,14 @@ export const animateTick = ({
 
   const offScreenBottomOffset = (ref.current as any).height / 2 - offsetYAmount;
 
-  // Function to calculate the new position and rotation
   const tick = () => {
     time += tickTime;
-
     const resolvedAX = amplitudeX * scaleRef.current! * 2;
     const resolvedAY = amplitudeY * scaleRef.current! * 2;
-
-    // Oscillation effect
     const offsetX = Math.sin(time * 0.8) * resolvedAX;
     const offsetY = Math.cos(time * 0.6) * resolvedAY;
     const yPosition = baseY() + offsetY - offScreenBottomOffset;
-    const rotation = Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180); // convert degrees to radians
+    const rotation = Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180);
 
     gsap.set(ref.current, {
       pixi: {
@@ -51,7 +46,6 @@ export const animateTick = ({
     });
   };
 
-  // Use GSAP ticker for smooth animation
   gsap.ticker.add(tick);
 
   return () => {

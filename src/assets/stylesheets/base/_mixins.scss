@@ -1,6 +1,8 @@
 /* stylelint-disable media-query-no-invalid */
 /* stylelint-disable order/order */
+@use "sass:list";
 @use "sass:math";
+@use "sass:meta";
 
 @mixin fit {
   position: absolute;
@@ -24,12 +26,12 @@
   $u1: math.unit($min-vw);
   $u2: math.unit($max-vw);
 
-  @if type-of($min-value) == "list" and type-of($max-value) == "list" {
-    // Handle paired values (e.g., width and height)
-    $min-value-1: nth($min-value, 1);
-    $min-value-2: nth($min-value, 2);
-    $max-value-1: nth($max-value, 1);
-    $max-value-2: nth($max-value, 2);
+  @if meta.type-of($min-value) == "list" and meta.type-of($max-value) == "list"
+  {
+    $min-value-1: list.nth($min-value, 1);
+    $min-value-2: list.nth($min-value, 2);
+    $max-value-1: list.nth($max-value, 1);
+    $max-value-2: list.nth($max-value, 2);
 
     $u3: math.unit($min-value-1);
     $u4: math.unit($max-value-1);
@@ -58,7 +60,6 @@
     }
     /* stylelint-disable-next-line at-rule-empty-line-before */
   } @else {
-    // Default behavior for single values
     $u3: math.unit($min-value);
     $u4: math.unit($max-value);
 

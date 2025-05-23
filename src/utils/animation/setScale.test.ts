@@ -20,7 +20,6 @@ describe("setScale", () => {
     scaleRef = { current: 1 };
     parentSize = { width: 1024, height: 768 };
 
-    // Common scale options
     scaleOptions = {
       ref,
       parentSize,

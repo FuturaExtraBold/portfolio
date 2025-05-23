@@ -7,6 +7,7 @@ type ResponsiveImageProps = {
   fallbackSrc: string;
   height?: number;
   hideOnMobile?: boolean;
+  lazy?: boolean;
   ref?: React.RefObject<HTMLImageElement | null>;
   sizes?: string;
   srcSet?: string;
@@ -19,6 +20,7 @@ export default function ResponsiveImage({
   fallbackSrc,
   height,
   hideOnMobile = false,
+  lazy = true,
   ref,
   sizes,
   srcSet,
@@ -37,7 +39,7 @@ export default function ResponsiveImage({
       className={className}
       decoding="async"
       height={height}
-      loading="lazy"
+      loading={lazy ? "lazy" : "eager"}
       ref={ref}
       sizes={sizes}
       src={fallbackSrc}

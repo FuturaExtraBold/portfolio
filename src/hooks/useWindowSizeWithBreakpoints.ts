@@ -1,5 +1,4 @@
 import { useEffect, useState, useMemo, useCallback } from "react";
-import exportedBreakpoints from "assets/stylesheets/base/_breakpoints.scss";
 
 export interface WindowSize {
   width: number;
@@ -24,13 +23,17 @@ export const useWindowSizeWithBreakpoints =
     });
     const [mediaClass, setMediaClass] = useState<string>("desktop");
 
-    const breakpoints: Breakpoints = useMemo(() => {
-      const resolved: Breakpoints = {};
-      Object.keys(exportedBreakpoints).forEach((key) => {
-        resolved[key] = parseInt(exportedBreakpoints[key], 10);
-      });
-      return resolved;
-    }, []);
+    const breakpoints: Breakpoints = useMemo(
+      () => ({
+        xs: 375,
+        sm: 576,
+        md: 768,
+        lg: 992,
+        xl: 1200,
+        xxl: 1440,
+      }),
+      []
+    );
 
     const updateSize = useCallback((): void => {
       const width = window.innerWidth;
