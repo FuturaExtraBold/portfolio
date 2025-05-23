@@ -1,9 +1,28 @@
 import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
-import * as PIXI from "pixi.js";
+import {
+  Application,
+  Assets,
+  Container,
+  DisplacementFilter,
+  Graphics,
+  Sprite,
+  Spritesheet,
+  Texture,
+  TilingSprite,
+} from "pixi.js";
 
 gsap.registerPlugin(PixiPlugin);
-PixiPlugin.registerPIXI(PIXI);
-(window as any).PIXI = PIXI;
+PixiPlugin.registerPIXI({
+  Application,
+  Assets,
+  Container,
+  DisplacementFilter,
+  Graphics,
+  Sprite,
+  Spritesheet,
+  Texture,
+  TilingSprite,
+});
 
 console.log("GSAP plugins:", gsap.plugins);
