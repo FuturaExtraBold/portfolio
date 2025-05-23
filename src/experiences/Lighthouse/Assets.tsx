@@ -13,6 +13,7 @@ export const Assets = () => {
       beam: `${basePath}/beam.png`,
       lighthouse: `${basePath}/lighthouse.webp`,
       windows: `${basePath}/windows.png`,
+      overlay: "assets/images/experiences/lighthouse/mobile/flash.webp",
     };
   }, [basePath]);
 

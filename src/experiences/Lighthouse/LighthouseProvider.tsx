@@ -9,7 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets, Graphics, Sprite } from "pixi.js";
+import { Assets, Sprite } from "pixi.js";
 import { Assets as AssetPaths } from "./Assets";
 
 import Lighthouse from "./Lighthouse";
@@ -19,7 +19,7 @@ export interface UseLighthouseProps {
   backgroundRef: RefObject<Sprite | null>;
   beamLeftRef: RefObject<Sprite | null>;
   beamRightRef: RefObject<Sprite | null>;
-  overlayRef: RefObject<Graphics | null>;
+  overlayRef: RefObject<Sprite | null>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
   parentSizeRef: RefObject<{ width: number; height: number }>;

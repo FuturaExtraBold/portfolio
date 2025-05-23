@@ -1,11 +1,10 @@
 import { RefObject, type JSX } from "react";
 import { Application, extend } from "@pixi/react";
-import { Container, Graphics, Sprite } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 import { LighthouseProvider } from "./LighthouseProvider";
 
 extend({
   Container,
-  Graphics,
   Sprite,
 });
 

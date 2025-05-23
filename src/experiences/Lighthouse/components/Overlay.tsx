@@ -3,7 +3,8 @@ import { gsap } from "gsap";
 import { useLighthouse } from "../LighthouseProvider";
 
 export default function Overlay(): JSX.Element | null {
-  const { allTexturesLoaded, overlayRef, parentSize } = useLighthouse();
+  const { allTexturesLoaded, overlayRef, parentSize, textures } =
+    useLighthouse();
 
   useEffect(() => {
     if (!allTexturesLoaded || !overlayRef.current) return;
@@ -36,18 +37,15 @@ export default function Overlay(): JSX.Element | null {
     });
   }, [allTexturesLoaded, overlayRef]);
 
-  if (!allTexturesLoaded) return null;
+  if (!allTexturesLoaded || !textures.overlay) return null;
 
   return (
-    <pixiGraphics
+    <pixiSprite
       alpha={0}
       ref={overlayRef}
-      draw={(graphics) => {
-        graphics.clear();
-        graphics.fill({ color: 0xffbd28 });
-        graphics.rect(0, 0, parentSize.width, parentSize.height);
-        graphics.fill();
-      }}
+      texture={textures.overlay}
+      width={parentSize.width}
+      height={parentSize.height}
     />
   );
 }
