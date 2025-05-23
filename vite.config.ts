@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { visualizer } from "rollup-plugin-visualizer";
 import path from "path";
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react(), visualizer({ open: true })],
   resolve: {
     alias: {
@@ -18,8 +18,18 @@ export default defineConfig({
       utils: path.resolve(__dirname, "src/utils"),
     },
   },
+  esbuild: command === "build" ? { drop: ["console", "debugger"] } : {},
   build: {
-    outDir: "build",
     target: "esnext",
+    sourcemap: false,
+    minify: "esbuild",
+    outDir: "dist",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+        },
+      },
+    },
   },
-});
+}));

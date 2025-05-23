@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+/dist
+stats.html
 
 # misc
 .DS_Store
