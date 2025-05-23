@@ -17,6 +17,7 @@ export default function Separator(): JSX.Element {
             className="separator__image"
             fallbackSrc={separatorImage1x}
             height={18}
+            lazy={false}
             sizes="(max-width: 768px) 100vw, (min-width: 769px) 1440px"
             srcSet={
               isMobile
