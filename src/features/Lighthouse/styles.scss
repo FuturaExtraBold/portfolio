@@ -33,8 +33,8 @@ $mobile-lighthouse-container-center: calc(
   text-align: center;
   text-shadow: 0 0 20px rgb(0 0 0 / 1);
 
-  @include fluid-property($breaks-xs, $breaks-xl, 10px, 30px, gap);
-  @include fluid-property($breaks-xs, $breaks-xl, 300px, 800px, max-width);
+  @include fluid-property($breaks-sm, $breaks-xl, 10px, 30px, gap);
+  @include fluid-property($breaks-sm, $breaks-xl, 300px, 800px, max-width);
 }
 
 .lighthouse__overlay {

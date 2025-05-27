@@ -7,7 +7,7 @@
   left: 50%;
   display: none;
   width: 100%;
-  max-width: $breaks-xxl;
+  max-width: $breaks-xl;
   height: 100%;
   padding: 0;
   margin: 0 auto;
@@ -17,20 +17,20 @@
   transform: translateX(-50%);
 }
 
-.media--desktop-large {
-  .picture-frame {
-    display: block;
-    max-width: 1620px;
-    border-image: url("./frame.webp") 180 / 90px round;
-    opacity: 1;
-  }
-}
+// .media--desktop-large {
+//   .picture-frame {
+//     display: block;
+//     max-width: 1620px;
+//     border-image: url("./frame.webp") 180 / 90px round;
+//     opacity: 1;
+//   }
+// }
 
-.media--desktop-max {
-  .picture-frame {
-    display: block;
-    max-width: $breaks-xxl;
-    border-image: url("./frame.webp") 180 / 180px round;
-    opacity: 1;
-  }
-}
+// .media--desktop-max {
+//   .picture-frame {
+//     display: block;
+//     max-width: $breaks-xxl;
+//     border-image: url("./frame.webp") 180 / 180px round;
+//     opacity: 1;
+//   }
+// }

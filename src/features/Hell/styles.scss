@@ -32,8 +32,8 @@ $mobile-hell-container-center: calc(
   margin: 0 auto;
   text-align: center;
 
-  @include fluid-property($breaks-xs, $breaks-xl, 10px, 30px, gap);
-  @include fluid-property($breaks-xs, $breaks-xl, 300px, 800px, max-width);
+  @include fluid-property($breaks-sm, $breaks-xl, 10px, 30px, gap);
+  @include fluid-property($breaks-sm, $breaks-xl, 300px, 800px, max-width);
 }
 
 .hell__overlay {

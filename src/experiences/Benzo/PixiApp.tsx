@@ -26,7 +26,7 @@ export default function PixiApp({
       preferWebGLVersion={1}
       preserveDrawingBuffer={false}
       resizeTo={parentRef.current}
-      resolution={window.devicePixelRatio || 1}
+      resolution={Math.min(window.devicePixelRatio || 1, 2)}
     >
       <BenzoProvider parentRef={parentRef} />
     </Application>

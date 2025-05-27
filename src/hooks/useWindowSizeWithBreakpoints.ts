@@ -25,12 +25,10 @@ export const useWindowSizeWithBreakpoints =
 
     const breakpoints: Breakpoints = useMemo(
       () => ({
-        xs: 375,
-        sm: 576,
+        sm: 375,
         md: 768,
-        lg: 992,
-        xl: 1200,
-        xxl: 1440,
+        lg: 1200,
+        xl: 1440,
       }),
       []
     );
@@ -45,8 +43,6 @@ export const useWindowSizeWithBreakpoints =
         setMediaClass("tablet");
       } else if (width < breakpoints.xl) {
         setMediaClass("desktop");
-      } else if (width < breakpoints.xxl) {
-        setMediaClass("desktop-large");
       } else {
         setMediaClass("desktop-max");
       }

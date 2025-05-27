@@ -5,6 +5,10 @@ import path from "path";
 
 export default defineConfig(({ command }) => ({
   plugins: [react(), visualizer({ open: true })],
+  server: {
+    host: "0.0.0.0",
+    port: 5173,
+  },
   resolve: {
     alias: {
       assets: path.resolve(__dirname, "src/assets"),

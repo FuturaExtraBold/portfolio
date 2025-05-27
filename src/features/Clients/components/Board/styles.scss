@@ -17,11 +17,11 @@
   top: 0;
   left: 0;
 
-  @include fluid-property($breaks-xs, $breaks-xxl, 80px, 300px, width);
+  @include fluid-property($breaks-sm, $breaks-xl, 80px, 300px, width);
 }
 
 .board__accent--sun {
-  @include fluid-property($breaks-xs, $breaks-xxl, 77px, 290px, width);
+  @include fluid-property($breaks-sm, $breaks-xl, 77px, 290px, width);
 }
 
 .board__accent--moon {

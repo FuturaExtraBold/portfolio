@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
 
-  @include fluid-property($breaks-xs, $breaks-md, 100px, 60px, padding-top);
-  @include fluid-property($breaks-xs, $breaks-md, 10px, 40px, gap);
+  @include fluid-property($breaks-sm, $breaks-md, 100px, 60px, padding-top);
+  @include fluid-property($breaks-sm, $breaks-md, 10px, 40px, gap);
 }
 
 .client-quilt__row {
@@ -18,5 +18,5 @@
   width: 100%;
   justify-content: center;
 
-  @include fluid-property($breaks-xs, $breaks-md, 10px, 40px, gap);
+  @include fluid-property($breaks-sm, $breaks-md, 10px, 40px, gap);
 }

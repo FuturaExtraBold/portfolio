@@ -3,11 +3,11 @@
 .employers {
   display: grid;
   width: 100%;
-  max-width: 1024px;
+  max-width: $breaks-lg;
   margin: 20px auto;
   grid-template-columns: 1fr;
 
-  @include fluid-property($breaks-md, 1024px, 36px, 60px, gap);
+  @include fluid-property($breaks-md, $breaks-lg, 36px, 60px, gap);
 }
 
 @media (width >= $breaks-md) {

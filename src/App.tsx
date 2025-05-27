@@ -5,11 +5,13 @@ import {
   Clients,
   Footer,
   Hell,
-  Hero,
+  // Hero,
   Lighthouse,
   Resume,
+  Layout,
 } from "features";
-import { ClientModal, PictureFrame } from "ui/index";
+// import { ClientModal, PictureFrame } from "ui/index";
+import { ClientModal } from "ui/index";
 import { useApp } from "providers/AppProvider";
 import "./app.scss";
 
@@ -23,8 +25,9 @@ function App(): JSX.Element {
         data-current-section={currentSection}
         id="benzo-app"
       >
-        <PictureFrame />
-        <Hero />
+        {/* <PictureFrame /> */}
+        <Layout />
+        {/* <Hero /> */}
         <About />
         <Clients />
         <Resume />
