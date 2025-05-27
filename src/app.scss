@@ -9,7 +9,7 @@ body {
 #benzo-app {
   position: relative;
   width: 100%;
-  max-width: $breaks-lg;
+  max-width: 1560px;
   height: 100%;
   padding: 0;
   margin: 0 auto;
@@ -17,11 +17,12 @@ body {
   box-shadow: 0 0 60px 10px black, inset 0 0 50px 5px rgb(0 0 0 / 1);
 }
 
-// #benzo-app.media--desktop-large {
-//   padding: 90px;
-//   background-color: transparent;
-// }
+#benzo-app.media--desktop {
+  padding: 90px;
+  background-color: transparent;
+}
 
-// #benzo-app.media--desktop-max {
-//   padding: 180px;
-// }
+#benzo-app.media--desktop-max {
+  padding: 180px;
+  background-color: transparent;
+}

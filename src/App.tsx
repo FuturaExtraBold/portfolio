@@ -10,8 +10,7 @@ import {
   Resume,
   Layout,
 } from "features";
-// import { ClientModal, PictureFrame } from "ui/index";
-import { ClientModal } from "ui/index";
+import { ClientModal, PictureFrame } from "ui/index";
 import { useApp } from "providers/AppProvider";
 import "./app.scss";
 
@@ -25,7 +24,7 @@ function App(): JSX.Element {
         data-current-section={currentSection}
         id="benzo-app"
       >
-        {/* <PictureFrame /> */}
+        <PictureFrame />
         <Layout />
         {/* <Hero /> */}
         <About />

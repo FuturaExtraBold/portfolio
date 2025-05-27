@@ -6,10 +6,6 @@ $mobile-layout-container-center: calc(
   (math.div($mobile-layout-container-width, 2) * -1) + 50vw
 );
 
-.layout {
-  background-color: #000000;
-}
-
 .layout__container {
   width: $mobile-layout-container-width;
   padding: 0;
@@ -21,6 +17,10 @@ $mobile-layout-container-center: calc(
   left: $mobile-layout-container-center;
   overflow: hidden;
   aspect-ratio: 3 / 2;
+}
+
+.layout__image {
+  object-fit: cover;
 }
 
 @media (min-width: $breaks-md) {
