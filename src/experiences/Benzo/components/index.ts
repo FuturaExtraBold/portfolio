@@ -8,6 +8,5 @@ export { default as HandLeft } from "./HandLeft";
 export { default as HandRight } from "./HandRight";
 export { default as Hypnosis } from "./Hypnosis";
 export { default as Smoke } from "./Smoke";
-export { default as Layout } from "./Layout";
 export { default as Title } from "./Title";
 export { default as TheGreat } from "./TheGreat";

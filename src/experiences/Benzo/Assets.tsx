@@ -21,7 +21,6 @@ export const Assets = () => {
       smokeParticle: `${basePath}/smoke.webp`,
       titleNew: `${basePath}/title.webp`,
       theGreat: `${basePath}/the_great.png`,
-      layout: `${base}/hero_layout_${assetSize}.webp`,
     };
   }, [basePath]);
 

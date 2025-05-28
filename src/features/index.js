@@ -6,16 +6,5 @@ import Hell from "./Hell/Hell";
 import Hero from "./Hero/Hero";
 import Lighthouse from "./Lighthouse/Lighthouse";
 import Resume from "./Resume/Resume";
-import Layout from "./Layout/Layout";
 
-export {
-  About,
-  CallToAction,
-  Clients,
-  Footer,
-  Hell,
-  Hero,
-  Layout,
-  Lighthouse,
-  Resume,
-};
+export { About, CallToAction, Clients, Footer, Hell, Hero, Lighthouse, Resume };
