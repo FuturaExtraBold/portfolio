@@ -25,7 +25,7 @@ export default defineConfig(({ command }) => ({
   esbuild: command === "build" ? { drop: ["console", "debugger"] } : {},
   build: {
     target: "esnext",
-    sourcemap: false,
+    sourcemap: true,
     minify: "esbuild",
     outDir: "dist",
     rollupOptions: {
