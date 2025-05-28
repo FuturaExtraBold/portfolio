@@ -21,6 +21,7 @@ export default function PixiApp({
     <Application
       antialias
       autoDensity
+      backgroundColor={0x000000}
       powerPreference="high-performance"
       preference="webgl"
       preferWebGLVersion={1}

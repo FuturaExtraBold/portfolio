@@ -10,6 +10,7 @@ import {
   HandRight,
   Hypnosis,
   Smoke,
+  // Layout,
 } from "./components";
 
 export default function Benzo(): JSX.Element {
@@ -19,12 +20,13 @@ export default function Benzo(): JSX.Element {
       <Smoke />
       <BenzoBody />
       <BenzoGlow />
-      <Glasses />
+      {/* <Glasses /> */}
       <CrystalBall />
       <HandLeft />
       <HandRight />
-      <Halo />
-      <BenzoTitle />
+      {/* <Halo /> */}
+      {/* <BenzoTitle /> */}
+      {/* <Layout /> */}
     </pixiContainer>
   );
 }

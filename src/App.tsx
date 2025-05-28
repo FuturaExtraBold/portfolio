@@ -5,7 +5,7 @@ import {
   Clients,
   Footer,
   Hell,
-  // Hero,
+  Hero,
   Lighthouse,
   Resume,
   Layout,
@@ -25,8 +25,8 @@ function App(): JSX.Element {
         id="benzo-app"
       >
         <PictureFrame />
+        <Hero />
         <Layout />
-        {/* <Hero /> */}
         <About />
         <Clients />
         <Resume />

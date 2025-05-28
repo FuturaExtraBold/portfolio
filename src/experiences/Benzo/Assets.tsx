@@ -3,6 +3,7 @@ import { useApp } from "providers/AppProvider";
 
 export const Assets = () => {
   const { assetSize } = useApp();
+  const base = "assets/images/experiences/benzo";
   const basePath =
     assetSize === "mobile"
       ? "assets/images/experiences/benzo/mobile"
@@ -10,7 +11,7 @@ export const Assets = () => {
 
   const texturePaths = useMemo(() => {
     return {
-      crystalBall: `${basePath}/crystal_ball.webp`,
+      crystalBall: `assets/images/experiences/benzo/desktop/crystal_ball.webp`,
       benzoBody: `${basePath}/benzo.webp`,
       glasses: `${basePath}/glasses.png`,
       halo: `${basePath}/halo.png`,
@@ -21,6 +22,7 @@ export const Assets = () => {
       title: `assets/images/experiences/benzo/desktop/title_spritesheet.webp`,
       titlePattern: `assets/images/experiences/benzo/desktop/title_pattern_spritesheet.webp`,
       titleGreat: `${basePath}/great.webp`,
+      layout: `${base}/hero_layout_${assetSize}.webp`,
     };
   }, [basePath]);
 

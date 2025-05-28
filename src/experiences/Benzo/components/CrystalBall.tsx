@@ -43,6 +43,13 @@ export default function CrystalBall(): JSX.Element | null {
     });
   }, [allTexturesLoaded, crystalBallRef, parentSize]);
 
+  useEffect(() => {
+    if (!crystalBallRef.current || !allTexturesLoaded) return;
+    console.log("boom, parentSize", parentSize);
+    crystalBallRef.current.width = 0.3 * parentSize.width;
+    crystalBallRef.current.height = 0.3 * parentSize.width;
+  }, [allTexturesLoaded, crystalBallRef, parentSize]);
+
   if (!allTexturesLoaded || !textures.crystalBall) return null;
 
   return (

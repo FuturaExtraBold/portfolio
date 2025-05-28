@@ -29,8 +29,11 @@ export default function Hypnosis(): JSX.Element | null {
   return (
     <pixiSprite
       anchor={0.5}
+      // scale={0.5}
       ref={hypnosisRef}
       texture={textures.hypnosis}
+      width={parentSize.width * 1.3}
+      height={parentSize.width * 1.3}
       x={parentSize.width / 2}
       y={parentSize.height / 2}
     />
