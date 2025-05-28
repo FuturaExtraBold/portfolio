@@ -6,8 +6,6 @@ import {
   Container,
   DisplacementFilter,
   Sprite,
-  Spritesheet,
-  Texture,
   TilingSprite,
 } from "pixi.js";
 
@@ -18,8 +16,6 @@ PixiPlugin.registerPIXI({
   Container,
   DisplacementFilter,
   Sprite,
-  Spritesheet,
-  Texture,
   TilingSprite,
 });
 
