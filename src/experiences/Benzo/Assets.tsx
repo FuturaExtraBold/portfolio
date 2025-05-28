@@ -14,14 +14,13 @@ export const Assets = () => {
       crystalBall: `assets/images/experiences/benzo/desktop/crystal_ball.webp`,
       benzoBody: `${basePath}/benzo.webp`,
       glasses: `${basePath}/glasses.png`,
-      halo: `${basePath}/halo.png`,
+      halo: `${basePath}/halo.webp`,
       handLeft: `${basePath}/hand_left.webp`,
       handRight: `${basePath}/hand_right.webp`,
       hypnosis: `${basePath}/hypnosis.jpg`,
       smokeParticle: `${basePath}/smoke.webp`,
-      title: `assets/images/experiences/benzo/desktop/title_spritesheet.webp`,
-      titlePattern: `assets/images/experiences/benzo/desktop/title_pattern_spritesheet.webp`,
-      titleGreat: `${basePath}/great.webp`,
+      titleNew: `${basePath}/title.webp`,
+      theGreat: `${basePath}/the_great.png`,
       layout: `${base}/hero_layout_${assetSize}.webp`,
     };
   }, [basePath]);

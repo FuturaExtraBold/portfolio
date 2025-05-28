@@ -3,15 +3,15 @@ import {
   BenzoBody,
   BenzoGlow,
   Halo,
-  BenzoTitle,
   CrystalBall,
   Glasses,
   HandLeft,
   HandRight,
   Hypnosis,
   Smoke,
-  // Layout,
+  Title,
 } from "./components";
+import TheGreat from "./components/TheGreat";
 
 export default function Benzo(): JSX.Element {
   return (
@@ -20,13 +20,13 @@ export default function Benzo(): JSX.Element {
       <Smoke />
       <BenzoBody />
       <BenzoGlow />
-      {/* <Glasses /> */}
+      <Glasses />
       <CrystalBall />
       <HandLeft />
       <HandRight />
-      {/* <Halo /> */}
-      {/* <BenzoTitle /> */}
-      {/* <Layout /> */}
+      <Halo />
+      <Title />
+      <TheGreat />
     </pixiContainer>
   );
 }

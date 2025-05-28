@@ -8,7 +8,6 @@ import {
   Hero,
   Lighthouse,
   Resume,
-  Layout,
 } from "features";
 import { ClientModal, PictureFrame } from "ui/index";
 import { useApp } from "providers/AppProvider";
@@ -26,7 +25,6 @@ function App(): JSX.Element {
       >
         <PictureFrame />
         <Hero />
-        <Layout />
         <About />
         <Clients />
         <Resume />
