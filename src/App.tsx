@@ -7,6 +7,7 @@ import {
   Hell,
   Hero,
   Lighthouse,
+  MuseumCard,
   Resume,
 } from "features";
 import { ClientModal, PictureFrame } from "ui/index";
@@ -32,7 +33,8 @@ function App(): JSX.Element {
         <CallToAction />
         <Hell />
       </main>
-      <Footer />
+      <MuseumCard />
+      {/* <Footer /> */}
       <ClientModal />
     </>
   );
