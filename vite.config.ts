@@ -29,6 +29,7 @@ export default defineConfig(({ command }) => ({
     minify: "esbuild",
     outDir: "dist",
     rollupOptions: {
+      treeshake: true,
       output: {
         manualChunks: {
           vendor: ["react", "react-dom"],
