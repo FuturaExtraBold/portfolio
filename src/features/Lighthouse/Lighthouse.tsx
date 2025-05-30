@@ -2,7 +2,6 @@ import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
-import Scores from "./components";
 import "./styles.scss";
 
 export default function Lighthouse(): JSX.Element {
@@ -16,14 +15,13 @@ export default function Lighthouse(): JSX.Element {
           <Vignette />
         </Background>
         <Content className="lighthouse__content">
-          <Scores />
           <span className="heading--2 lighthouse__title">
             The Pursuit of Perfection
           </span>
           <span className="body text-light lighthouse__description">
-            With tools old and new — like Google Lighthouse — I build sites that
-            banish lag, skip layout shifts, and make every metric shine. Speed!
-            Accessibility! SEO! All dazzled into perfect 100s.
+            Like any great illusion, the magic lies in precision. Every element
+            is fine-tuned for performance, accessibility, and visual poise. The
+            result? Lighthouse scores that dazzle, without smoke or mirrors.
           </span>
         </Content>
         <div className="overlay lighthouse__overlay"></div>

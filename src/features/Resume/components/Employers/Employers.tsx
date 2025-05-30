@@ -18,7 +18,7 @@ export default function Employers(): JSX.Element {
         logo={<HookyGrand />}
         name="Hooky"
         tenure="Six"
-        description="At Hooky, our main philosophy was to play. By combining bold creative vision with unparalleled technical initiative, the small nimble project teams produce fresh and imaginative work for our clients, and their users."
+        description="At Hooky, our main philosophy was to play. By combining bold creative vision with unparalleled technical initiative, the small nimble project teams produced fresh and imaginative work for our clients, and their users."
       />
       <Employer
         logo={<Studio318 />}

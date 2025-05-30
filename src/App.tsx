@@ -3,13 +3,13 @@ import {
   About,
   CallToAction,
   Clients,
-  Footer,
   Hell,
   Hero,
   Lighthouse,
   MuseumCard,
   Resume,
 } from "features";
+import { Lazy } from "layout";
 import { ClientModal, PictureFrame } from "ui/index";
 import { useApp } from "providers/AppProvider";
 import "./app.scss";
@@ -27,15 +27,15 @@ function App(): JSX.Element {
         <PictureFrame />
         <Hero />
         <About />
-        <Clients />
-        <Resume />
-        <Lighthouse />
-        <CallToAction />
-        <Hell />
+        <Lazy component={Clients} />
+        <Lazy component={Resume} />
+        <Lazy component={Lighthouse} />
+        <Lazy component={CallToAction} />
+        <Lazy component={Hell} />
       </main>
-      <MuseumCard />
+      <Lazy component={MuseumCard} />
+      <Lazy component={ClientModal} />
       {/* <Footer /> */}
-      <ClientModal />
     </>
   );
 }
