@@ -8,7 +8,8 @@
   background-color: rgb(255 0 0 / 0);
   transform-origin: center;
 
-  @include fluid-property($breaks-md, $breaks-xl, 108px, 160px, width);
+  @include fluid-property($breaks-md, $breaks-xl, 90px, 160px, width);
+  @include fluid-property($breaks-md, $breaks-xl, 60px, 100px, height);
 }
 
 .client > svg {

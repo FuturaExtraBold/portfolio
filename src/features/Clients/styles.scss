@@ -1,7 +1,7 @@
 @use "assets/stylesheets/consumables" as *;
 
 .clients__container {
-  @include fluid-property($breaks-md, $breaks-lg, 600px, 800px, height);
+  @include fluid-property($breaks-md, $breaks-lg, 500px, 600px, height);
 }
 
 .clients__content {
@@ -17,4 +17,8 @@
   justify-content: center;
 
   @include fit();
+}
+
+.clients .vignette {
+  z-index: 101;
 }

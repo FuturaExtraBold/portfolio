@@ -28,7 +28,7 @@ export default function Planchette(): JSX.Element {
         x: mouseX - parentRect.left - parentWidth / 2,
         y: mouseY - parentRect.top - parentHeight / 2 + 50,
         rotation: rotation,
-        duration: 0.4,
+        duration: 0.1,
         ease: "power2.out",
       });
     };

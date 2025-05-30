@@ -39,8 +39,8 @@ export default function Clients(): JSX.Element {
         <Background>
           <div className="clients__ouija">
             <Board />
-            <ClientQuilt />
             {!isMobile && <Planchette />}
+            <ClientQuilt />
             <Vignette />
             <OverlayFade opacity={0.5} />
           </div>
