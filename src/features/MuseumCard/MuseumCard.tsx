@@ -7,6 +7,7 @@ export default function Hell(): JSX.Element {
     <Section className="museum-card">
       <Container className="museum-card__container">
         <Content className="museum-card__content">
+          <div className="museum-card__stain"></div>
           <div className="museum-card__top">
             <span className="museum-card__title">
               <strong>Ben Hays</strong> (b. 1981)

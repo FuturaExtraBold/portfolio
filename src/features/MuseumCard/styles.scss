@@ -1,12 +1,15 @@
+@use "assets/stylesheets/consumables" as *;
+
 .museum-card {
   padding: 60px 0;
 }
 
 .museum-card__container {
   display: flex;
+  max-width: 1620px;
   height: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .museum-card__content {
@@ -19,10 +22,21 @@
   border-radius: 2px;
   aspect-ratio: 9 / 5;
   background-color: #f5f5f5;
+  background-image: url("./images/texture.png");
+  background-position: top center;
+  background-repeat: repeat;
+  background-size: auto;
   box-shadow: 0 6px 12px rgb(0 0 0 / 0.6);
   color: black;
   font-family: Helvetica, sans-serif;
   transform: rotate(0.3deg);
+}
+
+.museum-card__stain {
+  background-image: url("./images/stain.png");
+  background-size: contain;
+
+  @include fit();
 }
 
 .museum-card__top {
