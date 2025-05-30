@@ -35,14 +35,16 @@
 }
 
 .client-modal__close {
-  position: absolute;
+  position: sticky;
   display: flex;
+  width: max-content;
   width: 40px;
   height: 40px;
   align-items: center;
   justify-content: center;
   border: 2px solid #000000;
   border-radius: 50%;
+  margin-left: auto;
   background-color: white;
   color: #000000;
   cursor: pointer;
@@ -50,8 +52,8 @@
   font-size: 18px;
   font-weight: bold;
 
-  @include fluid-property($breaks-md, $breaks-xl, 0px, 20px, top);
-  @include fluid-property($breaks-md, $breaks-xl, 0px, 20px, right);
+  @include fluid-property($breaks-md, $breaks-xl, 10px, 20px, top);
+  @include fluid-property($breaks-md, $breaks-xl, 10px, 20px, right);
 }
 
 .client-modal__close:hover {
@@ -73,6 +75,8 @@
   background-color: #ffffff;
   box-shadow: 0 0 20px rgb(0 0 0 / 0.1);
   overflow-y: scroll;
+}
 
+.client-modal__case-studies {
   @include fluid-property($breaks-md, $breaks-xl, 20px, 40px, padding);
 }
