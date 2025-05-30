@@ -7,6 +7,6 @@
   align-items: center;
   justify-content: center;
 
-  @include fluid-property($breaks-sm, $breaks-md, 100px, 200px, padding-top);
-  @include fluid-property($breaks-sm, $breaks-md, 20px, 50px, gap);
+  @include fluid-property($breaks-sm, $breaks-lg, 100px, 200px, padding-top);
+  @include fluid-property($breaks-sm, $breaks-lg, 20px, 50px, gap);
 }

@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import { accentMoon, accentSun, board1x, board2x } from "./images";
+import { accentMoon, accentSun, board } from "./images";
 import "./styles.scss";
 
 export default function Board(): JSX.Element {
@@ -8,10 +8,8 @@ export default function Board(): JSX.Element {
       <img
         alt="Board"
         className="board__image"
-        src={board1x}
-        srcSet={`${board1x} 1440w, ${board2x} 2880w`}
-        sizes="(min-width: 1440px) 1440px, 100vw"
-        width={2880}
+        src={board}
+        width={1200}
         height={600}
       />
       <div className="board__accent board__accent--sun">

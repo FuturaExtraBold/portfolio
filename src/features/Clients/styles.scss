@@ -1,7 +1,7 @@
 @use "assets/stylesheets/consumables" as *;
 
 .clients__container {
-  @include fluid-property($breaks-md, $breaks-lg, 500px, 600px, height);
+  @include fluid-property($breaks-sm, $breaks-lg, 500px, 600px, height);
 }
 
 .clients__content {
