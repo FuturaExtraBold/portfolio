@@ -34,7 +34,9 @@
 
 .museum-card__stain {
   background-image: url("./images/stain.png");
-  background-size: contain;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: auto;
 
   @include fit();
 }
