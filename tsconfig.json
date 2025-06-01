@@ -7,6 +7,9 @@
     "strict": true, // Optional: ensures stricter type-checking
     "lib": ["dom", "es2017"],
     "outDir": "build",
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
       "ui/*": ["ui/*"],
       "layout/*": ["layout/*"],

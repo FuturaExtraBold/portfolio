@@ -1,8 +1,24 @@
-import { type JSX } from "react";
+import { type JSX, useEffect } from "react";
 import { Container, Content, Section } from "layout";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {
+  useEffect(() => {
+    const stain = document.querySelector<HTMLElement>(".museum-card__stain");
+    if (stain) {
+      const loadStain = () => {
+        stain.style.backgroundImage = `url(${
+          new URL("./images/stain.png", import.meta.url).href
+        })`;
+      };
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadStain);
+      } else {
+        setTimeout(loadStain, 200);
+      }
+    }
+  }, []);
+
   return (
     <Section className="museum-card">
       <Container className="museum-card__container">
