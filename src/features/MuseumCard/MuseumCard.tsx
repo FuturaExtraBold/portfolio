@@ -1,29 +1,19 @@
-import { type JSX, useEffect } from "react";
+import { type JSX } from "react";
 import { Container, Content, Section } from "layout";
+import imageStain from "./images/stain.png";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {
-  useEffect(() => {
-    const stain = document.querySelector<HTMLElement>(".museum-card__stain");
-    if (stain) {
-      const loadStain = () => {
-        stain.style.backgroundImage = `url(${
-          new URL("./images/stain.png", import.meta.url).href
-        })`;
-      };
-      if ("requestIdleCallback" in window) {
-        requestIdleCallback(loadStain);
-      } else {
-        setTimeout(loadStain, 200);
-      }
-    }
-  }, []);
-
   return (
     <Section className="museum-card">
       <Container className="museum-card__container">
         <Content className="museum-card__content">
-          <div className="museum-card__stain"></div>
+          <img
+            className="museum-card__stain"
+            src={imageStain}
+            alt="Museum card stain"
+            loading="lazy"
+          />
           <div className="museum-card__top">
             <span className="museum-card__title">
               <strong>Ben Hays</strong> (b. 1981)
