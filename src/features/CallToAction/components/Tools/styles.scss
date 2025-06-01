@@ -1,0 +1,23 @@
+.tools__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.tools__item {
+  display: flex;
+  font-family: sans-serif;
+  font-size: 24px;
+  gap: 8px;
+  opacity: 0.2;
+}
+
+.tools__label {
+  display: none;
+  font-weight: 600;
+}
+
+.tools__icon {
+  font-size: 48px;
+}
