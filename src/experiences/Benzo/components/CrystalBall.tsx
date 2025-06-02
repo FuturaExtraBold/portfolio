@@ -142,8 +142,8 @@ export default function CrystalBall(): JSX.Element | null {
   useEffect(() => {
     if (!allTexturesLoaded) return;
     if (crystalBallContainerRef.current) {
-      const amplitudeX = 10;
-      const amplitudeY = 20;
+      const amplitudeX = parentSize.width * 0.01;
+      const amplitudeY = parentSize.width * 0.01;
       const rotationRange = 0.5;
       const tickTime = 0.01;
       gsap.killTweensOf(crystalBallContainerRef.current);
