@@ -11,7 +11,9 @@ export const Assets = () => {
 
   const texturePaths = useMemo(() => {
     return {
-      crystalBall: `assets/images/experiences/benzo/desktop/crystal_ball.webp`,
+      crystalBall: `assets/images/experiences/benzo/desktop/cb_ball.webp`,
+      crystalBallReflection: `assets/images/experiences/benzo/desktop/cb_reflection.webp`,
+      crystalBallSkull: `assets/images/experiences/benzo/desktop/cb_skull.webp`,
       benzoBody: `${basePath}/benzo.webp`,
       glasses: `${basePath}/glasses.png`,
       halo: `${basePath}/halo.webp`,

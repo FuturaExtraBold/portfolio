@@ -2,7 +2,6 @@ export { default as BenzoBody } from "./BenzoBody";
 export { default as Halo } from "./Halo";
 export { default as BenzoTitle } from "./BenzoTitle";
 export { default as CrystalBall } from "./CrystalBall";
-export { default as BenzoGlow } from "./BenzoGlow";
 export { default as Glasses } from "./Glasses";
 export { default as HandLeft } from "./HandLeft";
 export { default as HandRight } from "./HandRight";

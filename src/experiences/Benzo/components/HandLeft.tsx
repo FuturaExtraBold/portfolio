@@ -9,11 +9,11 @@ export default function HandLeft(): JSX.Element | null {
 
   useEffect(() => {
     if (!handLeftRef.current || !allTexturesLoaded) return;
-    animateTint({
-      color: glowProps.color,
-      duration: glowProps.duration,
-      ref: handLeftRef,
-    });
+    // animateTint({
+    //   color: glowProps.color,
+    //   duration: glowProps.duration,
+    //   ref: handLeftRef,
+    // });
   }, [allTexturesLoaded, glowProps, handLeftRef]);
 
   if (!allTexturesLoaded || !textures.handLeft) return null;

@@ -20,6 +20,7 @@ export default function Glasses(): JSX.Element | null {
 
   return (
     <pixiSprite
+      alpha={0.2}
       ref={glassesRef}
       texture={textures.glasses}
       tint={0xffffff}

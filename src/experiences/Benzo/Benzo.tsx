@@ -1,7 +1,6 @@
 import { type JSX } from "react";
 import {
   BenzoBody,
-  BenzoGlow,
   Halo,
   CrystalBall,
   Glasses,
@@ -19,7 +18,6 @@ export default function Benzo(): JSX.Element {
       <Hypnosis />
       <Smoke />
       <BenzoBody />
-      <BenzoGlow />
       <Glasses />
       <CrystalBall />
       <HandLeft />

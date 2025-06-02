@@ -2,7 +2,7 @@ import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, Separator, Wallpaper } from "ui/index";
 import { MagicButton } from "ui/index";
-// import { Tools } from "./components/Tools/Tools";
+import { Tools } from "./components/Tools/Tools";
 import "./styles.scss";
 
 export default function CallToAction(): JSX.Element {
@@ -42,7 +42,7 @@ export default function CallToAction(): JSX.Element {
               obscure, no tool too arcane.
             </span>
           </div>
-          {/* <Tools /> */}
+          <Tools />
           <div className="cta__buttons">
             <MagicButton
               label="Email the Artisan"
