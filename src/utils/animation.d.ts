@@ -1,11 +1,11 @@
 declare module "utils/animation" {
-  import { Sprite } from "pixi.js";
+  import { Container, Sprite } from "pixi.js";
   import type { RefObject } from "react";
 
   export interface AnimateFloatOptions {
     amplitudeX?: number;
     amplitudeY?: number;
-    ref: RefObject<Sprite | HTMLImageElement | null>;
+    ref: RefObject<Container | Sprite | HTMLImageElement | null>;
     rotationRange?: number;
     tickTime?: number;
   }

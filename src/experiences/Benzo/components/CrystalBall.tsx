@@ -2,7 +2,12 @@ import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Container, Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
-import { animateRotation, animateTint, setPosition } from "utils/animation";
+import {
+  animateFloat,
+  animateRotation,
+  animateTint,
+  setPosition,
+} from "utils/animation";
 
 export default function CrystalBall(): JSX.Element | null {
   const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();
@@ -42,27 +47,15 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
-    if (crystalBallRef.current) {
+    const refs = [crystalBallAlternateRef, crystalBallRef, crystalBallSkullRef];
+    refs.forEach((ref) => {
+      if (!ref.current) return;
       animateTint({
         color: glowProps.color,
         duration: glowProps.duration,
-        ref: crystalBallRef,
+        ref: ref,
       });
-    }
-    if (crystalBallAlternateRef.current) {
-      animateTint({
-        color: glowProps.color,
-        duration: glowProps.duration,
-        ref: crystalBallAlternateRef,
-      });
-    }
-    if (crystalBallSkullRef.current) {
-      animateTint({
-        color: glowProps.color,
-        duration: glowProps.duration,
-        ref: crystalBallSkullRef,
-      });
-    }
+    });
   }, [allTexturesLoaded, crystalBallRef, glowProps]);
 
   useEffect(() => {
@@ -85,92 +78,48 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
-    if (crystalBallRef.current) {
+    const refs = [
+      crystalBallAlternateRef,
+      crystalBallRef,
+      crystalBallSkullRef,
+      reflectionRef,
+    ];
+    refs.forEach((ref) => {
+      if (!ref.current) return;
       setPosition({
-        ref: crystalBallRef,
+        ref: ref,
         usePixi: true,
         x: parentSize.width / 2,
         y: parentSize.height - parentSize.height / 6,
       });
-    }
-    if (crystalBallAlternateRef.current) {
-      setPosition({
-        ref: crystalBallAlternateRef,
-        usePixi: true,
-        x: parentSize.width / 2,
-        y: parentSize.height - parentSize.height / 6,
-      });
-    }
-    if (reflectionRef.current) {
-      setPosition({
-        ref: crystalBallSkullRef,
-        usePixi: true,
-        x: parentSize.width / 2,
-        y: parentSize.height - parentSize.height / 6,
-      });
-    }
-    if (reflectionRef.current) {
-      setPosition({
-        ref: reflectionRef,
-        usePixi: true,
-        x: parentSize.width / 2,
-        y: parentSize.height - parentSize.height / 6,
-      });
-    }
+    });
   }, [allTexturesLoaded, crystalBallRef, crystalBallAlternateRef, parentSize]);
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
-    if (crystalBallRef.current) {
-      crystalBallRef.current.width = 0.2 * parentSize.width;
-      crystalBallRef.current.height = 0.2 * parentSize.width;
-    }
-    if (crystalBallAlternateRef.current) {
-      crystalBallAlternateRef.current.width = 0.2 * parentSize.width;
-      crystalBallAlternateRef.current.height = 0.2 * parentSize.width;
-    }
-    if (reflectionRef.current) {
-      reflectionRef.current.width = 0.2 * parentSize.width;
-      reflectionRef.current.height = 0.2 * parentSize.width;
-    }
-    if (crystalBallSkullRef.current) {
-      crystalBallSkullRef.current.width = 0.2 * parentSize.width;
-      crystalBallSkullRef.current.height = 0.2 * parentSize.width;
-    }
+    const refs = [
+      crystalBallAlternateRef,
+      crystalBallRef,
+      crystalBallSkullRef,
+      reflectionRef,
+    ];
+    refs.forEach((ref) => {
+      if (!ref.current) return;
+      ref.current.width = 0.2 * parentSize.width;
+      ref.current.height = 0.2 * parentSize.width;
+    });
   }, [allTexturesLoaded, crystalBallRef, parentSize]);
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
     if (crystalBallContainerRef.current) {
-      const amplitudeX = parentSize.width * 0.01;
-      const amplitudeY = parentSize.width * 0.01;
-      const rotationRange = 0.5;
-      const tickTime = 0.01;
-      gsap.killTweensOf(crystalBallContainerRef.current);
-
-      let time = 0;
-
-      const tick = () => {
-        time += tickTime;
-
-        const offsetX = Math.sin(time * 0.8) * amplitudeX;
-        const offsetY = Math.cos(time * 0.6) * amplitudeY;
-        const rotation =
-          Math.sin(time * 0.3) * ((rotationRange * Math.PI) / 180);
-
-        gsap.set(crystalBallContainerRef.current, {
-          x: offsetX,
-          y: offsetY,
-          rotation,
-        });
-      };
-
-      gsap.ticker.add(tick);
-
-      return () => {
-        gsap.ticker.remove(tick);
-        gsap.killTweensOf(crystalBallContainerRef.current);
-      };
+      animateFloat({
+        ref: crystalBallContainerRef,
+        amplitudeX: parentSize.width * 0.01,
+        amplitudeY: parentSize.width * 0.01,
+        rotationRange: 0.5,
+        tickTime: 0.01,
+      });
     }
   }, [allTexturesLoaded, crystalBallContainerRef, parentSize]);
 
