@@ -18,7 +18,7 @@
   width: 33.33%;
   align-items: center;
   justify-content: flex-start;
-  padding-bottom: 8px;
+  padding-bottom: 12px;
   color: $text-accent;
   font-family: sans-serif;
   opacity: 0.8;
@@ -29,7 +29,7 @@
 .tools__label {
   line-height: 1;
 
-  @include fluid-property($breaks-sm, $breaks-xl, 12px, 18px, font-size);
+  @include fluid-property($breaks-sm, $breaks-xl, 12px, 20px, font-size);
 }
 
 .tools__icon {
