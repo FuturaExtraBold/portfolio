@@ -36,6 +36,7 @@
 .employer__tenure {
   margin: 0;
   color: #dddddd;
+  font-size: 24px;
   line-height: 1;
   text-transform: uppercase;
 }
@@ -46,7 +47,7 @@
 
 @media (width >= $breaks-md) {
   .employer {
-    gap: 24px;
+    gap: 20px;
   }
 
   .employer__logo > svg {

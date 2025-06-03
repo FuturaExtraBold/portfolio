@@ -1,9 +1,4 @@
-.tools__grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
-}
+@use "assets/stylesheets/consumables" as *;
 
 .tools {
   display: flex;
@@ -13,23 +8,39 @@
   gap: 30px;
 }
 
+.tools__grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .tools__item {
   display: flex;
+  width: 33.33%;
   align-items: center;
-  justify-content: center;
-  color: #e2c06d;
+  justify-content: flex-start;
+  padding-bottom: 8px;
+  color: $text-accent;
   font-family: sans-serif;
-  font-size: 24px;
-  gap: 8px;
   opacity: 0.8;
+
+  @include fluid-property($breaks-sm, $breaks-xl, 6px, 10px, gap);
 }
 
 .tools__label {
-  font-weight: 600;
   line-height: 1;
+
+  @include fluid-property($breaks-sm, $breaks-xl, 12px, 18px, font-size);
 }
 
 .tools__icon {
-  font-size: 30px;
   line-height: 1;
+
+  @include fluid-property($breaks-sm, $breaks-xl, 20px, 30px, font-size);
+  @include fluid-property($breaks-sm, $breaks-xl, 20px, 30px, height);
+}
+
+@media (width >= $breaks-md) {
+  .tools__item {
+    width: 25%;
+  }
 }

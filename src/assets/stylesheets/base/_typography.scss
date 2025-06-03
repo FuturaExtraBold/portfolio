@@ -6,18 +6,13 @@ $fluid-typography-max-width: $breaks-xl;
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
 .heading--1,
 .heading--2,
-.heading--3,
-.heading--4,
-.heading--5,
-.heading--6 {
+.heading--3 {
   margin: 0;
   color: $text-light;
   font-family: "Benguiat Bold Condensed BT", sans-serif;
+  letter-spacing: -0.025em;
   line-height: 1.1;
 }
 
@@ -54,8 +49,8 @@ h3,
   @include fluid-property(
     $fluid-typography-min-width,
     $fluid-typography-max-width,
-    19px,
-    28px,
+    24px,
+    36px,
     font-size
   );
 }
@@ -63,6 +58,7 @@ h3,
 @mixin body-styles-default {
   font-family: "Dolly Roman", serif;
   font-weight: 400;
+  letter-spacing: -0.2px;
   line-height: 1.5;
   text-rendering: optimizelegibility;
   text-size-adjust: 100%;
@@ -131,15 +127,9 @@ p {
   h1,
   h2,
   h3,
-  h4,
-  h5,
-  h6,
   .heading--1,
   .heading--2,
-  .heading--3,
-  .heading--4,
-  .heading--5,
-  .heading--6 {
+  .heading--3 {
     line-height: 1;
   }
 }

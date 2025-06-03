@@ -22,6 +22,7 @@ export default function Hell(): JSX.Element {
             title="Awww, Hell."
             useShadow
             variant="default"
+            useHairline={false}
           />
         </Content>
         <OverlayFade />

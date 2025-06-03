@@ -14,10 +14,11 @@
 .section-header__hairline {
   display: none;
   width: 100%;
-  max-width: 640px;
+  max-width: 480px;
   height: 1px;
   margin: 10px auto 0;
   background-color: #ffffff;
+  opacity: 0.5;
 }
 
 .section-header--default > * {

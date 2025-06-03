@@ -18,7 +18,7 @@ export default function Employer({
     <div className={`employer employer--${name.toLowerCase()}`}>
       <div className="employer__logo">{logo}</div>
       <div className="employer__text">
-        <span className="body text-grey employer__tenure">{`${tenure} years`}</span>
+        <span className="body text-grey employer__tenure">{tenure}</span>
         <span className="body text-accent employer__description">
           {description}
         </span>

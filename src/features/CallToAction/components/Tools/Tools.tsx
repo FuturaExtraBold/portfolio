@@ -51,9 +51,9 @@ export const Tools = () => {
     { label: "Github", icon: <FaGithub /> },
     { label: "Netlify", icon: <SiNetlify /> },
     // { label: "GSAP", icon: <SiGsap /> },
-    { label: "HTML Canvas", icon: <FaHtml5 /> },
-    // { label: "Pixi JS", icon: <SiPixijs /> },
-    { label: "Developer Tools", icon: <FaVimeoV /> }, // Placeholder icon
+    { label: "Canvas", icon: <FaHtml5 /> },
+    { label: "Pixi JS", icon: <FaJs /> },
+    // { label: "Developer Tools", icon: <FaVimeoV /> }, // Placeholder icon
     { label: "Express", icon: <SiExpress /> },
     { label: "Node", icon: <FaNodeJs /> },
     { label: "NPM", icon: <FaNpm /> },

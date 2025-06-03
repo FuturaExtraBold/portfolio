@@ -24,7 +24,14 @@
 
 .cta__description {
   display: flex;
+  max-width: 800px;
   flex-direction: column;
   gap: 14px;
   text-align: justify;
+}
+
+.cta__description-intro {
+  color: $text-light;
+  font-size: 1.1em;
+  font-weight: bold;
 }

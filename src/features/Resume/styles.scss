@@ -1,5 +1,9 @@
 @use "assets/stylesheets/consumables" as *;
 
+.resume__container {
+  @include fluid-property($breaks-md, $breaks-xl, 30px, 80px, padding-left);
+}
+
 .resume__content {
   flex-direction: column;
   gap: 30px;

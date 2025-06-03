@@ -7,7 +7,7 @@ import "./styles.scss";
 export default function Resume(): JSX.Element {
   return (
     <Section className="resume">
-      <Container>
+      <Container className="resume__container">
         <Background>
           <Wallpaper />
           <OverlayFade opacity={0.8} />
