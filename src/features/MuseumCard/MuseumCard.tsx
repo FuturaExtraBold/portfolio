@@ -34,6 +34,7 @@ export default function Hell(): JSX.Element {
               &copy; 2025 Ben Hays. All rights reserved.
             </span>
           </div>
+          <div className="museum-card__overlay"></div>
         </Content>
       </Container>
     </Section>

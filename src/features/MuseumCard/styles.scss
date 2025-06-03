@@ -9,7 +9,7 @@
   max-width: 1620px;
   height: 100%;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .museum-card__content {
@@ -29,7 +29,7 @@
   box-shadow: 0 12px 20px rgb(0 0 0 / 0.8);
   color: black;
   font-family: Helvetica, sans-serif;
-  transform: rotate(0.3deg);
+  transform: rotate(0.5deg);
 }
 
 .museum-card__stain {
@@ -64,4 +64,11 @@
 .museum-card__description {
   color: #999999;
   font-size: 12px;
+}
+
+.museum-card__overlay {
+  background-color: black;
+  opacity: 0.4;
+
+  @include fit();
 }
