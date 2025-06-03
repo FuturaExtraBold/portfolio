@@ -20,7 +20,13 @@ export default function MagicButton({
       rel={isExternal ? "noopener noreferrer" : undefined}
       className="magic-button"
     >
-      <img src={btnBg} alt="" className="magic-button__background" />
+      <img
+        src={btnBg}
+        alt=""
+        className="magic-button__background"
+        width={300}
+        height={91}
+      />
       <span className="magic-button__label">{label}</span>
     </a>
   );
