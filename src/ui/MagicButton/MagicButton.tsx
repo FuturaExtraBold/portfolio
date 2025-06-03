@@ -1,5 +1,6 @@
 import { type JSX } from "react";
 import "./styles.scss";
+import btnBg from "./btn_bg.webp";
 
 interface MagicButtonProps {
   label: string;
@@ -19,7 +20,8 @@ export default function MagicButton({
       rel={isExternal ? "noopener noreferrer" : undefined}
       className="magic-button"
     >
-      {label}
+      <img src={btnBg} alt="" className="magic-button__background" />
+      <span className="magic-button__label">{label}</span>
     </a>
   );
 }

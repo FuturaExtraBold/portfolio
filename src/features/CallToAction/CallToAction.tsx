@@ -21,11 +21,13 @@ export default function CallToAction(): JSX.Element {
           </span>
           <div className="body text-accent cta__description">
             <span className="cta__description-item">
-              <span className="cta__description-intro">Step right up</span>
-              &nbsp;and make contact — whether you seek a conjurer of code, a
-              weaver of wondrous interfaces, or simply a skilled hand to bring
-              visions to life. With a résumé of marvels and a flair for the
-              extraordinary, your next collaborator awaits.
+              <span className="cta__description-intro">
+                Step right up and make contact
+              </span>
+              &nbsp;— whether you seek a conjurer of code, a weaver of wondrous
+              interfaces, or simply a skilled hand to bring visions to life.
+              With a résumé of marvels and a flair for the extraordinary, your
+              next collaborator awaits.
             </span>
             <span className="cta__description-item">
               <span className="cta__description-intro">

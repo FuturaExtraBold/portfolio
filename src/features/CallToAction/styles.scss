@@ -2,9 +2,17 @@
 
 .cta__buttons {
   display: flex;
-  gap: 20px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 
   @include fluid-property($breaks-md, $breaks-xl, 10px, 20px, margin-top);
+}
+
+.cta__buttons > .magic-button {
+  width: 100%;
 }
 
 .cta__content {
@@ -26,7 +34,7 @@
   display: flex;
   max-width: 800px;
   flex-direction: column;
-  gap: 14px;
+  gap: 24px;
   text-align: justify;
 }
 
@@ -34,4 +42,15 @@
   color: $text-light;
   font-size: 1.1em;
   font-weight: bold;
+}
+
+@media (min-width: $breaks-md) {
+  .cta__buttons {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .cta__buttons > .magic-button {
+    width: auto;
+  }
 }
