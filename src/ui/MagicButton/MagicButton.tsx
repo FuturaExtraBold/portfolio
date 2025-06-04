@@ -24,8 +24,8 @@ export default function MagicButton({
         src={btnBg}
         alt=""
         className="magic-button__background"
-        width={300}
-        height={91}
+        width={600}
+        height={182}
       />
       <span className="magic-button__label">{label}</span>
     </a>
