@@ -7,11 +7,11 @@
   height: 91px;
   align-items: center;
   justify-content: center;
-  border: 3px solid transparent;
   color: white;
   font-family: $font-family-heading;
   font-size: 1rem;
   font-weight: 600;
+  outline: 3px solid transparent;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -27,9 +27,9 @@
 }
 
 .magic-button:hover {
-  border: 3px solid rgb(255 215 0 / 0.6);
   animation: sparkle 1s infinite ease-in-out;
   box-shadow: 0 0 8px rgb(255 215 0 / 0.6), 0 0 40px crimson;
+  outline: 3px solid rgb(255 215 0 / 0.6);
 }
 
 /* Optional sparkle-like glow animation */
