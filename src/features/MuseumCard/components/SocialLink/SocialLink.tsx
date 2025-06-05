@@ -7,7 +7,11 @@ interface SocialLinkProps {
   label: string;
 }
 
-function SocialLink({ href, icon, label }: SocialLinkProps): JSX.Element {
+export default function SocialLink({
+  href,
+  icon,
+  label,
+}: SocialLinkProps): JSX.Element {
   return (
     <a
       aria-label={label}
@@ -20,5 +24,3 @@ function SocialLink({ href, icon, label }: SocialLinkProps): JSX.Element {
     </a>
   );
 }
-
-export default { SocialLink };

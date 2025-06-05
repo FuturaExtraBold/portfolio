@@ -1,4 +1,9 @@
 .social-link {
   display: inline-block;
   color: #666666;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-link:hover {
+  color: #000000;
 }
