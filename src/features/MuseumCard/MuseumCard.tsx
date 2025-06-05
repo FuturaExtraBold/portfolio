@@ -1,6 +1,8 @@
 import { type JSX } from "react";
 import { Container, Content, Section } from "layout";
 import imageStain from "./images/stain.png";
+import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SocialLink } from "./components/SocialLink/SocialLink";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {
@@ -27,6 +29,16 @@ export default function Hell(): JSX.Element {
             <span className="museum-card__medium">React on &lt;canvas&gt;</span>
           </div>
           <div className="museum-card__bottom">
+            <div className="museum-card__social-links">
+              <SocialLink
+                href="https://www.linkedin.com/in/benhaysdev"
+                icon={<SiLinkedin />}
+              />
+              <SocialLink
+                href="https://github.com/FuturaExtraBold/portfolio"
+                icon={<SiGithub />}
+              />
+            </div>
             <span className="museum-card__description">
               Made on a Mac in sunny Southern California
             </span>

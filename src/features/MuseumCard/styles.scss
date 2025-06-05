@@ -62,13 +62,21 @@
 }
 
 .museum-card__description {
-  color: #999999;
+  z-index: 100;
+  color: #666666;
   font-size: 12px;
 }
 
 .museum-card__overlay {
   background-color: black;
   opacity: 0.4;
+  pointer-events: none;
 
   @include fit();
+}
+
+.museum-card__social-links {
+  z-index: 100;
+  display: flex;
+  gap: 10px;
 }
