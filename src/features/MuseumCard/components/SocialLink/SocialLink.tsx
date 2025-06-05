@@ -4,14 +4,13 @@ import "./styles.scss";
 interface SocialLinkProps {
   href: string;
   icon: JSX.Element;
+  label: string;
 }
 
-export default function SocialLink({
-  href,
-  icon,
-}: SocialLinkProps): JSX.Element {
+function SocialLink({ href, icon, label }: SocialLinkProps): JSX.Element {
   return (
     <a
+      aria-label={label}
       className="social-link"
       href={href}
       rel="nofollow noreferrer"
@@ -22,4 +21,4 @@ export default function SocialLink({
   );
 }
 
-export { SocialLink };
+export default { SocialLink };

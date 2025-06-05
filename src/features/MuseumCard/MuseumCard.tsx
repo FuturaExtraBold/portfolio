@@ -33,10 +33,12 @@ export default function Hell(): JSX.Element {
               <SocialLink
                 href="https://www.linkedin.com/in/benhaysdev"
                 icon={<SiLinkedin />}
+                label="LinkedIn profile"
               />
               <SocialLink
                 href="https://github.com/FuturaExtraBold/portfolio"
                 icon={<SiGithub />}
+                label="GitHub repository"
               />
             </div>
             <span className="museum-card__description">
