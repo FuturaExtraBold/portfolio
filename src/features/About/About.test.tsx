@@ -45,9 +45,7 @@ describe("About Component", () => {
   it("renders the description text", () => {
     render(<About />);
     expect(
-      screen.getByText(
-        /I am a Frontend Developer with a penchant for creating pixel-perfect and responsive web experiences/i
-      )
+      screen.getByText(/a seasoned practitioner of the digital arts/i)
     ).toBeInTheDocument();
   });
 

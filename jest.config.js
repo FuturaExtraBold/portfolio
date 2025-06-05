@@ -11,11 +11,11 @@ module.exports = {
     "^ui$": "<rootDir>/src/ui/$1",
     "^utils/(.*)$": "<rootDir>/src/utils/$1",
     "\\.(css|scss)$": "identity-obj-proxy",
-    "\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(png|jpg|jpeg|gif|svg|webp)$": "<rootDir>/__mocks__/fileMock.js",
     "^AppProvider$": "<rootDir>/src/providers/AppProvider.tsx",
   },
   setupFilesAfterEnv: [
-    "<rootDir>/jest.setup.js",
+    "<rootDir>/jest.setup.ts",
     "<rootDir>/src/setupTests.ts",
   ],
   testEnvironment: "jest-environment-jsdom",
@@ -28,4 +28,8 @@ module.exports = {
     "<rootDir>/src/utils/animation/index.ts",
     "<rootDir>/src/utils/layout/index.ts",
   ],
+  preset: "ts-jest",
+  transform: {
+    "^.+\\.ts$": "ts-jest",
+  },
 };

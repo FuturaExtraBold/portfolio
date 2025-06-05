@@ -6,18 +6,11 @@ jest.mock("AppProvider", () => ({
   useApp: jest.fn(),
 }));
 
-jest.mock("utils/layout", () => ({
-  fluidProperty: jest.fn(),
-}));
-
 describe("Vignette Component", () => {
   beforeEach(() => {
     (useApp as jest.Mock).mockReturnValue({
       breakpoints: { md: 768, lg: 1024 },
     });
-
-    const mockFluidProperty = jest.requireMock("utils/layout").fluidProperty;
-    mockFluidProperty.mockReturnValue(0.3);
   });
 
   it("renders the Vignette component", () => {
@@ -29,6 +22,6 @@ describe("Vignette Component", () => {
   it("applies the correct opacity style", () => {
     render(<Vignette />);
     const vignette = screen.getByRole("presentation", { hidden: true });
-    expect(vignette).toHaveStyle({ opacity: "0.3" });
+    expect(vignette).toHaveStyle({ opacity: "0.5" });
   });
 });

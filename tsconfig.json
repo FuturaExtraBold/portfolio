@@ -9,7 +9,7 @@
     "outDir": "build",
     "module": "esnext",
     "target": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "paths": {
       "ui/*": ["ui/*"],
       "layout/*": ["layout/*"],

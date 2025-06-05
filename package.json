@@ -67,6 +67,7 @@
     "stylelint-config-standard": "^37.0.0",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.11.1",
+    "ts-jest": "^29.3.4",
     "typescript": "^4.9.5",
     "vite": "^6.3.5"
   }
