@@ -22,7 +22,6 @@ export default function About(): JSX.Element {
   useEffect(() => {
     const handleLoad = () => setShowText(true);
     window.addEventListener("load", handleLoad);
-    return () => window.removeEventListener("load", handleLoad);
   }, []);
 
   const fluidAmplitudeX = useFluidProperty({
