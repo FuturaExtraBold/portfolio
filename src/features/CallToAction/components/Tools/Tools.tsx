@@ -1,3 +1,7 @@
+import { type JSX, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import {
   FaChrome,
   FaCss3,
@@ -48,7 +52,7 @@ import { VscTerminal, VscVscode } from "react-icons/vsc";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import "./styles.scss";
 
-export const Tools = () => {
+export const Tools = (): JSX.Element => {
   const skills = [
     // Frameworks & Libraries
     { label: "React", icon: <FaReact /> },
@@ -108,6 +112,26 @@ export const Tools = () => {
     { label: "Webpack", icon: <SiWebpack /> },
     { label: "Babel", icon: <SiBabel /> },
   ];
+
+  useEffect(() => {
+    gsap.fromTo(
+      ".tools__item",
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.04,
+        delay: 0.01,
+        duration: 0.2,
+        ease: "back.out(1.2)",
+        scrollTrigger: {
+          trigger: ".tools__grid",
+          start: "top 80%",
+        },
+      }
+    );
+    setTimeout(() => ScrollTrigger.refresh(), 250);
+  }, []);
 
   return (
     <section className="tools">

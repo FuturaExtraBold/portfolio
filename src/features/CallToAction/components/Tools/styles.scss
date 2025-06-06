@@ -29,7 +29,7 @@
 .tools__label {
   line-height: 1;
 
-  @include fluid-property($breaks-sm, $breaks-xl, 12px, 20px, font-size);
+  @include fluid-property($breaks-sm, $breaks-xl, 15px, 20px, font-size);
 }
 
 .tools__icon {
