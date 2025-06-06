@@ -3,18 +3,21 @@ import "./styles.scss";
 import btnBg from "./btn_bg.webp";
 
 interface MagicButtonProps {
+  ariaLabel?: string;
   label: string;
   href: string;
   isExternal?: boolean;
 }
 
 export default function MagicButton({
+  ariaLabel = "Magic Button",
   label,
   href,
   isExternal = false,
 }: MagicButtonProps): JSX.Element {
   return (
     <a
+      aria-label={ariaLabel}
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}

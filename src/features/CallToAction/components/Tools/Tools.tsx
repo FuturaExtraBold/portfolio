@@ -11,25 +11,38 @@ import {
   FaReact,
   FaSass,
   FaSketch,
+  FaUniversalAccess,
 } from "react-icons/fa";
 import {
   SiAdobeillustrator,
   SiAdobephotoshop,
   SiAngular,
+  SiBabel,
   SiBootstrap,
   SiContentful,
+  SiEslint,
   SiExpress,
   SiGreensock,
+  SiJest,
+  SiJira,
   SiLighthouse,
   SiNetlify,
+  SiNotion,
+  SiPostman,
   SiRuby,
   SiRubyonrails,
   SiShopify,
+  SiSlack,
+  SiStorybook,
+  SiStylelint,
   SiSvelte,
   SiTailwindcss,
+  SiTrello,
   SiTypescript,
   SiVite,
   SiVuedotjs,
+  SiWebpack,
+  SiZoom,
 } from "react-icons/si";
 import { VscTerminal, VscVscode } from "react-icons/vsc";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
@@ -59,20 +72,31 @@ export const Tools = () => {
     { label: "HTML", icon: <FaHtml5 /> },
     { label: "CSS", icon: <FaCss3 /> },
     { label: "Sass, SCSS", icon: <FaSass /> },
+    { label: "Stylelint", icon: <SiStylelint /> },
+    { label: "ESLint", icon: <SiEslint /> },
 
     // Testing & Optimization
     { label: "Lighthouse", icon: <SiLighthouse /> },
     { label: "Litmus", icon: <MdOutlineMarkEmailRead /> },
     { label: "ImageOptim", icon: <FaImage /> },
     { label: "Clop", icon: <FaImage /> },
+    { label: "Jest", icon: <SiJest /> },
+    { label: "Axe / WAVE", icon: <FaUniversalAccess /> },
 
     // Dev Tools & Platforms
     { label: "VSCode", icon: <VscVscode /> },
     { label: "DevTools", icon: <FaChrome /> },
-    { label: "CLI, Terminal", icon: <VscTerminal /> },
+    { label: "CLI", icon: <VscTerminal /> },
     { label: "Github", icon: <FaGithub /> },
     { label: "Netlify", icon: <SiNetlify /> },
     { label: "Contentful", icon: <SiContentful /> },
+    { label: "Storybook", icon: <SiStorybook /> },
+    { label: "Postman", icon: <SiPostman /> },
+    { label: "Jira", icon: <SiJira /> },
+    { label: "Notion", icon: <SiNotion /> },
+    { label: "Trello", icon: <SiTrello /> },
+    { label: "Zoom", icon: <SiZoom /> },
+    { label: "Slack", icon: <SiSlack /> },
 
     // Backend & Build
     { label: "Node", icon: <FaNodeJs /> },
@@ -81,6 +105,8 @@ export const Tools = () => {
     { label: "Liquid", icon: <SiShopify /> },
     { label: "Ruby", icon: <SiRuby /> },
     { label: "Rails", icon: <SiRubyonrails /> },
+    { label: "Webpack", icon: <SiWebpack /> },
+    { label: "Babel", icon: <SiBabel /> },
   ];
 
   return (

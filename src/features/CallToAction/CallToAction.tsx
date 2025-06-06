@@ -62,11 +62,11 @@ export default function CallToAction(): JSX.Element {
               label="Email the Artisan"
               href="mailto:benhays@benhays.dev?subject=Summoning%20the%20Artisan%20of%20Code"
             />
-
             <MagicButton
-              label="View the Résumé"
+              label="View the Résumé (PDF)"
               href="/resume.pdf"
               isExternal
+              ariaLabel="View the résumé in PDF format. Opens in a new tab."
             />
           </div>
         </Content>

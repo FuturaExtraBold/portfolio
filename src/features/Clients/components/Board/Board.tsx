@@ -18,7 +18,7 @@ export default function Board(): JSX.Element {
         <img alt="Accent Sun" src={accentSun} width={580} height={600} />
       </div>
       <div className="board__accent board__accent--moon">
-        <img alt="Accent Sun" src={accentMoon} width={600} height={600} />
+        <img alt="Accent Moon" src={accentMoon} width={600} height={600} />
       </div>
     </div>
   );
