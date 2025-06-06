@@ -6,13 +6,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 
   @include fluid-property($breaks-md, $breaks-xl, 10px, 20px, margin-top);
 }
 
 .cta__buttons > .magic-button {
-  width: 100%;
+  width: 300px;
 }
 
 .cta__content {
@@ -48,9 +48,5 @@
   .cta__buttons {
     flex-direction: row;
     gap: 40px;
-  }
-
-  .cta__buttons > .magic-button {
-    width: 300px;
   }
 }
