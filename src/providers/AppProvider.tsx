@@ -100,11 +100,13 @@ export const AppProvider = ({
   }, []);
 
   useEffect(() => {
-    const handleLoad = () => {
-      alert("Benzo is loaded!");
-      setAppIsLoaded(true);
-    };
-    window.addEventListener("load", handleLoad);
+    const handleLoad = () => setAppIsLoaded(true);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
   const contextValues = useMemo(
