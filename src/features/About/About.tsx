@@ -15,14 +15,8 @@ import shipImage2x from "./images/ship@2x.webp";
 import "./styles.scss";
 
 export default function About(): JSX.Element {
-  const { breakpoints, assetSize } = useApp();
+  const { appIsLoaded, assetSize, breakpoints } = useApp();
   const refShip = useRef<HTMLImageElement>(null);
-  const [showText, setShowText] = useState(false);
-
-  useEffect(() => {
-    const handleLoad = () => setShowText(true);
-    window.addEventListener("load", handleLoad);
-  }, []);
 
   const fluidAmplitudeX = useFluidProperty({
     minWidth: breakpoints.md,
@@ -70,7 +64,7 @@ export default function About(): JSX.Element {
             srcSet={`${shipImage1x} 1x, ${shipImage2x} 2x`}
             width={496}
           />
-          {showText && (
+          {appIsLoaded && (
             <div className="about__text">
               <h1 className="heading--2 about__title">
                 Marvel at Feats of Spectacular Ingenuity

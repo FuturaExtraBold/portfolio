@@ -21,6 +21,7 @@ import App from "../App";
 
 const AppContext = createContext<{
   activeCaseStudy: string | null;
+  appIsLoaded: boolean;
   assetSize: string;
   breakpoints: Record<string, number>;
   benzoLoadProgress: number;
@@ -34,6 +35,7 @@ const AppContext = createContext<{
   windowSize: WindowSize;
 }>({
   activeCaseStudy: null,
+  appIsLoaded: false,
   assetSize: "desktop",
   benzoLoadProgress: 0,
   breakpoints: {},
@@ -57,6 +59,7 @@ export const AppProvider = ({
     () => deviceDetect(navigator.userAgent) || {}
   );
   const [benzoLoadProgress, setBenzoLoadProgress] = useState(0);
+  const [appIsLoaded, setAppIsLoaded] = useState(false);
 
   const { windowSize, mediaClass, breakpoints } =
     useWindowSizeWithBreakpoints();
@@ -96,9 +99,18 @@ export const AppProvider = ({
     }
   }, []);
 
+  useEffect(() => {
+    const handleLoad = () => {
+      alert("Benzo is loaded!");
+      setAppIsLoaded(true);
+    };
+    window.addEventListener("load", handleLoad);
+  }, []);
+
   const contextValues = useMemo(
     () => ({
       activeCaseStudy,
+      appIsLoaded,
       assetSize,
       benzoLoadProgress,
       breakpoints,
