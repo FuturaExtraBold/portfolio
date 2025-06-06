@@ -26,6 +26,7 @@ export default function MagicButton({
         className="magic-button__background"
         width={600}
         height={182}
+        loading="lazy"
       />
       <span className="magic-button__label">{label}</span>
     </a>
