@@ -62,17 +62,14 @@ export const BenzoProvider = ({
   >(null);
 
   const glowColors = useMemo(
-    () => [0x00ff00, 0xff0000, 0x0000ff, 0xffff00, 0xff00ff, 0x00ffff],
+    () => [0x90e575, 0xc48aff, 0xb6ff70, 0xffd966, 0x8cd3ff, 0xff91c2],
     []
   );
 
-  const glowColorsSmoke = useMemo(
-    () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
-    []
-  );
+  const glowColorsSmoke = useMemo(() => [0x90e575, 0x3bdc6c, 0x1fcf60], []);
 
   const glowColorsReflection = useMemo(
-    () => [0x90e575, 0x1bd14a, 0x2ee554, 0xfffffe],
+    () => [0x90e575, 0x3bdc6c, 0x1fcf60],
     []
   );
 
