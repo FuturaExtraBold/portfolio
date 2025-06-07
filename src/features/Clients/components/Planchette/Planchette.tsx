@@ -1,5 +1,6 @@
 import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { useIsMobile } from "hooks/useIsMobile";
 import { ResponsiveImage } from "layout/index";
 import planchetteImage1x from "./planchette@1x.webp";
 import planchetteImage2x from "./planchette@2x.webp";
@@ -7,6 +8,7 @@ import "./styles.scss";
 
 export default function Planchette(): JSX.Element {
   const refPlanchette = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const planchette = refPlanchette.current;
@@ -34,7 +36,6 @@ export default function Planchette(): JSX.Element {
     };
 
     const styleElement = document.createElement("style");
-    // styleElement.innerHTML = "* { cursor: none !important; }";
     document.head.appendChild(styleElement);
 
     window.addEventListener("mousemove", handleMove);
@@ -46,23 +47,18 @@ export default function Planchette(): JSX.Element {
   }, []);
 
   return (
-    <div
-      className="planchette"
-      ref={refPlanchette}
-      style={{
-        position: "absolute",
-        width: "192px",
-        height: "auto",
-        pointerEvents: "none",
-      }}
-    >
+    <div className="planchette" ref={refPlanchette}>
       <ResponsiveImage
         alt="Planchette"
         className="planchette__image"
         fallbackSrc={planchetteImage1x}
         height={534}
-        sizes="(max-width: 768px) 192px, 385px"
-        srcSet={`${planchetteImage1x} 1x, ${planchetteImage2x} 2x`}
+        sizes="(max-width: 768px) 100vw, (min-width: 769px) 1440px"
+        srcSet={
+          isMobile
+            ? `${planchetteImage1x} 1x`
+            : `${planchetteImage1x} 1x, ${planchetteImage2x} 2x`
+        }
         width={385}
       />
     </div>

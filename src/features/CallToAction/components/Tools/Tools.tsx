@@ -120,9 +120,9 @@ export const Tools = (): JSX.Element => {
       {
         y: 0,
         opacity: 1,
-        stagger: 0.04,
-        delay: 0.01,
-        duration: 0.2,
+        stagger: 0.03,
+        delay: 0.008,
+        duration: 0.15,
         ease: "back.out(1.2)",
         scrollTrigger: {
           trigger: ".tools__grid",

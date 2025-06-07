@@ -1,8 +1,13 @@
+@use "assets/stylesheets/consumables" as *;
+
 .planchette {
   position: absolute;
   z-index: 100;
-  max-width: 192px;
+  height: auto;
   opacity: 1;
+  pointer-events: none;
+
+  @include fluid-property($breaks-sm, $breaks-xl, 96px, 192px, width);
 }
 
 .planchette__image {
