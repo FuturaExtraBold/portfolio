@@ -42,7 +42,7 @@ export default function Clients(): JSX.Element {
             {!isMobile && <Planchette />}
             <ClientQuilt />
             <Vignette />
-            <OverlayFade opacity={0.5} />
+            <OverlayFade opacity={0.2} />
           </div>
         </Background>
         <Content className="clients__content">

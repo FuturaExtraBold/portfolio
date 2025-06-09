@@ -13,15 +13,25 @@ export default function Planchette(): JSX.Element {
   useEffect(() => {
     const planchette = refPlanchette.current;
 
+    if (!planchette) return;
+
+    let parentElement: HTMLElement = planchette.parentElement as HTMLElement;
+    let parentRect: DOMRect = parentElement.getBoundingClientRect();
+    let parentWidth: number = parentElement.offsetWidth;
+    let parentHeight: number = parentElement.offsetHeight;
+
+    gsap.set(planchette, {
+      x: parentWidth * 0.42,
+      y: parentHeight * 0.42,
+      rotation: 20,
+    });
+
     const handleMove = (event: MouseEvent): void => {
-      if (!planchette) return;
       const mouseX: number = event.clientX;
       const mouseY: number = event.clientY;
-      const parentElement: HTMLElement =
-        planchette.parentElement as HTMLElement;
-      const parentRect: DOMRect = parentElement.getBoundingClientRect();
-      const parentWidth: number = parentElement.offsetWidth;
-      const parentHeight: number = parentElement.offsetHeight;
+      parentRect = parentElement.getBoundingClientRect();
+      parentWidth = parentElement.offsetWidth;
+      parentHeight = parentElement.offsetHeight;
 
       const rotation: number =
         -(parentRect.left + parentRect.width / 2 - mouseX) / 22.5;
@@ -54,11 +64,7 @@ export default function Planchette(): JSX.Element {
         fallbackSrc={planchetteImage1x}
         height={534}
         sizes="(max-width: 768px) 100vw, (min-width: 769px) 1440px"
-        srcSet={
-          isMobile
-            ? `${planchetteImage1x} 1x`
-            : `${planchetteImage1x} 1x, ${planchetteImage2x} 2x`
-        }
+        srcSet={`${planchetteImage1x} 1x, ${planchetteImage2x} 2x`}
         width={385}
       />
     </div>
