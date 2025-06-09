@@ -1,4 +1,5 @@
-import { type JSX } from "react";
+import { type JSX, useEffect } from "react";
+import { gsap } from "gsap";
 import Employer from "../Employer/Employer";
 import HookyGrand from "ui/Logos/HookyGrand";
 import Kajabi from "ui/Logos/Kajabi";
@@ -6,6 +7,80 @@ import Studio318 from "ui/Logos/Studio318";
 import "./styles.scss";
 
 export default function Employers(): JSX.Element {
+  useEffect(() => {
+    const items = document.querySelectorAll(".employer");
+    const logos = document.querySelectorAll(".employer__logo");
+    const tenures = document.querySelectorAll(".employer__tenure");
+    const descriptions = document.querySelectorAll(".employer__description");
+    if (
+      !items.length ||
+      !logos.length ||
+      !tenures.length ||
+      !descriptions.length
+    )
+      return;
+
+    let hasAnimated = false;
+
+    const animate = () => {
+      gsap.fromTo(
+        logos,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.2,
+          delay: 0,
+          duration: 0.5,
+          ease: "expo.out(4)",
+        }
+      );
+      gsap.fromTo(
+        tenures,
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.2,
+          delay: 0.02,
+          duration: 0.5,
+          ease: "expo.out(4)",
+        }
+      );
+      gsap.fromTo(
+        descriptions,
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.2,
+          delay: 0.04,
+          duration: 0.5,
+          ease: "expo.out(4)",
+        }
+      );
+    };
+
+    const handleScroll = () => {
+      if (hasAnimated) return;
+      const grid = document.querySelector(".employers");
+      if (!grid) return;
+      const rect = grid.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        animate();
+        hasAnimated = true;
+        document.body.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    document.body.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="employers">
       <Employer
