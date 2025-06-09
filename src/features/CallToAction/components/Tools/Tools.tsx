@@ -1,6 +1,5 @@
-import { type JSX, useEffect } from "react";
+import { type JSX, useLayoutEffect } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   FaChrome,
@@ -113,24 +112,44 @@ export const Tools = (): JSX.Element => {
     { label: "Babel", icon: <SiBabel /> },
   ];
 
-  useEffect(() => {
-    gsap.fromTo(
-      ".tools__item",
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.03,
-        delay: 0.008,
-        duration: 0.15,
-        ease: "back.out(1.2)",
-        scrollTrigger: {
-          trigger: ".tools__grid",
-          start: "top 80%",
-        },
+  useLayoutEffect(() => {
+    const items = document.querySelectorAll(".tools__item");
+    let hasAnimated = false;
+
+    const animate = () => {
+      gsap.fromTo(
+        items,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.03,
+          delay: 0.008,
+          duration: 0.15,
+          ease: "back.out(1.2)",
+        }
+      );
+    };
+
+    const handleScroll = () => {
+      if (hasAnimated) return;
+      console.log("Checking scroll position...", document.body.scrollTop);
+      const grid = document.querySelector(".tools__grid");
+      if (!grid) return;
+      const rect = grid.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8) {
+        animate();
+        hasAnimated = true;
+        document.body.removeEventListener("scroll", handleScroll);
       }
-    );
-    setTimeout(() => ScrollTrigger.refresh(), 250);
+    };
+
+    document.body.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (

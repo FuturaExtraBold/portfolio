@@ -21,7 +21,7 @@
   padding-bottom: 12px;
   color: $text-accent;
   font-family: sans-serif;
-  opacity: 0.8;
+  opacity: 0;
 
   @include fluid-property($breaks-sm, $breaks-xl, 6px, 10px, gap);
 }
