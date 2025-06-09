@@ -1,4 +1,4 @@
-import { type JSX, useLayoutEffect } from "react";
+import { type JSX, useEffect } from "react";
 import { gsap } from "gsap";
 
 import {
@@ -112,7 +112,7 @@ export const Tools = (): JSX.Element => {
     { label: "Babel", icon: <SiBabel /> },
   ];
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const items = document.querySelectorAll(".tools__item");
     let hasAnimated = false;
 
@@ -133,7 +133,6 @@ export const Tools = (): JSX.Element => {
 
     const handleScroll = () => {
       if (hasAnimated) return;
-      console.log("Checking scroll position...", document.body.scrollTop);
       const grid = document.querySelector(".tools__grid");
       if (!grid) return;
       const rect = grid.getBoundingClientRect();

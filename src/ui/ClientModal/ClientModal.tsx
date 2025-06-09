@@ -1,5 +1,4 @@
 import { MouseEvent, TouchEvent, type JSX, WheelEvent } from "react";
-import { useEffect } from "react";
 import classnames from "classnames";
 import { Fragment } from "react/jsx-runtime";
 import { useApp } from "providers/AppProvider";
@@ -31,17 +30,6 @@ export default function ClientModal(): JSX.Element {
   const preventEvents = (e: MouseEvent | WheelEvent | TouchEvent): void => {
     e.stopPropagation();
   };
-
-  useEffect(() => {
-    if (isModalActive) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isModalActive]);
 
   return (
     <div className={modalClasses} data-testid="client-modal" role="dialog">
