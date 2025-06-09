@@ -33,16 +33,22 @@ export default function About(): JSX.Element {
   });
 
   useEffect(() => {
-    if (refShip.current && assetSize !== "mobile") {
-      animateFloat({
-        amplitudeX: fluidAmplitudeX,
-        amplitudeY: fluidAmplitudeY,
-        ref: refShip,
-        rotationRange: 180,
-        tickTime: 0.0075,
-      });
-    }
-  }, [breakpoints, fluidAmplitudeX, fluidAmplitudeY, assetSize, refShip]);
+    if (!appIsLoaded || assetSize === "mobile") return;
+    animateFloat({
+      amplitudeX: fluidAmplitudeX,
+      amplitudeY: fluidAmplitudeY,
+      ref: refShip,
+      rotationRange: 180,
+      tickTime: 0.0075,
+    });
+  }, [
+    appIsLoaded,
+    breakpoints,
+    fluidAmplitudeX,
+    fluidAmplitudeY,
+    assetSize,
+    refShip,
+  ]);
 
   return (
     <Section className="about">
@@ -66,7 +72,6 @@ export default function About(): JSX.Element {
                 srcSet={`${shipImage1x} 1x, ${shipImage2x} 2x`}
                 width={496}
               />
-
               <div className="about__text">
                 <h1 className="heading--2 about__title">
                   Marvel at Feats of Spectacular Ingenuity
