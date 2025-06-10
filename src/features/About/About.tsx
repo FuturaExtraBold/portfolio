@@ -1,4 +1,4 @@
-import { type JSX, useEffect, useRef, useState } from "react";
+import { type JSX, useEffect, useRef } from "react";
 import { useApp } from "providers/AppProvider";
 import {
   Background,
