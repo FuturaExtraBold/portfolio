@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+import { useAnalytics } from "hooks/useAnalytics";
 import "./styles.scss";
 import btnBg from "./btn_bg.webp";
 
@@ -7,6 +8,7 @@ interface MagicButtonProps {
   label: string;
   href: string;
   isExternal?: boolean;
+  eventName?: string;
 }
 
 export default function MagicButton({
@@ -14,7 +16,10 @@ export default function MagicButton({
   label,
   href,
   isExternal = false,
+  eventName = "button_click",
 }: MagicButtonProps): JSX.Element {
+  const { trackEvent } = useAnalytics();
+
   return (
     <a
       aria-label={ariaLabel}
@@ -22,6 +27,13 @@ export default function MagicButton({
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       className="magic-button"
+      onClick={() => {
+        trackEvent({
+          name: eventName,
+          category: "engagement",
+          label: href,
+        });
+      }}
     >
       <img
         src={btnBg}

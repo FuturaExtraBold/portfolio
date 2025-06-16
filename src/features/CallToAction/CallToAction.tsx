@@ -59,14 +59,16 @@ export default function CallToAction(): JSX.Element {
           <Tools />
           <div className="cta__buttons">
             <MagicButton
-              label="Email the Artisan"
+              eventName="email_click"
               href="mailto:benhays@benhays.dev?subject=Summoning%20the%20Artisan%20of%20Code"
+              label="Email the Artisan"
             />
             <MagicButton
-              label="View the Résumé (PDF)"
+              ariaLabel="View the résumé in PDF format. Opens in a new tab."
+              eventName="resume_click"
               href="/resume.pdf"
               isExternal
-              ariaLabel="View the résumé in PDF format. Opens in a new tab."
+              label="View the Résumé (PDF)"
             />
           </div>
         </Content>
