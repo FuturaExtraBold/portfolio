@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import AnimatedText from "ui/AnimatedText/AnimatedText";
 import classnames from "classnames";
 import "./styles.scss";
 
@@ -24,7 +25,9 @@ export default function SectionHeader({
 
   return (
     <header className={headerClass} data-testid="section-header">
-      <span className="heading--1">{title}</span>
+      <span className="heading--1">
+        <AnimatedText text={title} />
+      </span>
       <span className="body body--large">{subtitle}</span>
       {useHairline && (
         <div

@@ -1,0 +1,11 @@
+.animated-text {
+  display: flex;
+  flex-wrap: wrap;
+  // opacity: 0;
+}
+
+.animated-text__char {
+  position: relative;
+  display: inline-block;
+  // opacity: 0;
+}

@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PixiPlugin } from "gsap/PixiPlugin";
 
 import {
@@ -11,6 +12,7 @@ import {
 } from "pixi.js";
 
 gsap.registerPlugin(PixiPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 PixiPlugin.registerPIXI({
   Application,

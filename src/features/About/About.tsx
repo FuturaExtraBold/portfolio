@@ -7,7 +7,7 @@ import {
   ResponsiveImage,
   Section,
 } from "layout";
-import { OverlayFade, Separator, Wallpaper } from "ui/index";
+import { AnimatedText, OverlayFade, Separator, Wallpaper } from "ui/index";
 import { animateFloat } from "utils/animation";
 import { useFluidProperty } from "hooks/useFluidProperty";
 import shipImage1x from "./images/ship@1x.webp";
@@ -74,7 +74,7 @@ export default function About(): JSX.Element {
               />
               <div className="about__text">
                 <h1 className="heading--2 about__title">
-                  Marvel at Feats of Spectacular Ingenuity
+                  <AnimatedText text="Marvel at Feats of Spectacular Ingenuity" />
                 </h1>
                 <div className="body text-accent about__description">
                   <span>
