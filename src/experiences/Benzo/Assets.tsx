@@ -3,7 +3,6 @@ import { useApp } from "providers/AppProvider";
 
 export const Assets = () => {
   const { assetSize } = useApp();
-  const base = "assets/images/experiences/benzo";
   const basePath =
     assetSize === "mobile"
       ? "assets/images/experiences/benzo/mobile"
@@ -13,7 +12,6 @@ export const Assets = () => {
     return {
       crystalBall: `assets/images/experiences/benzo/desktop/cb_ball.webp`,
       crystalBallReflection: `assets/images/experiences/benzo/desktop/cb_reflection.webp`,
-      crystalBallSkull: `assets/images/experiences/benzo/desktop/cb_skull.webp`,
       benzoBody: `${basePath}/benzo.webp`,
       glasses: `${basePath}/glasses.png`,
       halo: `${basePath}/halo.webp`,

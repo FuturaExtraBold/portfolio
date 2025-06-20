@@ -14,7 +14,6 @@ export default function CrystalBall(): JSX.Element | null {
   const crystalBallContainerRef = useRef<Container | null>(null);
   const crystalBallRef = useRef<Sprite | null>(null);
   const crystalBallAlternateRef = useRef<Sprite | null>(null);
-  const crystalBallSkullRef = useRef<Sprite | null>(null);
   const reflectionRef = useRef<Sprite | null>(null);
 
   const getRotationParams = () => {
@@ -47,7 +46,7 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
-    const refs = [crystalBallAlternateRef, crystalBallRef, crystalBallSkullRef];
+    const refs = [crystalBallAlternateRef, crystalBallRef];
     refs.forEach((ref) => {
       if (!ref.current) return;
       animateTint({
@@ -60,30 +59,7 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
-    if (crystalBallSkullRef.current) {
-      const thingy = gsap.timeline({
-        repeat: -1,
-      });
-      thingy.to(crystalBallSkullRef.current, {
-        delay: 8,
-        alpha: 1,
-        duration: 2,
-      });
-      thingy.to(crystalBallSkullRef.current, {
-        alpha: 0,
-        duration: 1,
-      });
-    }
-  }, [allTexturesLoaded, crystalBallSkullRef]);
-
-  useEffect(() => {
-    if (!allTexturesLoaded) return;
-    const refs = [
-      crystalBallAlternateRef,
-      crystalBallRef,
-      crystalBallSkullRef,
-      reflectionRef,
-    ];
+    const refs = [crystalBallAlternateRef, crystalBallRef, reflectionRef];
     refs.forEach((ref) => {
       if (!ref.current) return;
       setPosition({
@@ -97,12 +73,7 @@ export default function CrystalBall(): JSX.Element | null {
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
-    const refs = [
-      crystalBallAlternateRef,
-      crystalBallRef,
-      crystalBallSkullRef,
-      reflectionRef,
-    ];
+    const refs = [crystalBallAlternateRef, crystalBallRef, reflectionRef];
     refs.forEach((ref) => {
       if (!ref.current) return;
       ref.current.width = 0.2 * parentSize.width;
@@ -146,13 +117,6 @@ export default function CrystalBall(): JSX.Element | null {
         alpha={0.5}
         ref={crystalBallAlternateRef}
         texture={textures.crystalBall}
-        tint={0xffffff}
-      />
-      <pixiSprite
-        anchor={0.5}
-        alpha={0}
-        ref={crystalBallSkullRef}
-        texture={textures.crystalBallSkull}
         tint={0xffffff}
       />
       <pixiSprite

@@ -46,7 +46,6 @@ export default function AnimatedText({
         })
         .join("&nbsp;");
     }
-    console.log("Resolved Text:", resolvedText);
 
     el.innerHTML = resolvedText;
     const chars = el.querySelectorAll(".animated-text__char");
