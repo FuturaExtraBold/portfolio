@@ -50,6 +50,7 @@ import {
 import { VscTerminal, VscVscode } from "react-icons/vsc";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import "./styles.scss";
+import { AnimatedText } from "ui/index";
 
 export const Tools = (): JSX.Element => {
   const skills = [
@@ -114,46 +115,30 @@ export const Tools = (): JSX.Element => {
 
   useEffect(() => {
     const items = document.querySelectorAll(".tools__item");
-    let hasAnimated = false;
-
-    const animate = () => {
-      gsap.fromTo(
-        items,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.03,
-          delay: 0.008,
-          duration: 0.15,
-          ease: "back.out(1.2)",
-        }
-      );
-    };
-
-    const handleScroll = () => {
-      if (hasAnimated) return;
-      const grid = document.querySelector(".tools__grid");
-      if (!grid) return;
-      const rect = grid.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.8) {
-        animate();
-        hasAnimated = true;
-        document.body.removeEventListener("scroll", handleScroll);
+    gsap.fromTo(
+      items,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.015,
+        delay: 0.05,
+        duration: 0.5,
+        ease: "back.out(1.2)",
+        scrollTrigger: {
+          trigger: items[0],
+          start: "top 80%",
+          once: true,
+        },
       }
-    };
-
-    document.body.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      document.body.removeEventListener("scroll", handleScroll);
-    };
+    );
   }, []);
 
   return (
     <section className="tools">
-      <span className="heading--3 tools__title">Tools of the Trade</span>
+      <span className="heading--3 tools__title">
+        <AnimatedText text="Tools of the Trade" />
+      </span>
       <div className="tools__grid">
         {skills.map(({ label, icon }) => (
           <div key={label} className="text-light tools__item">

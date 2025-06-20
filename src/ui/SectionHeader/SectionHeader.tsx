@@ -28,7 +28,9 @@ export default function SectionHeader({
       <span className="heading--1">
         <AnimatedText text={title} />
       </span>
-      <span className="body body--large">{subtitle}</span>
+      <span className="body body--large">
+        <AnimatedText text={subtitle} simple />
+      </span>
       {useHairline && (
         <div
           className="section-header__hairline"

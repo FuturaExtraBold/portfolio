@@ -4,18 +4,38 @@ import "./styles.scss";
 
 interface AnimatedTextProps {
   text?: string;
+  flex?: boolean;
+  simple?: boolean;
 }
 
-export default function AnimatedText({ text }: AnimatedTextProps): JSX.Element {
+export default function AnimatedText({
+  simple,
+  flex = true,
+  text,
+}: AnimatedTextProps): JSX.Element {
   const elRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     const el = elRef.current;
     if (!el) return;
 
+    if (simple) {
+      gsap.set(el, { opacity: 0 });
+      gsap.to(el, {
+        opacity: 1,
+        duration: 0.8,
+        ease: "expo.inOut",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 80%",
+          once: true,
+        },
+      });
+      return;
+    }
+
     let resolvedText = text || "";
     if (text) {
-      // Split the text into words
       resolvedText = text
         .split(" ")
         .map((word) => {
@@ -39,7 +59,7 @@ export default function AnimatedText({ text }: AnimatedTextProps): JSX.Element {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: "expo.inOut(10)",
+          ease: "expo.inOut",
           delay: index * 0.015,
           scrollTrigger: {
             trigger: el,
@@ -53,7 +73,10 @@ export default function AnimatedText({ text }: AnimatedTextProps): JSX.Element {
   }, []);
 
   return (
-    <span className="animated-text" ref={elRef}>
+    <span
+      className={`animated-text ${flex ? "animated-text--flex" : ""}`}
+      ref={elRef}
+    >
       {text}
     </span>
   );

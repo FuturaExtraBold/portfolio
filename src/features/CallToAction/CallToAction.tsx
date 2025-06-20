@@ -1,6 +1,6 @@
 import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
-import { OverlayFade, Separator, Wallpaper } from "ui/index";
+import { AnimatedText, OverlayFade, Separator, Wallpaper } from "ui/index";
 import { MagicButton } from "ui/index";
 import { Tools } from "./components/Tools/Tools";
 import "./styles.scss";
@@ -15,45 +15,75 @@ export default function CallToAction(): JSX.Element {
         </Background>
         <Content className="cta__content">
           <span className="heading--2 cta__title">
-            Beyond Illusion,
-            <br />
-            Lies Innovation
+            <AnimatedText text="Beyond Illusion, Lies Innovation" />
           </span>
           <div className="body text-accent cta__description">
             <span className="cta__description-item">
               <span className="cta__description-intro">
-                Step right up and make contact
+                <AnimatedText
+                  text="Step right up and make contact"
+                  simple
+                  flex={false}
+                />
               </span>
-              &nbsp;— whether you seek a conjurer of code, a weaver of wondrous
+              <AnimatedText
+                text="&nbsp;— whether you seek a conjurer of code, a weaver of wondrous
               interfaces, or simply a skilled hand to bring visions to life.
               With a résumé of marvels and a flair for the extraordinary, your
-              next collaborator awaits.
+              next collaborator awaits."
+                simple
+                flex={false}
+              />
             </span>
             <span className="cta__description-item">
               <span className="cta__description-intro">
-                Versed in the arcane arts
+                <AnimatedText
+                  text="Versed in the arcane arts"
+                  simple
+                  flex={false}
+                />
               </span>
-              &nbsp;of React, Typescript, and Javascript. A master of HTML and
+              <AnimatedText
+                text="&nbsp;of React, Typescript, and Javascript. A master of HTML and
               SCSS scrolls, and fluent in the dialects of Photoshop,
               Illustrator, Figma, and Sketch. Tools like VSCode, Github, and
-              Netlify? Mere extensions of the artisan’s will.
+              Netlify? Mere extensions of the artisan’s will."
+                simple
+                flex={false}
+              />
             </span>
             <span className="cta__description-item">
               <span className="cta__description-intro">
-                With a flick of the wrist,
+                <AnimatedText
+                  text="With a flick of the wrist,"
+                  simple
+                  flex={false}
+                />
               </span>
-              &nbsp;Liquid flows effortlessly, Lighthouse guides the way, and
+              <AnimatedText
+                text="&nbsp;Liquid flows effortlessly, Lighthouse guides the way, and
               assets are honed through ImageOptim and Clop. Emails are tested in
-              Litmus, and Shopify storefronts are conjured with flair.
+              Litmus, and Shopify storefronts are conjured with flair."
+                simple
+                flex={false}
+              />
             </span>
             <span className="cta__description-item">
               <span className="cta__description-intro">
-                From the swirling realms
+                <AnimatedText
+                  text="From the swirling realms"
+                  simple
+                  flex={false}
+                />
               </span>
-              &nbsp;of GSAP, HTML Canvas, and PixiJS, to the underworlds of
+              <AnimatedText
+                text="&nbsp;of GSAP, HTML Canvas, and PixiJS, to the underworlds of
               Node, Express, NPM, and Vite — even long-lost tongues like
               ActionScript and Objective-C — no spell is too obscure, no tool
-              too arcane.
+              too arcane."
+                simple
+                flex={false}
+              />
             </span>
           </div>
           <Tools />
