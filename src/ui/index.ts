@@ -1,5 +1,6 @@
 export { default as AnimatedText } from "./AnimatedText/AnimatedText";
 export { default as ClientModal } from "./ClientModal/ClientModal";
+export { default as FadeIn } from "./FadeIn/FadeIn";
 export { default as MagicButton } from "./MagicButton/MagicButton";
 export { default as OverlayFade } from "./OverlayFade/OverlayFade";
 export { default as PictureFrame } from "./PictureFrame/PictureFrame";

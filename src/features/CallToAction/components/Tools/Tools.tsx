@@ -1,5 +1,7 @@
-import { type JSX, useEffect } from "react";
+import { type JSX, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { AnimatedText } from "ui";
+import { useScrollTrigger } from "hooks/useScrollTrigger";
 
 import {
   FaChrome,
@@ -16,6 +18,7 @@ import {
   FaSketch,
   FaUniversalAccess,
 } from "react-icons/fa";
+
 import {
   SiAdobeillustrator,
   SiAdobephotoshop,
@@ -49,10 +52,13 @@ import {
 } from "react-icons/si";
 import { VscTerminal, VscVscode } from "react-icons/vsc";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+
 import "./styles.scss";
-import { AnimatedText } from "ui/index";
 
 export const Tools = (): JSX.Element => {
+  const elRef = useRef<HTMLDivElement | null>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
   const skills = [
     // Frameworks & Libraries
     { label: "React", icon: <FaReact /> },
@@ -113,7 +119,9 @@ export const Tools = (): JSX.Element => {
     { label: "Babel", icon: <SiBabel /> },
   ];
 
-  useEffect(() => {
+  function animate() {
+    if (!elRef.current || hasAnimated) return;
+    console.log("Animating tools section");
     const items = document.querySelectorAll(".tools__item");
     gsap.fromTo(
       items,
@@ -125,21 +133,25 @@ export const Tools = (): JSX.Element => {
         delay: 0.05,
         duration: 0.5,
         ease: "back.out(1.2)",
-        scrollTrigger: {
-          trigger: items[0],
-          start: "top 80%",
-          once: true,
-        },
       }
     );
-  }, []);
+  }
+
+  useScrollTrigger({
+    element: elRef.current,
+    offsetRatio: 0.5,
+    callback: () => {
+      animate();
+      setHasAnimated(true);
+    },
+  });
 
   return (
     <section className="tools">
       <span className="heading--3 tools__title">
         <AnimatedText text="Tools of the Trade" />
       </span>
-      <div className="tools__grid">
+      <div className="tools__grid" ref={elRef}>
         {skills.map(({ label, icon }) => (
           <div key={label} className="text-light tools__item">
             <div className="tools__icon">{icon}</div>

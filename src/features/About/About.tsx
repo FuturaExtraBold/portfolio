@@ -7,7 +7,13 @@ import {
   ResponsiveImage,
   Section,
 } from "layout";
-import { AnimatedText, OverlayFade, Separator, Wallpaper } from "ui/index";
+import {
+  AnimatedText,
+  FadeIn,
+  OverlayFade,
+  Separator,
+  Wallpaper,
+} from "ui/index";
 import { animateFloat } from "utils/animation";
 import { useFluidProperty } from "hooks/useFluidProperty";
 import shipImage1x from "./images/ship@1x.webp";
@@ -77,10 +83,17 @@ export default function About(): JSX.Element {
                   <AnimatedText text="Marvel at Feats of Spectacular Ingenuity" />
                 </h1>
                 <div className="body text-accent about__description">
-                  <AnimatedText
-                    text="A seasoned practitioner of the digital arts, I’ve spent over two decades conjuring responsive websites, immersive interfaces, and interactive experiences that delight and perform. With a sharp eye for detail and a touch of the theatrical, I specialize in elegant animations, refined design, and front-end sorcery powered by React, HTML, CSS, and their modern kin."
-                    simple
-                  />
+                  <FadeIn>
+                    <span>
+                      A seasoned practitioner of the digital arts, I’ve spent
+                      over two decades conjuring responsive websites, immersive
+                      interfaces, and interactive experiences that delight and
+                      perform. With a sharp eye for detail and a touch of the
+                      theatrical, I specialize in elegant animations, refined
+                      design, and front-end sorcery powered by React, HTML, CSS,
+                      and their modern kin.
+                    </span>
+                  </FadeIn>
                 </div>
               </div>
             </>

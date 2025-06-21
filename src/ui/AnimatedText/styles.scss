@@ -1,11 +1,11 @@
 .animated-text {
-  display: inline;
+  display: flex;
+  flex-wrap: wrap;
   opacity: 0;
 }
 
-.animated-text--flex {
-  display: flex;
-  flex-wrap: wrap;
+.animated-text--center {
+  justify-content: center;
 }
 
 .animated-text__char {

@@ -2,6 +2,7 @@ import type { JSX } from "react";
 import AnimatedText from "ui/AnimatedText/AnimatedText";
 import classnames from "classnames";
 import "./styles.scss";
+import FadeIn from "ui/FadeIn/FadeIn";
 
 interface SectionHeaderProps {
   subtitle: string;
@@ -28,9 +29,9 @@ export default function SectionHeader({
       <span className="heading--1">
         <AnimatedText text={title} />
       </span>
-      <span className="body body--large">
-        <AnimatedText text={subtitle} simple />
-      </span>
+      <FadeIn>
+        <span className="body body--large">{subtitle}</span>
+      </FadeIn>
       {useHairline && (
         <div
           className="section-header__hairline"

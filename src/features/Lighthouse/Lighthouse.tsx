@@ -1,6 +1,6 @@
 import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
-import { AnimatedText, Separator, Vignette } from "ui";
+import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
 import "./styles.scss";
 
@@ -16,16 +16,16 @@ export default function Lighthouse(): JSX.Element {
         </Background>
         <Content className="lighthouse__content">
           <span className="heading--2 lighthouse__title">
-            <AnimatedText text="The Pursuit of Perfection" />
+            <AnimatedText text="The Pursuit of Perfection" center />
           </span>
-          <span className="body text-light lighthouse__description">
-            <AnimatedText
-              text="Like any great illusion, the magic lies in precision. Every element
-            is fine-tuned for performance, accessibility, and visual poise. The
-            result? Lighthouse scores that dazzle, without smoke or mirrors."
-              simple
-            />
-          </span>
+          <FadeIn>
+            <span className="body text-light lighthouse__description">
+              Like any great illusion, the magic lies in precision. Every
+              element is fine-tuned for performance, accessibility, and visual
+              poise. The result? Lighthouse scores that dazzle, without smoke or
+              mirrors.
+            </span>
+          </FadeIn>
         </Content>
         <div className="overlay lighthouse__overlay"></div>
       </Container>
