@@ -13,8 +13,10 @@ export default function FadeIn({ children }: FadeInProps): JSX.Element {
 
   function simpleAnimation() {
     if (!elRef.current || hasAnimated) return;
-    gsap.set(elRef.current, { opacity: 0 });
+    gsap.set(elRef.current, { opacity: 0, filter: "blur(10px)", y: 20 });
     gsap.to(elRef.current, {
+      filter: "blur(0px)",
+      y: 0,
       opacity: 1,
       duration: 0.8,
       ease: "expo.inOut",

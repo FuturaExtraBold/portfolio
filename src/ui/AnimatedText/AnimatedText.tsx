@@ -36,13 +36,15 @@ export default function AnimatedText({
     chars.forEach((char, index) => {
       const ctx = gsap.context(() => {
         gsap.set(elRef.current, { opacity: 1 });
-        gsap.set(char, { opacity: 0, y: 5 });
+        gsap.set(char, { opacity: 0, x: 100, y: 0, filter: "blur(40px)" });
         gsap.to(char, {
+          filter: "blur(0px)",
           opacity: 1,
           y: 0,
+          x: 0,
           duration: 0.8,
           ease: "expo.inOut",
-          delay: index * 0.015,
+          delay: index * 0.02,
         });
       }, char);
       return () => ctx.revert();
