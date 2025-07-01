@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function FOX(): JSX.Element {
   return (
     <svg
+      aria-label="FOX Logo"
       data-testid="fox"
       role="img"
       viewBox="0 0 129 56"

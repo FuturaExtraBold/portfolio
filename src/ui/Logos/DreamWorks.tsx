@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function DreamWorks(): JSX.Element {
   return (
     <svg
+      aria-label="DreamWorks Logo"
       data-testid="dreamworks"
       role="img"
       viewBox="0 0 128 84"

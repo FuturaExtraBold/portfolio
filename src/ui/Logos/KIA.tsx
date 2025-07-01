@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function KIA(): JSX.Element {
   return (
     <svg
+      aria-label="KIA Logo"
       data-testid="kia"
       role="img"
       viewBox="0 0 129 31"

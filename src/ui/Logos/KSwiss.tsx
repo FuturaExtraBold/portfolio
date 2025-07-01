@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function KSwiss(): JSX.Element {
   return (
     <svg
+      aria-label="KSwiss Logo"
       data-testid="kswiss"
       role="img"
       viewBox="0 0 129 38"

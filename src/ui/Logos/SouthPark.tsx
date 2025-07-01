@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function SouthPark(): JSX.Element {
   return (
     <svg
+      aria-label="South Park Logo"
       data-testid="southpark"
       role="img"
       viewBox="0 0 128 63"

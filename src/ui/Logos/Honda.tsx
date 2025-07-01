@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Honda(): JSX.Element {
   return (
     <svg
+      aria-label="Honda Logo"
       data-testid="honda"
       role="img"
       viewBox="0 0 129 16"

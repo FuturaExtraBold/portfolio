@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Lexus(): JSX.Element {
   return (
     <svg
+      aria-label="Lexus Logo"
       data-testid="lexus"
       role="img"
       viewBox="0 0 129 58"

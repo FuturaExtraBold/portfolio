@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Sony(): JSX.Element {
   return (
     <svg
+      aria-label="Sony Logo"
       data-testid="sony"
       role="img"
       viewBox="0 0 130 140"

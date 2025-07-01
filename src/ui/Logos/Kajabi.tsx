@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Kajabi(): JSX.Element {
   return (
     <svg
+      aria-label="Kajabi Logo"
       data-testid="kajabi"
       role="img"
       viewBox="0 0 128 43"

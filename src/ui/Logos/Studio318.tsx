@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Studio318(): JSX.Element {
   return (
     <svg
+      aria-label="Studio 318 Logo"
       data-testid="studio318"
       role="img"
       viewBox="0 0 542 72"

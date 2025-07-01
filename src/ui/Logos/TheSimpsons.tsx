@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function TheSimpsons(): JSX.Element {
   return (
     <svg
+      aria-label="The Simpsons Logo"
       data-testid="simpsons"
       role="img"
       viewBox="0 0 120 62.31"

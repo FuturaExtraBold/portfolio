@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Pixar(): JSX.Element {
   return (
     <svg
+      aria-label="Pixar Logo"
       data-testid="pixar"
       role="img"
       viewBox="0 0 129 27"

@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function HookyGrand(): JSX.Element {
   return (
     <svg
+      aria-label="Hooky Grand Logo"
       data-testid="hooky"
       role="img"
       viewBox="0 0 1652 674"

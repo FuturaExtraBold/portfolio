@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function U2(): JSX.Element {
   return (
     <svg
+      aria-label="U2 Logo"
       data-testid="u2"
       role="img"
       viewBox="0 0 130 140"
