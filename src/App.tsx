@@ -33,7 +33,9 @@ function App(): JSX.Element {
         <Lazy component={CallToAction} />
         <Lazy component={Hell} />
       </main>
-      <Lazy component={MuseumCard} />
+      <footer>
+        <Lazy component={MuseumCard} />
+      </footer>
       <Lazy component={ClientModal} />
       {/* <Footer /> */}
     </>

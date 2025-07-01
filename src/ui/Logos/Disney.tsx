@@ -3,6 +3,7 @@ import { type JSX } from "react";
 export default function Disney(): JSX.Element {
   return (
     <svg
+      aria-label="Disney Logo"
       data-testid="disney"
       role="img"
       viewBox="0 0 129 55"
