@@ -1,4 +1,4 @@
-import { type JSX } from "react";
+import { cloneElement, type JSX } from "react";
 import "./styles.scss";
 
 interface SocialLinkProps {
@@ -20,7 +20,9 @@ export default function SocialLink({
       rel="nofollow noreferrer"
       target="_blank"
     >
-      {icon}
+      {cloneElement(icon, {
+        "aria-label": `${label} icon`,
+      })}
     </a>
   );
 }

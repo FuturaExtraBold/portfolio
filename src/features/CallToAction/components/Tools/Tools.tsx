@@ -1,4 +1,4 @@
-import { type JSX, useRef, useState } from "react";
+import { cloneElement, type JSX, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { AnimatedText } from "ui";
 import { useScrollTrigger } from "hooks/useScrollTrigger";
@@ -154,7 +154,13 @@ export const Tools = (): JSX.Element => {
       <div className="tools__grid" ref={elRef}>
         {skills.map(({ label, icon }) => (
           <div key={label} className="text-light tools__item">
-            <div className="tools__icon">{icon}</div>
+            <div className="tools__icon">
+              {cloneElement(icon, {
+                "aria-label": `${label} Icon`,
+                role: "img",
+                focusable: false,
+              })}
+            </div>
             <span className="body tools__label">{label}</span>
           </div>
         ))}
