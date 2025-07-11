@@ -4,6 +4,7 @@ export { default as FadeIn } from "./FadeIn/FadeIn";
 export { default as MagicButton } from "./MagicButton/MagicButton";
 export { default as OverlayFade } from "./OverlayFade/OverlayFade";
 export { default as PictureFrame } from "./PictureFrame/PictureFrame";
+export { default as Scroller } from "./Scroller/Scroller";
 export { default as SectionHeader } from "./SectionHeader/SectionHeader";
 export { default as Separator } from "./Separator/Separator";
 export { default as Vignette } from "./Vignette/Vignette";

@@ -10,7 +10,7 @@ import {
   Resume,
 } from "features";
 import { Lazy } from "layout";
-import { ClientModal, PictureFrame } from "ui/index";
+import { ClientModal, PictureFrame, Scroller } from "ui";
 import { useApp } from "providers/AppProvider";
 import "./app.scss";
 
@@ -37,7 +37,7 @@ function App(): JSX.Element {
         <Lazy component={MuseumCard} />
       </footer>
       <Lazy component={ClientModal} />
-      {/* <Footer /> */}
+      <Scroller />
     </>
   );
 }

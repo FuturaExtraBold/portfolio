@@ -16,7 +16,7 @@ export default function Beam(): JSX.Element | null {
   const beamAnchor = { x: 0, y: beamAnchorY };
   const psw = parentSizeRef.current.width;
   const psh = parentSizeRef.current.height;
-  const beamDuration = 6;
+  const beamDuration = 3;
 
   useEffect(() => {
     if (!allTexturesLoaded || !beamLeftRef.current || !beamRightRef.current)
