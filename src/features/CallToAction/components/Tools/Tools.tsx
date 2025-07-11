@@ -1,7 +1,6 @@
-import { cloneElement, type JSX, useRef, useState } from "react";
+import { cloneElement, type JSX, useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { AnimatedText } from "ui";
-import { useScrollTrigger } from "hooks/useScrollTrigger";
 
 import {
   FaChrome,
@@ -57,7 +56,6 @@ import "./styles.scss";
 
 export const Tools = (): JSX.Element => {
   const elRef = useRef<HTMLDivElement | null>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   const skills = [
     // Frameworks & Libraries
@@ -119,32 +117,33 @@ export const Tools = (): JSX.Element => {
     { label: "Babel", icon: <SiBabel /> },
   ];
 
-  function animate() {
-    if (!elRef.current || hasAnimated) return;
-    console.log("Animating tools section");
-    const items = document.querySelectorAll(".tools__item");
-    gsap.fromTo(
-      items,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.015,
-        delay: 0.05,
-        duration: 0.5,
-        ease: "back.out(1.2)",
-      }
-    );
-  }
+  useEffect(() => {
+    if (!elRef.current) return;
 
-  useScrollTrigger({
-    element: elRef.current,
-    offsetRatio: 0.5,
-    callback: () => {
-      animate();
-      setHasAnimated(true);
-    },
-  });
+    const ctx = gsap.context(() => {
+      const items = elRef.current!.querySelectorAll(".tools__item");
+
+      gsap.fromTo(
+        items,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.015,
+          delay: 0.05,
+          duration: 0.5,
+          ease: "back.out(1.2)",
+          scrollTrigger: {
+            trigger: elRef.current,
+            start: "top 70%",
+            once: true,
+          },
+        }
+      );
+    }, elRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section className="tools">

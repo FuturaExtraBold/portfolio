@@ -10,10 +10,7 @@ export const animateRotation = ({
   repeat = true,
   rotationAmount = 360,
 }: AnimateRotationOptions): void => {
-  if (!ref.current) {
-    console.warn("animateRotation ref.current is not defined");
-    return;
-  }
+  if (!ref.current) return;
 
   gsap.killTweensOf(ref.current, "pixi");
 

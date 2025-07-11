@@ -8,16 +8,15 @@ export const animateFloat = ({
   rotationRange = 360,
   tickTime = 0.01,
 }: AnimateFloatOptions): (() => void) => {
-  if (!ref.current) {
-    console.warn("animateFloat ref.current is not defined");
-    return () => {};
-  }
+  if (!ref.current) return () => {};
 
   gsap.killTweensOf(ref.current);
 
   let time = 0;
 
   const tick = () => {
+    if (!ref.current) return;
+
     time += tickTime;
 
     const offsetX = Math.sin(time * 0.8) * amplitudeX;
