@@ -39,7 +39,8 @@
 .museum-card__top {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 5px, 8px, gap);
 }
 
 .museum-card__bottom {
