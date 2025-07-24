@@ -22,11 +22,7 @@ export default function FadeIn({ children }: FadeInProps): JSX.Element {
         scrollTrigger: {
           trigger: elRef.current,
           start: "top bottom-=100px",
-          end: "bottom top+=100px",
-          toggleActions: "play none none none",
           once: true,
-          refreshPriority: 0,
-          invalidateOnRefresh: true,
         },
       });
     }, elRef);
