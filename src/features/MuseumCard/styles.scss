@@ -48,12 +48,8 @@
   gap: 2px;
 }
 
-.museum-card__name {
-  font-size: 18px;
-}
-
 .museum-card__title {
-  font-size: 18px;
+  @include fluid-property($breaks-md, $breaks-xl, 16px, 18px, font-size);
 }
 
 .museum-card__medium {
