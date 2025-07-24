@@ -8,6 +8,7 @@ $mobile-hell-container-center: calc(
 
 .hell {
   position: relative;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: center;

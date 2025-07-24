@@ -16,6 +16,21 @@ gsap.registerPlugin(PixiPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
+// Configure ScrollTrigger for better performance and reliability
+ScrollTrigger.config({
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+  ignoreMobileResize: true,
+});
+
+// Refresh ScrollTrigger on resize after a delay
+let resizeTimer: NodeJS.Timeout;
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    ScrollTrigger.refresh();
+  }, 250);
+});
+
 PixiPlugin.registerPIXI({
   Application,
   Assets,

@@ -1,5 +1,10 @@
 @use "assets/stylesheets/consumables" as *;
 
+.resume {
+  position: relative;
+  overflow: hidden;
+}
+
 .resume__container {
   @include fluid-property($breaks-md, $breaks-xl, 30px, 80px, padding-left);
 }

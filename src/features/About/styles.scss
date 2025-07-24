@@ -1,5 +1,10 @@
 @use "assets/stylesheets/consumables" as *;
 
+.about {
+  position: relative;
+  overflow: hidden;
+}
+
 .about__content {
   padding-right: 0;
   padding-left: 0;

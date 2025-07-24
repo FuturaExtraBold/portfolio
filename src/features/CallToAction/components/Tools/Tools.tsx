@@ -136,8 +136,12 @@ export const Tools = (): JSX.Element => {
           ease: "back.out(1.2)",
           scrollTrigger: {
             trigger: elRef.current,
-            start: "top 70%",
+            start: "top bottom-=100px",
+            end: "bottom top+=100px",
+            toggleActions: "play none none none",
             once: true,
+            refreshPriority: 0,
+            invalidateOnRefresh: true,
           },
         }
       );

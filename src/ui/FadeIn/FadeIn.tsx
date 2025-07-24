@@ -21,8 +21,12 @@ export default function FadeIn({ children }: FadeInProps): JSX.Element {
         ease: "expo.inOut",
         scrollTrigger: {
           trigger: elRef.current,
-          start: "top 70%",
+          start: "top bottom-=100px",
+          end: "bottom top+=100px",
+          toggleActions: "play none none none",
           once: true,
+          refreshPriority: 0,
+          invalidateOnRefresh: true,
         },
       });
     }, elRef);

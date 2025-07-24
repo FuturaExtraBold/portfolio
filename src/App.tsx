@@ -37,7 +37,7 @@ function App(): JSX.Element {
         <Lazy component={MuseumCard} />
       </footer>
       <Lazy component={ClientModal} />
-      <Scroller />
+      {/* <Scroller /> */}
     </>
   );
 }
