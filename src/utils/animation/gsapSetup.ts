@@ -12,11 +12,18 @@ import {
   TilingSprite,
 } from "pixi.js";
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
+
 gsap.registerPlugin(PixiPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
-// Configure ScrollTrigger for better performance and reliability
 ScrollTrigger.config({
   autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
   ignoreMobileResize: true,
