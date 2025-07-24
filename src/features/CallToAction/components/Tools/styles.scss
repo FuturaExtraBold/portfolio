@@ -28,6 +28,7 @@
 
 .tools__label {
   line-height: 1;
+  text-align: left;
 
   @include fluid-property($breaks-sm, $breaks-xl, 15px, 20px, font-size);
 }
