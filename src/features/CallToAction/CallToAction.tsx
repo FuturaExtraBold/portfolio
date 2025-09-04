@@ -78,7 +78,7 @@ export default function CallToAction(): JSX.Element {
             <MagicButton
               ariaLabel="View the résumé in PDF format. Opens in a new tab."
               eventName="resume_click"
-              href="/Ben-Hays-Resume-FrontEndEngineer.pdf"
+              href="/Ben-Hays-Resume-Creative-Technologist.pdf"
               isExternal
               label="View the Résumé (PDF)"
             />
