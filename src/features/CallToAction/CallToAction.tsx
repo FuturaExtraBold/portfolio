@@ -1,5 +1,5 @@
-import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
+import { type JSX } from "react";
 import {
   AnimatedText,
   FadeIn,
@@ -78,7 +78,7 @@ export default function CallToAction(): JSX.Element {
             <MagicButton
               ariaLabel="View the résumé in PDF format. Opens in a new tab."
               eventName="resume_click"
-              href="/Ben-Hays-Resume-Creative-Technologist.pdf"
+              href="/Ben-Hays-Resume.pdf"
               isExternal
               label="View the Résumé (PDF)"
             />
