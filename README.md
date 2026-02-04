@@ -1,11 +1,22 @@
-# Professional Portfolio for Ben Hays
+# Ben Hays Portfolio
 
-I am a Frontend Developer with a penchant for creating
-pixel-perfect and responsive web experiences. I have over 20 years
-of experience building websites, interactive advertising, and web
-applications. My expertise includes working with React and its
-variants, as well as HTML, CSS, and their modern frameworks.
+**An immersive, motion-rich portfolio site for Ben Hays. Frontend Developer and Creative Technologist.**
 
-https://benhays.dev
+**Live site**: [https://benhays.dev](https://benhays.dev)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Recognition**: [Awwwards Honors](https://www.awwwards.com/sites/benzo-the-great-developer), [GSAP Site of the Day](https://gsap.com/showcase/)
+
+## About Me
+
+I’m a frontend developer who loves building pixel perfect, responsive web experiences that actually feel good to use. I’ve been doing this for over 20 years, from interactive advertising and experimental web stuff to full scale production web apps.
+
+My wheelhouse is modern frontend work. React and its many flavors, TypeScript, HTML, CSS, and today’s frameworks and tooling. I care a lot about performance, animation, accessibility, and polish. The little details matter, and I tend to obsess over them.
+
+## Tech Stack
+
+- React 19
+- TypeScript
+- Vite
+- GSAP
+- PixiJS
+- SCSS
