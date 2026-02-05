@@ -4,54 +4,43 @@ import { AnimatedText } from "ui";
 
 import { BsLayers } from "react-icons/bs";
 import {
-  FaChrome,
   FaCss3,
+  FaCube,
   FaFigma,
   FaGithub,
   FaHtml5,
-  FaImage,
   FaJs,
   FaNodeJs,
-  FaNpm,
   FaReact,
   FaSass,
   FaSketch,
   FaUniversalAccess,
 } from "react-icons/fa";
 
-import { MdOutlineMarkEmailRead } from "react-icons/md";
 import {
   SiAdobeillustrator,
   SiAdobephotoshop,
-  SiAmazons3,
-  SiEslint,
+  SiBlender,
   SiExpress,
   SiFramer,
   SiGreensock,
   SiJest,
-  SiJira,
-  SiJquery,
   SiLighthouse,
   SiNetlify,
   SiNextdotjs,
-  SiNotion,
-  SiPostman,
+  SiOpengl,
   SiReactrouter,
-  SiRuby,
-  SiRubyonrails,
   SiShopify,
-  SiSlack,
+  SiSocketdotio,
   SiStorybook,
-  SiStylelint,
   SiSvelte,
   SiTailwindcss,
+  SiThreedotjs,
   SiTypescript,
   SiVercel,
   SiVite,
   SiVuedotjs,
-  SiZoom,
 } from "react-icons/si";
-import { VscTerminal, VscVscode } from "react-icons/vsc";
 
 import "./styles.scss";
 
@@ -59,69 +48,53 @@ export const Tools = (): JSX.Element => {
   const elRef = useRef<HTMLDivElement | null>(null);
 
   const skills = [
-    // Frameworks & Libraries
+    // --- CORE TECH ---
     { label: "React", icon: <FaReact /> },
     { label: "TypeScript", icon: <SiTypescript /> },
     { label: "JavaScript", icon: <FaJs /> },
-    { label: "Vite", icon: <SiVite /> },
     { label: "Next.js", icon: <SiNextdotjs /> },
+    { label: "Vite", icon: <SiVite /> },
+    { label: "Node", icon: <FaNodeJs /> },
+
+    // --- THE CREATIVE ARSENAL ---
+    { label: "Three.js", icon: <SiThreedotjs /> },
+    { label: "PixiJS", icon: <FaJs /> },
+    { label: "WebGL", icon: <SiOpengl /> },
+    { label: "GSAP", icon: <SiGreensock /> },
+    { label: "Blender", icon: <SiBlender /> },
+    { label: "Shaders (GLSL)", icon: <FaCube /> },
+
+    // --- MOTION & INTERACTION ---
+    { label: "Framer Motion", icon: <SiFramer /> },
+    { label: "WebSockets", icon: <SiSocketdotio /> }, // NEW: Essential for "Apple-quality" motion
+    { label: "Canvas", icon: <FaHtml5 /> },
     { label: "Svelte", icon: <SiSvelte /> },
     { label: "Vue.js", icon: <SiVuedotjs /> },
     { label: "TanStack Router", icon: <SiReactrouter /> },
-    { label: "Zustand", icon: <BsLayers /> },
-    { label: "GSAP", icon: <SiGreensock /> },
-    { label: "Pixi JS", icon: <FaJs /> },
-    { label: "Framer Motion", icon: <SiFramer /> },
-    { label: "Canvas", icon: <FaHtml5 /> },
 
-    // Platforms
-    { label: "Vercel", icon: <SiVercel /> },
-    { label: "Netlify", icon: <SiNetlify /> },
-    { label: "Amazon S3", icon: <SiAmazons3 /> },
-
-    // UI / Styling
+    // --- UI & STYLING ---
     { label: "Tailwind CSS", icon: <SiTailwindcss /> },
     { label: "HTML", icon: <FaHtml5 /> },
     { label: "CSS", icon: <FaCss3 /> },
     { label: "Sass, SCSS", icon: <FaSass /> },
-    { label: "Stylelint", icon: <SiStylelint /> },
-    { label: "ESLint", icon: <SiEslint /> },
-
-    // Design Tools
     { label: "Figma", icon: <FaFigma /> },
-    { label: "Sketch", icon: <FaSketch /> },
     { label: "Photoshop", icon: <SiAdobephotoshop /> },
     { label: "Illustrator", icon: <SiAdobeillustrator /> },
+    { label: "Sketch", icon: <FaSketch /> },
+    { label: "Storybook", icon: <SiStorybook /> },
 
-    // Testing & Optimization
+    // --- PLATFORMS & DEPLOY ---
+    { label: "Vercel", icon: <SiVercel /> },
+    { label: "Netlify", icon: <SiNetlify /> },
+    { label: "GitHub", icon: <FaGithub /> },
+    { label: "Express", icon: <SiExpress /> },
+    { label: "Liquid", icon: <SiShopify /> },
+    { label: "Zustand", icon: <BsLayers /> },
+
+    // --- TESTING ---
     { label: "Jest", icon: <SiJest /> },
     { label: "Lighthouse", icon: <SiLighthouse /> },
     { label: "Axe / WAVE", icon: <FaUniversalAccess /> },
-    { label: "ImageOptim", icon: <FaImage /> },
-
-    // Dev Tools & Collaboration
-    { label: "VSCode", icon: <VscVscode /> },
-    { label: "DevTools", icon: <FaChrome /> },
-    { label: "CLI", icon: <VscTerminal /> },
-    { label: "GitHub", icon: <FaGithub /> },
-    { label: "Postman", icon: <SiPostman /> },
-    { label: "Storybook", icon: <SiStorybook /> },
-    { label: "Jira", icon: <SiJira /> },
-    { label: "Notion", icon: <SiNotion /> },
-    { label: "Zoom", icon: <SiZoom /> },
-    { label: "Slack", icon: <SiSlack /> },
-
-    // Backend & Build
-    { label: "Node", icon: <FaNodeJs /> },
-    { label: "NPM", icon: <FaNpm /> },
-    { label: "Express", icon: <SiExpress /> },
-    { label: "Liquid", icon: <SiShopify /> },
-    { label: "Ruby", icon: <SiRuby /> },
-    { label: "Rails", icon: <SiRubyonrails /> },
-
-    // Legacy / Misc
-    { label: "jQuery", icon: <SiJquery /> },
-    { label: "Litmus", icon: <MdOutlineMarkEmailRead /> },
   ];
 
   useEffect(() => {
