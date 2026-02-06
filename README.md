@@ -8,7 +8,7 @@
 
 ## About Me
 
-I’m a frontend developer who loves building pixel perfect, responsive web experiences that actually feel good to use. I’ve been doing this for over 20 years, from interactive advertising and experimental web stuff to full scale production web apps.
+I’m a Creative Developer who loves building pixel perfect, responsive web experiences that actually feel good to use. I’ve been doing this for over 20 years, from interactive advertising and experimental web stuff to full scale production web apps.
 
 My wheelhouse is modern frontend work. React and its many flavors, TypeScript, HTML, CSS, and today’s frameworks and tooling. I care a lot about performance, animation, accessibility, and polish. The little details matter, and I tend to obsess over them.
 

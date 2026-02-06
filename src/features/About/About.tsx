@@ -1,5 +1,4 @@
-import { type JSX, useEffect, useRef } from "react";
-import { useApp } from "providers/AppProvider";
+import { useFluidProperty } from "hooks/useFluidProperty";
 import {
   Background,
   Container,
@@ -7,6 +6,8 @@ import {
   ResponsiveImage,
   Section,
 } from "layout";
+import { useApp } from "providers/AppProvider";
+import { type JSX, useEffect, useRef } from "react";
 import {
   AnimatedText,
   FadeIn,
@@ -15,7 +16,6 @@ import {
   Wallpaper,
 } from "ui/index";
 import { animateFloat } from "utils/animation";
-import { useFluidProperty } from "hooks/useFluidProperty";
 import shipImage1x from "./images/ship@1x.webp";
 import shipImage2x from "./images/ship@2x.webp";
 import "./styles.scss";
