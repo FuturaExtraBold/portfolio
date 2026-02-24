@@ -58,6 +58,7 @@ export const Tools = (): JSX.Element => {
 
     // --- THE CREATIVE ARSENAL ---
     { label: "Three.js", icon: <SiThreedotjs /> },
+    { label: "React Three Fiber", icon: <FaReact /> },
     { label: "PixiJS", icon: <FaJs /> },
     { label: "WebGL", icon: <SiOpengl /> },
     { label: "GSAP", icon: <SiGreensock /> },
@@ -67,7 +68,6 @@ export const Tools = (): JSX.Element => {
     // --- MOTION & INTERACTION ---
     { label: "Framer Motion", icon: <SiFramer /> },
     { label: "WebSockets", icon: <SiSocketdotio /> }, // NEW: Essential for "Apple-quality" motion
-    { label: "Canvas", icon: <FaHtml5 /> },
     { label: "Svelte", icon: <SiSvelte /> },
     { label: "Vue.js", icon: <SiVuedotjs /> },
     { label: "TanStack Router", icon: <SiReactrouter /> },
