@@ -33,6 +33,14 @@ $mobile-hero-container-center: calc(
   z-index: 1000;
 }
 
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  z-index: 1001;
+  pointer-events: none;
+}
+
 @media (min-width: $breaks-md) {
   .hero__background {
     left: 0;
