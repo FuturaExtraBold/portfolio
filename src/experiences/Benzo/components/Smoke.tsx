@@ -10,14 +10,17 @@ export default function Smoke(): JSX.Element | null {
   const [particlesSmoke, setParticlesSmoke] = useState<JSX.Element[]>([]);
 
   const refParticlesSmoke = useRef<Sprite | null>(null);
+  const particlesCreatedRef = useRef(false);
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
+    if (particlesCreatedRef.current) return;
     if (
       textures.smokeParticle !== Texture.EMPTY &&
       parentSize.height > 0 &&
       parentSize.width > 0
     ) {
+      particlesCreatedRef.current = true;
       const numParticles = 100;
       const particles: JSX.Element[] = [];
       for (let i = 0; i < numParticles; i++) {
@@ -66,12 +69,7 @@ export default function Smoke(): JSX.Element | null {
         }, 300);
       }
 
-      setParticlesSmoke((prevParticles) => {
-        if (prevParticles.length === numParticles) {
-          return prevParticles;
-        }
-        return particles;
-      });
+      setParticlesSmoke(particles);
     }
   }, [allTexturesLoaded, glowColorsSmoke, parentSize, textures.smokeParticle]);
 

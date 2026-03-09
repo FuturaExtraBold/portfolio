@@ -1,10 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import About from "./About";
-import { useApp } from "providers/AppProvider";
+import { useAppLoad, useViewport } from "providers/AppProvider";
 import { animateFloat } from "utils/animation";
 
-jest.mock("AppProvider", () => ({
-  useApp: jest.fn(),
+jest.mock("providers/AppProvider", () => ({
+  useAppLoad: jest.fn(),
+  useViewport: jest.fn(),
 }));
 
 jest.mock("utils/animation", () => ({
@@ -13,11 +14,10 @@ jest.mock("utils/animation", () => ({
 
 describe("About Component", () => {
   beforeEach(() => {
-    (useApp as jest.Mock).mockReturnValue({
-      breakpoints: {
-        md: 768,
-        xl: 1440,
-      },
+    (useAppLoad as jest.Mock).mockReturnValue({ appIsLoaded: true });
+    (useViewport as jest.Mock).mockReturnValue({
+      assetSize: "desktop",
+      breakpoints: { md: 768, xl: 1440 },
     });
   });
 

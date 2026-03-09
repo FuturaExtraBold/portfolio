@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import Vignette from "./Vignette";
-import { useApp } from "providers/AppProvider";
+import { useViewport } from "providers/AppProvider";
 
-jest.mock("AppProvider", () => ({
-  useApp: jest.fn(),
+jest.mock("providers/AppProvider", () => ({
+  useViewport: jest.fn(),
 }));
 
 describe("Vignette Component", () => {
   beforeEach(() => {
-    (useApp as jest.Mock).mockReturnValue({
+    (useViewport as jest.Mock).mockReturnValue({
       breakpoints: { md: 768, lg: 1024 },
     });
   });

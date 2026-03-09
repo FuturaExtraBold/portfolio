@@ -1,9 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { useApp } from "providers/AppProvider";
+import { useModal } from "providers/AppProvider";
 import ClientModal from "./ClientModal";
 
 jest.mock("providers/AppProvider", () => ({
-  useApp: jest.fn(),
+  useModal: jest.fn(),
 }));
 
 describe("ClientModal", () => {
@@ -11,7 +11,7 @@ describe("ClientModal", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    (useApp as jest.Mock).mockReturnValue({
+    (useModal as jest.Mock).mockReturnValue({
       activeCaseStudy: "1",
       isModalActive: true,
       setIsModalActive: mockSetIsModalActive,

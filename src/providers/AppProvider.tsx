@@ -269,6 +269,11 @@ export const useSection = () => useContext(SectionContext);
 export const useAppLoad = () => useContext(AppLoadContext);
 export const useBenzoLoad = () => useContext(BenzoLoadContext);
 
+/**
+ * @deprecated Use targeted hooks instead: useViewport, useDevice, useModal,
+ * useSection, useAppLoad, useBenzoLoad. This hook spreads all contexts into
+ * a new object on every call, causing unnecessary re-renders in consumers.
+ */
 export const useApp = () => {
   return {
     ...useViewport(),
