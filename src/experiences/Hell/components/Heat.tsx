@@ -1,7 +1,8 @@
-import { useEffect, type JSX } from "react";
+import { type JSX } from "react";
 import { gsap } from "gsap";
 import { useHell } from "../HellProvider";
 import Background from "./Background";
+import { useGsapContext } from "hooks/useGsapContext";
 
 export default function Heat(): JSX.Element | null {
   const {
@@ -12,7 +13,7 @@ export default function Heat(): JSX.Element | null {
     textures,
   } = useHell();
 
-  useEffect(() => {
+  useGsapContext(() => {
     if (!allTexturesLoaded || !displacementMapRef.current) return;
     console.log("Hell - Heat - animateDisplacementMap");
 
@@ -34,7 +35,7 @@ export default function Heat(): JSX.Element | null {
         y: -512,
       });
     });
-  }, [allTexturesLoaded, displacementMapRef]);
+  }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.displacementMap) return null;
 

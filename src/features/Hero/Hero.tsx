@@ -1,4 +1,4 @@
-import { type JSX, useRef } from "react";
+import { memo, type JSX, useCallback, useRef, useState } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { Separator } from "ui";
 import { useApp } from "providers/AppProvider";
@@ -6,15 +6,20 @@ import PixiApp from "experiences/Benzo/PixiApp";
 import "./styles.scss";
 import Progress from "./components/Progress/Progress";
 
-export default function Hero(): JSX.Element {
+function Hero(): JSX.Element {
   const parentRef = useRef<HTMLDivElement | null>(null);
+  const [hasParent, setHasParent] = useState(false);
+  const setParentRef = useCallback((node: HTMLDivElement | null) => {
+    parentRef.current = node;
+    setHasParent(!!node);
+  }, []);
   const { benzoLoadProgress } = useApp();
 
   return (
     <Section className="hero">
-      <Container className="hero__container" ref={parentRef as any}>
+      <Container className="hero__container" ref={setParentRef}>
         <Background className="hero__background">
-          {parentRef.current && <PixiApp parentRef={parentRef as any} />}
+          {hasParent && <PixiApp parentRef={parentRef as any} />}
         </Background>
         <Content className="hero__content">
           {benzoLoadProgress !== 1 && <Progress />}
@@ -25,3 +30,5 @@ export default function Hero(): JSX.Element {
     </Section>
   );
 }
+
+export default memo(Hero);

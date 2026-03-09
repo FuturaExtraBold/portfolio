@@ -1,12 +1,13 @@
-import { type JSX, useEffect } from "react";
+import { type JSX } from "react";
 import { gsap } from "gsap";
 import { useLighthouse } from "../LighthouseProvider";
+import { useGsapContext } from "hooks/useGsapContext";
 
 export default function Overlay(): JSX.Element | null {
   const { allTexturesLoaded, overlayRef, parentSize, textures } =
     useLighthouse();
 
-  useEffect(() => {
+  useGsapContext(() => {
     if (!allTexturesLoaded || !overlayRef.current) return;
     console.log("Lighthouse - Flash - animateFlash");
     const flashDuration = 0.4;
@@ -35,7 +36,7 @@ export default function Overlay(): JSX.Element | null {
         duration: flashDuration,
       });
     });
-  }, [allTexturesLoaded, overlayRef]);
+  }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.overlay) return null;
 

@@ -20,7 +20,12 @@ export default function TheGreat(): JSX.Element | null {
       duration: 0.5,
       delay: 0.93,
     });
-  }, [allTexturesLoaded, theGreatRef]);
+    return () => {
+      if (theGreatRef.current) {
+        gsap.killTweensOf(theGreatRef.current);
+      }
+    };
+  }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.theGreat) return null;
 

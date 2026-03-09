@@ -7,7 +7,7 @@ import {
   Section,
 } from "layout";
 import { useApp } from "providers/AppProvider";
-import { type JSX, useEffect, useRef } from "react";
+import { memo, type JSX, useEffect, useRef } from "react";
 import {
   AnimatedText,
   FadeIn,
@@ -20,7 +20,7 @@ import shipImage1x from "./images/ship@1x.webp";
 import shipImage2x from "./images/ship@2x.webp";
 import "./styles.scss";
 
-export default function About(): JSX.Element {
+function About(): JSX.Element {
   const { appIsLoaded, assetSize, breakpoints } = useApp();
   const refShip = useRef<HTMLImageElement>(null);
 
@@ -40,21 +40,14 @@ export default function About(): JSX.Element {
 
   useEffect(() => {
     if (!appIsLoaded || assetSize === "mobile") return;
-    animateFloat({
+    return animateFloat({
       amplitudeX: fluidAmplitudeX,
       amplitudeY: fluidAmplitudeY,
       ref: refShip,
       rotationRange: 180,
       tickTime: 0.0075,
     });
-  }, [
-    appIsLoaded,
-    breakpoints,
-    fluidAmplitudeX,
-    fluidAmplitudeY,
-    assetSize,
-    refShip,
-  ]);
+  }, [appIsLoaded, assetSize, fluidAmplitudeX, fluidAmplitudeY]);
 
   return (
     <Section className="about">
@@ -104,3 +97,5 @@ export default function About(): JSX.Element {
     </Section>
   );
 }
+
+export default memo(About);

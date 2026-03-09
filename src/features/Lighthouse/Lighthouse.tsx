@@ -1,17 +1,22 @@
-import { type JSX, useRef } from "react";
+import { memo, type JSX, useCallback, useRef, useState } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
 import "./styles.scss";
 
-export default function Lighthouse(): JSX.Element {
+function Lighthouse(): JSX.Element {
   const parentRef = useRef<HTMLDivElement | null>(null);
+  const [hasParent, setHasParent] = useState(false);
+  const setParentRef = useCallback((node: HTMLDivElement | null) => {
+    parentRef.current = node;
+    setHasParent(!!node);
+  }, []);
 
   return (
     <Section className="lighthouse">
-      <Container className="lighthouse__container" ref={parentRef as any}>
+      <Container className="lighthouse__container" ref={setParentRef}>
         <Background className="lighthouse__background">
-          {parentRef.current && <PixiApp parentRef={parentRef as any} />}
+          {hasParent && <PixiApp parentRef={parentRef as any} />}
           <Vignette />
         </Background>
         <Content className="lighthouse__content">
@@ -33,3 +38,5 @@ export default function Lighthouse(): JSX.Element {
     </Section>
   );
 }
+
+export default memo(Lighthouse);

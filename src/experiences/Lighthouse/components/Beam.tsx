@@ -1,6 +1,7 @@
-import { useEffect, type JSX } from "react";
+import { type JSX } from "react";
 import { gsap } from "gsap";
 import { useLighthouse } from "../LighthouseProvider";
+import { useGsapContext } from "hooks/useGsapContext";
 
 export default function Beam(): JSX.Element | null {
   const {
@@ -18,7 +19,7 @@ export default function Beam(): JSX.Element | null {
   const psh = parentSizeRef.current.height;
   const beamDuration = 3;
 
-  useEffect(() => {
+  useGsapContext(() => {
     if (!allTexturesLoaded || !beamLeftRef.current || !beamRightRef.current)
       return;
     console.log("Lighthouse - Beam - animateBeams");
@@ -54,7 +55,7 @@ export default function Beam(): JSX.Element | null {
         duration: beamDuration,
       });
     });
-  }, [allTexturesLoaded, beamLeftRef, beamRightRef]);
+  }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.beam) return null;
 

@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { Sprite } from "pixi.js";
 import { useBenzo } from "../BenzoProvider";
 import { setScale } from "utils/animation";
+import { useGsapContext } from "hooks/useGsapContext";
 
 export default function BenzoTitle(): JSX.Element | null {
   const {
@@ -20,7 +21,7 @@ export default function BenzoTitle(): JSX.Element | null {
   const patternRef = useRef<Sprite | null>(null);
   const patternLetterRefs = useRef<Record<string, Sprite | null>>({});
 
-  useEffect(() => {
+  useGsapContext(() => {
     if (!renderedLetters || !renderedPatternLetters || !greatRef.current)
       return;
 
@@ -74,7 +75,7 @@ export default function BenzoTitle(): JSX.Element | null {
         );
       });
     });
-  }, [greatRef, renderedPatternLetters, renderedLetters, scaleRef]);
+  }, [renderedPatternLetters, renderedLetters, scaleRef]);
 
   useEffect(() => {
     if (!titleRef.current || !patternRef.current) return;

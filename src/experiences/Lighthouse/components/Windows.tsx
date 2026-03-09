@@ -22,7 +22,12 @@ const Windows = (): JSX.Element | null => {
     if (windowsRef.current && allTexturesLoaded) {
       flicker();
     }
-  }, [allTexturesLoaded, flicker, windowsRef]);
+    return () => {
+      if (windowsRef.current) {
+        gsap.killTweensOf(windowsRef.current);
+      }
+    };
+  }, [allTexturesLoaded, flicker]);
 
   if (!allTexturesLoaded || !textures.windows) return null;
 

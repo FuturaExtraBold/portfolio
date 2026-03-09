@@ -42,7 +42,15 @@ export default function CrystalBall(): JSX.Element | null {
         getNextParams: getRotationParams,
       });
     }
-  }, [allTexturesLoaded, crystalBallRef, crystalBallAlternateRef]);
+    return () => {
+      if (crystalBallRef.current) {
+        gsap.killTweensOf(crystalBallRef.current);
+      }
+      if (crystalBallAlternateRef.current) {
+        gsap.killTweensOf(crystalBallAlternateRef.current);
+      }
+    };
+  }, [allTexturesLoaded]);
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
@@ -55,7 +63,13 @@ export default function CrystalBall(): JSX.Element | null {
         ref: ref,
       });
     });
-  }, [allTexturesLoaded, crystalBallRef, glowProps]);
+    return () => {
+      refs.forEach((ref) => {
+        if (!ref.current) return;
+        gsap.killTweensOf(ref.current);
+      });
+    };
+  }, [allTexturesLoaded, glowProps]);
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
@@ -84,7 +98,7 @@ export default function CrystalBall(): JSX.Element | null {
   useEffect(() => {
     if (!allTexturesLoaded) return;
     if (crystalBallContainerRef.current) {
-      animateFloat({
+      return animateFloat({
         ref: crystalBallContainerRef,
         amplitudeX: parentSize.width * 0.01,
         amplitudeY: parentSize.width * 0.01,
@@ -92,7 +106,7 @@ export default function CrystalBall(): JSX.Element | null {
         tickTime: 0.01,
       });
     }
-  }, [allTexturesLoaded, crystalBallContainerRef, parentSize]);
+  }, [allTexturesLoaded, parentSize.width]);
 
   if (!allTexturesLoaded || !textures.crystalBall) return null;
 

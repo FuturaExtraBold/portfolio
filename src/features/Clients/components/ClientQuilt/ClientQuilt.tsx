@@ -1,10 +1,10 @@
-import { type JSX, useCallback, useRef } from "react";
+import { memo, type JSX, useCallback, useMemo, useRef } from "react";
 import { Container } from "layout";
 import { useApp } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
 import "./styles.scss";
 
-export default function ClientQuilt(): JSX.Element {
+function ClientQuilt(): JSX.Element {
   const { setActiveCaseStudy, setIsModalActive } = useApp();
 
   const quiltRef = useRef<HTMLDivElement | null>(null);
@@ -23,17 +23,19 @@ export default function ClientQuilt(): JSX.Element {
     [setActiveCaseStudy, setIsModalActive]
   );
 
-  const renderedRows = caseStudies.map((client, index) => {
-    return (
-      <div
-        key={client.id}
-        className="client"
-        onClick={() => handleLogoClick(client.id)}
-      >
-        {client.logoComponent()}
-      </div>
-    );
-  });
+  const renderedRows = useMemo(
+    () =>
+      caseStudies.map((client) => (
+        <div
+          key={client.id}
+          className="client"
+          onClick={() => handleLogoClick(client.id)}
+        >
+          {client.logoComponent()}
+        </div>
+      )),
+    [handleLogoClick]
+  );
 
   return (
     <div className="client-quilt" ref={quiltRef}>
@@ -41,3 +43,5 @@ export default function ClientQuilt(): JSX.Element {
     </div>
   );
 }
+
+export default memo(ClientQuilt);

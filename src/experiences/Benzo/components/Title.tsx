@@ -20,7 +20,12 @@ export default function Title(): JSX.Element | null {
       duration: 0.25,
       delay: 1,
     });
-  }, [allTexturesLoaded, titleRef]);
+    return () => {
+      if (titleRef.current) {
+        gsap.killTweensOf(titleRef.current);
+      }
+    };
+  }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.titleNew) return null;
 

@@ -9,14 +9,14 @@ export default function HandRight(): JSX.Element | null {
 
   useEffect(() => {
     if (!handRightRef.current || !allTexturesLoaded) return;
-    animateFloat({
+    return animateFloat({
       ref: handRightRef,
       amplitudeX: parentSize.width * 0.01,
       amplitudeY: 0,
       rotationRange: 0.05,
       tickTime: 0.0125,
     });
-  }, [allTexturesLoaded, handRightRef]);
+  }, [allTexturesLoaded, parentSize.width]);
 
   if (!allTexturesLoaded || !textures.handRight) return null;
 

@@ -42,8 +42,9 @@ export const BenzoProvider = ({
   const { setBenzoLoadProgress } = useApp();
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
+  const glowTimeoutRef = useRef<number | null>(null);
+  const smokeTimeoutRef = useRef<number | null>(null);
 
-  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
   const [glowProps, setGlowProps] = useState({
     color: 0xffffff,
     duration: 0.5,
@@ -53,7 +54,6 @@ export const BenzoProvider = ({
     color: 0xffffff,
     duration: 0.5,
   });
-  const [textures, setTextures] = useState<Record<string, any>>({});
   const [renderedLetters, setRenderedLetters] = useState<JSX.Element[] | null>(
     null
   );
@@ -73,6 +73,8 @@ export const BenzoProvider = ({
     []
   );
 
+  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
+  const [textures, setTextures] = useState<Record<string, any>>({});
   const texturePaths = AssetPaths();
 
   const updateParentSize = useCallback(() => {
@@ -88,7 +90,13 @@ export const BenzoProvider = ({
     const color = glowColors[Math.floor(Math.random() * glowColors.length)];
     const duration = Math.random() * 3 + 0.5;
     setGlowProps({ color, duration });
-    setTimeout(updateGlowProps, duration * 1000);
+    if (glowTimeoutRef.current) {
+      window.clearTimeout(glowTimeoutRef.current);
+    }
+    glowTimeoutRef.current = window.setTimeout(
+      updateGlowProps,
+      duration * 1000
+    );
   }, [glowColors]);
 
   const updateSmokeProps = useCallback(() => {
@@ -98,7 +106,13 @@ export const BenzoProvider = ({
       ];
     const duration = Math.random() * 3 + 0.5;
     setSmokeProps({ color, duration });
-    setTimeout(updateSmokeProps, duration * 1000);
+    if (smokeTimeoutRef.current) {
+      window.clearTimeout(smokeTimeoutRef.current);
+    }
+    smokeTimeoutRef.current = window.setTimeout(
+      updateSmokeProps,
+      duration * 1000
+    );
   }, [glowColorsReflection]);
 
   const loadTextures = useCallback(async () => {
@@ -158,10 +172,20 @@ export const BenzoProvider = ({
 
   useEffect(() => {
     updateGlowProps();
+    return () => {
+      if (glowTimeoutRef.current) {
+        window.clearTimeout(glowTimeoutRef.current);
+      }
+    };
   }, [updateGlowProps]);
 
   useEffect(() => {
     updateSmokeProps();
+    return () => {
+      if (smokeTimeoutRef.current) {
+        window.clearTimeout(smokeTimeoutRef.current);
+      }
+    };
   }, [updateSmokeProps]);
 
   useEffect(() => {
