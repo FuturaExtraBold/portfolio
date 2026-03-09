@@ -2,6 +2,7 @@ import { memo, type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
+import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
 import "./styles.scss";
 
@@ -12,7 +13,11 @@ function Lighthouse(): JSX.Element {
     <Section className="lighthouse">
       <Container className="lighthouse__container" ref={setParentRef}>
         <Background className="lighthouse__background">
-          {hasParent && <PixiApp parentRef={parentRef as any} />}
+          {hasParent && (
+            <PixiErrorBoundary>
+              <PixiApp parentRef={parentRef as any} />
+            </PixiErrorBoundary>
+          )}
           <Vignette />
         </Background>
         <Content className="lighthouse__content">

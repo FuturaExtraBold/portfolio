@@ -1,10 +1,11 @@
-import { type JSX, useCallback, useEffect } from "react";
+import { type JSX, useCallback, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useLighthouse } from "../LighthouseProvider";
 
 const Windows = (): JSX.Element | null => {
   const { allTexturesLoaded, parentSize, textures, windowsRef } =
     useLighthouse();
+  const cancelledRef = useRef(false);
 
   const flicker = useCallback(() => {
     if (!allTexturesLoaded || !windowsRef.current) return;
@@ -14,15 +15,19 @@ const Windows = (): JSX.Element | null => {
       repeat: 0,
       yoyo: true,
       ease: "power1.inOut",
-      onComplete: () => flicker(),
+      onComplete: () => {
+        if (!cancelledRef.current) flicker();
+      },
     });
   }, [allTexturesLoaded, windowsRef]);
 
   useEffect(() => {
+    cancelledRef.current = false;
     if (windowsRef.current && allTexturesLoaded) {
       flicker();
     }
     return () => {
+      cancelledRef.current = true;
       if (windowsRef.current) {
         gsap.killTweensOf(windowsRef.current);
       }

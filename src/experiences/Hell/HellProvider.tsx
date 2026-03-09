@@ -2,15 +2,16 @@ import {
   createContext,
   RefObject,
   type JSX,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from "react";
-import { Assets, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
+import { DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import { Assets as AssetPaths } from "./Assets";
+import { usePixiAssets } from "hooks/usePixiAssets";
+import { useParentSize } from "hooks/useParentSize";
 import Hell from "./Hell";
 
 export interface UseHellProps {
@@ -30,57 +31,20 @@ interface HellProviderProps {
 
 export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
   const displacementMapRef = useRef<any>(null);
-
-  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
-  const [textures, setTextures] = useState({});
-  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
   const [displacementFilter, setDisplacementFilter] =
     useState<DisplacementFilter | null>(null);
 
   const texturePaths = AssetPaths();
 
-  const updateParentSize = useCallback(() => {
-    if (parentRef.current) {
-      const width = parentRef.current.clientWidth;
-      const height = parentRef.current.clientHeight;
-      setParentSize({ width, height });
-    }
-  }, [parentRef]);
+  const { textures, allTexturesLoaded } = usePixiAssets({
+    texturePaths,
+    mapTexture: (_, texture) => {
+      texture.source.autoGenerateMipmaps = true;
+      return texture;
+    },
+  });
 
-  const loadTextures = useCallback(async () => {
-    const loadedTextures: Record<string, any> = {};
-    for (const [key, path] of Object.entries(texturePaths)) {
-      loadedTextures[key] = await Assets.load(path).then((result) => {
-        result.source.autoGenerateMipmaps = true;
-        return result;
-      });
-    }
-    if (import.meta.env.DEV) {
-      console.log("Hell - All textures loaded");
-    }
-    setTextures(loadedTextures);
-    setAllTexturesLoaded(true);
-  }, [texturePaths]);
-
-  useEffect(() => {
-    loadTextures();
-  }, [loadTextures]);
-
-  useEffect(() => {
-    if (!parentRef.current) return;
-    const observer = new ResizeObserver(() => {
-      updateParentSize();
-    });
-    observer.observe(parentRef.current);
-    updateParentSize();
-    return () => observer.disconnect();
-  }, [parentRef, updateParentSize]);
-
-  useEffect(() => {
-    if (allTexturesLoaded) {
-      updateParentSize();
-    }
-  }, [allTexturesLoaded, updateParentSize]);
+  const { parentSize } = useParentSize(parentRef);
 
   useEffect(() => {
     if (!displacementMapRef.current) return;

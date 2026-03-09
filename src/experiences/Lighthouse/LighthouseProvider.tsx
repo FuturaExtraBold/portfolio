@@ -2,15 +2,14 @@ import {
   createContext,
   RefObject,
   type JSX,
-  useCallback,
   useContext,
-  useEffect,
   useMemo,
   useRef,
-  useState,
 } from "react";
-import { Assets, Sprite } from "pixi.js";
+import { Sprite } from "pixi.js";
 import { Assets as AssetPaths } from "./Assets";
+import { usePixiAssets } from "hooks/usePixiAssets";
+import { useParentSize } from "hooks/useParentSize";
 
 import Lighthouse from "./Lighthouse";
 
@@ -41,75 +40,17 @@ export const LighthouseProvider = ({
   parentRef,
 }: LighthouseProviderProps): JSX.Element => {
   const backgroundRef = useRef<any>(null);
-  const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
   const overlayRef = useRef<any>(null);
   const windowsRef = useRef<any>(null);
   const beamLeftRef = useRef<any>(null);
   const beamRightRef = useRef<any>(null);
 
-  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
-  const [textures, setTextures] = useState<Record<string, any>>({});
-  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
-
   const texturePaths = AssetPaths();
 
-  const loadTextures = useCallback(async () => {
-    if (import.meta.env.DEV) {
-      console.log("Lighthouse - Provider - loadTextures");
-    }
-    const loadedTextures: Record<string, any> = {};
-    const entries = Object.entries(texturePaths);
-    const total = entries.length;
-    let loaded = 0;
+  const { textures, allTexturesLoaded } = usePixiAssets({ texturePaths });
 
-    for (const [key, path] of entries) {
-      try {
-        const texture = await Assets.load(path);
-        loadedTextures[key] = texture;
-        loaded++;
-      } catch (e) {
-        console.error(`Error loading ${key}:`, e);
-      }
-    }
-
-    if (loaded === total) {
-      if (import.meta.env.DEV) {
-        console.log("Lighthouse - Provider - All textures loaded complete");
-      }
-      setTextures(loadedTextures);
-      setAllTexturesLoaded(true);
-    } else {
-      if (import.meta.env.DEV) {
-        console.warn(`Only ${loaded} out of ${total} textures loaded.`);
-      }
-    }
-  }, [texturePaths]);
-
-  useEffect(() => {
-    loadTextures();
-  }, [loadTextures]);
-
-  useEffect(() => {
-    const parent = parentRef.current;
-    if (!parent) return;
-
-    const observer = new ResizeObserver(() => {
-      const width = parent.clientWidth;
-      const height = parent.clientHeight;
-      setParentSize({ width, height });
-      parentSizeRef.current = { width, height };
-    });
-
-    observer.observe(parent);
-
-    const width = parent.clientWidth;
-    const height = parent.clientHeight;
-    setParentSize({ width, height });
-    parentSizeRef.current = { width, height };
-
-    return () => observer.disconnect();
-  }, [parentRef]);
+  const { parentSize, parentSizeRef } = useParentSize(parentRef);
 
   const contextValues = useMemo(
     () => ({

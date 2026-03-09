@@ -1,5 +1,6 @@
-import { type JSX, useEffect, useRef } from "react";
+import { type JSX, useRef } from "react";
 import gsap from "gsap";
+import { useGsapContext } from "hooks/useGsapContext";
 import "./styles.scss";
 
 interface AnimatedTextProps {
@@ -13,10 +14,10 @@ export default function AnimatedText({
 }: AnimatedTextProps): JSX.Element {
   const elRef = useRef<HTMLSpanElement | null>(null);
 
-  useEffect(() => {
-    if (!elRef.current) return;
+  useGsapContext(
+    () => {
+      if (!elRef.current) return;
 
-    const ctx = gsap.context(() => {
       let resolvedText = text || "";
       if (text) {
         resolvedText = text
@@ -50,10 +51,10 @@ export default function AnimatedText({
           once: true,
         },
       });
-    }, elRef);
-
-    return () => ctx.revert();
-  }, [text]);
+    },
+    [text],
+    elRef
+  );
 
   return (
     <span

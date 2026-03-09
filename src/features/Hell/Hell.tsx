@@ -3,6 +3,7 @@ import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, SectionHeader, Separator } from "ui/index";
 import { useViewport } from "providers/AppProvider";
 import PixiApp from "experiences/Hell/PixiApp";
+import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
 import "./styles.scss";
 
@@ -14,7 +15,11 @@ export default function Hell(): JSX.Element {
     <Section className="hell">
       <Container className="hell__container" ref={setParentRef}>
         <Background className="hell__background">
-          {hasParent && <PixiApp parentRef={parentRef as any} />}
+          {hasParent && (
+            <PixiErrorBoundary>
+              <PixiApp parentRef={parentRef as any} />
+            </PixiErrorBoundary>
+          )}
         </Background>
         <div className="overlay hell__overlay"></div>
         <Content className="hell__content">

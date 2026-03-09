@@ -1,5 +1,7 @@
-import { type JSX, useEffect, useRef } from "react";
+import { type JSX, useRef } from "react";
 import gsap from "gsap";
+import { useGsapContext } from "hooks/useGsapContext";
+import "./styles.scss";
 
 interface FadeInProps {
   children: JSX.Element | JSX.Element[];
@@ -8,10 +10,9 @@ interface FadeInProps {
 export default function FadeIn({ children }: FadeInProps): JSX.Element {
   const elRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (!elRef.current) return;
-
-    const ctx = gsap.context(() => {
+  useGsapContext(
+    () => {
+      if (!elRef.current) return;
       gsap.set(elRef.current, { opacity: 0, filter: "blur(10px)", y: 20 });
       gsap.to(elRef.current, {
         filter: "blur(0px)",
@@ -25,10 +26,10 @@ export default function FadeIn({ children }: FadeInProps): JSX.Element {
           once: true,
         },
       });
-    }, elRef);
-
-    return () => ctx.revert();
-  }, []);
+    },
+    [],
+    elRef
+  );
 
   return (
     <div className="fade-in" ref={elRef}>

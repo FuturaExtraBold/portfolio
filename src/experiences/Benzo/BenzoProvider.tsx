@@ -9,11 +9,12 @@ import {
   useRef,
   useState,
 } from "react";
-import { Assets } from "pixi.js";
+import { Spritesheet } from "pixi.js";
 import Benzo from "./Benzo";
 import { useBenzoLoad } from "providers/AppProvider";
 import { Assets as AssetPaths } from "./Assets";
-import { Spritesheet } from "pixi.js";
+import { usePixiAssets } from "hooks/usePixiAssets";
+import { useParentSize } from "hooks/useParentSize";
 import { titleAtlas } from "./data/titleAtlas";
 
 export interface UseBenzoProps {
@@ -40,7 +41,6 @@ export const BenzoProvider = ({
   parentRef,
 }: BenzoProviderProps): JSX.Element => {
   const { setBenzoLoadProgress } = useBenzoLoad();
-  const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
   const glowTimeoutRef = useRef<number | null>(null);
   const smokeTimeoutRef = useRef<number | null>(null);
@@ -49,7 +49,6 @@ export const BenzoProvider = ({
     color: 0xffffff,
     duration: 0.5,
   });
-  const [parentSize, setParentSize] = useState({ width: 0, height: 0 });
   const [smokeProps, setSmokeProps] = useState({
     color: 0xffffff,
     duration: 0.5,
@@ -73,18 +72,15 @@ export const BenzoProvider = ({
     []
   );
 
-  const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
-  const [textures, setTextures] = useState<Record<string, any>>({});
   const texturePaths = AssetPaths();
 
-  const updateParentSize = useCallback(() => {
-    if (parentRef.current) {
-      const width = parentRef.current.clientWidth;
-      const height = parentRef.current.clientHeight;
-      setParentSize({ width, height });
-      parentSizeRef.current = { width, height };
-    }
-  }, [parentRef]);
+  const { textures, allTexturesLoaded } = usePixiAssets({
+    texturePaths,
+    onProgress: setBenzoLoadProgress,
+  });
+
+  const { parentSize, parentSizeRef, updateParentSize } =
+    useParentSize(parentRef);
 
   const updateGlowProps = useCallback(() => {
     const color = glowColors[Math.floor(Math.random() * glowColors.length)];
@@ -114,53 +110,6 @@ export const BenzoProvider = ({
       duration * 1000
     );
   }, [glowColorsReflection]);
-
-  const loadTextures = useCallback(async () => {
-    if (import.meta.env.DEV) {
-      console.log("Benzo - Provider - loadTextures");
-    }
-    const loadedTextures: Record<string, any> = {};
-    const entries = Object.entries(texturePaths);
-    const total = entries.length;
-    let loaded = 0;
-
-    for (const [key, path] of entries) {
-      try {
-        const texture = await Assets.load(path);
-        loadedTextures[key] = texture;
-        loaded++;
-        setBenzoLoadProgress(loaded / total);
-      } catch (e) {
-        console.error(`Error loading ${key}:`, e);
-      }
-    }
-
-    if (loaded === total) {
-      if (import.meta.env.DEV) {
-        console.log("Benzo - Provider - All textures loaded complete");
-      }
-      updateParentSize();
-      setTextures(loadedTextures);
-      setAllTexturesLoaded(true);
-    } else {
-      if (import.meta.env.DEV) {
-        console.warn(`Only ${loaded} out of ${total} textures loaded.`);
-      }
-    }
-  }, [setBenzoLoadProgress, texturePaths, updateParentSize]);
-
-  useEffect(() => {
-    loadTextures();
-  }, [loadTextures]);
-
-  useEffect(() => {
-    if (!parentRef.current) return;
-    const observer = new ResizeObserver(() => {
-      updateParentSize();
-    });
-    observer.observe(parentRef.current);
-    return () => observer.disconnect();
-  }, [parentRef, updateParentSize]);
 
   useEffect(() => {
     if (allTexturesLoaded) {
