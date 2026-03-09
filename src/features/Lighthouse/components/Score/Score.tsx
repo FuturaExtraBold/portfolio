@@ -1,8 +1,7 @@
 import { type JSX, useCallback, useEffect, useRef, useState } from "react";
-import { useApp } from "providers/AppProvider";
+import { useApp, useViewport } from "providers/AppProvider";
 import { gsap } from "gsap";
 import { useFluidProperty } from "hooks/useFluidProperty";
-import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
 import "./styles.scss";
 
 interface ScoreProps {
@@ -15,7 +14,7 @@ export default function Score({
   containerDelay = 0,
 }: ScoreProps): JSX.Element {
   const { currentSection } = useApp();
-  const { breakpoints } = useWindowSizeWithBreakpoints();
+  const { breakpoints } = useViewport();
 
   const [circumference, setCircumference] = useState(0);
 

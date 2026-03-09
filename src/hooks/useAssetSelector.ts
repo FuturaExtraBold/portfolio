@@ -1,13 +1,7 @@
-import { useState } from "react";
-
-type AssetSize = "mobile" | "desktop";
+import { useViewport } from "providers/AppProvider";
+import type { AssetSize } from "hooks/useViewport";
 
 export const useAssetSelector = (): AssetSize => {
-  const getInitialAssetSize = (): AssetSize => {
-    return window.innerWidth <= 768 ? "mobile" : "desktop";
-  };
-
-  const [assetSize] = useState<AssetSize>(getInitialAssetSize);
-
-  return assetSize;
+  const { assetSize } = useViewport();
+  return assetSize as AssetSize;
 };

@@ -1,6 +1,5 @@
 import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { useIsMobile } from "hooks/useIsMobile";
 import { ResponsiveImage } from "layout/index";
 import planchetteImage1x from "./planchette@1x.webp";
 import planchetteImage2x from "./planchette@2x.webp";
@@ -8,7 +7,6 @@ import "./styles.scss";
 
 export default function Planchette(): JSX.Element {
   const refPlanchette = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     const planchette = refPlanchette.current;

@@ -1,12 +1,12 @@
 import type { JSX } from "react";
 import { Container, Content, ResponsiveImage } from "layout";
-import { useIsMobile } from "hooks/useIsMobile";
+import { useViewport } from "providers/AppProvider";
 import separatorImage1x from "./images/separator@1x.webp";
 import separatorImage2x from "./images/separator@2x.webp";
 import "./styles.scss";
 
 export default function Separator(): JSX.Element {
-  const isMobile = useIsMobile();
+  const { isMobile } = useViewport();
 
   return (
     <div className="separator" data-testid="separator-container">

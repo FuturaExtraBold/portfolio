@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { FluidPropertyOptions } from "utils/layout";
+import { useViewport } from "providers/AppProvider";
 
 const calculateFluidValue = (
   { minWidth, maxWidth, minValue, maxValue }: FluidPropertyOptions,
@@ -15,26 +16,12 @@ const calculateFluidValue = (
   );
 };
 
-const getWindowWidth = (): number => {
-  if (typeof window !== "undefined" && typeof window.innerWidth === "number") {
-    return window.innerWidth;
-  }
-  return 1024;
-};
-
 export const useFluidProperty = (options: FluidPropertyOptions): number => {
-  const [value, setValue] = useState(() =>
-    calculateFluidValue(options, getWindowWidth())
+  const { windowSize } = useViewport();
+  const width = windowSize.width || 1024;
+
+  return useMemo(
+    () => calculateFluidValue(options, width),
+    [options, width]
   );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setValue(calculateFluidValue(options, getWindowWidth()));
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [options]);
-
-  return value;
 };

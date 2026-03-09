@@ -1,13 +1,13 @@
 import { type JSX, useRef } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, SectionHeader, Separator } from "ui/index";
-import { useWindowSizeWithBreakpoints } from "hooks/useWindowSizeWithBreakpoints";
+import { useViewport } from "providers/AppProvider";
 import PixiApp from "experiences/Hell/PixiApp";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {
   const parentRef = useRef<HTMLDivElement | null>(null);
-  const { breakpoints } = useWindowSizeWithBreakpoints();
+  const { breakpoints, windowSize } = useViewport();
 
   return (
     <Section className="hell">
@@ -27,7 +27,7 @@ export default function Hell(): JSX.Element {
         </Content>
         <OverlayFade />
       </Container>
-      {window.outerWidth < breakpoints.xl && <Separator />}
+      {windowSize.width < breakpoints.xl && <Separator />}
     </Section>
   );
 }

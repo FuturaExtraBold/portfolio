@@ -1,5 +1,5 @@
 import { type JSX } from "react";
-import { useIsMobile } from "hooks/useIsMobile";
+import { useViewport } from "providers/AppProvider";
 
 type ResponsiveImageProps = {
   alt: string;
@@ -26,8 +26,7 @@ export default function ResponsiveImage({
   srcSet,
   width,
 }: ResponsiveImageProps): JSX.Element | null {
-  const isMobile = useIsMobile();
-  const assetSize = window.innerWidth < 768 ? "mobile" : "desktop";
+  const { isMobile, assetSize } = useViewport();
 
   if (assetSize === "mobile" && hideOnMobile && !isMobile) {
     return null;
