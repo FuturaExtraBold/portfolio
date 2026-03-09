@@ -1,25 +1,26 @@
-import { Ref, type JSX, type ReactNode } from "react";
+import { forwardRef, type JSX, type ReactNode } from "react";
 import classnames from "classnames";
 import "./styles.scss";
 
 interface BackgroundProps {
   children: ReactNode;
   className?: string;
-  ref?: Ref<HTMLDivElement>;
 }
 
-export default function Background({
-  children,
-  className = "",
-  ref = null,
-}: BackgroundProps): JSX.Element {
-  const backgroundClass = classnames("background", {
-    [`${className}`]: className,
-  });
+const Background = forwardRef<HTMLDivElement, BackgroundProps>(
+  ({ children, className = "" }, ref): JSX.Element => {
+    const backgroundClass = classnames("background", {
+      [`${className}`]: className,
+    });
 
-  return (
-    <div className={backgroundClass} data-testid="background" ref={ref}>
-      {children}
-    </div>
-  );
-}
+    return (
+      <div className={backgroundClass} data-testid="background" ref={ref}>
+        {children}
+      </div>
+    );
+  }
+);
+
+Background.displayName = "Background";
+
+export default Background;

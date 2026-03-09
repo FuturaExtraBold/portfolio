@@ -17,69 +17,141 @@ import {
 } from "hooks/useWindowSizeWithBreakpoints";
 import { useAssetSelector } from "hooks/useAssetSelector";
 import "../assets/stylesheets/all.scss";
-import App from "../App";
 
-const AppContext = createContext<{
-  activeCaseStudy: string | null;
-  appIsLoaded: boolean;
+interface ViewportContextValue {
   assetSize: string;
   breakpoints: Record<string, number>;
-  benzoLoadProgress: number;
-  isModalActive: boolean;
-  currentSection: string | null;
   mediaClass: string;
-  setActiveCaseStudy: Dispatch<SetStateAction<string | null>>;
-  setBenzoLoadProgress: Dispatch<SetStateAction<number>>;
-  setIsModalActive: Dispatch<SetStateAction<boolean>>;
-  userDevice: any;
   windowSize: WindowSize;
-}>({
-  activeCaseStudy: null,
-  appIsLoaded: false,
+}
+
+interface DeviceContextValue {
+  userDevice: any;
+}
+
+interface ModalContextValue {
+  activeCaseStudy: string | null;
+  isModalActive: boolean;
+  setActiveCaseStudy: Dispatch<SetStateAction<string | null>>;
+  setIsModalActive: Dispatch<SetStateAction<boolean>>;
+}
+
+interface SectionContextValue {
+  currentSection: string | null;
+}
+
+interface AppLoadContextValue {
+  appIsLoaded: boolean;
+}
+
+interface BenzoLoadContextValue {
+  benzoLoadProgress: number;
+  setBenzoLoadProgress: Dispatch<SetStateAction<number>>;
+}
+
+const ViewportContext = createContext<ViewportContextValue>({
   assetSize: "desktop",
-  benzoLoadProgress: 0,
   breakpoints: {},
-  isModalActive: false,
-  currentSection: null,
   mediaClass: "",
-  setActiveCaseStudy: () => null,
-  setBenzoLoadProgress: () => null,
-  setIsModalActive: () => {},
-  userDevice: {},
   windowSize: { width: 0, height: 0 },
 });
 
-export const AppProvider = ({
-  children,
-}: PropsWithChildren<{}>): JSX.Element => {
-  const [currentSection, setCurrentSection] = useState<string | null>(null);
-  const [isModalActive, setIsModalActive] = useState(false);
-  const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
+const DeviceContext = createContext<DeviceContextValue>({
+  userDevice: {},
+});
+
+const ModalContext = createContext<ModalContextValue>({
+  activeCaseStudy: null,
+  isModalActive: false,
+  setActiveCaseStudy: () => null,
+  setIsModalActive: () => {},
+});
+
+const SectionContext = createContext<SectionContextValue>({
+  currentSection: null,
+});
+
+const AppLoadContext = createContext<AppLoadContextValue>({
+  appIsLoaded: false,
+});
+
+const BenzoLoadContext = createContext<BenzoLoadContextValue>({
+  benzoLoadProgress: 0,
+  setBenzoLoadProgress: () => null,
+});
+
+const ViewportProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+  const { windowSize, mediaClass, breakpoints } =
+    useWindowSizeWithBreakpoints();
+  const assetSize = useAssetSelector();
+
+  const value = useMemo(
+    () => ({ windowSize, mediaClass, breakpoints, assetSize }),
+    [windowSize, mediaClass, breakpoints, assetSize]
+  );
+
+  return (
+    <ViewportContext.Provider value={value}>
+      {children}
+    </ViewportContext.Provider>
+  );
+};
+
+const DeviceProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
   const [userDevice, setUserDevice] = useState(
     () => deviceDetect(navigator.userAgent) || {}
   );
-  const [benzoLoadProgress, setBenzoLoadProgress] = useState(0);
-  const [appIsLoaded, setAppIsLoaded] = useState(false);
 
-  const { windowSize, mediaClass, breakpoints } =
-    useWindowSizeWithBreakpoints();
+  useEffect(() => {
+    const detectedDevice = deviceDetect(navigator.userAgent);
+    if (detectedDevice) {
+      console.log("Detected device:", detectedDevice);
+      console.log("window.devicePixelRatio", window.devicePixelRatio);
+      setUserDevice(detectedDevice);
+    }
+  }, []);
 
-  const assetSize = useAssetSelector();
+  const value = useMemo(() => ({ userDevice }), [userDevice]);
+
+  return (
+    <DeviceContext.Provider value={value}>{children}</DeviceContext.Provider>
+  );
+};
+
+const ModalProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+  const [isModalActive, setIsModalActive] = useState(false);
+  const [activeCaseStudy, setActiveCaseStudy] = useState<string | null>(null);
+
+  const value = useMemo(
+    () => ({
+      activeCaseStudy,
+      isModalActive,
+      setActiveCaseStudy,
+      setIsModalActive,
+    }),
+    [activeCaseStudy, isModalActive]
+  );
+
+  return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
+};
+
+const SectionProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+  const [currentSection, setCurrentSection] = useState<string | null>(null);
 
   const updateCurrentSection = useCallback(() => {
     const appElement = document.querySelector("#benzo-app");
     if (!appElement) return;
 
     const sections = appElement.querySelectorAll("section");
-    let currentSection = "hero";
+    let resolvedSection = "hero";
     const windowHeight = window.innerHeight;
     sections.forEach((section) => {
       const rect = section.getBoundingClientRect();
       if (rect.top <= windowHeight / 2 && rect.bottom > windowHeight / 2) {
-        currentSection = section.className;
+        resolvedSection = section.className;
       }
     });
-    setCurrentSection(currentSection);
+    setCurrentSection(resolvedSection);
   }, []);
 
   useEffect(() => {
@@ -90,14 +162,15 @@ export const AppProvider = ({
     };
   }, [updateCurrentSection]);
 
-  useEffect(() => {
-    const detectedDevice = deviceDetect(navigator.userAgent);
-    if (detectedDevice) {
-      console.log("Detected device:", detectedDevice);
-      console.log("window.devicePixelRatio", window.devicePixelRatio);
-      setUserDevice(detectedDevice);
-    }
-  }, []);
+  const value = useMemo(() => ({ currentSection }), [currentSection]);
+
+  return (
+    <SectionContext.Provider value={value}>{children}</SectionContext.Provider>
+  );
+};
+
+const AppLoadProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+  const [appIsLoaded, setAppIsLoaded] = useState(false);
 
   useEffect(() => {
     const handleLoad = () => setAppIsLoaded(true);
@@ -109,44 +182,58 @@ export const AppProvider = ({
     }
   }, []);
 
-  const contextValues = useMemo(
-    () => ({
-      activeCaseStudy,
-      appIsLoaded,
-      assetSize,
-      benzoLoadProgress,
-      breakpoints,
-      isModalActive,
-      currentSection,
-      mediaClass,
-      setActiveCaseStudy,
-      setBenzoLoadProgress,
-      setIsModalActive,
-      userDevice,
-      windowSize,
-    }),
-    [
-      activeCaseStudy,
-      assetSize,
-      benzoLoadProgress,
-      breakpoints,
-      isModalActive,
-      currentSection,
-      mediaClass,
-      setActiveCaseStudy,
-      setBenzoLoadProgress,
-      setIsModalActive,
-      userDevice,
-      windowSize,
-    ]
-  );
+  const value = useMemo(() => ({ appIsLoaded }), [appIsLoaded]);
 
   return (
-    <AppContext.Provider value={contextValues}>
-      <App />
-      {children}
-    </AppContext.Provider>
+    <AppLoadContext.Provider value={value}>{children}</AppLoadContext.Provider>
   );
 };
 
-export const useApp = () => useContext(AppContext);
+const BenzoLoadProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+  const [benzoLoadProgress, setBenzoLoadProgress] = useState(0);
+
+  const value = useMemo(
+    () => ({ benzoLoadProgress, setBenzoLoadProgress }),
+    [benzoLoadProgress]
+  );
+
+  return (
+    <BenzoLoadContext.Provider value={value}>
+      {children}
+    </BenzoLoadContext.Provider>
+  );
+};
+
+export const AppProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+  return (
+    <DeviceProvider>
+      <ViewportProvider>
+        <AppLoadProvider>
+          <SectionProvider>
+            <ModalProvider>
+              <BenzoLoadProvider>{children}</BenzoLoadProvider>
+            </ModalProvider>
+          </SectionProvider>
+        </AppLoadProvider>
+      </ViewportProvider>
+    </DeviceProvider>
+  );
+};
+
+export const useViewport = () => useContext(ViewportContext);
+export const useDevice = () => useContext(DeviceContext);
+export const useModal = () => useContext(ModalContext);
+export const useSection = () => useContext(SectionContext);
+export const useAppLoad = () => useContext(AppLoadContext);
+export const useBenzoLoad = () => useContext(BenzoLoadContext);
+
+export const useApp = () => {
+  return {
+    ...useViewport(),
+    ...useDevice(),
+    ...useModal(),
+    ...useSection(),
+    ...useAppLoad(),
+    ...useBenzoLoad(),
+  };
+};

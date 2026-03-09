@@ -1,25 +1,26 @@
-import { Ref, type JSX, type ReactNode } from "react";
+import { forwardRef, type JSX, type ReactNode } from "react";
 import classnames from "classnames";
 import "./styles.scss";
 
 interface ContainerProps {
   children: ReactNode;
   className?: string;
-  ref?: Ref<HTMLDivElement>;
 }
 
-export default function Container({
-  children,
-  className = "",
-  ref = null,
-}: ContainerProps): JSX.Element {
-  const containerClass = classnames("container", {
-    [`${className}`]: className,
-  });
+const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ children, className = "" }, ref): JSX.Element => {
+    const containerClass = classnames("container", {
+      [`${className}`]: className,
+    });
 
-  return (
-    <div className={containerClass} data-testid="container" ref={ref}>
-      {children}
-    </div>
-  );
-}
+    return (
+      <div className={containerClass} data-testid="container" ref={ref}>
+        {children}
+      </div>
+    );
+  }
+);
+
+Container.displayName = "Container";
+
+export default Container;
