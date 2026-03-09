@@ -1,12 +1,12 @@
 import { memo, type JSX, useEffect } from "react";
-import { useApp } from "providers/AppProvider";
+import { useDevice } from "providers/AppProvider";
 import { Background, Container, Content, Section } from "layout";
 import { Board, ClientQuilt, Planchette } from "./components";
 import { OverlayFade, SectionHeader, Separator, Vignette } from "ui/index";
 import "./styles.scss";
 
 function Clients(): JSX.Element {
-  const { userDevice } = useApp();
+  const { userDevice } = useDevice();
   const { isMobile } = userDevice;
 
   useEffect(() => {

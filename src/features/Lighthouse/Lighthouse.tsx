@@ -1,16 +1,12 @@
-import { memo, type JSX, useCallback, useRef, useState } from "react";
+import { memo, type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
+import { useContainerRef } from "hooks/useContainerRef";
 import "./styles.scss";
 
 function Lighthouse(): JSX.Element {
-  const parentRef = useRef<HTMLDivElement | null>(null);
-  const [hasParent, setHasParent] = useState(false);
-  const setParentRef = useCallback((node: HTMLDivElement | null) => {
-    parentRef.current = node;
-    setHasParent(!!node);
-  }, []);
+  const [parentRef, setParentRef, hasParent] = useContainerRef();
 
   return (
     <Section className="lighthouse">

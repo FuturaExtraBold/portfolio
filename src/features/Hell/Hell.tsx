@@ -1,17 +1,13 @@
-import { type JSX, useCallback, useRef, useState } from "react";
+import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { OverlayFade, SectionHeader, Separator } from "ui/index";
 import { useViewport } from "providers/AppProvider";
 import PixiApp from "experiences/Hell/PixiApp";
+import { useContainerRef } from "hooks/useContainerRef";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {
-  const parentRef = useRef<HTMLDivElement | null>(null);
-  const [hasParent, setHasParent] = useState(false);
-  const setParentRef = useCallback((node: HTMLDivElement | null) => {
-    parentRef.current = node;
-    setHasParent(!!node);
-  }, []);
+  const [parentRef, setParentRef, hasParent] = useContainerRef();
   const { breakpoints, windowSize } = useViewport();
 
   return (

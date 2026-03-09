@@ -1,19 +1,15 @@
-import { memo, type JSX, useCallback, useRef, useState } from "react";
+import { memo, type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
 import { Separator } from "ui";
-import { useApp } from "providers/AppProvider";
+import { useBenzoLoad } from "providers/AppProvider";
 import PixiApp from "experiences/Benzo/PixiApp";
+import { useContainerRef } from "hooks/useContainerRef";
 import "./styles.scss";
 import Progress from "./components/Progress/Progress";
 
 function Hero(): JSX.Element {
-  const parentRef = useRef<HTMLDivElement | null>(null);
-  const [hasParent, setHasParent] = useState(false);
-  const setParentRef = useCallback((node: HTMLDivElement | null) => {
-    parentRef.current = node;
-    setHasParent(!!node);
-  }, []);
-  const { benzoLoadProgress } = useApp();
+  const [parentRef, setParentRef, hasParent] = useContainerRef();
+  const { benzoLoadProgress } = useBenzoLoad();
 
   return (
     <Section className="hero">

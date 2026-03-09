@@ -1,7 +1,7 @@
 import { MouseEvent, TouchEvent, type JSX, WheelEvent } from "react";
 import classnames from "classnames";
 import { Fragment } from "react/jsx-runtime";
-import { useApp } from "providers/AppProvider";
+import { useModal } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
 import { Gallery, Header, Project } from "./components";
 import "./styles.scss";
@@ -17,7 +17,7 @@ interface CaseStudy {
 }
 
 export default function ClientModal(): JSX.Element {
-  const { activeCaseStudy, isModalActive, setIsModalActive } = useApp();
+  const { activeCaseStudy, isModalActive, setIsModalActive } = useModal();
 
   const modalClasses = classnames("client-modal", {
     "client-modal--active": isModalActive,

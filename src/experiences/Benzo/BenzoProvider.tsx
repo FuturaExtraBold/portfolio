@@ -11,7 +11,7 @@ import {
 } from "react";
 import { Assets } from "pixi.js";
 import Benzo from "./Benzo";
-import { useApp } from "providers/AppProvider";
+import { useBenzoLoad } from "providers/AppProvider";
 import { Assets as AssetPaths } from "./Assets";
 import { Spritesheet } from "pixi.js";
 import { titleAtlas } from "./data/titleAtlas";
@@ -39,7 +39,7 @@ interface BenzoProviderProps {
 export const BenzoProvider = ({
   parentRef,
 }: BenzoProviderProps): JSX.Element => {
-  const { setBenzoLoadProgress } = useApp();
+  const { setBenzoLoadProgress } = useBenzoLoad();
   const parentSizeRef = useRef({ width: 0, height: 0 });
   const scaleRef = useRef(0.5);
   const glowTimeoutRef = useRef<number | null>(null);

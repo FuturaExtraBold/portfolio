@@ -1,11 +1,11 @@
 import { memo, type JSX, useCallback, useMemo, useRef } from "react";
 import { Container } from "layout";
-import { useApp } from "providers/AppProvider";
+import { useModal } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
 import "./styles.scss";
 
 function ClientQuilt(): JSX.Element {
-  const { setActiveCaseStudy, setIsModalActive } = useApp();
+  const { setActiveCaseStudy, setIsModalActive } = useModal();
 
   const quiltRef = useRef<HTMLDivElement | null>(null);
 

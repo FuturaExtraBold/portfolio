@@ -6,7 +6,7 @@ import {
   ResponsiveImage,
   Section,
 } from "layout";
-import { useApp } from "providers/AppProvider";
+import { useAppLoad, useViewport } from "providers/AppProvider";
 import { memo, type JSX, useEffect, useRef } from "react";
 import {
   AnimatedText,
@@ -21,7 +21,8 @@ import shipImage2x from "./images/ship@2x.webp";
 import "./styles.scss";
 
 function About(): JSX.Element {
-  const { appIsLoaded, assetSize, breakpoints } = useApp();
+  const { appIsLoaded } = useAppLoad();
+  const { assetSize, breakpoints } = useViewport();
   const refShip = useRef<HTMLImageElement>(null);
 
   const fluidAmplitudeX = useFluidProperty({

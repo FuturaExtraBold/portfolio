@@ -1,9 +1,9 @@
 import { type JSX } from "react";
-import { useApp } from "providers/AppProvider";
+import { useBenzoLoad } from "providers/AppProvider";
 import "./styles.scss";
 
 export default function Progress(): JSX.Element {
-  const { benzoLoadProgress } = useApp();
+  const { benzoLoadProgress } = useBenzoLoad();
 
   return (
     <div className="progress-bar">

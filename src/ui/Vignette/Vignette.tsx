@@ -1,10 +1,10 @@
 import type { JSX } from "react";
-import { useApp } from "providers/AppProvider";
+import { useViewport } from "providers/AppProvider";
 import { useFluidProperty } from "hooks/useFluidProperty";
 import "./styles.scss";
 
 export default function Vignette(): JSX.Element {
-  const { breakpoints } = useApp();
+  const { breakpoints } = useViewport();
 
   const opacity: number = useFluidProperty({
     minWidth: breakpoints.md,

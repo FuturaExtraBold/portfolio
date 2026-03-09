@@ -1,5 +1,5 @@
-import { type JSX, useCallback, useEffect, useRef, useState } from "react";
-import { useApp, useViewport } from "providers/AppProvider";
+import { type JSX, useCallback, useEffect, useRef } from "react";
+import { useSection, useViewport } from "providers/AppProvider";
 import { gsap } from "gsap";
 import { useFluidProperty } from "hooks/useFluidProperty";
 import "./styles.scss";
@@ -13,10 +13,8 @@ export default function Score({
   circleDelay = 0,
   containerDelay = 0,
 }: ScoreProps): JSX.Element {
-  const { currentSection } = useApp();
+  const { currentSection } = useSection();
   const { breakpoints } = useViewport();
-
-  const [circumference, setCircumference] = useState(0);
 
   const circleRef = useRef<SVGCircleElement>(null);
   const containerRef = useRef(null);
@@ -64,9 +62,6 @@ export default function Score({
       duration: 2,
       ease: "power1.inout",
       delay: circleDelay,
-      onComplete: () => {
-        setCircumference(0);
-      },
     });
   }, [circleDelay]);
 
@@ -127,16 +122,6 @@ export default function Score({
     containerDelay,
     currentSection,
   ]);
-
-  useEffect(() => {
-    if (circleRef.current) {
-      const circle = circleRef.current;
-      gsap.set(circle, {
-        strokeDasharray: circumference,
-        strokeDashoffset: circumference,
-      });
-    }
-  }, [circleRef, circleSize, circumference]);
 
   return (
     <div

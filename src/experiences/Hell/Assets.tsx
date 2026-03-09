@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import { useApp } from "providers/AppProvider";
+import { useViewport } from "providers/AppProvider";
 
 export const Assets = () => {
-  const { assetSize } = useApp();
+  const { assetSize } = useViewport();
   const basePath =
     assetSize === "mobile"
       ? "assets/images/experiences/hell/mobile"
