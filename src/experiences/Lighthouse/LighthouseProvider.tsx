@@ -55,7 +55,9 @@ export const LighthouseProvider = ({
   const texturePaths = AssetPaths();
 
   const loadTextures = useCallback(async () => {
-    console.log("Lighthouse - Provider - loadTextures");
+    if (import.meta.env.DEV) {
+      console.log("Lighthouse - Provider - loadTextures");
+    }
     const loadedTextures: Record<string, any> = {};
     const entries = Object.entries(texturePaths);
     const total = entries.length;
@@ -72,11 +74,15 @@ export const LighthouseProvider = ({
     }
 
     if (loaded === total) {
-      console.log("Lighthouse - Provider - All textures loaded complete");
+      if (import.meta.env.DEV) {
+        console.log("Lighthouse - Provider - All textures loaded complete");
+      }
       setTextures(loadedTextures);
       setAllTexturesLoaded(true);
     } else {
-      console.warn(`Only ${loaded} out of ${total} textures loaded.`);
+      if (import.meta.env.DEV) {
+        console.warn(`Only ${loaded} out of ${total} textures loaded.`);
+      }
     }
   }, [texturePaths]);
 

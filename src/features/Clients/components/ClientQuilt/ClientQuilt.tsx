@@ -11,7 +11,9 @@ function ClientQuilt(): JSX.Element {
 
   const handleLogoClick = useCallback(
     (id: string): void => {
-      console.log("Logo clicked:", id);
+      if (import.meta.env.DEV) {
+        console.log("Logo clicked:", id);
+      }
       const selectedCaseStudy = caseStudies.find((study) => study.id === id);
       if (selectedCaseStudy && selectedCaseStudy.projects) {
         setActiveCaseStudy(id);

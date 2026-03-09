@@ -47,4 +47,6 @@ PixiPlugin.registerPIXI({
   TilingSprite,
 });
 
-console.log("GSAP plugins:", gsap.plugins);
+if (import.meta.env.DEV) {
+  console.log("GSAP plugins:", gsap.plugins);
+}

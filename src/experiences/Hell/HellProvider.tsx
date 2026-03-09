@@ -55,7 +55,9 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
         return result;
       });
     }
-    console.log("Hell - All textures loaded");
+    if (import.meta.env.DEV) {
+      console.log("Hell - All textures loaded");
+    }
     setTextures(loadedTextures);
     setAllTexturesLoaded(true);
   }, [texturePaths]);

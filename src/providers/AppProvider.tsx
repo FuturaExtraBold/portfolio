@@ -102,8 +102,10 @@ const DeviceProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
   useEffect(() => {
     const detectedDevice = deviceDetect(navigator.userAgent);
     if (detectedDevice) {
-      console.log("Detected device:", detectedDevice);
-      console.log("window.devicePixelRatio", window.devicePixelRatio);
+      if (import.meta.env.DEV) {
+        console.log("Detected device:", detectedDevice);
+        console.log("window.devicePixelRatio", window.devicePixelRatio);
+      }
       setUserDevice(detectedDevice);
     }
   }, []);

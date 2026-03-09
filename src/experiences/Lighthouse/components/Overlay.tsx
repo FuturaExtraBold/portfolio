@@ -9,7 +9,9 @@ export default function Overlay(): JSX.Element | null {
 
   useGsapContext(() => {
     if (!allTexturesLoaded || !overlayRef.current) return;
-    console.log("Lighthouse - Flash - animateFlash");
+    if (import.meta.env.DEV) {
+      console.log("Lighthouse - Flash - animateFlash");
+    }
     const flashDuration = 0.4;
     const beamDuration = 3;
     let flashTimeline: gsap.core.Timeline | null = null;

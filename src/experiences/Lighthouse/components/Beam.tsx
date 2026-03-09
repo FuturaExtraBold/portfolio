@@ -22,7 +22,9 @@ export default function Beam(): JSX.Element | null {
   useGsapContext(() => {
     if (!allTexturesLoaded || !beamLeftRef.current || !beamRightRef.current)
       return;
-    console.log("Lighthouse - Beam - animateBeams");
+    if (import.meta.env.DEV) {
+      console.log("Lighthouse - Beam - animateBeams");
+    }
     const beamAlphaMin = 0.1;
     const beamAlphaMax = 0.8;
     const beamScale = 3;

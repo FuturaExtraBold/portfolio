@@ -15,7 +15,9 @@ export default function Heat(): JSX.Element | null {
 
   useGsapContext(() => {
     if (!allTexturesLoaded || !displacementMapRef.current) return;
-    console.log("Hell - Heat - animateDisplacementMap");
+    if (import.meta.env.DEV) {
+      console.log("Hell - Heat - animateDisplacementMap");
+    }
 
     requestAnimationFrame(() => {
       const dmr = displacementMapRef.current;

@@ -116,7 +116,9 @@ export const BenzoProvider = ({
   }, [glowColorsReflection]);
 
   const loadTextures = useCallback(async () => {
-    console.log("Benzo - Provider - loadTextures");
+    if (import.meta.env.DEV) {
+      console.log("Benzo - Provider - loadTextures");
+    }
     const loadedTextures: Record<string, any> = {};
     const entries = Object.entries(texturePaths);
     const total = entries.length;
@@ -134,12 +136,16 @@ export const BenzoProvider = ({
     }
 
     if (loaded === total) {
-      console.log("Benzo - Provider - All textures loaded complete");
+      if (import.meta.env.DEV) {
+        console.log("Benzo - Provider - All textures loaded complete");
+      }
       updateParentSize();
       setTextures(loadedTextures);
       setAllTexturesLoaded(true);
     } else {
-      console.warn(`Only ${loaded} out of ${total} textures loaded.`);
+      if (import.meta.env.DEV) {
+        console.warn(`Only ${loaded} out of ${total} textures loaded.`);
+      }
     }
   }, [setBenzoLoadProgress, texturePaths, updateParentSize]);
 
@@ -158,14 +164,18 @@ export const BenzoProvider = ({
 
   useEffect(() => {
     if (allTexturesLoaded) {
-      console.log("Benzo - Provider - allTexturesLoaded");
+      if (import.meta.env.DEV) {
+        console.log("Benzo - Provider - allTexturesLoaded");
+      }
       updateParentSize();
     }
   }, [allTexturesLoaded, updateParentSize]);
 
   useEffect(() => {
     if (renderedLetters && renderedPatternLetters) {
-      console.log("this should trace once!");
+      if (import.meta.env.DEV) {
+        console.log("this should trace once!");
+      }
       updateParentSize();
     }
   }, [renderedLetters, renderedPatternLetters, updateParentSize]);

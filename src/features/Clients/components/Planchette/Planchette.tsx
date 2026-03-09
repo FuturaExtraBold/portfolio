@@ -24,33 +24,41 @@ function Planchette(): JSX.Element {
       rotation: 20,
     });
 
+    let rafId = 0;
+    let pendingEvent: MouseEvent | null = null;
+
     const handleMove = (event: MouseEvent): void => {
-      const mouseX: number = event.clientX;
-      const mouseY: number = event.clientY;
-      parentRect = parentElement.getBoundingClientRect();
-      parentWidth = parentElement.offsetWidth;
-      parentHeight = parentElement.offsetHeight;
+      pendingEvent = event;
+      if (rafId) return;
 
-      const rotation: number =
-        -(parentRect.left + parentRect.width / 2 - mouseX) / 22.5;
+      rafId = window.requestAnimationFrame(() => {
+        rafId = 0;
+        if (!pendingEvent) return;
+        const mouseX: number = pendingEvent.clientX;
+        const mouseY: number = pendingEvent.clientY;
+        parentRect = parentElement.getBoundingClientRect();
+        parentWidth = parentElement.offsetWidth;
+        parentHeight = parentElement.offsetHeight;
 
-      gsap.to(planchette, {
-        x: mouseX - parentRect.left - parentWidth / 2,
-        y: mouseY - parentRect.top - parentHeight / 2 + 50,
-        rotation: rotation,
-        duration: 0.1,
-        ease: "power2.out",
+        const rotation: number =
+          -(parentRect.left + parentRect.width / 2 - mouseX) / 22.5;
+
+        gsap.to(planchette, {
+          x: mouseX - parentRect.left - parentWidth / 2,
+          y: mouseY - parentRect.top - parentHeight / 2 + 50,
+          rotation: rotation,
+          duration: 0.1,
+          ease: "power2.out",
+        });
       });
     };
 
-    const styleElement = document.createElement("style");
-    document.head.appendChild(styleElement);
-
-    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mousemove", handleMove, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMove);
-      document.head.removeChild(styleElement); // Restore cursor styles on cleanup
+      if (rafId) window.cancelAnimationFrame(rafId);
+      pendingEvent = null;
     };
   }, []);
 
