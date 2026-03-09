@@ -4,6 +4,7 @@ import Clients from "./Clients/Clients";
 import Footer from "./Footer/Footer";
 import Hell from "./Hell/Hell";
 import Hero from "./Hero/Hero";
+import Labs from "./Labs/Labs";
 import Lighthouse from "./Lighthouse/Lighthouse";
 import Resume from "./Resume/Resume";
 import MuseumCard from "./MuseumCard/MuseumCard";
@@ -15,6 +16,7 @@ export {
   Footer,
   Hell,
   Hero,
+  Labs,
   Lighthouse,
   MuseumCard,
   Resume,

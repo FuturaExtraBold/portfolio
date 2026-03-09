@@ -1,0 +1,51 @@
+@use "assets/stylesheets/consumables" as *;
+
+.labs {
+  position: relative;
+  overflow: hidden;
+}
+
+.labs__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.labs__content {
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 40px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 50px, 80px, padding-top);
+  @include fluid-property($breaks-md, $breaks-xl, 50px, 80px, padding-bottom);
+  @include fluid-property($breaks-md, $breaks-xl, 640px, 1200px, max-width);
+}
+
+.labs__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.labs__title {
+  @include fluid-property($breaks-md, $breaks-xl, 42px, 80px, font-size);
+}
+
+.labs__description {
+  max-width: 620px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 20px, 24px, font-size);
+}
+
+.labs__description > * {
+  margin: 0;
+}
+
+@media (width >= $breaks-md) {
+  .labs__text {
+    gap: 24px;
+  }
+}

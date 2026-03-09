@@ -1,0 +1,58 @@
+@use "assets/stylesheets/consumables" as *;
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.card-deck__stage {
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 22vw, 340px);
+}
+
+// Wrappers are positioned via GSAP from left: 50%
+// xPercent: -50 + x offset centers each card on its arc point
+.card-deck__card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.card-deck__info {
+  min-height: 72px;
+  margin-top: 28px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  pointer-events: none;
+}
+
+.card-deck__info--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-deck__info-name {
+  font-family: $font-family-heading;
+  color: $text-accent;
+  letter-spacing: 0.02em;
+  margin: 0 0 6px;
+
+  @include fluid-property($breaks-md, $breaks-xl, 18px, 24px, font-size);
+}
+
+.card-deck__info-description {
+  font-family: $font-family-body;
+  color: $text-light;
+  margin: 0;
+  max-width: 480px;
+  opacity: 0.75;
+
+  @include fluid-property($breaks-md, $breaks-xl, 15px, 17px, font-size);
+}

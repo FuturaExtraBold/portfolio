@@ -1,0 +1,40 @@
+.tarot-card {
+  width: clamp(120px, 10vw, 175px);
+  aspect-ratio: 2 / 3;
+  perspective: 1000px;
+  cursor: pointer;
+  transform-origin: center bottom;
+}
+
+.tarot-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.tarot-card__front,
+.tarot-card__back {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.tarot-card__front {
+  background: #333;
+}
+
+.tarot-card__back {
+  background: #999;
+  transform: rotateY(180deg);
+}

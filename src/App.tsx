@@ -1,5 +1,5 @@
 import { type JSX, lazy } from "react";
-import { About, Hero } from "features";
+import { Labs, Hero } from "features";
 import { Lazy } from "layout";
 import { PictureFrame, Scroller } from "ui";
 import { useSection, useViewport } from "providers/AppProvider";
@@ -26,7 +26,8 @@ function App(): JSX.Element {
       >
         <PictureFrame />
         <Hero />
-        <About />
+        {/* <About /> */}
+        <Labs />
         <Lazy component={Clients} />
         <Lazy component={Resume} />
         <Lazy component={Lighthouse} />
