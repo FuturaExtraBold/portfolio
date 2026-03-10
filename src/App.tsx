@@ -1,8 +1,8 @@
-import { type JSX, lazy } from "react";
-import { Labs, Hero } from "features";
+import { Hero, Labs } from "features";
 import { Lazy } from "layout";
-import { PictureFrame, Scroller } from "ui";
 import { useSection, useViewport } from "providers/AppProvider";
+import { type JSX, lazy } from "react";
+import { PictureFrame } from "ui";
 import "./app.scss";
 
 const Clients = lazy(() => import("features/Clients/Clients"));

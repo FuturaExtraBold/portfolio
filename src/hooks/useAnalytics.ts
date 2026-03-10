@@ -24,7 +24,7 @@ export const useAnalytics = () => {
         });
       }
     },
-    []
+    [],
   );
 
   return { trackEvent };

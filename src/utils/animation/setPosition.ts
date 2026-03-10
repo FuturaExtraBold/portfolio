@@ -1,5 +1,5 @@
-import type { SetPositionOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { SetPositionOptions } from "utils/animation";
 
 export const setPosition = ({
   ref,

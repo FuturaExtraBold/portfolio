@@ -1,5 +1,5 @@
-import type { AnimateScaleOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { AnimateScaleOptions } from "utils/animation";
 
 export const animateScale = ({
   duration,
@@ -26,6 +26,6 @@ export const animateScale = ({
       ease,
       repeat: repeatValue,
       yoyo,
-    }
+    },
   );
 };

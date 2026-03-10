@@ -1,8 +1,8 @@
+import classnames from "classnames";
 import type { JSX } from "react";
 import AnimatedText from "ui/AnimatedText/AnimatedText";
-import classnames from "classnames";
-import "./styles.scss";
 import FadeIn from "ui/FadeIn/FadeIn";
+import "./styles.scss";
 
 interface SectionHeaderProps {
   subtitle: string;

@@ -1,15 +1,15 @@
+import { useParentSize } from "hooks/useParentSize";
+import { usePixiAssets } from "hooks/usePixiAssets";
+import { Sprite } from "pixi.js";
 import {
   createContext,
   RefObject,
-  type JSX,
   useContext,
   useMemo,
   useRef,
+  type JSX,
 } from "react";
-import { Sprite } from "pixi.js";
 import { Assets as AssetPaths } from "./Assets";
-import { usePixiAssets } from "hooks/usePixiAssets";
-import { useParentSize } from "hooks/useParentSize";
 
 import Lighthouse from "./Lighthouse";
 
@@ -28,7 +28,7 @@ export interface UseLighthouseProps {
 }
 
 const LighthouseContext = createContext<UseLighthouseProps | undefined>(
-  undefined
+  undefined,
 );
 
 export interface LighthouseProviderProps {
@@ -66,7 +66,7 @@ export const LighthouseProvider = ({
       textures,
       windowsRef,
     }),
-    [allTexturesLoaded, parentRef, parentSize, scaleRef, textures]
+    [allTexturesLoaded, parentRef, parentSize, scaleRef, textures],
   );
 
   return (

@@ -1,8 +1,8 @@
-import { type JSX } from "react";
 import { gsap } from "gsap";
+import { useGsapContext } from "hooks/useGsapContext";
+import { type JSX } from "react";
 import { useHell } from "../HellProvider";
 import Background from "./Background";
-import { useGsapContext } from "hooks/useGsapContext";
 
 export default function Heat(): JSX.Element | null {
   const {

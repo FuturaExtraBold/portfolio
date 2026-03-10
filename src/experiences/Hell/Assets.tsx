@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import { useViewport } from "providers/AppProvider";
+import { useMemo } from "react";
 
 export const Assets = () => {
   const { assetSize } = useViewport();

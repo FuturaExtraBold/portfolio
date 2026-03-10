@@ -1,9 +1,9 @@
-import { memo, type JSX } from "react";
-import { Background, Container, Content, Section } from "layout";
-import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 import PixiApp from "experiences/Lighthouse/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
+import { Background, Container, Content, Section } from "layout";
+import { memo, type JSX } from "react";
+import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 import "./styles.scss";
 
 function Lighthouse(): JSX.Element {

@@ -1,20 +1,20 @@
+import { useParentSize } from "hooks/useParentSize";
+import { usePixiAssets } from "hooks/usePixiAssets";
+import { Spritesheet } from "pixi.js";
+import { useBenzoLoad } from "providers/AppProvider";
 import {
   createContext,
   RefObject,
-  type JSX,
   useCallback,
   useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
+  type JSX,
 } from "react";
-import { Spritesheet } from "pixi.js";
-import Benzo from "./Benzo";
-import { useBenzoLoad } from "providers/AppProvider";
 import { Assets as AssetPaths } from "./Assets";
-import { usePixiAssets } from "hooks/usePixiAssets";
-import { useParentSize } from "hooks/useParentSize";
+import Benzo from "./Benzo";
 import { titleAtlas } from "./data/titleAtlas";
 
 export interface UseBenzoProps {
@@ -54,7 +54,7 @@ export const BenzoProvider = ({
     duration: 0.5,
   });
   const [renderedLetters, setRenderedLetters] = useState<JSX.Element[] | null>(
-    null
+    null,
   );
   const [renderedPatternLetters, setRenderedPatternLetters] = useState<
     JSX.Element[] | null
@@ -62,14 +62,14 @@ export const BenzoProvider = ({
 
   const glowColors = useMemo(
     () => [0x90e575, 0xc48aff, 0xb6ff70, 0xffd966, 0x8cd3ff, 0xff91c2],
-    []
+    [],
   );
 
   const glowColorsSmoke = useMemo(() => [0x90e575, 0x3bdc6c, 0x1fcf60], []);
 
   const glowColorsReflection = useMemo(
     () => [0x90e575, 0x3bdc6c, 0x1fcf60],
-    []
+    [],
   );
 
   const texturePaths = AssetPaths();
@@ -91,7 +91,7 @@ export const BenzoProvider = ({
     }
     glowTimeoutRef.current = window.setTimeout(
       updateGlowProps,
-      duration * 1000
+      duration * 1000,
     );
   }, [glowColors]);
 
@@ -107,7 +107,7 @@ export const BenzoProvider = ({
     }
     smokeTimeoutRef.current = window.setTimeout(
       updateSmokeProps,
-      duration * 1000
+      duration * 1000,
     );
   }, [glowColorsReflection]);
 
@@ -161,7 +161,7 @@ export const BenzoProvider = ({
     const titleSpritesheet = new Spritesheet(textures.title.source, titleAtlas);
     const patternSpritesheet = new Spritesheet(
       textures.titlePattern.source,
-      titleAtlas
+      titleAtlas,
     );
 
     titleSpritesheet.parse().then(() => {
@@ -229,7 +229,7 @@ export const BenzoProvider = ({
       textures,
       renderedLetters,
       renderedPatternLetters,
-    ]
+    ],
   );
 
   return (

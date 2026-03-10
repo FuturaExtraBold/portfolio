@@ -1,7 +1,7 @@
-import { type JSX } from "react";
 import { gsap } from "gsap";
-import { useLighthouse } from "../LighthouseProvider";
 import { useGsapContext } from "hooks/useGsapContext";
+import { type JSX } from "react";
+import { useLighthouse } from "../LighthouseProvider";
 
 export default function Overlay(): JSX.Element | null {
   const { allTexturesLoaded, overlayRef, parentSize, textures } =

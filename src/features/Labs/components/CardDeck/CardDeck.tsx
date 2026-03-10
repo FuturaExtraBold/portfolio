@@ -1,8 +1,7 @@
-import { type JSX, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGsapContext } from "hooks/useGsapContext";
 import type { LabProject } from "data/labs";
+import gsap from "gsap";
+import { useGsapContext } from "hooks/useGsapContext";
+import { type JSX, useRef, useState } from "react";
 import TarotCard from "../TarotCard/TarotCard";
 import "./styles.scss";
 
@@ -16,10 +15,11 @@ const JITTER_PX = 18;
 
 function getArcPosition(
   index: number,
-  total: number
+  total: number,
 ): { x: number; y: number; rotation: number } {
   const startAngle = -ARC_SPREAD_DEG / 2;
-  const angle = total === 1 ? 0 : startAngle + (index / (total - 1)) * ARC_SPREAD_DEG;
+  const angle =
+    total === 1 ? 0 : startAngle + (index / (total - 1)) * ARC_SPREAD_DEG;
   const θ = (angle * Math.PI) / 180;
   const x = Math.sin(θ) * RADIUS;
   const y = -Math.cos(θ) * RADIUS + RADIUS;
@@ -45,7 +45,7 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
         y: y + rand(JITTER_PX),
         rotation,
       };
-    })
+    }),
   );
 
   // Cards increment left-to-right; hover always floats above all
@@ -73,13 +73,21 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
         if (!el) return;
         tl.to(
           el,
-          { xPercent: -50, x, y, rotation, opacity: 1, duration: 0.7, ease: "power3.out" },
-          i * 0.12
+          {
+            xPercent: -50,
+            x,
+            y,
+            rotation,
+            opacity: 1,
+            duration: 0.7,
+            ease: "power3.out",
+          },
+          i * 0.12,
         );
       });
     },
     [projects.length],
-    deckRef
+    deckRef,
   );
 
   const handleCardEnter = (i: number) => {
@@ -125,7 +133,9 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
         {projects.map((project, i) => (
           <div
             key={project.id}
-            ref={(el) => { cardRefs.current[i] = el; }}
+            ref={(el) => {
+              cardRefs.current[i] = el;
+            }}
             className="card-deck__card-wrapper"
           >
             <TarotCard
@@ -139,12 +149,18 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
       </div>
 
       <div className="card-deck__footer">
-        <div className={`card-deck__prompt ${!isHovered ? "card-deck__prompt--visible" : ""}`}>
+        <div
+          className={`card-deck__prompt ${!isHovered ? "card-deck__prompt--visible" : ""}`}
+        >
           Each card guards a secret. Lay your hand upon one to draw it forth.
         </div>
-        <div className={`card-deck__info ${isHovered ? "card-deck__info--visible" : ""}`}>
+        <div
+          className={`card-deck__info ${isHovered ? "card-deck__info--visible" : ""}`}
+        >
           <h3 className="card-deck__info-name">{activeProject?.name ?? ""}</h3>
-          <p className="card-deck__info-description">{activeProject?.description ?? ""}</p>
+          <p className="card-deck__info-description">
+            {activeProject?.description ?? ""}
+          </p>
         </div>
       </div>
     </div>

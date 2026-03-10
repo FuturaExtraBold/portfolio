@@ -1,8 +1,8 @@
-import { MouseEvent, TouchEvent, type JSX, WheelEvent } from "react";
 import classnames from "classnames";
-import { Fragment } from "react/jsx-runtime";
-import { useModal } from "providers/AppProvider";
 import { caseStudies } from "data/clients";
+import { useModal } from "providers/AppProvider";
+import { MouseEvent, TouchEvent, WheelEvent, type JSX } from "react";
+import { Fragment } from "react/jsx-runtime";
 import { Gallery, Header, Project } from "./components";
 import "./styles.scss";
 
@@ -24,7 +24,7 @@ export default function ClientModal(): JSX.Element {
   });
 
   const caseStudy: CaseStudy | undefined = caseStudies.find(
-    (study) => study.id === activeCaseStudy
+    (study) => study.id === activeCaseStudy,
   );
 
   const preventEvents = (e: MouseEvent | WheelEvent | TouchEvent): void => {

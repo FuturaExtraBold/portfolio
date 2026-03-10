@@ -1,5 +1,5 @@
-import type { AnimateTickOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { AnimateTickOptions } from "utils/animation";
 
 export const animateTick = ({
   amplitudeX = 10,

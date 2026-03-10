@@ -8,7 +8,7 @@ interface UseInViewOptions {
 
 export const useInView = <T extends Element>(
   ref: RefObject<T | null>,
-  { rootMargin = "200px", threshold = 0, once = true }: UseInViewOptions = {}
+  { rootMargin = "200px", threshold = 0, once = true }: UseInViewOptions = {},
 ): boolean => {
   const [isInView, setIsInView] = useState(false);
 
@@ -43,7 +43,7 @@ export const useInView = <T extends Element>(
             setIsInView(false);
           }
         },
-        { rootMargin, threshold }
+        { rootMargin, threshold },
       );
 
       observer.observe(element);

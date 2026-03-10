@@ -6,8 +6,8 @@ import Hell from "./Hell/Hell";
 import Hero from "./Hero/Hero";
 import Labs from "./Labs/Labs";
 import Lighthouse from "./Lighthouse/Lighthouse";
-import Resume from "./Resume/Resume";
 import MuseumCard from "./MuseumCard/MuseumCard";
+import Resume from "./Resume/Resume";
 
 export {
   About,

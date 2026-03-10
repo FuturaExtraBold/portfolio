@@ -1,5 +1,5 @@
-import { type JSX, useCallback } from "react";
 import gsap from "gsap";
+import { type JSX, useCallback } from "react";
 import "./styles.scss";
 
 export default function Scroller(): JSX.Element {

@@ -1,6 +1,6 @@
-import { createRef, type JSX, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { Sprite, Texture } from "pixi.js";
+import { createRef, type JSX, useEffect, useRef, useState } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function Smoke(): JSX.Element | null {
@@ -43,7 +43,7 @@ export default function Smoke(): JSX.Element | null {
             tint={randColor}
             x={initialX}
             y={Math.random() * parentSize.height + 1400}
-          />
+          />,
         );
 
         setTimeout(() => {

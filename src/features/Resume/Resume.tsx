@@ -1,5 +1,5 @@
-import { type JSX } from "react";
 import { Background, Container, Content, Section } from "layout";
+import { type JSX } from "react";
 import { OverlayFade, SectionHeader, Separator, Wallpaper } from "ui";
 import Employers from "./components/Employers/Employers";
 import "./styles.scss";

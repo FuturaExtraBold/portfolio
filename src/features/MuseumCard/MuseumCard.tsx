@@ -1,8 +1,8 @@
-import { type JSX } from "react";
 import { Container, Content, Section } from "layout";
-import imageStain from "./images/stain.png";
+import { type JSX } from "react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import SocialLink from "./components/SocialLink/SocialLink";
+import imageStain from "./images/stain.png";
 import "./styles.scss";
 
 export default function Hell(): JSX.Element {

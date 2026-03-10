@@ -1,5 +1,5 @@
-import { forwardRef, type JSX, type ReactNode } from "react";
 import classnames from "classnames";
+import { forwardRef, type JSX, type ReactNode } from "react";
 import "./styles.scss";
 
 interface ContentProps {
@@ -18,7 +18,7 @@ const Content = forwardRef<HTMLDivElement, ContentProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 Content.displayName = "Content";

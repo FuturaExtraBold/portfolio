@@ -1,9 +1,9 @@
 import { type JSX } from "react";
 import {
   BenzoBody,
-  Halo,
   CrystalBall,
   Glasses,
+  Halo,
   HandLeft,
   HandRight,
   Hypnosis,

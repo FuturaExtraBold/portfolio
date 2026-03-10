@@ -1,7 +1,7 @@
-import { type JSX, useEffect, useRef } from "react";
 import { Sprite } from "pixi.js";
-import { useBenzo } from "../BenzoProvider";
+import { type JSX, useEffect, useRef } from "react";
 import { animateFloat } from "utils/animation";
+import { useBenzo } from "../BenzoProvider";
 
 export default function HandRight(): JSX.Element | null {
   const { allTexturesLoaded, parentSize, textures } = useBenzo();

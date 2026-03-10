@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/package",
   "name": "portfolio",
   "homepage": "https://benhays.dev",
   "version": "0.1.0",

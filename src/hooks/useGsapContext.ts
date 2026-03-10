@@ -1,10 +1,10 @@
-import { DependencyList, useEffect } from "react";
 import { gsap } from "gsap";
+import { DependencyList, useEffect } from "react";
 
 export const useGsapContext = (
   callback: () => void,
   deps: DependencyList,
-  scope?: gsap.ContextScope
+  scope?: gsap.ContextScope,
 ): void => {
   useEffect(() => {
     const ctx = gsap.context(callback, scope);

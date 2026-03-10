@@ -1,7 +1,7 @@
-import { type JSX, useCallback, useEffect, useRef } from "react";
-import { useSection, useViewport } from "providers/AppProvider";
 import { gsap } from "gsap";
 import { useFluidProperty } from "hooks/useFluidProperty";
+import { useSection, useViewport } from "providers/AppProvider";
+import { type JSX, useCallback, useEffect, useRef } from "react";
 import "./styles.scss";
 
 interface ScoreProps {
@@ -77,7 +77,7 @@ export default function Score({
           if (!valueRef.current) return;
           valueRef.current.textContent = progress;
         },
-      }
+      },
     );
   }, [circleDelay]);
 
@@ -94,7 +94,7 @@ export default function Score({
         duration: 1,
         ease: "expo.out",
         delay: containerDelay,
-      }
+      },
     );
   }, [containerDelay]);
 

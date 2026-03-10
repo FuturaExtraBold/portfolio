@@ -1,5 +1,5 @@
-import { type JSX } from "react";
 import { useViewport } from "providers/AppProvider";
+import { type JSX } from "react";
 
 type ResponsiveImageProps = {
   alt: string;

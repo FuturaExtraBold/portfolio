@@ -1,5 +1,5 @@
-import { forwardRef, type JSX, type ReactNode } from "react";
 import classnames from "classnames";
+import { forwardRef, type JSX, type ReactNode } from "react";
 import "./styles.scss";
 
 interface BackgroundProps {
@@ -18,7 +18,7 @@ const Background = forwardRef<HTMLDivElement, BackgroundProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 Background.displayName = "Background";

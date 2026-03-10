@@ -1,17 +1,17 @@
+import type { WindowSize } from "hooks/useViewport";
+import { useViewport as useViewportState } from "hooks/useViewport";
 import {
   createContext,
   Dispatch,
   PropsWithChildren,
   SetStateAction,
-  type JSX,
   useContext,
   useEffect,
   useMemo,
   useState,
+  type JSX,
 } from "react";
 import { deviceDetect } from "react-device-detect";
-import { useViewport as useViewportState } from "hooks/useViewport";
-import type { WindowSize } from "hooks/useViewport";
 import "../assets/stylesheets/all.scss";
 
 interface ViewportContextValue {
@@ -84,7 +84,7 @@ const ViewportProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
 
   const value = useMemo(
     () => ({ windowSize, mediaClass, breakpoints, assetSize, isMobile }),
-    [windowSize, mediaClass, breakpoints, assetSize, isMobile]
+    [windowSize, mediaClass, breakpoints, assetSize, isMobile],
   );
 
   return (
@@ -96,16 +96,12 @@ const ViewportProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
 
 const DeviceProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
   const [userDevice, setUserDevice] = useState(
-    () => deviceDetect(navigator.userAgent) || {}
+    () => deviceDetect(navigator.userAgent) || {},
   );
 
   useEffect(() => {
     const detectedDevice = deviceDetect(navigator.userAgent);
     if (detectedDevice) {
-      if (import.meta.env.DEV) {
-        console.log("Detected device:", detectedDevice);
-        console.log("window.devicePixelRatio", window.devicePixelRatio);
-      }
       setUserDevice(detectedDevice);
     }
   }, []);
@@ -128,10 +124,12 @@ const ModalProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
       setActiveCaseStudy,
       setIsModalActive,
     }),
-    [activeCaseStudy, isModalActive]
+    [activeCaseStudy, isModalActive],
   );
 
-  return <ModalContext.Provider value={value}>{children}</ModalContext.Provider>;
+  return (
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
+  );
 };
 
 const SectionProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
@@ -176,7 +174,7 @@ const SectionProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
             setSectionFromElement(bestElement);
           }
         },
-        { threshold: [0.25, 0.5, 0.75] }
+        { threshold: [0.25, 0.5, 0.75] },
       );
 
       sections.forEach((section) => observer.observe(section));
@@ -231,12 +229,14 @@ const AppLoadProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
   );
 };
 
-const BenzoLoadProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+const BenzoLoadProvider = ({
+  children,
+}: PropsWithChildren<{}>): JSX.Element => {
   const [benzoLoadProgress, setBenzoLoadProgress] = useState(0);
 
   const value = useMemo(
     () => ({ benzoLoadProgress, setBenzoLoadProgress }),
-    [benzoLoadProgress]
+    [benzoLoadProgress],
   );
 
   return (
@@ -246,7 +246,9 @@ const BenzoLoadProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => 
   );
 };
 
-export const AppProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
+export const AppProvider = ({
+  children,
+}: PropsWithChildren<{}>): JSX.Element => {
   return (
     <DeviceProvider>
       <ViewportProvider>

@@ -1,13 +1,13 @@
-import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Container, Sprite } from "pixi.js";
-import { useBenzo } from "../BenzoProvider";
+import { type JSX, useEffect, useRef } from "react";
 import {
   animateFloat,
   animateRotation,
   animateTint,
   setPosition,
 } from "utils/animation";
+import { useBenzo } from "../BenzoProvider";
 
 export default function CrystalBall(): JSX.Element | null {
   const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();

@@ -1,5 +1,5 @@
-import type { AnimateTintOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { AnimateTintOptions } from "utils/animation";
 
 export const animateTint = ({
   color,

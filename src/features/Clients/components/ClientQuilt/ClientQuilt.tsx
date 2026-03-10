@@ -1,7 +1,7 @@
-import { memo, type JSX, useCallback, useMemo, useRef } from "react";
+import { caseStudies } from "data/clients";
 import { Container } from "layout";
 import { useModal } from "providers/AppProvider";
-import { caseStudies } from "data/clients";
+import { memo, useCallback, useMemo, useRef, type JSX } from "react";
 import "./styles.scss";
 
 function ClientQuilt(): JSX.Element {
@@ -22,7 +22,7 @@ function ClientQuilt(): JSX.Element {
         console.error(`Case study with id "${id}" not found.`);
       }
     },
-    [setActiveCaseStudy, setIsModalActive]
+    [setActiveCaseStudy, setIsModalActive],
   );
 
   const renderedRows = useMemo(
@@ -36,7 +36,7 @@ function ClientQuilt(): JSX.Element {
           {client.logoComponent()}
         </div>
       )),
-    [handleLogoClick]
+    [handleLogoClick],
   );
 
   return (

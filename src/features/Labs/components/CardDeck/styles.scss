@@ -2,9 +2,9 @@
 
 .card-deck {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .card-deck__stage {
@@ -24,26 +24,26 @@
 // Footer holds both prompt and info, stacked in the same space
 .card-deck__footer {
   position: relative;
-  min-height: 80px;
-  margin-top: 28px;
-  width: 100%;
   display: flex;
+  width: 100%;
+  min-height: 80px;
   align-items: center;
   justify-content: center;
+  margin-top: 28px;
 }
 
 .card-deck__prompt,
 .card-deck__info {
   position: absolute;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  inset: 0;
   opacity: 0;
-  transition: opacity 0.35s ease;
   pointer-events: none;
+  text-align: center;
+  transition: opacity 0.35s ease;
 }
 
 .card-deck__prompt--visible,
@@ -52,27 +52,27 @@
 }
 
 .card-deck__prompt {
-  font-family: $font-family-body;
   color: $text-accent;
+  font-family: $font-family-body;
   font-style: italic;
 
   @include fluid-property($breaks-md, $breaks-xl, 19px, 21px, font-size);
 }
 
 .card-deck__info-name {
-  font-family: $font-family-heading;
-  color: $text-accent;
-  letter-spacing: 0.02em;
   margin: 0 0 6px;
+  color: $text-accent;
+  font-family: $font-family-heading;
+  letter-spacing: 0.02em;
 
   @include fluid-property($breaks-md, $breaks-xl, 18px, 24px, font-size);
 }
 
 .card-deck__info-description {
-  font-family: $font-family-body;
-  color: $text-light;
-  margin: 0;
   max-width: 480px;
+  margin: 0;
+  color: $text-light;
+  font-family: $font-family-body;
   opacity: 0.75;
 
   @include fluid-property($breaks-md, $breaks-xl, 15px, 17px, font-size);

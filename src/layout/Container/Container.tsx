@@ -1,5 +1,5 @@
-import { forwardRef, type JSX, type ReactNode } from "react";
 import classnames from "classnames";
+import { forwardRef, type JSX, type ReactNode } from "react";
 import "./styles.scss";
 
 interface ContainerProps {
@@ -18,7 +18,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         {children}
       </div>
     );
-  }
+  },
 );
 
 Container.displayName = "Container";

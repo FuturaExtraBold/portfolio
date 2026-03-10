@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import {
   Application,
@@ -46,7 +46,3 @@ PixiPlugin.registerPIXI({
   Sprite,
   TilingSprite,
 });
-
-if (import.meta.env.DEV) {
-  console.log("GSAP plugins:", gsap.plugins);
-}

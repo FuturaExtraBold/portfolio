@@ -1,6 +1,6 @@
-import { type JSX, useRef } from "react";
 import gsap from "gsap";
 import { useGsapContext } from "hooks/useGsapContext";
+import { type JSX, useRef } from "react";
 import "./styles.scss";
 
 interface AnimatedTextProps {
@@ -53,7 +53,7 @@ export default function AnimatedText({
       });
     },
     [text],
-    elRef
+    elRef,
   );
 
   return (

@@ -1,6 +1,6 @@
-import type { JSX } from "react";
-import { useViewport } from "providers/AppProvider";
 import { useFluidProperty } from "hooks/useFluidProperty";
+import { useViewport } from "providers/AppProvider";
+import type { JSX } from "react";
 import "./styles.scss";
 
 export default function Vignette(): JSX.Element {

@@ -1,5 +1,5 @@
-import type { AnimateFloatOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { AnimateFloatOptions } from "utils/animation";
 
 export const animateFloat = ({
   amplitudeX = 10,

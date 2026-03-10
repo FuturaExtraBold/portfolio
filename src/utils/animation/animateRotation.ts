@@ -1,5 +1,5 @@
-import type { AnimateRotationOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { AnimateRotationOptions } from "utils/animation";
 
 export const animateRotation = ({
   duration,

@@ -1,9 +1,9 @@
 import { type JSX } from "react";
-import Employer from "../Employer/Employer";
+import { FadeIn } from "ui";
 import HookyGrand from "ui/Logos/HookyGrand";
 import Kajabi from "ui/Logos/Kajabi";
 import Studio318 from "ui/Logos/Studio318";
-import { FadeIn } from "ui";
+import Employer from "../Employer/Employer";
 import "./styles.scss";
 
 export default function Employers(): JSX.Element {

@@ -1,5 +1,5 @@
-import ReactDOM from "react-dom/client";
 import { AppProvider } from "providers/AppProvider";
+import ReactDOM from "react-dom/client";
 import "utils/animation/gsapSetup";
 import App from "./App";
 
@@ -10,7 +10,7 @@ if (rootElement) {
   root.render(
     <AppProvider>
       <App />
-    </AppProvider>
+    </AppProvider>,
   );
 } else {
   throw new Error("Root element not found");

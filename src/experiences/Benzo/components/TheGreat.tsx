@@ -1,6 +1,6 @@
-import { type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Sprite } from "pixi.js";
+import { type JSX, useEffect, useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function TheGreat(): JSX.Element | null {

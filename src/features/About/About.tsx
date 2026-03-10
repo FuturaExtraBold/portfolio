@@ -7,7 +7,7 @@ import {
   Section,
 } from "layout";
 import { useAppLoad, useViewport } from "providers/AppProvider";
-import { memo, type JSX, useEffect, useRef } from "react";
+import { memo, useEffect, useRef, type JSX } from "react";
 import {
   AnimatedText,
   FadeIn,

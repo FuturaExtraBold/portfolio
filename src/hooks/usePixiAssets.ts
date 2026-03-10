@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { Assets } from "pixi.js";
+import { useEffect, useRef, useState } from "react";
 
 interface UsePixiAssetsOptions {
   texturePaths: Record<string, string>;
@@ -50,8 +50,8 @@ export const usePixiAssets = ({
               texture: mapTexture ? mapTexture(key, texture) : texture,
             }))
             .catch((error) => ({ ok: false as const, key, error }))
-            .finally(updateProgress)
-        )
+            .finally(updateProgress),
+        ),
       );
 
       if (cancelled || !mountedRef.current) return;

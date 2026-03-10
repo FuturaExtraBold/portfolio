@@ -1,5 +1,5 @@
-import type { SetScaleOptions } from "utils/animation";
 import { gsap } from "gsap";
+import type { SetScaleOptions } from "utils/animation";
 
 export const setScale = ({
   maxScale = 1,
@@ -26,8 +26,8 @@ export const setScale = ({
       minScale,
       ((parentSize.width - minWidth) / (maxWidth - minWidth)) *
         (maxScale - minScale) +
-        minScale
-    )
+        minScale,
+    ),
   );
 
   gsap.set(ref.current, { pixi: { scale } });

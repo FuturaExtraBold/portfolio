@@ -1,17 +1,17 @@
+import { useParentSize } from "hooks/useParentSize";
+import { usePixiAssets } from "hooks/usePixiAssets";
+import { DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import {
   createContext,
   RefObject,
-  type JSX,
   useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
+  type JSX,
 } from "react";
-import { DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import { Assets as AssetPaths } from "./Assets";
-import { usePixiAssets } from "hooks/usePixiAssets";
-import { useParentSize } from "hooks/useParentSize";
 import Hell from "./Hell";
 
 export interface UseHellProps {
@@ -62,7 +62,7 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
       parentSize,
       textures,
     }),
-    [allTexturesLoaded, displacementFilter, parentRef, parentSize, textures]
+    [allTexturesLoaded, displacementFilter, parentRef, parentSize, textures],
   );
 
   return (

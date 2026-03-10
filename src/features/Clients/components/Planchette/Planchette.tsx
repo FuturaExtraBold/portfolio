@@ -1,6 +1,6 @@
-import { memo, type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ResponsiveImage } from "layout/index";
+import { memo, useEffect, useRef, type JSX } from "react";
 import planchetteImage1x from "./planchette@1x.webp";
 import planchetteImage2x from "./planchette@2x.webp";
 import "./styles.scss";

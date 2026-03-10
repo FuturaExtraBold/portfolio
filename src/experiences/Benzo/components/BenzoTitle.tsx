@@ -1,9 +1,9 @@
-import { cloneElement, type JSX, useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Sprite } from "pixi.js";
-import { useBenzo } from "../BenzoProvider";
-import { setScale } from "utils/animation";
 import { useGsapContext } from "hooks/useGsapContext";
+import { Sprite } from "pixi.js";
+import { cloneElement, type JSX, useEffect, useRef } from "react";
+import { setScale } from "utils/animation";
+import { useBenzo } from "../BenzoProvider";
 
 export default function BenzoTitle(): JSX.Element | null {
   const {
@@ -55,7 +55,7 @@ export default function BenzoTitle(): JSX.Element | null {
               duration: 2,
               delay: 3 + index * 0.1,
               repeat: -1,
-            }
+            },
           );
         }
 
@@ -71,7 +71,7 @@ export default function BenzoTitle(): JSX.Element | null {
             y: 0,
             duration: 0.2,
             delay: 3,
-          }
+          },
         );
       });
     });
@@ -128,7 +128,7 @@ export default function BenzoTitle(): JSX.Element | null {
               letterRefs.current[letter] = el;
             },
             key: sprite.key,
-          })
+          }),
         )}
       </pixiContainer>
       <pixiContainer anchor={0.5} ref={patternRef}>
@@ -139,7 +139,7 @@ export default function BenzoTitle(): JSX.Element | null {
               patternLetterRefs.current[letter] = el;
             },
             key: sprite.key,
-          })
+          }),
         )}
       </pixiContainer>
     </pixiContainer>
