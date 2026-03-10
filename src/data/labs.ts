@@ -10,45 +10,47 @@ export interface LabProject {
 export const labProjects: LabProject[] = [
   {
     id: "project-alpha",
-    name: "Project Alpha",
-    description: "A short description of what was built and why.",
+    name: "Lorcana 3D Viewer",
+    description:
+      "A card conjured into three dimensions — light bending across its surface, tilting as though guided by an unseen hand.",
     tarotImage: "/assets/images/labs/tarot/lorcana.webp",
     protoVideo: "/assets/images/labs/prototypes/lorcana.mp4",
-    url: "https://example.com/project-alpha",
+    url: "https://lorcana.benhays.dev",
   },
   {
     id: "project-beta",
-    name: "Project Beta",
+    name: "Dynamic Typography",
     description:
-      "Another experiment born from curiosity and late-night sessions.",
+      "Each letter senses what draws near — glyphs shifting weight as the cursor passes, like type that breathes.",
     tarotImage: "/assets/images/labs/tarot/hovertext.webp",
     protoVideo: "/assets/images/labs/prototypes/hovertext.mp4",
-    url: "https://example.com/project-beta",
+    url: "https://hovertext.benhays.dev",
   },
   {
     id: "project-gamma",
-    name: "Project Gamma",
+    name: "Valorant Experience",
     description:
-      "Built purely for the love of building — no specification required.",
+      "A world that stirs at every touch — micro-interactions woven into the fabric of an immersive landing rite.",
     tarotImage: "/assets/images/labs/tarot/valorant.webp",
     protoVideo: "/assets/images/labs/prototypes/valorant.mp4",
-    url: "https://example.com/project-gamma",
+    url: "https://valorant.benhays.dev",
   },
   {
     id: "project-delta",
-    name: "Project Delta",
+    name: "WALL•E 3D",
     description:
-      "A rapid prototype conjured from a single afternoon of obsession.",
+      "Glass that holds light like memory — a creature brought to life through custom reflective materials and an outstretched hand.",
     tarotImage: "/assets/images/labs/tarot/walle.webp",
     protoVideo: "/assets/images/labs/prototypes/walle.mp4",
-    url: "https://example.com/project-delta",
+    url: "https://wall-e.benhays.dev",
   },
   {
     id: "project-epsilon",
-    name: "Project Epsilon",
-    description: "Something strange and wonderful, built in the margins.",
+    name: "Rivian Navbar",
+    description:
+      "Navigation rebuilt from the marrow — every pixel faithful to the original, summoned anew through Svelte.",
     tarotImage: "/assets/images/labs/tarot/rivian.webp",
     protoVideo: "/assets/images/labs/prototypes/rivian.mp4",
-    url: "https://example.com/project-epsilon",
+    url: "https://rivian.benhays.dev",
   },
 ];

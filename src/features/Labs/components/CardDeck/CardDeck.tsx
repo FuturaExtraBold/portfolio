@@ -3,9 +3,9 @@ import "./styles.scss";
 import type { LabProject } from "data/labs";
 import gsap from "gsap";
 import { useGsapContext } from "hooks/useGsapContext";
-import { type JSX, useRef, useState } from "react";
+import { type JSX, useRef, useState, useCallback } from "react";
 
-import TarotCard from "../TarotCard/TarotCard";
+import TarotCard, { type TarotCardHandle } from "../TarotCard/TarotCard";
 
 interface CardDeckProps {
   projects: LabProject[];
@@ -13,7 +13,7 @@ interface CardDeckProps {
 
 const RADIUS = 1400;
 const ARC_SPREAD_DEG = 34;
-const JITTER_PX = 18;
+const JITTER_PX = 6;
 
 function getArcPosition(
   index: number,
@@ -35,8 +35,12 @@ function rand(range: number) {
 
 export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [displayedIndex, setDisplayedIndex] = useState<number | null>(null);
+  const [textVisible, setTextVisible] = useState(false);
+  const switchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const deckRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const tarotCardRefs = useRef<(TarotCardHandle | null)[]>([]);
 
   // Arc positions with jitter baked in — generated once, stable across re-renders
   const arcPositions = useRef(
@@ -62,12 +66,30 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
       cards.forEach((el, i) => gsap.set(el, { zIndex: getBaseZIndex(i) }));
       gsap.set(cards, { xPercent: -50, x: 0, y: 600, rotation: 0, opacity: 0 });
 
+      const startPeek = () => {
+        const count = projects.length;
+        // Flip each card to back, staggered 0.2s apart
+        for (let i = 0; i < count; i++) {
+          gsap.delayedCall(i * 0.2, () => {
+            tarotCardRefs.current[i]?.flip();
+          });
+        }
+        // After last flip (+ flip duration 0.3s) + 3s hold, start unflipping
+        const unflipStart = (count - 1) * 0.2 + 0.3 + 3.0;
+        for (let i = 0; i < count; i++) {
+          gsap.delayedCall(unflipStart + i * 0.2, () => {
+            tarotCardRefs.current[i]?.unflip();
+          });
+        }
+      };
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: deckRef.current,
           start: "top 70%",
           once: true,
         },
+        onComplete: () => gsap.delayedCall(2, startPeek),
       });
 
       arcPositions.current.forEach(({ x, y, rotation }, i) => {
@@ -92,7 +114,7 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
     deckRef,
   );
 
-  const handleCardEnter = (i: number) => {
+  const handleCardEnter = useCallback((i: number) => {
     const el = cardRefs.current[i];
     const pos = arcPositions.current[i];
     if (el && pos) {
@@ -107,9 +129,24 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
       });
     }
     setActiveIndex(i);
-  };
 
-  const handleCardLeave = (i: number) => {
+    if (switchTimer.current) clearTimeout(switchTimer.current);
+
+    if (displayedIndex !== null) {
+      // Switching between cards — fade out, swap, fade in
+      setTextVisible(false);
+      switchTimer.current = setTimeout(() => {
+        setDisplayedIndex(i);
+        setTextVisible(true);
+      }, 140);
+    } else {
+      // Fresh hover
+      setDisplayedIndex(i);
+      setTextVisible(true);
+    }
+  }, [displayedIndex, projects.length]);
+
+  const handleCardLeave = useCallback((i: number) => {
     const el = cardRefs.current[i];
     const pos = arcPositions.current[i];
     if (el && pos) {
@@ -124,9 +161,13 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
       });
     }
     setActiveIndex(null);
-  };
 
-  const activeProject = activeIndex !== null ? projects[activeIndex] : null;
+    if (switchTimer.current) clearTimeout(switchTimer.current);
+    setTextVisible(false);
+    switchTimer.current = setTimeout(() => setDisplayedIndex(null), 350);
+  }, []);
+
+  const displayedProject = displayedIndex !== null ? projects[displayedIndex] : null;
   const isHovered = activeIndex !== null;
 
   return (
@@ -141,6 +182,9 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
             className="card-deck__card-wrapper"
           >
             <TarotCard
+              ref={(el) => {
+                tarotCardRefs.current[i] = el;
+              }}
               project={project}
               index={i}
               onMouseEnter={() => handleCardEnter(i)}
@@ -159,9 +203,11 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
         <div
           className={`card-deck__info ${isHovered ? "card-deck__info--visible" : ""}`}
         >
-          <h3 className="card-deck__info-name">{activeProject?.name ?? ""}</h3>
-          <p className="card-deck__info-description">
-            {activeProject?.description ?? ""}
+          <h3 className={`card-deck__info-name ${textVisible ? "card-deck__info-name--visible" : ""}`}>
+            {displayedProject?.name ?? ""}
+          </h3>
+          <p className={`card-deck__info-description ${textVisible ? "card-deck__info-description--visible" : ""}`}>
+            {displayedProject?.description ?? ""}
           </p>
         </div>
       </div>

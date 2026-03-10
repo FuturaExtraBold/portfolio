@@ -64,8 +64,16 @@
   color: $text-accent;
   font-family: $font-family-heading;
   letter-spacing: 0.02em;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
 
   @include fluid-property($breaks-md, $breaks-xl, 18px, 24px, font-size);
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card-deck__info-description {
@@ -73,7 +81,14 @@
   margin: 0;
   color: $text-light;
   font-family: $font-family-body;
-  opacity: 0.75;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
 
   @include fluid-property($breaks-md, $breaks-xl, 15px, 17px, font-size);
+
+  &--visible {
+    opacity: 0.75;
+    transform: translateY(0);
+  }
 }

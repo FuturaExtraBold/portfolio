@@ -2,7 +2,7 @@ import "./styles.scss";
 
 import type { LabProject } from "data/labs";
 import gsap from "gsap";
-import { type JSX, useRef } from "react";
+import { type JSX, forwardRef, useImperativeHandle, useRef } from "react";
 
 interface TarotCardProps {
   project: LabProject;
@@ -11,19 +11,43 @@ interface TarotCardProps {
   onMouseLeave: () => void;
 }
 
-export default function TarotCard({
-  project,
-  index,
-  onMouseEnter,
-  onMouseLeave,
-}: TarotCardProps): JSX.Element {
+export interface TarotCardHandle {
+  flip: () => void;
+  unflip: () => void;
+}
+
+const TarotCard = forwardRef<TarotCardHandle, TarotCardProps>(function TarotCard(
+  { project, index, onMouseEnter, onMouseLeave },
+  ref,
+): JSX.Element {
   const innerRef = useRef<HTMLDivElement>(null);
+
+  useImperativeHandle(ref, () => ({
+    flip() {
+      if (innerRef.current) {
+        gsap.to(innerRef.current, {
+          rotationY: 180,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      }
+    },
+    unflip() {
+      if (innerRef.current) {
+        gsap.to(innerRef.current, {
+          rotationY: 0,
+          duration: 0.3,
+          ease: "power2.inOut",
+        });
+      }
+    },
+  }));
 
   const handleMouseEnter = () => {
     if (innerRef.current) {
       gsap.to(innerRef.current, {
         rotationY: 180,
-        duration: 0.55,
+        duration: 0.3,
         ease: "power2.inOut",
       });
     }
@@ -34,7 +58,7 @@ export default function TarotCard({
     if (innerRef.current) {
       gsap.to(innerRef.current, {
         rotationY: 0,
-        duration: 0.55,
+        duration: 0.3,
         ease: "power2.inOut",
       });
     }
@@ -63,4 +87,6 @@ export default function TarotCard({
       </div>
     </div>
   );
-}
+});
+
+export default TarotCard;
