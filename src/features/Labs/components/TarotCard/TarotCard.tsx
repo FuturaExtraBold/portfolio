@@ -58,10 +58,7 @@ export default function TarotCard({
           <img alt={`${project.name} tarot card`} src={project.tarotImage} />
         </div>
         <div className="tarot-card__back">
-          <img
-            alt={`${project.name} prototype preview`}
-            src={project.protoGif}
-          />
+          <video autoPlay muted loop playsInline src={project.protoVideo} />
         </div>
       </div>
     </div>
