@@ -3,7 +3,7 @@ import "./styles.scss";
 import { caseStudies } from "data/clients";
 import { Container } from "layout";
 import { useModal } from "providers/AppProvider";
-import { type JSX,memo, useCallback, useMemo, useRef } from "react";
+import { type JSX, memo, useCallback, useMemo, useRef } from "react";
 
 function ClientQuilt(): JSX.Element {
   const { setActiveCaseStudy, setIsModalActive } = useModal();

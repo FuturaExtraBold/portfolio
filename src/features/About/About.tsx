@@ -9,7 +9,7 @@ import {
   Section,
 } from "layout";
 import { useAppLoad, useViewport } from "providers/AppProvider";
-import { type JSX,memo, useEffect, useRef } from "react";
+import { type JSX, memo, useEffect, useRef } from "react";
 import {
   AnimatedText,
   FadeIn,

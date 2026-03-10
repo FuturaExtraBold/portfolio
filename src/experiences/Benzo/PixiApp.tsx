@@ -1,6 +1,6 @@
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
-import { type JSX,RefObject } from "react";
+import { type JSX, RefObject } from "react";
 
 import { BenzoProvider } from "./BenzoProvider";
 

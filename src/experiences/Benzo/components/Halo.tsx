@@ -16,7 +16,9 @@ export default function Halo(): JSX.Element | null {
       duration: smokeProps.duration,
     });
     const el = haloRef.current;
-    return () => { if (el) gsap.killTweensOf(el); };
+    return () => {
+      if (el) gsap.killTweensOf(el);
+    };
   }, [allTexturesLoaded, smokeProps]);
 
   if (!allTexturesLoaded || !textures.halo) return null;

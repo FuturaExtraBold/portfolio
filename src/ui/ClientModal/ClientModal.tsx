@@ -3,7 +3,7 @@ import "./styles.scss";
 import classnames from "classnames";
 import { caseStudies } from "data/clients";
 import { useModal } from "providers/AppProvider";
-import { type JSX,MouseEvent, TouchEvent, WheelEvent } from "react";
+import { type JSX, MouseEvent, TouchEvent, WheelEvent } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 import { Gallery, Header, Project } from "./components";

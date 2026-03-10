@@ -22,7 +22,9 @@ export default function Title(): JSX.Element | null {
       delay: 1,
     });
     const el = titleRef.current;
-    return () => { if (el) gsap.killTweensOf(el); };
+    return () => {
+      if (el) gsap.killTweensOf(el);
+    };
   }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.titleNew) return null;

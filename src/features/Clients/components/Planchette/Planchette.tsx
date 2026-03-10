@@ -2,7 +2,7 @@ import "./styles.scss";
 
 import { gsap } from "gsap";
 import { ResponsiveImage } from "layout/index";
-import { type JSX,memo, useEffect, useRef } from "react";
+import { type JSX, memo, useEffect, useRef } from "react";
 
 import planchetteImage1x from "./planchette@1x.webp";
 import planchetteImage2x from "./planchette@2x.webp";

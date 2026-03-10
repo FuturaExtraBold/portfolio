@@ -24,9 +24,11 @@ export const animateTick = ({
     parentSizeRef.current!.width / 2 -
     parentSizeRef.current!.width / baseXAmount;
   const baseY = () =>
-    parentSizeRef.current!.height - (ref.current as { height: number }).height / baseYAmount;
+    parentSizeRef.current!.height -
+    (ref.current as { height: number }).height / baseYAmount;
 
-  const offScreenBottomOffset = (ref.current as { height: number }).height / 2 - offsetYAmount;
+  const offScreenBottomOffset =
+    (ref.current as { height: number }).height / 2 - offsetYAmount;
 
   const tick = () => {
     time += tickTime;

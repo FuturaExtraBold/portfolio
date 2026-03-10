@@ -22,7 +22,9 @@ export default function TheGreat(): JSX.Element | null {
       delay: 0.93,
     });
     const el = theGreatRef.current;
-    return () => { if (el) gsap.killTweensOf(el); };
+    return () => {
+      if (el) gsap.killTweensOf(el);
+    };
   }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.theGreat) return null;

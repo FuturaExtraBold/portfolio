@@ -66,7 +66,14 @@ export const LighthouseProvider = ({
       textures,
       windowsRef,
     }),
-    [allTexturesLoaded, parentRef, parentSize, parentSizeRef, scaleRef, textures],
+    [
+      allTexturesLoaded,
+      parentRef,
+      parentSize,
+      parentSizeRef,
+      scaleRef,
+      textures,
+    ],
   );
 
   return (

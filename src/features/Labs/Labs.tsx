@@ -3,7 +3,7 @@ import "./styles.scss";
 import { labProjects } from "data/labs";
 import { Background, Container, Content, Section } from "layout";
 import { useAppLoad } from "providers/AppProvider";
-import { type JSX,memo } from "react";
+import { type JSX, memo } from "react";
 import {
   AnimatedText,
   FadeIn,

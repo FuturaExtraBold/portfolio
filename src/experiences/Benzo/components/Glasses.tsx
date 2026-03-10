@@ -16,7 +16,9 @@ export default function Glasses(): JSX.Element | null {
       duration: glowProps.duration,
     });
     const el = glassesRef.current;
-    return () => { if (el) gsap.killTweensOf(el); };
+    return () => {
+      if (el) gsap.killTweensOf(el);
+    };
   }, [allTexturesLoaded, glowProps]);
 
   if (!allTexturesLoaded || !textures.glasses) return null;
