@@ -3,7 +3,7 @@ import "./styles.scss";
 import type { LabProject } from "data/labs";
 import gsap from "gsap";
 import { useGsapContext } from "hooks/useGsapContext";
-import { type JSX, useRef, useState, useCallback } from "react";
+import { type JSX, useCallback, useRef, useState } from "react";
 
 import TarotCard, { type TarotCardHandle } from "../TarotCard/TarotCard";
 
@@ -114,37 +114,40 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
     deckRef,
   );
 
-  const handleCardEnter = useCallback((i: number) => {
-    const el = cardRefs.current[i];
-    const pos = arcPositions.current[i];
-    if (el && pos) {
-      gsap.set(el, { zIndex: projects.length + 1 });
-      gsap.to(el, {
-        xPercent: -50,
-        x: pos.x,
-        y: pos.y - 40,
-        scale: 1.2,
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    }
-    setActiveIndex(i);
+  const handleCardEnter = useCallback(
+    (i: number) => {
+      const el = cardRefs.current[i];
+      const pos = arcPositions.current[i];
+      if (el && pos) {
+        gsap.set(el, { zIndex: projects.length + 1 });
+        gsap.to(el, {
+          xPercent: -50,
+          x: pos.x,
+          y: pos.y - 40,
+          scale: 1.2,
+          duration: 0.3,
+          ease: "power2.out",
+        });
+      }
+      setActiveIndex(i);
 
-    if (switchTimer.current) clearTimeout(switchTimer.current);
+      if (switchTimer.current) clearTimeout(switchTimer.current);
 
-    if (displayedIndex !== null) {
-      // Switching between cards — fade out, swap, fade in
-      setTextVisible(false);
-      switchTimer.current = setTimeout(() => {
+      if (displayedIndex !== null) {
+        // Switching between cards — fade out, swap, fade in
+        setTextVisible(false);
+        switchTimer.current = setTimeout(() => {
+          setDisplayedIndex(i);
+          setTextVisible(true);
+        }, 140);
+      } else {
+        // Fresh hover
         setDisplayedIndex(i);
         setTextVisible(true);
-      }, 140);
-    } else {
-      // Fresh hover
-      setDisplayedIndex(i);
-      setTextVisible(true);
-    }
-  }, [displayedIndex, projects.length]);
+      }
+    },
+    [displayedIndex, projects.length],
+  );
 
   const handleCardLeave = useCallback((i: number) => {
     const el = cardRefs.current[i];
@@ -167,7 +170,8 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
     switchTimer.current = setTimeout(() => setDisplayedIndex(null), 350);
   }, []);
 
-  const displayedProject = displayedIndex !== null ? projects[displayedIndex] : null;
+  const displayedProject =
+    displayedIndex !== null ? projects[displayedIndex] : null;
   const isHovered = activeIndex !== null;
 
   return (
@@ -203,10 +207,14 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
         <div
           className={`card-deck__info ${isHovered ? "card-deck__info--visible" : ""}`}
         >
-          <h3 className={`card-deck__info-name ${textVisible ? "card-deck__info-name--visible" : ""}`}>
+          <h3
+            className={`card-deck__info-name ${textVisible ? "card-deck__info-name--visible" : ""}`}
+          >
             {displayedProject?.name ?? ""}
           </h3>
-          <p className={`card-deck__info-description ${textVisible ? "card-deck__info-description--visible" : ""}`}>
+          <p
+            className={`card-deck__info-description ${textVisible ? "card-deck__info-description--visible" : ""}`}
+          >
             {displayedProject?.description ?? ""}
           </p>
         </div>
