@@ -1,9 +1,11 @@
+import "./styles.scss";
+
 import { gsap } from "gsap";
 import { ResponsiveImage } from "layout/index";
-import { memo, useEffect, useRef, type JSX } from "react";
+import { type JSX,memo, useEffect, useRef } from "react";
+
 import planchetteImage1x from "./planchette@1x.webp";
 import planchetteImage2x from "./planchette@2x.webp";
-import "./styles.scss";
 
 function Planchette(): JSX.Element {
   const refPlanchette = useRef<HTMLDivElement>(null);
@@ -13,7 +15,7 @@ function Planchette(): JSX.Element {
 
     if (!planchette) return;
 
-    let parentElement: HTMLElement = planchette.parentElement as HTMLElement;
+    const parentElement: HTMLElement = planchette.parentElement as HTMLElement;
     let parentRect: DOMRect = parentElement.getBoundingClientRect();
     let parentWidth: number = parentElement.offsetWidth;
     let parentHeight: number = parentElement.offsetHeight;

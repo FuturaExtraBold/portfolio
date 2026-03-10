@@ -1,8 +1,9 @@
+import "./styles.scss";
+
 import { gsap } from "gsap";
 import { useFluidProperty } from "hooks/useFluidProperty";
 import { useSection, useViewport } from "providers/AppProvider";
 import { type JSX, useCallback, useEffect, useRef } from "react";
-import "./styles.scss";
 
 interface ScoreProps {
   circleDelay?: number;

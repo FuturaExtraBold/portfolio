@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+
 import Background from "./components/Background";
 import Beam from "./components/Beam";
 import Overlay from "./components/Overlay";

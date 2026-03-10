@@ -1,12 +1,13 @@
+import "./styles.scss";
+
 import PixiApp from "experiences/Benzo/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import gsap from "gsap";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Section } from "layout";
 import { useBenzoLoad } from "providers/AppProvider";
-import { memo, useEffect, useRef, type JSX } from "react";
+import { type JSX,memo, useEffect, useRef } from "react";
 import { Separator } from "ui";
-import "./styles.scss";
 
 function Hero(): JSX.Element {
   const [parentRef, setParentRef, hasParent] = useContainerRef();

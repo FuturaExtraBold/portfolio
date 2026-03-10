@@ -4,6 +4,7 @@ import { Spritesheet } from "pixi.js";
 import { useBenzoLoad } from "providers/AppProvider";
 import {
   createContext,
+  type JSX,
   RefObject,
   useCallback,
   useContext,
@@ -11,8 +12,8 @@ import {
   useMemo,
   useRef,
   useState,
-  type JSX,
 } from "react";
+
 import { Assets as AssetPaths } from "./Assets";
 import Benzo from "./Benzo";
 import { titleAtlas } from "./data/titleAtlas";

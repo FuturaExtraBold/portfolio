@@ -1,4 +1,4 @@
-import { Component, ErrorInfo, PropsWithChildren, type JSX } from "react";
+import { Component, ErrorInfo, type JSX,PropsWithChildren } from "react";
 
 interface State {
   hasError: boolean;

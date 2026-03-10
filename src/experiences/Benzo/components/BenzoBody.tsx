@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+
 import { useBenzo } from "../BenzoProvider";
 
 export default function BenzoBody(): JSX.Element | null {

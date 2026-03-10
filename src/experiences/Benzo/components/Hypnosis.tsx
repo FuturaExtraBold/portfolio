@@ -1,6 +1,7 @@
 import { Sprite } from "pixi.js";
 import { type JSX, useEffect, useRef } from "react";
 import { animateRotation } from "utils/animation";
+
 import { useBenzo } from "../BenzoProvider";
 
 export default function Hypnosis(): JSX.Element | null {

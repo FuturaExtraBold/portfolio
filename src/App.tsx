@@ -1,9 +1,10 @@
+import "./app.scss";
+
 import { Hero, Labs } from "features";
 import { Lazy } from "layout";
 import { useSection, useViewport } from "providers/AppProvider";
 import { type JSX, lazy } from "react";
 import { PictureFrame } from "ui";
-import "./app.scss";
 
 const Clients = lazy(() => import("features/Clients/Clients"));
 const Resume = lazy(() => import("features/Resume/Resume"));

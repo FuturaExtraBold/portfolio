@@ -3,14 +3,15 @@ import { usePixiAssets } from "hooks/usePixiAssets";
 import { DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
 import {
   createContext,
+  type JSX,
   RefObject,
   useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
-  type JSX,
 } from "react";
+
 import { Assets as AssetPaths } from "./Assets";
 import Hell from "./Hell";
 
@@ -48,8 +49,8 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
 
   useEffect(() => {
     if (!displacementMapRef.current) return;
-    var displacementSprite = new Sprite(displacementMapRef.current);
-    var displacementFilter = new DisplacementFilter(displacementSprite);
+    const displacementSprite = new Sprite(displacementMapRef.current);
+    const displacementFilter = new DisplacementFilter(displacementSprite);
     setDisplacementFilter(displacementFilter);
   }, [allTexturesLoaded, displacementMapRef]);
 

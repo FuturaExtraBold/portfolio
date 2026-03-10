@@ -1,3 +1,5 @@
+import "./styles.scss";
+
 import PixiApp from "experiences/Hell/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
@@ -5,7 +7,6 @@ import { Background, Container, Content, Section } from "layout";
 import { useViewport } from "providers/AppProvider";
 import { type JSX } from "react";
 import { OverlayFade, SectionHeader, Separator } from "ui/index";
-import "./styles.scss";
 
 export default function Hell(): JSX.Element {
   const [parentRef, setParentRef, hasParent] = useContainerRef();

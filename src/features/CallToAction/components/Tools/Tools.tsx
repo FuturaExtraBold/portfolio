@@ -1,7 +1,7 @@
+import "./styles.scss";
+
 import { gsap } from "gsap";
 import { cloneElement, type JSX, useEffect, useRef } from "react";
-import { AnimatedText } from "ui";
-
 import { BsLayers } from "react-icons/bs";
 import {
   FaCss3,
@@ -16,7 +16,6 @@ import {
   FaSketch,
   FaUniversalAccess,
 } from "react-icons/fa";
-
 import {
   SiAdobeillustrator,
   SiAdobephotoshop,
@@ -41,8 +40,7 @@ import {
   SiVite,
   SiVuedotjs,
 } from "react-icons/si";
-
-import "./styles.scss";
+import { AnimatedText } from "ui";
 
 const SKILLS = [
   // --- CORE TECH ---

@@ -1,7 +1,8 @@
+import "./styles.scss";
+
 import { useFluidProperty } from "hooks/useFluidProperty";
 import { useViewport } from "providers/AppProvider";
 import type { JSX } from "react";
-import "./styles.scss";
 
 export default function Vignette(): JSX.Element {
   const { breakpoints } = useViewport();

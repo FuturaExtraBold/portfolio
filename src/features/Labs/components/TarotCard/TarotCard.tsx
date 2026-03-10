@@ -1,7 +1,8 @@
+import "./styles.scss";
+
 import type { LabProject } from "data/labs";
 import gsap from "gsap";
 import { type JSX, useRef } from "react";
-import "./styles.scss";
 
 interface TarotCardProps {
   project: LabProject;

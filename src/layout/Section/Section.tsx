@@ -1,4 +1,4 @@
-import { ReactNode, type JSX } from "react";
+import { type JSX,ReactNode } from "react";
 
 interface SectionProps {
   children: ReactNode;

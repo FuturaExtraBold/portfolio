@@ -1,7 +1,8 @@
+import "./styles.scss";
+
 import gsap from "gsap";
 import { useGsapContext } from "hooks/useGsapContext";
 import { type JSX, useRef } from "react";
-import "./styles.scss";
 
 interface AnimatedTextProps {
   center?: boolean;

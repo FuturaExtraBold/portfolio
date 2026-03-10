@@ -3,14 +3,14 @@ import { usePixiAssets } from "hooks/usePixiAssets";
 import { Sprite } from "pixi.js";
 import {
   createContext,
+  type JSX,
   RefObject,
   useContext,
   useMemo,
   useRef,
-  type JSX,
 } from "react";
-import { Assets as AssetPaths } from "./Assets";
 
+import { Assets as AssetPaths } from "./Assets";
 import Lighthouse from "./Lighthouse";
 
 export interface UseLighthouseProps {

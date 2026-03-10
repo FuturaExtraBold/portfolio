@@ -1,18 +1,19 @@
+import "../assets/stylesheets/all.scss";
+
 import type { WindowSize } from "hooks/useViewport";
 import { useViewport as useViewportState } from "hooks/useViewport";
 import {
   createContext,
   Dispatch,
+  type JSX,
   PropsWithChildren,
   SetStateAction,
   useContext,
   useEffect,
   useMemo,
   useState,
-  type JSX,
 } from "react";
 import { deviceDetect } from "react-device-detect";
-import "../assets/stylesheets/all.scss";
 
 interface ViewportContextValue {
   assetSize: string;

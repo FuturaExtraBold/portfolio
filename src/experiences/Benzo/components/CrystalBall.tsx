@@ -7,6 +7,7 @@ import {
   animateTint,
   setPosition,
 } from "utils/animation";
+
 import { useBenzo } from "../BenzoProvider";
 
 export default function CrystalBall(): JSX.Element | null {

@@ -1,7 +1,9 @@
+import "./styles.scss";
+
 import { useAnalytics } from "hooks/useAnalytics";
 import { type JSX } from "react";
+
 import btnBg from "./btn_bg.webp";
-import "./styles.scss";
 
 interface MagicButtonProps {
   ariaLabel?: string;

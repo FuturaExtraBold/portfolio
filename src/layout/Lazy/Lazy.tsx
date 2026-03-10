@@ -1,9 +1,9 @@
 import {
   ComponentType,
   createElement,
+  type JSX,
   lazy as reactLazy,
   Suspense,
-  type JSX,
 } from "react";
 
 interface LazyProps {

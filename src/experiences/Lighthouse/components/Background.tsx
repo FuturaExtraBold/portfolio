@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+
 import { useLighthouse } from "../LighthouseProvider";
 
 const Background = (): JSX.Element | null => {

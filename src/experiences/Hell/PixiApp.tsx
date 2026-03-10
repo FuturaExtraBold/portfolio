@@ -1,6 +1,7 @@
 import { Application, extend } from "@pixi/react";
 import { Container, DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
-import { RefObject, type JSX } from "react";
+import { type JSX,RefObject } from "react";
+
 import { HellProvider } from "./HellProvider";
 
 extend({

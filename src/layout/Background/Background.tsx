@@ -1,6 +1,7 @@
+import "./styles.scss";
+
 import classnames from "classnames";
 import { forwardRef, type JSX, type ReactNode } from "react";
-import "./styles.scss";
 
 interface BackgroundProps {
   children: ReactNode;

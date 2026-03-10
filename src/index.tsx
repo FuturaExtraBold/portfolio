@@ -1,6 +1,8 @@
+import "utils/animation/gsapSetup";
+
 import { AppProvider } from "providers/AppProvider";
 import ReactDOM from "react-dom/client";
-import "utils/animation/gsapSetup";
+
 import App from "./App";
 
 const rootElement = document.getElementById("root");

@@ -1,9 +1,11 @@
+import "./styles.scss";
+
 import type { LabProject } from "data/labs";
 import gsap from "gsap";
 import { useGsapContext } from "hooks/useGsapContext";
 import { type JSX, useRef, useState } from "react";
+
 import TarotCard from "../TarotCard/TarotCard";
-import "./styles.scss";
 
 interface CardDeckProps {
   projects: LabProject[];

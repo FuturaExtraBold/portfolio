@@ -1,6 +1,8 @@
-import { type JSX } from "react";
-import Score from "../Score/Score";
 import "./styles.scss";
+
+import { type JSX } from "react";
+
+import Score from "../Score/Score";
 
 export default function Scores(): JSX.Element {
   return (

@@ -3,6 +3,7 @@ import { useGsapContext } from "hooks/useGsapContext";
 import { Sprite } from "pixi.js";
 import { cloneElement, type JSX, useEffect, useRef } from "react";
 import { setScale } from "utils/animation";
+
 import { useBenzo } from "../BenzoProvider";
 
 export default function BenzoTitle(): JSX.Element | null {

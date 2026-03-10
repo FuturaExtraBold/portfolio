@@ -1,3 +1,5 @@
+import "./styles.scss";
+
 import { useFluidProperty } from "hooks/useFluidProperty";
 import {
   Background,
@@ -7,7 +9,7 @@ import {
   Section,
 } from "layout";
 import { useAppLoad, useViewport } from "providers/AppProvider";
-import { memo, useEffect, useRef, type JSX } from "react";
+import { type JSX,memo, useEffect, useRef } from "react";
 import {
   AnimatedText,
   FadeIn,
@@ -16,9 +18,9 @@ import {
   Wallpaper,
 } from "ui/index";
 import { animateFloat } from "utils/animation";
+
 import shipImage1x from "./images/ship@1x.webp";
 import shipImage2x from "./images/ship@2x.webp";
-import "./styles.scss";
 
 function About(): JSX.Element {
   const { appIsLoaded } = useAppLoad();

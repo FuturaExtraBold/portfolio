@@ -1,6 +1,8 @@
-import { type JSX } from "react";
-import { accentMoon, accentSun, board1x, board2x } from "./images";
 import "./styles.scss";
+
+import { type JSX } from "react";
+
+import { accentMoon, accentSun, board1x, board2x } from "./images";
 
 export default function Board(): JSX.Element {
   return (

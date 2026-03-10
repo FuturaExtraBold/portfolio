@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { type JSX, useCallback, useEffect, useRef } from "react";
+
 import { useLighthouse } from "../LighthouseProvider";
 
 const Windows = (): JSX.Element | null => {

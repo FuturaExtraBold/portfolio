@@ -18,7 +18,7 @@
       "data/*": ["data/*"],
       "experiences/*": ["experiences/*"]
     },
-    "types": ["node"]
+    "types": ["node", "vite/client"]
   },
   "include": [
     "src/**/*", // Ensure all files in `src/` are included

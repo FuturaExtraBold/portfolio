@@ -1,7 +1,9 @@
+import "./styles.scss";
+
 import { labProjects } from "data/labs";
 import { Background, Container, Content, Section } from "layout";
 import { useAppLoad } from "providers/AppProvider";
-import { memo, type JSX } from "react";
+import { type JSX,memo } from "react";
 import {
   AnimatedText,
   FadeIn,
@@ -9,8 +11,8 @@ import {
   Separator,
   Wallpaper,
 } from "ui/index";
+
 import CardDeck from "./components/CardDeck/CardDeck";
-import "./styles.scss";
 
 function Labs(): JSX.Element {
   const { appIsLoaded } = useAppLoad();

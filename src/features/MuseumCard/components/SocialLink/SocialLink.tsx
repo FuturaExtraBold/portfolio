@@ -1,5 +1,6 @@
-import { cloneElement, type JSX } from "react";
 import "./styles.scss";
+
+import { cloneElement, type JSX } from "react";
 
 interface SocialLinkProps {
   href: string;

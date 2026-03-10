@@ -1,9 +1,11 @@
+import "./styles.scss";
+
 import { Container, Content, ResponsiveImage } from "layout";
 import { useViewport } from "providers/AppProvider";
 import type { JSX } from "react";
+
 import separatorImage1x from "./images/separator@1x.webp";
 import separatorImage2x from "./images/separator@2x.webp";
-import "./styles.scss";
 
 export default function Separator(): JSX.Element {
   const { isMobile } = useViewport();

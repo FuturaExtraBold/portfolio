@@ -1,4 +1,5 @@
 import { type JSX } from "react";
+
 import { useHell } from "../HellProvider";
 
 export default function Background(): JSX.Element | null {

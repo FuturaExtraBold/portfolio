@@ -1,3 +1,5 @@
+import "./styles.scss";
+
 import { Background, Container, Content, Section } from "layout";
 import { type JSX } from "react";
 import {
@@ -8,8 +10,8 @@ import {
   Separator,
   Wallpaper,
 } from "ui";
+
 import { Tools } from "./components/Tools/Tools";
-import "./styles.scss";
 
 export default function CallToAction(): JSX.Element {
   return (

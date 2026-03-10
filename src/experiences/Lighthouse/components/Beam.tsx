@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { useGsapContext } from "hooks/useGsapContext";
 import { type JSX } from "react";
+
 import { useLighthouse } from "../LighthouseProvider";
 
 export default function Beam(): JSX.Element | null {

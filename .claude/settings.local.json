@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm run build 2>&1 | tail -20)",
-      "Bash(find /Users/benhays/Code/portfolio/src -name \"*.test.*\" && ls /Users/benhays/Code/portfolio/jest* /Users/benhays/Code/portfolio/babel* 2>/dev/null)"
+      "Bash(find /Users/benhays/Code/portfolio/src -name \"*.test.*\" && ls /Users/benhays/Code/portfolio/jest* /Users/benhays/Code/portfolio/babel* 2>/dev/null)",
+      "Bash(npm install --save-dev eslint @eslint/js typescript-eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-simple-import-sort 2>&1 | tail -5)"
     ]
   }
 }

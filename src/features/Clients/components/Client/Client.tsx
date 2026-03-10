@@ -1,5 +1,6 @@
-import { type JSX } from "react";
 import "./styles.scss";
+
+import { type JSX } from "react";
 
 interface ClientProps {
   LogoComponent: () => JSX.Element;
