@@ -10,32 +10,53 @@
 .card-deck__stage {
   position: relative;
   width: 100%;
-  height: clamp(240px, 22vw, 340px);
+  height: clamp(300px, 28vw, 420px);
 }
 
 // Wrappers are positioned via GSAP from left: 50%
 // xPercent: -50 + x offset centers each card on its arc point
 .card-deck__card-wrapper {
   position: absolute;
-  top: 0;
+  top: 40px;
   left: 50%;
 }
 
-.card-deck__info {
-  min-height: 72px;
+// Footer holds both prompt and info, stacked in the same space
+.card-deck__footer {
+  position: relative;
+  min-height: 80px;
   margin-top: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-deck__prompt,
+.card-deck__info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   opacity: 0;
-  transform: translateY(8px);
-  transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+  transition: opacity 0.35s ease;
   pointer-events: none;
 }
 
+.card-deck__prompt--visible,
 .card-deck__info--visible {
   opacity: 1;
-  transform: translateY(0);
+}
+
+.card-deck__prompt {
+  font-family: $font-family-body;
+  color: $text-accent;
+  font-style: italic;
+
+  @include fluid-property($breaks-md, $breaks-xl, 19px, 21px, font-size);
 }
 
 .card-deck__info-name {

@@ -5,18 +5,16 @@ import "./styles.scss";
 
 interface TarotCardProps {
   project: LabProject;
-  zIndex: number;
+  index: number;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
-  isActive: boolean;
 }
 
 export default function TarotCard({
   project,
-  zIndex,
+  index,
   onMouseEnter,
   onMouseLeave,
-  isActive,
 }: TarotCardProps): JSX.Element {
   const innerRef = useRef<HTMLDivElement>(null);
 
@@ -42,19 +40,21 @@ export default function TarotCard({
     onMouseLeave();
   };
 
+  const handleClick = () => {
+    window.open(project.url, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div
-      className={`tarot-card ${isActive ? "tarot-card--active" : ""}`}
-      style={{ zIndex: isActive ? 100 : zIndex }}
+      className="tarot-card"
+      style={{ animationDelay: `${index * 0.55}s` }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
     >
       <div className="tarot-card__inner" ref={innerRef}>
         <div className="tarot-card__front">
-          <img
-            alt={`${project.name} tarot card`}
-            src={project.tarotImage}
-          />
+          <img alt={`${project.name} tarot card`} src={project.tarotImage} />
         </div>
         <div className="tarot-card__back">
           <img

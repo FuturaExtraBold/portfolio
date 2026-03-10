@@ -1,8 +1,20 @@
+@keyframes card-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
 .tarot-card {
-  width: clamp(120px, 10vw, 175px);
+  width: clamp(150px, 13vw, 220px);
+  animation: card-float 3.8s ease-in-out infinite;
   aspect-ratio: 2 / 3;
-  perspective: 1000px;
   cursor: pointer;
+  perspective: 1000px;
   transform-origin: center bottom;
 }
 
@@ -17,24 +29,26 @@
 .tarot-card__front,
 .tarot-card__back {
   position: absolute;
-  inset: 0;
-  border-radius: 12px;
   overflow: hidden;
+  border-radius: 12px;
   backface-visibility: hidden;
+  box-shadow: 0 4px 30px 20px rgb(0 0 0 / 0.75);
+  inset: 0;
 
   img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
   }
 }
 
 .tarot-card__front {
-  background: #333;
+  border: 10px solid #d7dad8;
+  background: #333333;
 }
 
 .tarot-card__back {
-  background: #999;
+  background: #999999;
   transform: rotateY(180deg);
 }

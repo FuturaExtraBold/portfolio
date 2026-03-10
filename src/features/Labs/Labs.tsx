@@ -1,11 +1,7 @@
-import { memo, type JSX } from "react";
-import {
-  Background,
-  Container,
-  Content,
-  Section,
-} from "layout";
+import { labProjects } from "data/labs";
+import { Background, Container, Content, Section } from "layout";
 import { useAppLoad } from "providers/AppProvider";
+import { memo, type JSX } from "react";
 import {
   AnimatedText,
   FadeIn,
@@ -13,7 +9,6 @@ import {
   Separator,
   Wallpaper,
 } from "ui/index";
-import { labProjects } from "data/labs";
 import CardDeck from "./components/CardDeck/CardDeck";
 import "./styles.scss";
 
@@ -32,7 +27,10 @@ function Labs(): JSX.Element {
             <>
               <div className="labs__text">
                 <h1 className="heading--2 labs__title">
-                  <AnimatedText text="Ventures from the Digital Atelier" />
+                  <AnimatedText
+                    text="Ventures from the Digital Atelier"
+                    center
+                  />
                 </h1>
                 <div className="body text-accent labs__description">
                   <FadeIn>
