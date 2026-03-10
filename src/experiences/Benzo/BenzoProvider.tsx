@@ -1,6 +1,6 @@
 import { useParentSize } from "hooks/useParentSize";
 import { usePixiAssets } from "hooks/usePixiAssets";
-import { Spritesheet } from "pixi.js";
+import { Spritesheet, Texture } from "pixi.js";
 import { useBenzoLoad } from "providers/AppProvider";
 import {
   createContext,
@@ -27,7 +27,7 @@ export interface UseBenzoProps {
   parentSizeRef: RefObject<{ width: number; height: number }>;
   scaleRef: RefObject<number>;
   smokeProps: { color: number; duration: number };
-  textures: Record<string, any>;
+  textures: Record<string, Texture>;
   renderedLetters: JSX.Element[] | null;
   renderedPatternLetters: JSX.Element[] | null;
 }

@@ -1,6 +1,6 @@
 import { useParentSize } from "hooks/useParentSize";
 import { usePixiAssets } from "hooks/usePixiAssets";
-import { DisplacementFilter, Sprite, TilingSprite } from "pixi.js";
+import { DisplacementFilter, Sprite, Texture, TilingSprite } from "pixi.js";
 import {
   createContext,
   type JSX,
@@ -18,10 +18,10 @@ import Hell from "./Hell";
 export interface UseHellProps {
   allTexturesLoaded: boolean;
   displacementFilter: DisplacementFilter | null;
-  displacementMapRef: RefObject<TilingSprite | any>;
+  displacementMapRef: RefObject<TilingSprite | null>;
   parentRef: RefObject<HTMLDivElement | null>;
   parentSize: { width: number; height: number };
-  textures: Record<string, any>;
+  textures: Record<string, Texture>;
 }
 
 const HellContext = createContext<UseHellProps | undefined>(undefined);
@@ -31,7 +31,7 @@ interface HellProviderProps {
 }
 
 export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
-  const displacementMapRef = useRef<any>(null);
+  const displacementMapRef = useRef<TilingSprite | null>(null);
   const [displacementFilter, setDisplacementFilter] =
     useState<DisplacementFilter | null>(null);
 

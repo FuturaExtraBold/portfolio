@@ -1,11 +1,11 @@
-import { Assets } from "pixi.js";
+import { Assets, Texture } from "pixi.js";
 import { useEffect, useRef, useState } from "react";
 
 interface UsePixiAssetsOptions {
   texturePaths: Record<string, string>;
   enabled?: boolean;
   onProgress?: (progress: number) => void;
-  mapTexture?: (key: string, texture: any) => any;
+  mapTexture?: (key: string, texture: Texture) => Texture;
 }
 
 export const usePixiAssets = ({
@@ -14,7 +14,7 @@ export const usePixiAssets = ({
   onProgress,
   mapTexture,
 }: UsePixiAssetsOptions) => {
-  const [textures, setTextures] = useState<Record<string, any>>({});
+  const [textures, setTextures] = useState<Record<string, Texture>>({});
   const [allTexturesLoaded, setAllTexturesLoaded] = useState(false);
   const mountedRef = useRef(true);
 
@@ -56,7 +56,7 @@ export const usePixiAssets = ({
 
       if (cancelled || !mountedRef.current) return;
 
-      const nextTextures: Record<string, any> = {};
+      const nextTextures: Record<string, Texture> = {};
       let successCount = 0;
 
       results.forEach((result) => {

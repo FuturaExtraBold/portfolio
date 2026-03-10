@@ -15,11 +15,8 @@ export default function Glasses(): JSX.Element | null {
       pixi: { tint: glowProps.color },
       duration: glowProps.duration,
     });
-    return () => {
-      if (glassesRef.current) {
-        gsap.killTweensOf(glassesRef.current);
-      }
-    };
+    const el = glassesRef.current;
+    return () => { if (el) gsap.killTweensOf(el); };
   }, [allTexturesLoaded, glowProps]);
 
   if (!allTexturesLoaded || !textures.glasses) return null;

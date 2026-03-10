@@ -4,7 +4,7 @@ import PixiApp from "experiences/Lighthouse/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Content, Section } from "layout";
-import { type JSX,memo } from "react";
+import { type JSX, memo, RefObject } from "react";
 import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 
 function Lighthouse(): JSX.Element {
@@ -16,7 +16,7 @@ function Lighthouse(): JSX.Element {
         <Background className="lighthouse__background">
           {hasParent && (
             <PixiErrorBoundary>
-              <PixiApp parentRef={parentRef as any} />
+              <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
             </PixiErrorBoundary>
           )}
           <Vignette />

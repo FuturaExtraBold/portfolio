@@ -5,7 +5,7 @@ import { type JSX, useEffect, useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function TheGreat(): JSX.Element | null {
-  const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
   const theGreatRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
@@ -21,11 +21,8 @@ export default function TheGreat(): JSX.Element | null {
       duration: 0.5,
       delay: 0.93,
     });
-    return () => {
-      if (theGreatRef.current) {
-        gsap.killTweensOf(theGreatRef.current);
-      }
-    };
+    const el = theGreatRef.current;
+    return () => { if (el) gsap.killTweensOf(el); };
   }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.theGreat) return null;

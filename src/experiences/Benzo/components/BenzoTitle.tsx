@@ -122,7 +122,7 @@ export default function BenzoTitle(): JSX.Element | null {
         height={parentSize.height}
       />
       <pixiContainer anchor={0.5} ref={titleRef}>
-        {renderedLetters.map((sprite, index) =>
+        {renderedLetters.map((sprite, _index) =>
           cloneElement(sprite, {
             ref: (el: Sprite | null) => {
               const letter = sprite.key as string;
@@ -133,7 +133,7 @@ export default function BenzoTitle(): JSX.Element | null {
         )}
       </pixiContainer>
       <pixiContainer anchor={0.5} ref={patternRef}>
-        {renderedPatternLetters.map((sprite, index) =>
+        {renderedPatternLetters.map((sprite, _index) =>
           cloneElement(sprite, {
             ref: (el: Sprite | null) => {
               const letter = sprite.key as string;

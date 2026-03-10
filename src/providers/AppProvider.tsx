@@ -24,7 +24,7 @@ interface ViewportContextValue {
 }
 
 interface DeviceContextValue {
-  userDevice: any;
+  userDevice: Record<string, unknown>;
 }
 
 interface ModalContextValue {

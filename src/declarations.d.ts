@@ -30,18 +30,18 @@ declare namespace JSX {
       texture?: import("pixi.js").Texture;
       width?: number;
       height?: number;
-      [key: string]: any;
+      [key: string]: unknown;
     };
     pixiContainer: {
       alpha?: number;
-      filters?: any[];
+      filters?: object[];
       width?: number;
       height?: number;
       children?: React.ReactNode;
     };
     pixiTilingSprite: {
       alpha?: number;
-      ref?: React.Ref<any>;
+      ref?: React.Ref<object>;
       texture?: import("pixi.js").Texture;
       width?: number;
       height?: number;

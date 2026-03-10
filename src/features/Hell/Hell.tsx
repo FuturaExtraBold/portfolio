@@ -5,7 +5,7 @@ import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Content, Section } from "layout";
 import { useViewport } from "providers/AppProvider";
-import { type JSX } from "react";
+import { type JSX, RefObject } from "react";
 import { OverlayFade, SectionHeader, Separator } from "ui/index";
 
 export default function Hell(): JSX.Element {
@@ -18,7 +18,7 @@ export default function Hell(): JSX.Element {
         <Background className="hell__background">
           {hasParent && (
             <PixiErrorBoundary>
-              <PixiApp parentRef={parentRef as any} />
+              <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
             </PixiErrorBoundary>
           )}
         </Background>

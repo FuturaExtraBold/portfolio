@@ -5,7 +5,7 @@ import { type JSX, useEffect, useRef } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function Title(): JSX.Element | null {
-  const { allTexturesLoaded, glowProps, parentSize, textures } = useBenzo();
+  const { allTexturesLoaded, parentSize, textures } = useBenzo();
   const titleRef = useRef<Sprite | null>(null);
 
   useEffect(() => {
@@ -21,11 +21,8 @@ export default function Title(): JSX.Element | null {
       duration: 0.25,
       delay: 1,
     });
-    return () => {
-      if (titleRef.current) {
-        gsap.killTweensOf(titleRef.current);
-      }
-    };
+    const el = titleRef.current;
+    return () => { if (el) gsap.killTweensOf(el); };
   }, [allTexturesLoaded]);
 
   if (!allTexturesLoaded || !textures.titleNew) return null;

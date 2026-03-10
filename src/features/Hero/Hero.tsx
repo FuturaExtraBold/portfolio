@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Section } from "layout";
 import { useBenzoLoad } from "providers/AppProvider";
-import { type JSX,memo, useEffect, useRef } from "react";
+import { type JSX, memo, RefObject, useEffect, useRef } from "react";
 import { Separator } from "ui";
 
 function Hero(): JSX.Element {
@@ -32,7 +32,7 @@ function Hero(): JSX.Element {
         <Background className="hero__background">
           {hasParent && (
             <PixiErrorBoundary>
-              <PixiApp parentRef={parentRef as any} />
+              <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
             </PixiErrorBoundary>
           )}
         </Background>

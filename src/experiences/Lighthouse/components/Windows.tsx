@@ -27,13 +27,12 @@ const Windows = (): JSX.Element | null => {
     if (windowsRef.current && allTexturesLoaded) {
       flicker();
     }
+    const el = windowsRef.current;
     return () => {
       cancelledRef.current = true;
-      if (windowsRef.current) {
-        gsap.killTweensOf(windowsRef.current);
-      }
+      if (el) gsap.killTweensOf(el);
     };
-  }, [allTexturesLoaded, flicker]);
+  }, [allTexturesLoaded, flicker, windowsRef]);
 
   if (!allTexturesLoaded || !textures.windows) return null;
 

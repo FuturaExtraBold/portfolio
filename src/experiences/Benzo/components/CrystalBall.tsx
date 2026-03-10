@@ -43,13 +43,11 @@ export default function CrystalBall(): JSX.Element | null {
         getNextParams: getRotationParams,
       });
     }
+    const ball = crystalBallRef.current;
+    const ballAlt = crystalBallAlternateRef.current;
     return () => {
-      if (crystalBallRef.current) {
-        gsap.killTweensOf(crystalBallRef.current);
-      }
-      if (crystalBallAlternateRef.current) {
-        gsap.killTweensOf(crystalBallAlternateRef.current);
-      }
+      if (ball) gsap.killTweensOf(ball);
+      if (ballAlt) gsap.killTweensOf(ballAlt);
     };
   }, [allTexturesLoaded]);
 
@@ -64,11 +62,9 @@ export default function CrystalBall(): JSX.Element | null {
         ref: ref,
       });
     });
+    const els = refs.map((ref) => ref.current);
     return () => {
-      refs.forEach((ref) => {
-        if (!ref.current) return;
-        gsap.killTweensOf(ref.current);
-      });
+      els.forEach((el) => { if (el) gsap.killTweensOf(el); });
     };
   }, [allTexturesLoaded, glowProps]);
 

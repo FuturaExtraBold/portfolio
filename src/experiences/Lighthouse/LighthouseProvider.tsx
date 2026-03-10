@@ -1,6 +1,6 @@
 import { useParentSize } from "hooks/useParentSize";
 import { usePixiAssets } from "hooks/usePixiAssets";
-import { Sprite } from "pixi.js";
+import { Sprite, Texture } from "pixi.js";
 import {
   createContext,
   type JSX,
@@ -23,7 +23,7 @@ export interface UseLighthouseProps {
   parentSize: { width: number; height: number };
   parentSizeRef: RefObject<{ width: number; height: number }>;
   scaleRef: RefObject<number>;
-  textures: Record<string, any>;
+  textures: Record<string, Texture>;
   windowsRef: RefObject<Sprite | null>;
 }
 
@@ -39,12 +39,12 @@ export interface LighthouseProviderProps {
 export const LighthouseProvider = ({
   parentRef,
 }: LighthouseProviderProps): JSX.Element => {
-  const backgroundRef = useRef<any>(null);
+  const backgroundRef = useRef<Sprite | null>(null);
   const scaleRef = useRef(0.5);
-  const overlayRef = useRef<any>(null);
-  const windowsRef = useRef<any>(null);
-  const beamLeftRef = useRef<any>(null);
-  const beamRightRef = useRef<any>(null);
+  const overlayRef = useRef<Sprite | null>(null);
+  const windowsRef = useRef<Sprite | null>(null);
+  const beamLeftRef = useRef<Sprite | null>(null);
+  const beamRightRef = useRef<Sprite | null>(null);
 
   const texturePaths = AssetPaths();
 
@@ -66,7 +66,7 @@ export const LighthouseProvider = ({
       textures,
       windowsRef,
     }),
-    [allTexturesLoaded, parentRef, parentSize, scaleRef, textures],
+    [allTexturesLoaded, parentRef, parentSize, parentSizeRef, scaleRef, textures],
   );
 
   return (

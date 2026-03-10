@@ -12,7 +12,7 @@ export const setPosition = ({
     return;
   }
 
-  let resolvedParams: any = {
+  let resolvedParams: gsap.TweenVars = {
     x: x,
     y: y,
   };
