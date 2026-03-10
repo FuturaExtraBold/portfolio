@@ -2,6 +2,7 @@ import "./styles.scss";
 
 import type { LabProject } from "data/labs";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGsapContext } from "hooks/useGsapContext";
 import { type JSX, useCallback, useRef, useState } from "react";
 
@@ -41,6 +42,10 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
   const deckRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const tarotCardRefs = useRef<(TarotCardHandle | null)[]>([]);
+  const isMobile = useRef(
+    typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 767px)").matches,
+  );
 
   // Arc positions with jitter baked in — generated once, stable across re-renders
   const arcPositions = useRef(
@@ -64,6 +69,28 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
       if (cards.length === 0) return;
 
       cards.forEach((el, i) => gsap.set(el, { zIndex: getBaseZIndex(i) }));
+
+      if (isMobile.current) {
+        cards.forEach((el) => {
+          gsap.set(el, { rotation: rand(5), y: rand(10), opacity: 1 });
+        });
+        ScrollTrigger.create({
+          trigger: deckRef.current,
+          start: "top 70%",
+          once: true,
+          onEnter: () => {
+            gsap.delayedCall(3, () => {
+              projects.forEach((_, i) => {
+                gsap.delayedCall(i * 0.2, () =>
+                  tarotCardRefs.current[i]?.flip(),
+                );
+              });
+            });
+          },
+        });
+        return;
+      }
+
       gsap.set(cards, { xPercent: -50, x: 0, y: 600, rotation: 0, opacity: 0 });
 
       const startPeek = () => {
@@ -116,6 +143,7 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
 
   const handleCardEnter = useCallback(
     (i: number) => {
+      if (isMobile.current) return;
       const el = cardRefs.current[i];
       const pos = arcPositions.current[i];
       if (el && pos) {
@@ -150,6 +178,7 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
   );
 
   const handleCardLeave = useCallback((i: number) => {
+    if (isMobile.current) return;
     const el = cardRefs.current[i];
     const pos = arcPositions.current[i];
     if (el && pos) {

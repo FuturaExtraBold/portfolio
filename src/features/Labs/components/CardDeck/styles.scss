@@ -96,3 +96,31 @@
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 767px) {
+  .card-deck__stage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    height: auto;
+    padding: 16px 0;
+  }
+
+  .card-deck__card-wrapper {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 30%;
+  }
+
+  .tarot-card {
+    width: 100%;
+    cursor: default;
+  }
+
+  .card-deck__footer {
+    display: none;
+  }
+}
