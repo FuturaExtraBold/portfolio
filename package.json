@@ -40,7 +40,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@eslint/js": "^9.39.4",
     "@types/node": "^22.14.1",
     "@types/pixi.js": "^4.8.9",
     "@types/react": "^19.1.0",
