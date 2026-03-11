@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
-import { useGsapContext } from "hooks/useGsapContext";
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef } from "react";
 
 import { useHell } from "../HellProvider";
 import Background from "./Background";
@@ -14,31 +13,31 @@ export default function Heat(): JSX.Element | null {
     textures,
   } = useHell();
 
-  useGsapContext(() => {
+  const tweensRef = useRef<gsap.core.Tween[]>([]);
+
+  useEffect(() => {
     if (!allTexturesLoaded || !displacementMapRef.current) return;
     if (import.meta.env.DEV) {
       console.log("Hell - Heat - animateDisplacementMap");
     }
 
-    requestAnimationFrame(() => {
+    const rafId = requestAnimationFrame(() => {
       const dmr = displacementMapRef.current;
 
       if (!dmr) return;
 
-      gsap.to(dmr, {
-        ease: "none",
-        duration: 6,
-        repeat: -1,
-        x: -521,
-      });
-      gsap.to(dmr, {
-        ease: "none",
-        duration: 3,
-        repeat: -1,
-        y: -512,
-      });
+      tweensRef.current = [
+        gsap.to(dmr, { ease: "none", duration: 6, repeat: -1, x: -521 }),
+        gsap.to(dmr, { ease: "none", duration: 3, repeat: -1, y: -512 }),
+      ];
     });
-  }, [allTexturesLoaded]);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      tweensRef.current.forEach((t) => t.kill());
+      tweensRef.current = [];
+    };
+  }, [allTexturesLoaded, displacementMapRef]);
 
   if (!allTexturesLoaded || !textures.displacementMap) return null;
 

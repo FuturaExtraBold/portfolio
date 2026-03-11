@@ -50,8 +50,11 @@ export const HellProvider = ({ parentRef }: HellProviderProps): JSX.Element => {
   useEffect(() => {
     if (!displacementMapRef.current) return;
     const displacementSprite = new Sprite(displacementMapRef.current);
-    const displacementFilter = new DisplacementFilter(displacementSprite);
-    setDisplacementFilter(displacementFilter);
+    const filter = new DisplacementFilter(displacementSprite);
+    setDisplacementFilter(filter);
+    return () => {
+      filter.destroy();
+    };
   }, [allTexturesLoaded, displacementMapRef]);
 
   const contextValues = useMemo(

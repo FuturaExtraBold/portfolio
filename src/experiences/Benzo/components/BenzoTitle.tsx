@@ -1,5 +1,4 @@
 import { gsap } from "gsap";
-import { useGsapContext } from "hooks/useGsapContext";
 import { Sprite } from "pixi.js";
 import { cloneElement, type JSX, useEffect, useRef } from "react";
 import { setScale } from "utils/animation";
@@ -22,12 +21,16 @@ export default function BenzoTitle(): JSX.Element | null {
   const patternRef = useRef<Sprite | null>(null);
   const patternLetterRefs = useRef<Record<string, Sprite | null>>({});
 
-  useGsapContext(() => {
+  const titleAnimsRef = useRef<(gsap.core.Tween | gsap.core.Timeline)[]>([]);
+
+  useEffect(() => {
     if (!renderedLetters || !renderedPatternLetters || !greatRef.current)
       return;
 
-    requestAnimationFrame(() => {
+    const rafId = requestAnimationFrame(() => {
       const letters = ["B", "E", "N", "Z", "O"];
+      const anims: (gsap.core.Tween | gsap.core.Timeline)[] = [];
+
       letters.forEach((letter, index) => {
         const sprite = letterRefs.current[letter];
         if (sprite) {
@@ -35,47 +38,62 @@ export default function BenzoTitle(): JSX.Element | null {
             pixi: { alpha: 0 },
             y: -200,
           });
-          gsap.to(sprite, {
-            pixi: { alpha: 1 },
-            y: 0,
-            ease: "back.out(3)",
-            duration: 0.2 + index * 0.1,
-            delay: 2 + index * 0.025,
-          });
+          anims.push(
+            gsap.to(sprite, {
+              pixi: { alpha: 1 },
+              y: 0,
+              ease: "back.out(3)",
+              duration: 0.2 + index * 0.1,
+              delay: 2 + index * 0.025,
+            }),
+          );
         }
 
         const patternSprite = patternLetterRefs.current[letter];
         if (patternSprite) {
-          gsap.fromTo(
-            patternSprite,
-            {
-              pixi: { alpha: 0 },
-            },
-            {
-              pixi: { alpha: 2 },
-              duration: 2,
-              delay: 3 + index * 0.1,
-              repeat: -1,
-            },
+          anims.push(
+            gsap.fromTo(
+              patternSprite,
+              { pixi: { alpha: 0 } },
+              {
+                pixi: { alpha: 2 },
+                duration: 2,
+                delay: 3 + index * 0.1,
+                repeat: -1,
+              },
+            ),
           );
         }
-
-        gsap.fromTo(
-          greatRef.current,
-          {
-            pixi: { alpha: 0 },
-            x: -(8 * scaleRef.current),
-            y: 20,
-          },
-          {
-            pixi: { alpha: 1 },
-            y: 0,
-            duration: 0.2,
-            delay: 3,
-          },
-        );
       });
+
+      // Animate greatRef once, outside the loop
+      if (greatRef.current) {
+        anims.push(
+          gsap.fromTo(
+            greatRef.current,
+            {
+              pixi: { alpha: 0 },
+              x: -(8 * scaleRef.current),
+              y: 20,
+            },
+            {
+              pixi: { alpha: 1 },
+              y: 0,
+              duration: 0.2,
+              delay: 3,
+            },
+          ),
+        );
+      }
+
+      titleAnimsRef.current = anims;
     });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      titleAnimsRef.current.forEach((a) => a.kill());
+      titleAnimsRef.current = [];
+    };
   }, [renderedPatternLetters, renderedLetters, scaleRef]);
 
   useEffect(() => {

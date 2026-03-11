@@ -65,7 +65,7 @@ export default function CrystalBall(): JSX.Element | null {
     const els = refs.map((ref) => ref.current);
     return () => {
       els.forEach((el) => {
-        if (el) gsap.killTweensOf(el);
+        if (el) gsap.killTweensOf(el, "pixi.tint");
       });
     };
   }, [allTexturesLoaded, glowProps]);

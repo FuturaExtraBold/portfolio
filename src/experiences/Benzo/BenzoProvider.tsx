@@ -157,6 +157,7 @@ export const BenzoProvider = ({
     )
       return;
 
+    let cancelled = false;
     const spacing = 10;
     const letters = ["B", "E", "N", "Z", "O"] as const;
     const titleSpritesheet = new Spritesheet(textures.title.source, titleAtlas);
@@ -166,6 +167,7 @@ export const BenzoProvider = ({
     );
 
     titleSpritesheet.parse().then(() => {
+      if (cancelled) return;
       const rendered = letters.map((letter, index) => {
         let x = titleAtlas.frames[letter].frame.x - spacing * index;
         if (letter === "O") x -= 26;
@@ -185,6 +187,7 @@ export const BenzoProvider = ({
     });
 
     patternSpritesheet.parse().then(() => {
+      if (cancelled) return;
       const renderedPattern = letters.map((letter, index) => {
         let x = titleAtlas.frames[letter].frame.x - spacing * index;
         if (letter === "O") x -= 26;
@@ -202,6 +205,12 @@ export const BenzoProvider = ({
       });
       setRenderedPatternLetters(renderedPattern);
     });
+
+    return () => {
+      cancelled = true;
+      titleSpritesheet.destroy();
+      patternSpritesheet.destroy();
+    };
   }, [textures]);
 
   const contextValues = useMemo(

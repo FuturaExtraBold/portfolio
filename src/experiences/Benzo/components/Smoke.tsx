@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { Sprite, Texture } from "pixi.js";
-import { createRef, type JSX, useEffect, useRef, useState } from "react";
+import React, { createRef, type JSX, useEffect, useRef, useState } from "react";
 
 import { useBenzo } from "../BenzoProvider";
 
@@ -12,6 +12,8 @@ export default function Smoke(): JSX.Element | null {
 
   const refParticlesSmoke = useRef<Sprite | null>(null);
   const particlesCreatedRef = useRef(false);
+  const particleRefsRef = useRef<React.RefObject<Sprite | null>[]>([]);
+  const timeoutIdsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
     if (!allTexturesLoaded) return;
@@ -26,6 +28,7 @@ export default function Smoke(): JSX.Element | null {
       const particles: JSX.Element[] = [];
       for (let i = 0; i < numParticles; i++) {
         const refParticle = createRef<Sprite>();
+        particleRefsRef.current.push(refParticle);
         const randColor =
           glowColorsSmoke[Math.floor(Math.random() * glowColorsSmoke.length)];
 
@@ -47,7 +50,7 @@ export default function Smoke(): JSX.Element | null {
           />,
         );
 
-        setTimeout(() => {
+        const timeoutId = setTimeout(() => {
           if (refParticle.current) {
             gsap.to(refParticle.current, {
               pixi: {
@@ -68,10 +71,21 @@ export default function Smoke(): JSX.Element | null {
             });
           }
         }, 300);
+        timeoutIdsRef.current.push(timeoutId);
       }
 
       setParticlesSmoke(particles);
     }
+
+    const timeoutIds = timeoutIdsRef.current;
+    const particleRefs = particleRefsRef.current;
+    return () => {
+      timeoutIds.forEach((id) => clearTimeout(id));
+      timeoutIdsRef.current = [];
+      particleRefs.forEach((ref) => {
+        if (ref.current) gsap.killTweensOf(ref.current);
+      });
+    };
   }, [allTexturesLoaded, glowColorsSmoke, parentSize, textures.smokeParticle]);
 
   if (!allTexturesLoaded || !textures.smokeParticle) return null;

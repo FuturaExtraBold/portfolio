@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
-import { useGsapContext } from "hooks/useGsapContext";
-import { type JSX } from "react";
+import { type JSX, useEffect, useRef } from "react";
 
 import { useLighthouse } from "../LighthouseProvider";
 
@@ -20,7 +19,9 @@ export default function Beam(): JSX.Element | null {
   const psh = parentSizeRef.current.height;
   const beamDuration = 3;
 
-  useGsapContext(() => {
+  const beamTimelineRef = useRef<gsap.core.Timeline | null>(null);
+
+  useEffect(() => {
     if (!allTexturesLoaded || !beamLeftRef.current || !beamRightRef.current)
       return;
     if (import.meta.env.DEV) {
@@ -29,36 +30,43 @@ export default function Beam(): JSX.Element | null {
     const beamAlphaMin = 0.1;
     const beamAlphaMax = 0.8;
     const beamScale = 3;
-    let beamTimeline: gsap.core.Timeline | null = null;
 
-    requestAnimationFrame(() => {
-      if (beamTimeline) return;
+    const rafId = requestAnimationFrame(() => {
+      if (beamTimelineRef.current) return;
       const rbl = beamLeftRef.current;
       const rbr = beamRightRef.current;
 
       if (!rbl || !rbr) return;
 
-      beamTimeline = gsap.timeline({ repeat: -1 });
+      beamTimelineRef.current = gsap.timeline({ repeat: -1 });
 
-      beamTimeline.set(rbl, {
+      beamTimelineRef.current.set(rbl, {
         pixi: { scaleY: beamScale, alpha: beamAlphaMax },
       });
-      beamTimeline.set(rbr, { pixi: { scaleY: 0, alpha: 0 } });
-      beamTimeline.to(rbl, {
+      beamTimelineRef.current.set(rbr, { pixi: { scaleY: 0, alpha: 0 } });
+      beamTimelineRef.current.to(rbl, {
         pixi: { scaleY: 0, alpha: beamAlphaMin },
         ease: "circ.out",
         duration: beamDuration,
       });
-      beamTimeline.set(rbl, { pixi: { alpha: 0, scaleY: 0 } });
-      beamTimeline.set(rbr, { pixi: { alpha: 0, scaleY: 0 } });
-      beamTimeline.to(rbr, {
+      beamTimelineRef.current.set(rbl, { pixi: { alpha: 0, scaleY: 0 } });
+      beamTimelineRef.current.set(rbr, { pixi: { alpha: 0, scaleY: 0 } });
+      beamTimelineRef.current.to(rbr, {
         pixi: { scaleY: beamScale, alpha: beamAlphaMax },
         ease: "circ.in",
         delay: beamDuration,
         duration: beamDuration,
       });
     });
-  }, [allTexturesLoaded]);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (beamTimelineRef.current) {
+        beamTimelineRef.current.kill();
+        beamTimelineRef.current = null;
+      }
+    };
+  }, [allTexturesLoaded, beamLeftRef, beamRightRef]);
 
   if (!allTexturesLoaded || !textures.beam) return null;
 
