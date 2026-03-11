@@ -1,13 +1,22 @@
 import "./styles.scss";
 
-import PixiApp from "experiences/Benzo/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import gsap from "gsap";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Section } from "layout";
 import { useBenzoLoad } from "providers/AppProvider";
-import { type JSX, memo, RefObject, useEffect, useRef } from "react";
+import {
+  type JSX,
+  lazy,
+  memo,
+  RefObject,
+  Suspense,
+  useEffect,
+  useRef,
+} from "react";
 import { Separator } from "ui";
+
+const PixiApp = lazy(() => import("experiences/Benzo/PixiApp"));
 
 function Hero(): JSX.Element {
   const [parentRef, setParentRef, hasParent] = useContainerRef();
@@ -32,7 +41,9 @@ function Hero(): JSX.Element {
         <Background className="hero__background">
           {hasParent && (
             <PixiErrorBoundary>
-              <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
+              <Suspense fallback={null}>
+                <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
+              </Suspense>
             </PixiErrorBoundary>
           )}
         </Background>
