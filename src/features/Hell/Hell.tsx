@@ -1,11 +1,12 @@
 import "./styles.scss";
 
-import PixiApp from "experiences/Hell/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Content, Section } from "layout";
 import { useViewport } from "providers/AppProvider";
-import { type JSX, RefObject } from "react";
+import { type JSX, lazy, RefObject, Suspense } from "react";
+
+const PixiApp = lazy(() => import("experiences/Hell/PixiApp"));
 import { OverlayFade, SectionHeader, Separator } from "ui/index";
 
 export default function Hell(): JSX.Element {
@@ -18,7 +19,9 @@ export default function Hell(): JSX.Element {
         <Background className="hell__background">
           {hasParent && (
             <PixiErrorBoundary>
-              <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
+              <Suspense fallback={null}>
+                <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
+              </Suspense>
             </PixiErrorBoundary>
           )}
         </Background>

@@ -1,10 +1,11 @@
 import "./styles.scss";
 
-import PixiApp from "experiences/Lighthouse/PixiApp";
 import { PixiErrorBoundary } from "experiences/PixiErrorBoundary";
 import { useContainerRef } from "hooks/useContainerRef";
 import { Background, Container, Content, Section } from "layout";
-import { type JSX, memo, RefObject } from "react";
+import { type JSX, lazy, memo, RefObject, Suspense } from "react";
+
+const PixiApp = lazy(() => import("experiences/Lighthouse/PixiApp"));
 import { AnimatedText, FadeIn, Separator, Vignette } from "ui";
 
 function Lighthouse(): JSX.Element {
@@ -16,7 +17,9 @@ function Lighthouse(): JSX.Element {
         <Background className="lighthouse__background">
           {hasParent && (
             <PixiErrorBoundary>
-              <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
+              <Suspense fallback={null}>
+                <PixiApp parentRef={parentRef as RefObject<HTMLDivElement>} />
+              </Suspense>
             </PixiErrorBoundary>
           )}
           <Vignette />

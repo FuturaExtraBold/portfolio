@@ -1,3 +1,5 @@
+import "utils/animation/pixiSetup";
+
 import { Application, extend } from "@pixi/react";
 import { Container, Sprite } from "pixi.js";
 import { type JSX, RefObject } from "react";

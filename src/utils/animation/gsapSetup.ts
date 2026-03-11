@@ -1,15 +1,6 @@
 import { gsap } from "gsap";
-import { PixiPlugin } from "gsap/PixiPlugin";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  Application,
-  Assets,
-  Container,
-  DisplacementFilter,
-  Sprite,
-  TilingSprite,
-} from "pixi.js";
 
 if ("scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -19,7 +10,6 @@ window.addEventListener("beforeunload", () => {
   window.scrollTo(0, 0);
 });
 
-gsap.registerPlugin(PixiPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -35,13 +25,4 @@ window.addEventListener("resize", () => {
   resizeTimer = setTimeout(() => {
     ScrollTrigger.refresh();
   }, 250);
-});
-
-PixiPlugin.registerPIXI({
-  Application,
-  Assets,
-  Container,
-  DisplacementFilter,
-  Sprite,
-  TilingSprite,
 });
