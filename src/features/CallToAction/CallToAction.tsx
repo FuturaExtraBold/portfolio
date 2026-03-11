@@ -76,6 +76,7 @@ export default function CallToAction(): JSX.Element {
               eventName="email_click"
               href="mailto:benhays@benhays.dev?subject=Summoning%20the%20Artisan%20of%20Code"
               label="Email the Artisan"
+              dataUmamiEvent="email-draft-opened"
             />
             <MagicButton
               ariaLabel="View the résumé in PDF format. Opens in a new tab."
@@ -83,6 +84,7 @@ export default function CallToAction(): JSX.Element {
               href="/Ben-Hays-Resume.pdf"
               isExternal
               label="View the Résumé (PDF)"
+              dataUmamiEvent="resume-download"
             />
           </div>
         </Content>

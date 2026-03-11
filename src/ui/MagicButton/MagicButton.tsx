@@ -11,6 +11,7 @@ interface MagicButtonProps {
   href: string;
   isExternal?: boolean;
   eventName?: string;
+  dataUmamiEvent: string;
 }
 
 export default function MagicButton({
@@ -18,6 +19,7 @@ export default function MagicButton({
   label,
   href,
   isExternal = false,
+  dataUmamiEvent,
   // eventName = "button_click",
 }: MagicButtonProps): JSX.Element {
   // const { trackEvent } = useAnalytics();
@@ -29,6 +31,7 @@ export default function MagicButton({
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       className="magic-button"
+      data-umami-event={dataUmamiEvent}
       // onClick={() => {
       //   trackEvent({
       //     name: eventName,

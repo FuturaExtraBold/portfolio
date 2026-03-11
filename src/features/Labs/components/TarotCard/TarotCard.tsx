@@ -77,6 +77,7 @@ const TarotCard = forwardRef<TarotCardHandle, TarotCardProps>(
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
+        data-umami-event={`demo-${project.name.toLowerCase().replace(/\s+/g, "-")}-click`}
       >
         <div className="tarot-card__inner" ref={innerRef}>
           <div className="tarot-card__front">
