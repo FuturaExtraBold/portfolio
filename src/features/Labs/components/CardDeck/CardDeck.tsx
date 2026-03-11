@@ -236,11 +236,11 @@ export default function CardDeck({ projects }: CardDeckProps): JSX.Element {
         <div
           className={`card-deck__info ${isHovered ? "card-deck__info--visible" : ""}`}
         >
-          <h3
+          <p
             className={`card-deck__info-name ${textVisible ? "card-deck__info-name--visible" : ""}`}
           >
             {displayedProject?.name ?? ""}
-          </h3>
+          </p>
           <p
             className={`card-deck__info-description ${textVisible ? "card-deck__info-description--visible" : ""}`}
           >
