@@ -214,11 +214,13 @@ const AppLoadProvider = ({ children }: PropsWithChildren<{}>): JSX.Element => {
   const [appIsLoaded, setAppIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Fire as soon as React has mounted — all Labs animations are scroll-gated
-    // via ScrollTrigger so rendering them immediately is safe. Previously this
-    // waited for window.load (which was delayed by PixiJS worker loading).
-    const raf = requestAnimationFrame(() => setAppIsLoaded(true));
-    return () => cancelAnimationFrame(raf);
+    const handleLoad = () => setAppIsLoaded(true);
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
   }, []);
 
   const value = useMemo(() => ({ appIsLoaded }), [appIsLoaded]);
