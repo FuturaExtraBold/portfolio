@@ -14,7 +14,11 @@ export default function FadeIn({ children }: FadeInProps): JSX.Element {
   useGsapContext(
     () => {
       if (!elRef.current) return;
-      gsap.set(elRef.current, { opacity: 0, filter: "blur(10px)", y: 20 });
+      const rect = elRef.current.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (!isInView) {
+        gsap.set(elRef.current, { opacity: 0, filter: "blur(10px)", y: 20 });
+      }
       gsap.to(elRef.current, {
         filter: "blur(0px)",
         y: 0,

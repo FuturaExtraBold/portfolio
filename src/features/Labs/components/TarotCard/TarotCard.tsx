@@ -80,7 +80,14 @@ const TarotCard = forwardRef<TarotCardHandle, TarotCardProps>(
       >
         <div className="tarot-card__inner" ref={innerRef}>
           <div className="tarot-card__front">
-            <img alt={`${project.name} tarot card`} src={project.tarotImage} />
+            <img
+              alt={`${project.name} tarot card`}
+              src={project.tarotImage}
+              srcSet={`${project.tarotImage1x} 220w, ${project.tarotImage} 440w`}
+              sizes="clamp(150px, 13vw, 220px)"
+              width={220}
+              height={330}
+            />
           </div>
           <div className="tarot-card__back">
             <video autoPlay muted loop playsInline src={project.protoVideo} />

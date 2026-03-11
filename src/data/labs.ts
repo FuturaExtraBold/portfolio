@@ -3,6 +3,7 @@ export interface LabProject {
   name: string;
   description: string;
   tarotImage: string;
+  tarotImage1x: string;
   protoVideo: string;
   url: string;
 }
@@ -14,6 +15,7 @@ export const labProjects: LabProject[] = [
     description:
       "A card conjured into three dimensions — light bending across its surface, tilting as though guided by an unseen hand.",
     tarotImage: "/assets/images/labs/tarot/lorcana.webp",
+    tarotImage1x: "/assets/images/labs/tarot/lorcana@1x.webp",
     protoVideo: "/assets/images/labs/prototypes/lorcana.mp4",
     url: "https://lorcana.benhays.dev",
   },
@@ -23,6 +25,7 @@ export const labProjects: LabProject[] = [
     description:
       "Each letter senses what draws near — glyphs shifting weight as the cursor passes, like type that breathes.",
     tarotImage: "/assets/images/labs/tarot/hovertext.webp",
+    tarotImage1x: "/assets/images/labs/tarot/hovertext@1x.webp",
     protoVideo: "/assets/images/labs/prototypes/hovertext.mp4",
     url: "https://hovertext.benhays.dev",
   },
@@ -32,6 +35,7 @@ export const labProjects: LabProject[] = [
     description:
       "A world that stirs at every touch — micro-interactions woven into the fabric of an immersive landing rite.",
     tarotImage: "/assets/images/labs/tarot/valorant.webp",
+    tarotImage1x: "/assets/images/labs/tarot/valorant@1x.webp",
     protoVideo: "/assets/images/labs/prototypes/valorant.mp4",
     url: "https://valorant.benhays.dev",
   },
@@ -41,6 +45,7 @@ export const labProjects: LabProject[] = [
     description:
       "Glass that holds light like memory — a creature brought to life through custom reflective materials and an outstretched hand.",
     tarotImage: "/assets/images/labs/tarot/walle.webp",
+    tarotImage1x: "/assets/images/labs/tarot/walle@1x.webp",
     protoVideo: "/assets/images/labs/prototypes/walle.mp4",
     url: "https://wall-e.benhays.dev",
   },
@@ -50,6 +55,7 @@ export const labProjects: LabProject[] = [
     description:
       "Navigation rebuilt from the marrow — every pixel faithful to the original, summoned anew through Svelte.",
     tarotImage: "/assets/images/labs/tarot/rivian.webp",
+    tarotImage1x: "/assets/images/labs/tarot/rivian@1x.webp",
     protoVideo: "/assets/images/labs/prototypes/rivian.mp4",
     url: "https://rivian.benhays.dev",
   },
