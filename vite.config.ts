@@ -33,6 +33,12 @@ export default defineConfig(({ command }) => ({
       output: {
         manualChunks: {
           vendor: ["react", "react-dom"],
+          gsap: [
+            "gsap",
+            "gsap/PixiPlugin",
+            "gsap/ScrollTrigger",
+            "gsap/ScrollToPlugin",
+          ],
         },
       },
     },

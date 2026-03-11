@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { PixiPlugin } from "gsap/PixiPlugin";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -10,6 +11,7 @@ window.addEventListener("beforeunload", () => {
   window.scrollTo(0, 0);
 });
 
+gsap.registerPlugin(PixiPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
 

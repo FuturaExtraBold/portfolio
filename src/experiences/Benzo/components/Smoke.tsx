@@ -5,8 +5,13 @@ import React, { createRef, type JSX, useEffect, useRef, useState } from "react";
 import { useBenzo } from "../BenzoProvider";
 
 export default function Smoke(): JSX.Element | null {
-  const { allTexturesLoaded, glowColorsSmoke, parentSize, textures } =
-    useBenzo();
+  const {
+    allTexturesLoaded,
+    glowColorsSmoke,
+    parentSize,
+    parentSizeRef,
+    textures,
+  } = useBenzo();
 
   const [particlesSmoke, setParticlesSmoke] = useState<JSX.Element[]>([]);
 
@@ -18,10 +23,11 @@ export default function Smoke(): JSX.Element | null {
   useEffect(() => {
     if (!allTexturesLoaded) return;
     if (particlesCreatedRef.current) return;
+    const size = parentSizeRef.current;
     if (
       textures.smokeParticle !== Texture.EMPTY &&
-      parentSize.height > 0 &&
-      parentSize.width > 0
+      size.height > 0 &&
+      size.width > 0
     ) {
       particlesCreatedRef.current = true;
       const numParticles = 100;
@@ -46,25 +52,23 @@ export default function Smoke(): JSX.Element | null {
             texture={textures.smokeParticle}
             tint={randColor}
             x={initialX}
-            y={Math.random() * parentSize.height + 1400}
+            y={Math.random() * size.height + 1400}
           />,
         );
 
         const timeoutId = setTimeout(() => {
           if (refParticle.current) {
             gsap.to(refParticle.current, {
-              pixi: {
-                x: 720,
-                y: -100,
-                alpha: 0,
-              },
+              x: 720,
+              y: -100,
+              alpha: 0,
               delay: Math.random() * 2,
               duration: Math.random() * 6 + 4,
               ease: "power1.out",
               repeat: -1,
               onRepeat: () => {
                 if (refParticle.current) {
-                  refParticle.current.y = parentSize.height + 1000;
+                  refParticle.current.y = parentSizeRef.current.height + 1000;
                   refParticle.current.alpha = 0.2;
                 }
               },
@@ -76,17 +80,23 @@ export default function Smoke(): JSX.Element | null {
 
       setParticlesSmoke(particles);
     }
+  }, [
+    allTexturesLoaded,
+    glowColorsSmoke,
+    parentSizeRef,
+    textures.smokeParticle,
+  ]);
 
+  useEffect(() => {
     const timeoutIds = timeoutIdsRef.current;
     const particleRefs = particleRefsRef.current;
     return () => {
       timeoutIds.forEach((id) => clearTimeout(id));
-      timeoutIdsRef.current = [];
       particleRefs.forEach((ref) => {
         if (ref.current) gsap.killTweensOf(ref.current);
       });
     };
-  }, [allTexturesLoaded, glowColorsSmoke, parentSize, textures.smokeParticle]);
+  }, []);
 
   if (!allTexturesLoaded || !textures.smokeParticle) return null;
 
