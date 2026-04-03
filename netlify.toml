@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/vidz/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
