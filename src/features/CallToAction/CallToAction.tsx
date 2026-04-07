@@ -74,7 +74,7 @@ export default function CallToAction(): JSX.Element {
           <div className="cta__buttons">
             <MagicButton
               eventName="email_click"
-              href="mailto:benhays@benhays.dev?subject=Summoning%20the%20Artisan%20of%20Code"
+              href="mailto:ben@benhays.dev?subject=Summoning%20the%20Artisan%20of%20Code"
               label="Email the Artisan"
               dataUmamiEvent="email-draft-opened"
             />
