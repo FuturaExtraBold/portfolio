@@ -51,12 +51,12 @@ export const labProjects: LabProject[] = [
   },
   {
     id: "project-epsilon",
-    name: "Rivian Navbar",
+    name: "Tag Toy",
     description:
-      "Navigation rebuilt from the marrow — every pixel faithful to the original, summoned anew through Svelte.",
-    tarotImage: "/assets/images/labs/tarot/rivian.webp",
-    tarotImage1x: "/assets/images/labs/tarot/rivian@1x.webp",
-    protoVideo: "/assets/images/labs/prototypes/rivian.mp4",
-    url: "https://rivian.benhays.dev",
+      "Legal Grafitti — a canvas that responds to touch, where tags bloom like street art under the hand’s caress.",
+    tarotImage: "/assets/images/labs/tarot/tagtoy.webp",
+    tarotImage1x: "/assets/images/labs/tarot/tagtoy@1x.webp",
+    protoVideo: "/assets/images/labs/prototypes/tagtoy.mp4",
+    url: "https://tagtoy.benhays.dev",
   },
 ];
